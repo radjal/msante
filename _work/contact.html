@@ -1,0 +1,45 @@
+{{ contact:form 
+name="text|required" 
+societe="text" 
+telephone="text|required" 
+email="text|required|valid_email" 
+reservation_date=""
+reservation_heure="dropdown||11h00|11h30|12h00|12h30|13h00|13h30|14h00|14h30|15h00|15h30|16h00|16h30|17h00|17h30|18h00|18h30|19h00|19h30|20h00"
+subject="dropdown||Contact|Réservation|Autre" 
+message="textarea" 
+template = "contact-envoi" 
+button = "Envoyer" 
+success-redirect="home" 
+sent = "Votre message a bien été transmis."
+}}
+<div id="contact-sujet">
+ 
+	{{ if page:is_home }}
+		{{ subject }}
+	{{ elseif page:slug == "contact" }}
+		<label><input value="Contact" type="radio" name="subject" checked/></label>
+		<label><input value="Réservation" type="radio" name="subject"/></label>
+	{{ elseif page:slug == "reservation" }}
+		<label><input value="Contact" type="radio" name="subject"/></label>
+		<label><input value="Réservation" type="radio" name="subject" checked/></label>
+	{{ endif }}
+</div>
+{{ if page:slug == "reservation" OR page:slug == "contact" OR page:is_home }}
+<div id="contact-reservation">
+Réservation
+<label>Date souhaitée : {{ reservation_date }}</label>
+<label>Heure souhaitée : {{ reservation_heure }}</label>
+</div>
+{{ endif }} 
+
+<div id="contact-infos">
+<label>Nom et prénom : {{ name }}</label><br />
+<label>Société : {{ societe }}</label><br />
+<label>Email : {{ email }}</label><br />
+<label>Téléphone : {{ telephone }}</label>  
+</div> 
+
+<div id="contact-message">
+<label>Message : {{ message }}</label>
+</div>
+{{ /contact:form }} 
