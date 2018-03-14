@@ -100,7 +100,7 @@ class Appointments_m extends MY_Model {
                                       'id' => $p['id'] ,
                                       'stock' => $p['stock'] ,
                                     ),
-                                        array('id' => $p['id']));
+                                    array('id' => $p['id']));
                 }
                 return $res;
         }
