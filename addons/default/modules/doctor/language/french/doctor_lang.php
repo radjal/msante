@@ -9,10 +9,13 @@ $lang['doctor:no_doctors']                    = 'Il n\'y a pas de Docteur';
 $lang['doctor:submit_success']             = 'Nouveau Docteur enregistré.';
 $lang['doctor:submit_failure']             = 'Erreur lors de l\'enregistrement.';
 $lang['doctor:deleted']                    = 'Enregistrement effacé.';
-
+//categories
 $lang['doctor:categories']                 = 'Catégorie';
 $lang['doctor:category:new']				= 'Nouvelle catégorie';
-
+//organisations
+$lang['doctor:organisations']                 = 'Organisme';
+$lang['doctor:organisation:new']				= 'Nouvelle organisme';
+//streams
 $lang['doctor:streams']                    = 'Streams';
 $lang['doctor:view_options']               = 'View Options';
 $lang['doctor:field_assignments']          = 'Field Assignments';

@@ -97,7 +97,7 @@ function geoSuccess(position) {
 
     $.getJSON(GEOCODING).done(function(location) {
         console.log(location);
-        returned_address=location.results[2].postcode_localities[0];
+        returned_address=location.results[2].areaname_localities[0];
         $('#doctor-search input[name=s]').val(returned_address);
     });
 }
@@ -119,7 +119,7 @@ $( document ).ready(function()
            // adr = $(this).attr('data-rid');
             name = $(this).attr('data-name');
             adr = ' '+ $(this).attr('data-address');
-            adr += ' '+ $(this).attr('data-postcode');
+            adr += ' '+ $(this).attr('data-areaname');
             adr += ' '+ $(this).attr('data-town');
             //$(this).append(name);
             //$(this).append(adr);

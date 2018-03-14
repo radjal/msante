@@ -66,7 +66,7 @@ class Admin extends Admin_Controller
         );
         
         // custom headers
-        $extra['columns'] = array('id', 'name', 'town', 'days', 'hours', 'address', 'postcode');
+        $extra['columns'] = array('id', 'name', 'town', 'days', 'hours', 'address', 'areaname');
         
         $this->streams->cp->entries_table('doctors', 'doctor', 20, 'admin/doctor/index', true, $extra);
     }

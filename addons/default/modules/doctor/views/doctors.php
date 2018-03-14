@@ -4,7 +4,7 @@
         {{ doctor:search_box }} 
         <ul> 
 		{{ doctors.entries }}
-		<li class="doctor" data-rid="{{id}}" data-town="{{ town }}" data-address="{{ address }}" data-postcode="{{ postcode }}" data-name="{{ name }}">
+		<li class="doctor" data-rid="{{id}}" data-town="{{ town }}" data-address="{{ address }}" data-area="{{ area }}" data-name="{{ name }}">
 			<h4>{{ name }}</h4>
 			<p>
                         {{ if image:image}}<img src="{{ image:image }}" height="80" style="float:left;margin-right:20px;"/>{{endif}}
@@ -13,7 +13,7 @@
 			   {{ if mail }} Email: {{ mail }} <br/>{{ endif }} 
                             
 			   {{ address }}
-                           {{ postcode }} {{ town }}
+                           {{ area }} {{ town }}
                         </p>
                         
                         <p>

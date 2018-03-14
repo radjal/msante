@@ -43,7 +43,7 @@ class Doctor extends Public_Controller
         $search = $this->input->get('s');
         if(!empty($search) and !empty($category))   
         { 
-            $params['where'] = "default_doctor_categories.doctor_cat_title LIKE '%$category%' AND ( default_doctor_doctors.town LIKE '%$search%' OR default_doctor_doctors.postcode LIKE '$search%')" ;
+            $params['where'] = "default_doctor_categories.doctor_cat_title LIKE '%$category%' AND ( default_doctor_doctors.town LIKE '%$search%' OR default_doctor_doctors.areaname LIKE '$search%')" ;
         } 
         else if(!empty($category)) 
         {
@@ -65,7 +65,7 @@ class Doctor extends Public_Controller
                 $adata['entries'][$key]['js_town'] = json_encode($adata['entries'][$key]['town']) ;
                 $adata['entries'][$key]['js_description'] = json_encode($adata['entries'][$key]['description']) ;
                 $adata['entries'][$key]['js_address'] = json_encode($adata['entries'][$key]['address']) ;
-                $adata['entries'][$key]['js_postcode'] = json_encode($adata['entries'][$key]['postcode']) ;
+                $adata['entries'][$key]['js_areaname'] = json_encode($adata['entries'][$key]['areaname']) ;
                 $adata['entries'][$key]['doctor_zone']['js_doctor_zone_title'] = json_encode($adata['entries'][$key]['doctor_zone']['doctor_zone_title']) ;
             }
 //            $data = json_encode($data);

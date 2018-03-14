@@ -12,7 +12,7 @@ doctor[{{ id }}] = {
     hours:{{js_hours}},
     address:{{js_address}},
     town:{{js_town}},
-    postcode:{{js_postcode}},
+    areaname:{{js_areaname}},
     hours:{{js_hours}},
     doctor_zone_title:{{doctor_zone:js_doctor_zone_title }} ,
     days:{
@@ -42,7 +42,7 @@ doctor[{{ id }}] = {
 			   {{ if mail }} Email: {{ mail }} <br/>{{ endif }} 
                             
 			   {{ address }}
-                           {{ postcode }} {{ town }}
+                           {{ areaname }} {{ town }}
                         </p>
                         
                         <p>
