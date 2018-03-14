@@ -5,9 +5,7 @@
                 <div class="navbar-header">
                         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
                                 <span class="sr-only">Toggle navigation</span>
-                                <span class="icon-bar"></span>
-                                <span class="icon-bar"></span>
-                                <span class="icon-bar"></span>
+                                <span class="glyphicon glyphicon-user"></span>
                         </button>
                         <a class="navbar-brand" href="{{site:url}}"><img src="{{ url:site }}files/thumb/fea67cd85d808e4/200/40" alt="Accueil"/></a> 
                         {{# <a class="navbar-brand" href="{{site:url}}">{{ settings:site_name }}</a> #}}
@@ -16,9 +14,16 @@
                 <div class="collapse navbar-collapse" id="navbar-collapse">
                         <ul class="nav navbar-nav nav-pills">
                                 {{ navigation:links group="header" }}
+                                {{ if user:logged_in }}                                     
+                                        <li><a href="{{url:site}}users/edit">Mon profile</a></li>
+                                        <li><a href="{{url:site}}users/logout">Déconnexion</a></li>            
+                                {{ else }}
+                                        {{# connect #}}
+                                            <li><a href="{{url:site}}users/login">Connexion</a></li>   
+                                {{ endif }}                                  
                         </ul>                                        
                         <ul class="nav navbar-nav nav-pills top-user-menu">
-                                {{ if user:logged_in }}                                   
+                                {{ if user:logged_in and false }}                                   
                                         <li class="dropdown ">
                                           <a class="btn btn-default dropdown-toggle" data-toggle="dropdown">
                                               Mon compte
@@ -31,7 +36,8 @@
                                         {{# navigation:links group="header-user" #}}
                                                                      
                                 {{ else }}
-                                        {{ navigation:links group="header-guest" }}   
+                                        {{# connect #}}
+                                        {{# navigation:links group="header-guest" #}}   
                                 {{ endif }}                                  
                         </ul>     
                 </div>

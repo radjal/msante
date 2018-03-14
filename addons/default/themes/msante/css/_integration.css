@@ -86,12 +86,16 @@ div#cookie-accept {
 .navbar-nav {
     margin-top: 5px;
     font-size: 14px;
+    float: right;
 }
 .navbar-nav>li {
     margin: 2px;
 } 
 .top-user-menu {
     float: right;
+}
+.navbar-header {
+    padding-bottom: 10px;
 }
 /***************************************************************
 * responsive
