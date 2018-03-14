@@ -1,0 +1,13 @@
+{
+    "name": "Baanmai Thai Spa",
+    "icons": [
+        {
+            "src": "/addons/default/themes/bs3/img/favicons/android-chrome-144x144.png",
+            "sizes": "144x144",
+            "type": "image/png"
+        }
+    ],
+    "theme_color": "#ffffff",
+    "background_color": "#ffffff",
+    "display": "standalone"
+}

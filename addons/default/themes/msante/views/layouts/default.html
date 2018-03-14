@@ -1,0 +1,101 @@
+<!doctype html>
+<html>
+  <head>
+    {{ theme:partial name="metadata" }}
+  </head> 
+  <?php
+  // note that to avoid logging << Plugin method "options" does not exist on class "Plugin_Theme". >>
+  // you have te reindex the theme in admin 
+  ?>
+    <body {{ if theme:options:disable_right_click == 'yes' }} oncontextmenu="return false;"{{endif}}>
+
+<noscript>
+    <div class="alert alert-danger text-center">
+        <span style="font-size: 22px">
+        {{ if lang:code == 'fr' }}
+            Ce site necessite JavaScript pour fonctionner!
+        {{endif}} 
+        </span>
+    </div>
+</noscript>
+ 
+	<header>
+		{{ theme:partial name="header" }} 
+	</header>	
+	
+	{{if page:is_home}}
+            {{ if template:show_slideshow }}
+            {{endif}}
+	{{endif}}
+
+<div id="container" class="container"> 
+    <div class="{{if page:id !=''}}content{{endif}} {{if page:is_home}}homepage col-sm-12{{else}}col-sm-12{{endif}}">  
+            {{ session:messages success="main alert alert-success alert-dismissable" notice="main alert alert-warning alert-dismissable" error="main alert alert-danger alert-dismissable" }}
+			
+            {{ theme:partial name="breadcrumbs"}}
+            {{ template:body }}
+    </div>
+    
+{{# deactivated #}} 
+{{if false }}		
+        {{# aside #}} 
+	{{ theme:partial name="aside" }} 
+{{# deactivated #}} 
+{{endif}}
+</div>   
+
+
+<footer id="footer">
+{{ theme:partial name="footer" }}
+</footer>
+	
+<!-- cookie eula -->
+<div id="cookie-accept" style="display:none;"> 
+           En continuant à naviguer sur ce site vous acceptez l'utilisation des cookies. 
+        <a href="#" onclick="setcookieeula();return false;" class="btn btn-xs btn-primary" >Fermer</a>
+</div>	
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" role="dialog" style="display: none;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title"></h4>
+      </div>
+      <div class="modal-body">
+        <p></p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<?php if( ENVIRONMENT == 'production' ) : ?>
+<!-- tracking -->
+{{# analytics #}} 
+        {{ if user:has_cp_permissions =="" }}
+                {{ integration:analytics }}
+        {{ endif }}
+<?php endif; ?>	
+
+<!-- Scripts -->
+{{ theme:partial name="script" }}
+
+{{ asset:js file="theme::js.cookie.js"  group="extras" }}
+{{ asset:js file="theme::lightbox.min.js" file_min="theme::lightbox.min.js"  group="extras" }}
+{{ asset:js file="theme::jquery.montage.js" file_min="theme::jquery.montage.min.js"  group="extras" }}
+{{# asset:js file="theme::clipboard.js" file_min="theme::clipboard.min.js"  group="extras" #}}
+{{# IE bug http://jsfiddle.net/sEEMZ/ #}}
+{{# asset:js file="theme::placeholders.jquery.js" file_min="theme::placeholders.jquery.min.js"  group="extras" #}}
+{{# asset:js file="jq-ui-1.12.0/jquery-ui.js" file_min="jq-ui-1.12.0/jquery-ui.min.js"  group="extras" #}}
+
+{{ asset:render group="extras" }}
+ 
+{{ theme:partial name="adminbox" }}
+        
+</body>
+</html>

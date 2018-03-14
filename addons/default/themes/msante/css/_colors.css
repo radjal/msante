@@ -1,0 +1,92 @@
+/*********************************** 
+    Author     : Radja Lomas
+ colors for bootstrap 
+************************************/
+/*common*/
+strong {
+}
+legend {
+}
+.help-block {
+    color: #eaeaea;
+}
+/*links*/
+a, .btn-link {
+}
+a:hover, a:focus {
+}
+a.list-group-item.active, a.list-group-item.active:hover, a.list-group-item.active:focus {
+}
+a.list-group-item.active>.badge, .nav-pills>.active>a>.badge {
+}
+/*headers*/
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+}
+/*cookie eula*/
+body {
+	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#f8f8f8+0,849eb2+30,849eb2+64,71437c+100 */
+	background: #f8f8f8; /* Old browsers */
+	background: -moz-linear-gradient(top, #f8f8f8 0%, #849eb2 30%, #849eb2 64%, #71437c 100%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(top, #f8f8f8 0%,#849eb2 30%,#849eb2 64%,#71437c 100%); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(to bottom, #f8f8f8 0%,#849eb2 30%,#849eb2 64%,#71437c 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f8f8f8', endColorstr='#71437c',GradientType=0 ); /* IE6-9 */
+
+}
+/*cookie eula*/
+div#cookie-accept {
+}
+/*btns*/
+.btn-default {
+}
+.btn-primary {
+}
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open .dropdown-toggle.btn-primary {
+}
+.btn-default:hover, .btn-default:focus, .btn-default:active, .btn-default.active, .open .dropdown-toggle.btn-default {
+}
+.btn-primary.disabled, .btn-primary[disabled], fieldset[disabled] .btn-primary, .btn-primary.disabled:hover, .btn-primary[disabled]:hover, fieldset[disabled] .btn-primary:hover, .btn-primary.disabled:focus, .btn-primary[disabled]:focus, fieldset[disabled] .btn-primary:focus, .btn-primary.disabled:active, .btn-primary[disabled]:active, fieldset[disabled] .btn-primary:active, .btn-primary.disabled.active, .btn-primary[disabled].active, fieldset[disabled] .btn-primary.active {
+}
+/*nav*/
+.navbar-default .navbar-nav>li.current>a {
+}
+.nav-pills>li.current>a, .nav-pills>li.active>a, .nav-pills>li.active>a:hover, .nav-pills>li.active>a:focus {
+}
+.nav .caret {
+}
+.nav a:hover .caret {
+}
+.nav .open>a .caret, .nav .open>a:hover .caret, .nav .open>a:focus .caret {
+}
+.navbar-default .navbar-nav>.dropdown>a .caret {
+}
+/*navbar*/
+.navbar-default {background-color: transparent;border-color: transparent;}
+.navbar-inverse {
+}
+.navbar-inverse .navbar-nav>.active>a, .navbar-inverse .navbar-nav>.active>a:hover, .navbar-inverse .navbar-nav>.active>a:focus {
+}
+.navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:hover, .navbar-default .navbar-nav>.active>a:focus {
+}
+.navbar-default .navbar-nav>li>a:hover, .navbar-default .navbar-nav>li>a:focus {
+}
+.navbar-inverse .navbar-nav>li>a:hover, .navbar-inverse .navbar-nav>li>a:focus {
+}
+.navbar-default .navbar-nav>li>a {
+}
+.navbar-default .navbar-brand {
+}
+.navbar-default .navbar-brand:hover, .navbar-default .navbar-brand:focus {
+}
+.navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:hover, .navbar-default .navbar-nav>.open>a:focus {
+}
+.navbar-default .navbar-nav .open .dropdown-menu>li>a:hover, .navbar-default .navbar-nav .open .dropdown-menu>li>a:focus {
+}
+.navbar-default .navbar-collapse, .navbar-default .navbar-form {
+}
+.navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
+}
+/*pagination*/
+.pagination>li>a, .pagination>li>span {
+}
+.pagination>li>a:focus, .pagination>li>a:hover, .pagination>li>span:focus, .pagination>li>span:hover {
+}

@@ -1,0 +1,127 @@
+{{ if user:group == 'admin' }}
+<!-- admin box -->
+<style>
+/*admin*/
+#adminbox-content,
+a.adminlink,
+div.devbox {
+    display: none;
+}
+#adminbox-container {
+    z-index: 2000;
+    position: fixed;
+    top: 5px;
+    left: 5px;
+    background-color: #c4ec6d;
+    padding: 10px;
+    opacity: 0.7;
+    width: 50px;
+}
+.adminbox a {
+    color:white;
+}
+.adminbox {
+    color: white;
+    background-color: #444444 ;
+    z-index: 10000;
+    position: fixed;
+    padding: 3px;
+    top: 4px;
+    left: 10px;
+    font-size: small;
+    width: 40px;
+    border-radius: 3px;
+    margin: 3px;
+    border: 1px solid white;
+    overflow: hidden;
+    opacity: 0.9;
+}
+.adminbox-menu {
+    max-width: 90%;
+    position: relative;
+    margin-top: -17px;
+    left: 20px;
+}
+</style>
+<div class="adminbox">
+<i class="close" style="visibility: visible;" style="color:white;" onclick="$('.adminbox').hide()">×</i>
+<a onclick="
+$('.adminbox').css('width', '98%');
+$('.devbox, #adminbox-menu, #adminbox-content').slideDown();
+$(this).hide();
+$(this).next().show();" class="admin-open"><i class="glyphicon glyphicon-plus-sign"></i> </a>
+
+<a onclick="
+$('.devbox, #adminbox-menu, #adminbox-content').slideUp();
+$('.adminbox').css('width', '40px');
+$(this).hide();
+$(this).prev().show();" style="display:none;" class="admin-close"><i class="glyphicon glyphicon-minus-sign"></i> </a>
+
+	<div id="adminbox-menu" style="display:none;">
+
+		<!-- links -->
+		{{ if exists page:id }}
+			<a href="{{ url:site }}admin/pages/edit/{{page:id}}" target="_blank" class="btn btn-link btn-xs">Edit page no {{page:id}}</a> | 
+		{{ endif }}
+		{{ if exists page:layout_id }}
+			<a href="{{ url:site }}admin/pages/types/edit/{{page:layout_id}}" target="_blank">Edit page type no {{page:id}}</a> | 
+		{{ endif }}
+		<!-- <a name="adminbox-title" href="javascript:void(0)" onclick="$('.adminbox').css('width', '98%');$('.devbox, #adminbox-content').toggle();">Administration</a> |  -->
+	
+		<a href="javascript:void(0)" onclick="$('.adminlink').toggle()">Admin links</a> |	
+		<!-- <a href="#adminbox-title" onclick="$('.adminlink').toggle()">Admin links</a> |	 -->
+        <a href="{{ url:site }}admin/files" target="_blank">Files</a> | 
+        <a href="{{ url:site }}admin/maintenance" target="_blank">Cache</a> | 
+        <a href="{{ url:site }}admin/navigation" target="_blank">Nav</a> | 
+        <a href="{{ url:site }}admin/widgets" target="_blank">Widgets</a> | 
+        <a href="{{ url:site }}admin" target="_blank">Panneau d'administration</a> 
+	</div>
+	<div id="adminbox-content" style="display:none;">
+		<hr/>
+        {{# some vars #}}
+        Site {{ settings:site_name }} <br />
+        Page type id {{ page:layout_id }} | 
+        id :{{ page:id }} | 
+        parent id :{{ page:parent_id }} |
+        Comments {{ page:comments_enabled }} | 
+        live/draft {{ page:status }}<br />
+        uri : {{ page:uri }}<br />
+				
+		<hr/>
+		<div class="devbox">
+			DEV MENU | <a href="?_debug" class="btn btn-default btn-xs">Debug</a> 
+                        
+			<button type="button" onclick="
+			window.open('admin/maintenance/cleanup/image_files');
+			window.open('admin/maintenance/cleanup/navigation_m');
+			window.open('admin/maintenance/cleanup/page_m');
+			window.open('admin/maintenance/cleanup/page_type_m');
+			window.open('admin/maintenance/cleanup/theme_m');" class="btn btn-default btn-xs">Wipe cache</button> 
+                        
+			<button onclick="$('h3').css('background-color', 'azure');
+                                        $('h3').parent().css('background-color', '#8ae2e2');
+                                        $('.outline').parent().css('outline', 'grey dotted 1px');
+                                        $('.close').parent().css('outline', 'red dotted 1px');
+                                        $('.devbox, #adminbox-menu, #adminbox-content').slideUp();
+                                        $('.adminbox').css('width', '40px');
+                                        $('.admin-close, .admin-open').toggle();
+                                    " type="button" class="btn btn-default btn-xs">Box content</button>
+                        
+			<button onclick="$('[type=hidden').css('outline', 'red dotted 1px');
+                                        $('[type=hidden').each(function(){
+                                            $(this).after('<span>'+$(this).attr('name')+'</span> ');
+                                            $(this).after(typeof($(this).attr('id'))!=='undefined'?'<span>id:'+$(this).attr('id')+'</span> ':' ');
+                                        });
+                                        $('[type=hidden').attr('type', 'text');
+                                        $('.devbox, #adminbox-menu, #adminbox-content').slideUp();
+                                        $('.adminbox').css('width', '40px');
+                                        $('.admin-close, .admin-open').toggle();
+                                    " type="button" class="btn btn-default btn-xs">Show hidden inputs</button> 
+                        
+                        <ul class="devmenu">
+                          {{ navigation:links group="dev" }}
+                        </ul>
+		</div>
+    </div>
+</div>
+{{ endif }}

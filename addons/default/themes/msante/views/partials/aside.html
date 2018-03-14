@@ -1,0 +1,31 @@
+<aside id="adresse" class="col-sm-3"  data-spy="_affix" data-offset-top="740">
+
+
+{{# is not acces page #}} 
+{{if {url:segments segment="1"} !='acces'  }}
+	{{# include acces page #}} 
+		{{ pages:display slug="acces" }} 
+			<h3>Informations</h3>
+			{{ custom_fields }}
+				<div>{{ body }}</div>
+			{{ /custom_fields }}
+			<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15780.913525617989!2d2.370110455217979!3d48.70311044717948!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e675f208bc94e9%3A0xe9f8f7f2e1e692fc!2s90+Avenue+Fran%C3%A7ois+Mitterrand%2C+91200+Athis-Mons!5e0!3m2!1sfr!2sfr!4v1495472309404" width="100%" height="150" frameborder="0" style="border:0" allowfullscreen></iframe>		
+		{{ /pages:display }}
+		<h3><img src="{{ url:site }}files/thumb/e215cdc44a18698/32/32" alt="Horaires"/> Horaires </h3>
+		<div>
+			{{ variables:texte_horaires }}
+		</div>
+{{else}}
+{{# is acces page #}} 
+	{{ pages:display slug="horaires" }}
+	{{# include horaires table page #}} 
+		<h3><img src="{{ url:site }}files/thumb/e215cdc44a18698/32/32" alt="Horaires"/> Horaires </h3>
+		{{ custom_fields }}
+			<div>
+				{{ pre_html }}
+				{{ body }}
+			</div>
+		{{ /custom_fields }}
+	{{ /pages:display }}
+{{endif}}
+</aside>
