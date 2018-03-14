@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50709
 File Encoding         : 65001
 
-Date: 2018-03-14 12:26:55
+Date: 2018-03-14 15:40:46
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -34,7 +34,7 @@ CREATE TABLE `default_doctor_doctors` (
   `email` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `address` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `town` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `postcode` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `areaname` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `image` char(15) COLLATE utf8_unicode_ci DEFAULT NULL,
   `dom_id` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `doctor_cat` int(11) DEFAULT NULL,
