@@ -1,0 +1,75 @@
+div.form_inputs ul li div.input {
+    margin-left: 10px;
+    margin-right: 30px;
+    min-width: 120px;
+    display: inline-block;
+    /* text-align: right; */
+}
+div.input li{
+    display:inline-block;
+}
+li div.input > label {
+    margin-left: 10px;
+    margin-right: 30px;
+    min-width: 120px;
+    display: inline-block;
+    text-align: right;
+}
+div.input input[type="radio"]{
+    margin-left: 10px;
+    min-width: 10px!important;
+}
+.form-bottom {
+    clear: both;
+}
+table th, table td {
+    padding:4px;
+}
+#search > form div.input input[type=text] {
+    width:100%    
+}
+#search > form div:nth-child(1) select {
+    width: 100%;
+    max-width: 100%;
+}
+#search > form > div:nth-child(3),
+#search > form > div:nth-child(5) {
+    width: 100%;
+} 
+#search {
+    width: 90%;
+    margin: auto;
+}
+
+/* responsive */
+@media only screen and (min-width: 767px) {
+        #form-info{
+            width: 100%;
+        }
+        #form-stock{
+            /* float: left; */
+        }
+        #form-prices{
+            /* clear: left; */
+        }
+        #form-image{
+            /* width: 49%; */
+            /* float: left; */
+            /* text-align: center; */
+        }
+        #form-descr{
+            /* clear: right; */
+            /* width: 50%; */
+            /* float: left; */
+            /* text-align: center; */
+        }
+            #form-bottom {
+            display: block;
+            clear: both;
+        }
+        #form-descr div textarea {
+            vertical-align: middle;
+            width: 210px;
+        }
+
+}

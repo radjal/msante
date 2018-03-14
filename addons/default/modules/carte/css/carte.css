@@ -1,0 +1,267 @@
+/* mobile */
+.mobile .carte {
+    width: 100%;
+}
+.mobile .profile_fields {
+    font-size: 30px;
+}
+.mobile input[type=text].order_product, .mobile input[type=number].order_product {
+    width: 80%;
+    margin: 18px 10%;
+    height: 60px;
+    border-width: 4px;
+    font-size: 50px;
+}
+.mobile #order-details, .mobile #order-delivery {
+    width: 94%;
+    margin: 3%;
+    float: none;
+}    
+.mobile input[type=checkbox], .mobile input[type=radio]  {
+    width: 40px;
+    height: 40px;
+}
+.mobile #jscart-total {
+    font-size:40px;
+}
+.mobile textarea {
+    height: 100px;
+}
+.mobile #order-details section label, .mobile #order-delivery div label {
+font-size: 40px;
+}
+.mobile .carte-semaine-titre .next-week {
+font-size: 14px;
+}
+.mobile #carte-login > a {
+    font-size: 30px;
+}
+.mobile #blackboard div.carte a div.carte-spacer { display: none; }
+/* normal */
+#order-details div label {
+    display: block;
+}
+#order-details section div label {
+    font-size:14px;
+}
+.carte-semaine-titre .next-week {
+    font-size: 12px;
+    vertical-align: middle;
+}
+#blackboard div.content {
+        line-height: 55px;
+}
+input[type=text].order_product, input[type=number].order_product {
+    padding: 4px;
+    color: #fff;
+    width: 74px;
+    height: 38px;
+    background-color: transparent;
+    border: #97a679 1px dotted;
+    color: #53695a;
+    float: left;
+    clear: both;
+    margin: 0 5px 0 5px;
+    padding: 2px;
+    text-align: center;
+    font-size: 22px;
+}
+#blackboard div.content p:hover {
+    color: #ea5f1a;
+}
+#blackboard div.content p:hover input {
+    border-color: #ea5f1a;
+}
+#blackboard div.content p input:focus, #blackboard div.content p input:active {
+    border-color: #ea5f1a;
+}
+#blackboard section:nth-child(1) div.carte, #blackboard section:nth-child(3) div.carte, #blackboard section:nth-child(5) div.carte, #blackboard section:nth-child(7) div.carte {
+    float: right;
+    /* clear: left; */
+}
+#blackboard section:nth-child(2) div.carte, #blackboard section:nth-child(4) div.carte, #blackboard section:nth-child(6) div.carte {
+    float: left;
+}
+#blackboard.odd section:last-child div {
+    /* width:100%; */
+}
+.carte_element {
+    font-size: 18px;
+    line-height: 1;
+    letter-spacing: 1px;
+}
+.carte {
+    float: none;
+    width: 100%;
+    padding:0;
+}
+.carte-semaine-titre {
+    display: block;
+    padding: 0;
+    width: 100%;
+    text-align: center;
+    font-weight: normal;
+    text-shadow: none;
+}
+#blackboard:hover .carte-semaine-titre, #blackboard:hover .carte-semaine-dates {
+    color: #f06723;
+}
+div.carte_titre, .carte_titre a {
+    font-size: 28px;
+    border-bottom: 1px solid #8cb752;
+    margin-bottom: 10px;
+    width: 90%;
+    margin: auto;
+}
+div.carte a:hover div.carte_titre {
+    color: #f06723;
+}
+div.carte a:hover div.carte_separator  {
+    color: #f06723;
+}
+.carte-jour-titre {
+    font-size: 50px;
+}
+.message_global {
+    text-align: center;
+    /* color: floralwhite; */
+    font-size: 30px;
+}
+input[disabled].order_product {
+    
+border: none;
+}
+.no-stock {
+    text-decoration: line-through;
+}
+#carte-semaine-bas {
+    clear: both;
+    font-size: 22px;
+}
+/* orders customising */
+#order-form-container {
+    max-width: 788px;
+    margin: auto;
+    border: 1px solid #BFBCBC;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
+    background-color: #fbfbfb;
+    margin-top: 20px;
+    max-width: 740px;
+    margin: auto;
+    margin-top: 20px;
+}
+#order-form-container {
+    max-width: 840px;
+}
+#order-details, #order-delivery {
+    width: 94%;
+    margin: 3%;
+}
+.profile_fields {font-size: 14px;}
+#order-details textarea {
+    /* color: #48000a; */
+}
+#order-details textarea, #order-delivery > div:nth-child(2) > div input,
+#order-delivery > div:nth-child(3) > div input {
+    width: 100%;
+    /* color: #48000a; */
+}
+#order-button-wrapper {
+    padding: 20px;
+}
+#order_button {
+    border: none;
+    clear: both;
+    text-align: center;
+    /* margin: auto; */
+}
+#jscart-total {
+    
+}
+#jscart-total li {
+    display: initial;
+    margin: 0 20px 0px 0px;
+}
+#jscart-total ul li:nth-child(2) {
+    padding:30px;
+}
+#carte-login > a {
+    font-size: 14px;
+}
+#carte-login {
+    /* width: 90%; */
+    max-width: 800px;
+    margin: auto;
+    margin-top: 40px;
+    padding: 20px;
+    border: 1px solid #BFBCBC;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    background-color: #fbfbfb;
+    font-size: 15px;
+}
+/*animation*/
+#blackboard div.carte a section .carte_separator, #blackboard div.carte a .carte_titre, 
+#blackboard .carte-semaine-titre, #blackboard .carte-semaine-dates {
+        -webkit-transition: margin-top 0.3s ease-in-out;
+        -moz-transition: margin-top 0.3s ease-in-out;
+        -o-transition: margin-top 0.3s ease-in-out;
+        transition: margin-top 0.3s ease-in-out; 
+        -webkit-transition-property: color, margin-top;
+        -moz-transition-property: color, margin-top;
+        -o-transition-property: color, margin-top;
+        transition-property: color, margin-top;
+
+}
+#blackboard div.carte a:hover .carte_separator:first-of-type {
+    margin-top: 0;
+}
+#blackboard div.carte a:hover .carte_separator {
+    margin-top: 30px;
+}
+#blackboard div.carte a:focus {
+    outline: none;
+}
+/* responsive */
+@media only screen and (min-width: 626px) {
+    #order-details, #order-delivery {
+        width: 44%;
+        margin: 3%;
+        float: left;
+    }
+}
+@media only screen and (min-width: 926px) {
+    .carte {
+        float: left;
+        width: 18%;
+        padding: 1%;
+        /* font-size: 12px; */
+    }
+    /*spacers*/
+    #blackboard div.carte a section {
+        float: left;
+        width: 96%;
+    }
+    #blackboard div.carte a div.carte-spacer {
+        border-right: solid #8cb752 1px;
+        float: right;
+        height: 380px;
+        margin-top: 80px;
+    }
+    #blackboard div.carte a:hover div.carte-spacer {
+        height: 440px;
+    }
+    #blackboard div.carte:last-of-type a div.carte-spacer  {
+        visibility: hidden;
+    }
+    #blackboard div.carte a div.carte-spacer {
+            -webkit-transition: height 0.3s ease-in-out;
+            -moz-transition: height 0.3s ease-in-out;
+            -o-transition: height 0.3s ease-in-out;
+            transition: height 0.3s ease-in-out;
+    }
+
+}

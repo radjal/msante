@@ -1,0 +1,7 @@
+#search  label {
+    margin-left: 10px;
+    margin-right: 30px;
+    min-width: 120px;
+    display: inline-block;
+    text-align: right;
+}
