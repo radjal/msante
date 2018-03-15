@@ -39,7 +39,7 @@
         <p>cat_dimanche {{ data:cat_dimanche }} </p>			
 	<ol> 
 		{{##}}
-		<li class="carte">
+		<li class="calendar">
 			<span class="{{# key #}}">, {{# value #}} </span>
 		</li>
 	</ol>

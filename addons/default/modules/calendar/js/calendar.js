@@ -1,11 +1,11 @@
-//carte js
-function mobile_cartes()
+//calendar js
+function mobile_calendars()
 {
         /*semaine*/
-        if($('#blackboard > center.carte-semaine-titre').length)  
+        if($('#blackboard > center.calendar-semaine-titre').length)  
         {
-            $('#blackboard div.carte_titre').each(function() { $( this ).text('+' +  $( this ).html()) } );
-            $('#blackboard div.carte_titre').each(function() {$(this).on('click', 
+            $('#blackboard div.calendar_titre').each(function() { $( this ).text('+' +  $( this ).html()) } );
+            $('#blackboard div.calendar_titre').each(function() {$(this).on('click', 
                 function() {
                     event.preventDefault();
 
@@ -18,15 +18,15 @@ function mobile_cartes()
                     $(this).siblings('section').slideToggle();    
                 }
             );});
-            $('#blackboard div.carte section').slideUp();
+            $('#blackboard div.calendar section').slideUp();
         }
         
         /*jour*/
-        if($('#blackboard div.cartejour').length) 
+        if($('#blackboard div.calendarjour').length) 
         {
-            $('#blackboard div.carte_separator').each(function() { $( this ).text('+' +  $( this ).html()) } );
-            $('#blackboard div.cartejour section div.content').slideUp();
-            $('#blackboard div.carte_separator').each(function() {$(this).on('click', 
+            $('#blackboard div.calendar_separator').each(function() { $( this ).text('+' +  $( this ).html()) } );
+            $('#blackboard div.calendarjour section div.content').slideUp();
+            $('#blackboard div.calendar_separator').each(function() {$(this).on('click', 
                 function() 
                 {
                     event.preventDefault();

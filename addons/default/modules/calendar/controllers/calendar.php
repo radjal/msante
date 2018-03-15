@@ -1,6 +1,6 @@
 <?php if (!defined('BASEPATH')) exit('No direct script access allowed');
 
-class Carte extends Public_Controller
+class Calendar extends Public_Controller
 {
     /**
      * The constructor
@@ -11,11 +11,11 @@ class Carte extends Public_Controller
     {
         parent::__construct();
     
-        $this->load->model('carte_m');
-        // $this->lang->load('carte');
+        $this->load->model('calendar_m');
+        // $this->lang->load('calendar');
         // $this->load->driver('Streams');
-         $this->template->append_js('module::carte.js');
-         $this->template->append_css('module::carte.css');
+         $this->template->append_js('module::calendar.js');
+         $this->template->append_css('module::calendar.css');
     }
     
     /** wrapper for index */
@@ -58,11 +58,11 @@ class Carte extends Public_Controller
         
         $template = 'jour';
         
-        $data = $this->carte_m->calcul_semaine($week_no);
+        $data = $this->calendar_m->calcul_semaine($week_no);
         if(!$week_no) $week_no = $data['week'];	
 
         //get cat id from slug eg:s44 = semaine 44
-        $week_cat_id =  $this->carte_m->category_id("s$week_no");
+        $week_cat_id =  $this->calendar_m->category_id("s$week_no");
             
         $data['msg_global']         = Settings::get('msg_global');
         
@@ -92,19 +92,19 @@ class Carte extends Public_Controller
         }
                 
         // boissons
-        $boissons = $this->carte_m->produits('', '', $data['no_cat_boissons']);
+        $boissons = $this->calendar_m->produits('', '', $data['no_cat_boissons']);
         if ($showinput) $boissons = $this->orders_m->products_list_html($boissons);
         
         // entrées
-        $entrees = $this->carte_m->produits($catjour, $week_cat_id, $data['no_cat_entree']);
+        $entrees = $this->calendar_m->produits($catjour, $week_cat_id, $data['no_cat_entree']);
         if ($showinput) $entrees = $this->orders_m->products_list_html($entrees);
         
         // plats
-        $plats = $this->carte_m->produits($catjour, $week_cat_id, $data['no_cat_plat']);
+        $plats = $this->calendar_m->produits($catjour, $week_cat_id, $data['no_cat_plat']);
         if ($showinput) $plats = $this->orders_m->products_list_html($plats);
         
         // desserts
-        $desserts = $this->carte_m->produits($catjour, $week_cat_id, $data['no_cat_dessert']);
+        $desserts = $this->calendar_m->produits($catjour, $week_cat_id, $data['no_cat_dessert']);
         if ($showinput) $desserts = $this->orders_m->products_list_html($desserts);
         
         // AJAX and XHR
@@ -112,7 +112,7 @@ class Carte extends Public_Controller
         {}
         
         // Build the page
-            $this->template->title('carte')
+            $this->template->title('calendar')
                 ->set('token', $token)
                 ->set('data', $data)
                 ->set('jour', $jour)
@@ -128,14 +128,14 @@ class Carte extends Public_Controller
     }
  	
     /**
-     * carte module settings
+     * calendar module settings
      */
     public function info()
     {
         $this->load->model('orders_m');
         $template = 'info';
         
-        $data = $this->carte_m->calcul_semaine($jour);
+        $data = $this->calendar_m->calcul_semaine($jour);
 		
         $data['msg_global']         = Settings::get('msg_global');
         
@@ -169,14 +169,14 @@ class Carte extends Public_Controller
     {
             $template = 'index';
 
-            $data = $this->carte_m->calcul_semaine($week_no);
+            $data = $this->calendar_m->calcul_semaine($week_no);
 
             $data['msg_global']         = Settings::get('msg_global');
             
             if(!$week_no) $week_no = $data['week'];
             $data['no_semaine_pair']      = ($week_no % 2) == 1 ? true : false ;
             
-            $data['titre'] = 'Carte ';
+            $data['titre'] = 'Calendar ';
             
             $data['no_cat_entree']      = Settings::get('no_cat_entree');
             $data['no_cat_plat']        = Settings::get('no_cat_plat');
@@ -193,52 +193,52 @@ class Carte extends Public_Controller
 			
             
             //get cat id from slug eg:s44 = semaine 44
-            $week_cat_id =  $this->carte_m->category_id("s$week_no");
+            $week_cat_id =  $this->calendar_m->category_id("s$week_no");
             if(!empty($week_cat_id)) 
             {
                             // jours
                             $jours_ouverts = Settings::get('jours_ouverts'); // sun = 0
                             if(strstr($jours_ouverts, '1')) 
                             {
-                                $semaine['lundi']['entrees'] = $this->carte_m->produits($data['cat_lundi'], $week_cat_id, $data['no_cat_entree']) ; // lundi
-                                $semaine['lundi']['plats'] = $this->carte_m->produits($data['cat_lundi'], $week_cat_id, $data['no_cat_plat']) ; // lundi
-                                $semaine['lundi']['desserts'] = $this->carte_m->produits($data['cat_lundi'], $week_cat_id, $data['no_cat_dessert']) ; // lundi
+                                $semaine['lundi']['entrees'] = $this->calendar_m->produits($data['cat_lundi'], $week_cat_id, $data['no_cat_entree']) ; // lundi
+                                $semaine['lundi']['plats'] = $this->calendar_m->produits($data['cat_lundi'], $week_cat_id, $data['no_cat_plat']) ; // lundi
+                                $semaine['lundi']['desserts'] = $this->calendar_m->produits($data['cat_lundi'], $week_cat_id, $data['no_cat_dessert']) ; // lundi
                             }
                             if(strstr($jours_ouverts, '2')) 
                             {
-                                $semaine['mardi']['entrees'] = $this->carte_m->produits($data['cat_mardi'], $week_cat_id, $data['no_cat_entree']) ; // mardi
-                                $semaine['mardi']['plats'] = $this->carte_m->produits($data['cat_mardi'], $week_cat_id, $data['no_cat_plat']) ; // mardi
-                                $semaine['mardi']['desserts'] = $this->carte_m->produits($data['cat_mardi'], $week_cat_id, $data['no_cat_dessert']) ; // mardi
+                                $semaine['mardi']['entrees'] = $this->calendar_m->produits($data['cat_mardi'], $week_cat_id, $data['no_cat_entree']) ; // mardi
+                                $semaine['mardi']['plats'] = $this->calendar_m->produits($data['cat_mardi'], $week_cat_id, $data['no_cat_plat']) ; // mardi
+                                $semaine['mardi']['desserts'] = $this->calendar_m->produits($data['cat_mardi'], $week_cat_id, $data['no_cat_dessert']) ; // mardi
                             }    
                             if(strstr($jours_ouverts, '3')) 
                             {
-                                $semaine['mercredi']['entrees'] = $this->carte_m->produits($data['cat_mercredi'], $week_cat_id, $data['no_cat_entree']) ; // mercredi
-                                $semaine['mercredi']['plats'] = $this->carte_m->produits($data['cat_mercredi'], $week_cat_id, $data['no_cat_plat']) ; // mercredi
-                                $semaine['mercredi']['desserts'] = $this->carte_m->produits($data['cat_mercredi'], $week_cat_id, $data['no_cat_dessert']) ; // mercredi
+                                $semaine['mercredi']['entrees'] = $this->calendar_m->produits($data['cat_mercredi'], $week_cat_id, $data['no_cat_entree']) ; // mercredi
+                                $semaine['mercredi']['plats'] = $this->calendar_m->produits($data['cat_mercredi'], $week_cat_id, $data['no_cat_plat']) ; // mercredi
+                                $semaine['mercredi']['desserts'] = $this->calendar_m->produits($data['cat_mercredi'], $week_cat_id, $data['no_cat_dessert']) ; // mercredi
                             }
                             if(strstr($jours_ouverts, '4'))
                             {
-                                $semaine['jeudi']['entrees'] = $this->carte_m->produits($data['cat_jeudi'], $week_cat_id, $data['no_cat_entree']) ; // jeudi
-                                $semaine['jeudi']['plats'] = $this->carte_m->produits($data['cat_jeudi'], $week_cat_id, $data['no_cat_plat']) ; // jeudi
-                                $semaine['jeudi']['desserts'] = $this->carte_m->produits($data['cat_jeudi'], $week_cat_id, $data['no_cat_dessert']) ; // jeudi
+                                $semaine['jeudi']['entrees'] = $this->calendar_m->produits($data['cat_jeudi'], $week_cat_id, $data['no_cat_entree']) ; // jeudi
+                                $semaine['jeudi']['plats'] = $this->calendar_m->produits($data['cat_jeudi'], $week_cat_id, $data['no_cat_plat']) ; // jeudi
+                                $semaine['jeudi']['desserts'] = $this->calendar_m->produits($data['cat_jeudi'], $week_cat_id, $data['no_cat_dessert']) ; // jeudi
                             }
                             if(strstr($jours_ouverts, '5')) 
                             {
-                                $semaine['vendredi']['entrees'] = $this->carte_m->produits($data['cat_vendredi'], $week_cat_id, $data['no_cat_entree']) ; // vendredi
-                                $semaine['vendredi']['plats'] = $this->carte_m->produits($data['cat_vendredi'], $week_cat_id, $data['no_cat_plat']) ; // vendredi
-                                $semaine['vendredi']['desserts'] = $this->carte_m->produits($data['cat_vendredi'], $week_cat_id, $data['no_cat_dessert']) ; // vendredi
+                                $semaine['vendredi']['entrees'] = $this->calendar_m->produits($data['cat_vendredi'], $week_cat_id, $data['no_cat_entree']) ; // vendredi
+                                $semaine['vendredi']['plats'] = $this->calendar_m->produits($data['cat_vendredi'], $week_cat_id, $data['no_cat_plat']) ; // vendredi
+                                $semaine['vendredi']['desserts'] = $this->calendar_m->produits($data['cat_vendredi'], $week_cat_id, $data['no_cat_dessert']) ; // vendredi
                             }
                             if(strstr($jours_ouverts, '6')) 
                             {
-                                $semaine['samedi']['entrees'] = $this->carte_m->produits($data['cat_samedi'], $week_cat_id, $data['no_cat_entree']) ; // samedi
-                                $semaine['samedi']['plats'] = $this->carte_m->produits($data['cat_samedi'], $week_cat_id, $data['no_cat_plat']) ; // samedi
-                                $semaine['samedi']['desserts'] = $this->carte_m->produits($data['cat_samedi'], $week_cat_id, $data['no_cat_dessert']) ; // samedi
+                                $semaine['samedi']['entrees'] = $this->calendar_m->produits($data['cat_samedi'], $week_cat_id, $data['no_cat_entree']) ; // samedi
+                                $semaine['samedi']['plats'] = $this->calendar_m->produits($data['cat_samedi'], $week_cat_id, $data['no_cat_plat']) ; // samedi
+                                $semaine['samedi']['desserts'] = $this->calendar_m->produits($data['cat_samedi'], $week_cat_id, $data['no_cat_dessert']) ; // samedi
                             }
                             if(strstr($jours_ouverts, '0')) 
                             {
-                                $semaine['dimanche']['entrees'] = $this->carte_m->produits($data['cat_dimanche'], $week_cat_id, $data['no_cat_entree']) ; // dimanche
-                                $semaine['dimanche']['plats'] = $this->carte_m->produits($data['cat_dimanche'], $week_cat_id, $data['no_cat_plat']) ; // dimanche
-                                $semaine['dimanche']['desserts'] = $this->carte_m->produits($data['cat_dimanche'], $week_cat_id, $data['no_cat_dessert']) ; // dimanche
+                                $semaine['dimanche']['entrees'] = $this->calendar_m->produits($data['cat_dimanche'], $week_cat_id, $data['no_cat_entree']) ; // dimanche
+                                $semaine['dimanche']['plats'] = $this->calendar_m->produits($data['cat_dimanche'], $week_cat_id, $data['no_cat_plat']) ; // dimanche
+                                $semaine['dimanche']['desserts'] = $this->calendar_m->produits($data['cat_dimanche'], $week_cat_id, $data['no_cat_dessert']) ; // dimanche
                             }   
                             
                             /** unset day if no products */
@@ -283,7 +283,7 @@ class Carte extends Public_Controller
              */
         
             // Build the page
-            $this->template->title('carte')
+            $this->template->title('calendar')
                 ->set('data', $data)
                 ->set('lundi', $lundi)
                 ->set('mardi', $mardi)
@@ -298,4 +298,4 @@ class Carte extends Public_Controller
 
 }
 
-/* End of file carte.php */
+/* End of file calendar.php */

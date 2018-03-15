@@ -11,11 +11,11 @@
 
 <div id="blackboard-wrapper" class="jour">
     <div id="blackboard">
-        <center class="carte-jour-titre">{{ jour }} {{journo}}</center>
-            <div class="cartejour {{ if passe }}date-passed {{ endif }}">
+        <center class="calendar-jour-titre">{{ jour }} {{journo}}</center>
+            <div class="calendarjour {{ if passe }}date-passed {{ endif }}">
             {{ if entrees }}
                     <section id="entrees">
-                    <div class="carte_separator">Entrées</div>
+                    <div class="calendar_separator">Entrées</div>
 						<div class="content">
                                      {{ entrees }}
                                      <p{{if stock<="0"}} class="no-stock"{{endif}}>
@@ -28,7 +28,7 @@
 
             {{ if plats }}
                     <section id="plats">
-                    <div class="carte_separator">Plats</div>
+                    <div class="calendar_separator">Plats</div>
 						<div class="content">
                                      {{ plats }}
                                      <p{{if stock<="0"}} class="no-stock"{{endif}}>
@@ -41,7 +41,7 @@
 
             {{ if desserts }}
                     <section id="desserts">
-                    <div class="carte_separator">Desserts</div>
+                    <div class="calendar_separator">Desserts</div>
 						<div class="content">
                                      {{ desserts }}
                                      <p{{if stock<="0"}} class="no-stock"{{endif}}>
@@ -54,7 +54,7 @@
 
             {{ if boissons }}
                     <section id="boissons">
-                    <div class="carte_separator">Boissons</div>
+                    <div class="calendar_separator">Boissons</div>
 						<div class="content">
                                      {{ boissons }}
                                      <p{{if stock<="0"}} class="no-stock"{{endif}}>
@@ -93,7 +93,7 @@
                     <label><input type="radio" name="payment_type" value="meal_coupon" {{ if user:moyen_de_paiement == 'Chèque déjeuner' }} checked="checked" {{ endif }}>
                         Ticket restaurant</label>
                 </div>   
-            <p class="profile_fields">Vous pouvez nous régler en espèces, carte bancaire,chèque bancaire ou ticket restaurant.</p>
+            <p class="profile_fields">Vous pouvez nous régler en espèces, calendar bancaire,chèque bancaire ou ticket restaurant.</p>
             </section>
 
 
@@ -156,7 +156,7 @@
             </div>
         {{ /user:profile }}
     {{else}}
-    <p id="carte-connect-msg">
+    <p id="calendar-connect-msg">
         <a href="{{url:site}}users/login">Vous devez vous connecter pour passer une commande.</a>
     </p>
     {{ endif }}
@@ -167,7 +167,7 @@
 
 {{ if !user:logged_in AND !passe }}
     <!-- login start -->
-    <form action="{{url:site}}users/login" method="post" accept-charset="utf-8" id="carte-login">
+    <form action="{{url:site}}users/login" method="post" accept-charset="utf-8" id="calendar-login">
 
         Vous devez vous connecter pour passer une commande. <br/>
                     <input type="text" name="email" value="" placeholder="Identifiant">

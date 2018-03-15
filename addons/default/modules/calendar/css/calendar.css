@@ -1,5 +1,5 @@
 /* mobile */
-.mobile .carte {
+.mobile .calendar {
     width: 100%;
 }
 .mobile .profile_fields {
@@ -30,13 +30,13 @@
 .mobile #order-details section label, .mobile #order-delivery div label {
 font-size: 40px;
 }
-.mobile .carte-semaine-titre .next-week {
+.mobile .calendar-semaine-titre .next-week {
 font-size: 14px;
 }
-.mobile #carte-login > a {
+.mobile #calendar-login > a {
     font-size: 30px;
 }
-.mobile #blackboard div.carte a div.carte-spacer { display: none; }
+.mobile #blackboard div.calendar a div.calendar-spacer { display: none; }
 /* normal */
 #order-details div label {
     display: block;
@@ -44,7 +44,7 @@ font-size: 14px;
 #order-details section div label {
     font-size:14px;
 }
-.carte-semaine-titre .next-week {
+.calendar-semaine-titre .next-week {
     font-size: 12px;
     vertical-align: middle;
 }
@@ -75,27 +75,27 @@ input[type=text].order_product, input[type=number].order_product {
 #blackboard div.content p input:focus, #blackboard div.content p input:active {
     border-color: #ea5f1a;
 }
-#blackboard section:nth-child(1) div.carte, #blackboard section:nth-child(3) div.carte, #blackboard section:nth-child(5) div.carte, #blackboard section:nth-child(7) div.carte {
+#blackboard section:nth-child(1) div.calendar, #blackboard section:nth-child(3) div.calendar, #blackboard section:nth-child(5) div.calendar, #blackboard section:nth-child(7) div.calendar {
     float: right;
     /* clear: left; */
 }
-#blackboard section:nth-child(2) div.carte, #blackboard section:nth-child(4) div.carte, #blackboard section:nth-child(6) div.carte {
+#blackboard section:nth-child(2) div.calendar, #blackboard section:nth-child(4) div.calendar, #blackboard section:nth-child(6) div.calendar {
     float: left;
 }
 #blackboard.odd section:last-child div {
     /* width:100%; */
 }
-.carte_element {
+.calendar_element {
     font-size: 18px;
     line-height: 1;
     letter-spacing: 1px;
 }
-.carte {
+.calendar {
     float: none;
     width: 100%;
     padding:0;
 }
-.carte-semaine-titre {
+.calendar-semaine-titre {
     display: block;
     padding: 0;
     width: 100%;
@@ -103,23 +103,23 @@ input[type=text].order_product, input[type=number].order_product {
     font-weight: normal;
     text-shadow: none;
 }
-#blackboard:hover .carte-semaine-titre, #blackboard:hover .carte-semaine-dates {
+#blackboard:hover .calendar-semaine-titre, #blackboard:hover .calendar-semaine-dates {
     color: #f06723;
 }
-div.carte_titre, .carte_titre a {
+div.calendar_titre, .calendar_titre a {
     font-size: 28px;
     border-bottom: 1px solid #8cb752;
     margin-bottom: 10px;
     width: 90%;
     margin: auto;
 }
-div.carte a:hover div.carte_titre {
+div.calendar a:hover div.calendar_titre {
     color: #f06723;
 }
-div.carte a:hover div.carte_separator  {
+div.calendar a:hover div.calendar_separator  {
     color: #f06723;
 }
-.carte-jour-titre {
+.calendar-jour-titre {
     font-size: 50px;
 }
 .message_global {
@@ -134,7 +134,7 @@ border: none;
 .no-stock {
     text-decoration: line-through;
 }
-#carte-semaine-bas {
+#calendar-semaine-bas {
     clear: both;
     font-size: 22px;
 }
@@ -187,10 +187,10 @@ border: none;
 #jscart-total ul li:nth-child(2) {
     padding:30px;
 }
-#carte-login > a {
+#calendar-login > a {
     font-size: 14px;
 }
-#carte-login {
+#calendar-login {
     /* width: 90%; */
     max-width: 800px;
     margin: auto;
@@ -204,8 +204,8 @@ border: none;
     font-size: 15px;
 }
 /*animation*/
-#blackboard div.carte a section .carte_separator, #blackboard div.carte a .carte_titre, 
-#blackboard .carte-semaine-titre, #blackboard .carte-semaine-dates {
+#blackboard div.calendar a section .calendar_separator, #blackboard div.calendar a .calendar_titre, 
+#blackboard .calendar-semaine-titre, #blackboard .calendar-semaine-dates {
         -webkit-transition: margin-top 0.3s ease-in-out;
         -moz-transition: margin-top 0.3s ease-in-out;
         -o-transition: margin-top 0.3s ease-in-out;
@@ -216,13 +216,13 @@ border: none;
         transition-property: color, margin-top;
 
 }
-#blackboard div.carte a:hover .carte_separator:first-of-type {
+#blackboard div.calendar a:hover .calendar_separator:first-of-type {
     margin-top: 0;
 }
-#blackboard div.carte a:hover .carte_separator {
+#blackboard div.calendar a:hover .calendar_separator {
     margin-top: 30px;
 }
-#blackboard div.carte a:focus {
+#blackboard div.calendar a:focus {
     outline: none;
 }
 /* responsive */
@@ -234,30 +234,30 @@ border: none;
     }
 }
 @media only screen and (min-width: 926px) {
-    .carte {
+    .calendar {
         float: left;
         width: 18%;
         padding: 1%;
         /* font-size: 12px; */
     }
     /*spacers*/
-    #blackboard div.carte a section {
+    #blackboard div.calendar a section {
         float: left;
         width: 96%;
     }
-    #blackboard div.carte a div.carte-spacer {
+    #blackboard div.calendar a div.calendar-spacer {
         border-right: solid #8cb752 1px;
         float: right;
         height: 380px;
         margin-top: 80px;
     }
-    #blackboard div.carte a:hover div.carte-spacer {
+    #blackboard div.calendar a:hover div.calendar-spacer {
         height: 440px;
     }
-    #blackboard div.carte:last-of-type a div.carte-spacer  {
+    #blackboard div.calendar:last-of-type a div.calendar-spacer  {
         visibility: hidden;
     }
-    #blackboard div.carte a div.carte-spacer {
+    #blackboard div.calendar a div.calendar-spacer {
             -webkit-transition: height 0.3s ease-in-out;
             -moz-transition: height 0.3s ease-in-out;
             -o-transition: height 0.3s ease-in-out;
