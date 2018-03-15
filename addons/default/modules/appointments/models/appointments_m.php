@@ -196,7 +196,7 @@ class Appointments_m extends MY_Model {
             $appointment['total_final'] = 0;
             $appointment['appointment_date'] = date( "Y-m-d H:i:s" );
             $appointment['delivery_date'] = $this->input->post('delivery_date');
-            $appointment['delivery_time'] = $this->input->post('delivery_time');
+            $appointment['appointment_time'] = $this->input->post('appointment_time');
             $appointment['log'] = $this->input->post('log');
             $appointment['payment_type'] = !empty($this->input->post('payment_type')) ? $this->input->post('payment_type') : '';
             $appointment['payment_status'] = '';
@@ -427,7 +427,7 @@ class Appointments_m extends MY_Model {
                 $postarray['total_final'] = !empty($postarray['total_final']) ? str_replace(',', '.', $postarray['total_final']) : 0;
                 $postarray['appointment_date'] = !empty($postarray['appointment_date']) ? $postarray['appointment_date'] : null;
                 $postarray['delivery_date'] = !empty($postarray['delivery_date']) ? $postarray['delivery_date'] : null;
-                $postarray['delivery_time'] = !empty($postarray['delivery_time']) ? $postarray['delivery_time'] : null;
+                $postarray['appointment_time'] = !empty($postarray['appointment_time']) ? $postarray['appointment_time'] : null;
                 $postarray['created_on'] = !empty($postarray['created_on']) ? $postarray['created_on'] : null;
                 $postarray['updated_on'] = !empty($postarray['updated_on']) ? $postarray['updated_on'] : null;
                 return $postarray;

@@ -209,7 +209,7 @@ if($disabled)  $disabled='disabled';
     	<!-- appointment-details -->
         <div  id="appointment-details">
                     <?php echo $this->html_m->form_input('delivery_date', $appointment->delivery_date, $disabled ); ?>
-                    <?php echo $this->html_m->form_input('delivery_time', $appointment->delivery_time, $disabled ); ?>
+                    <?php echo $this->html_m->form_input('appointment_time', $appointment->appointment_time, $disabled ); ?>
                     <label for="payment_type"><?php echo lang('appointments:payment_type'); ?></label>
                     <?php echo form_input('payment_type', lang('appointments:po_'.$appointment->payment_type), $disabled ); ?> 
                     <?php echo $this->html_m->form_input('total_pretax', $appointment->total_pretax.'€', $disabled ); ?>

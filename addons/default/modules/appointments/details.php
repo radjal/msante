@@ -65,42 +65,17 @@ class Module_Appointments extends Module {
                                                             'constraint' => '100',
                                                             'default' => '',
                                                             ),
-						'payment_type' => array(
-                                                            'type' => 'VARCHAR',
-                                                            'constraint' => '100',
-                                                            'default' => '',
-                                                            ),
-						'payment_status' => array(
-                                                            'type' => 'VARCHAR',
-                                                            'constraint' => '100',
-                                                            'default' => '',
-                                                            ),
-						'total_pretax' => array(
-                                                            'type' => 'VARCHAR',
-                                                            'constraint' => '11',
-                                                            'default' => 0,
-                                                            ),						
-						'total_final' => array(
-                                                            'type' => 'VARCHAR',
-                                                            'constraint' => '11',
-                                                            'default' => 0,
-                                                            ),					
-						'discount' => array(
-                                                            'type' => 'VARCHAR',
-                                                            'constraint' => '5',
-                                                            'default' => 0,
-                                                            ),	
 						'appointment_date' => array(
                                                             'type'       => 'datetime',
                                                             'default'    => '1970-01-01 00:00:01',
                                                             'null' => TRUE
                                                             ),
-						'delivery_date' => array(
-                                                            'type'       => 'date',
-                                                            'default'    => '1970-01-01',
-                                                            'null' => TRUE
-                                                            ),
-						'delivery_time' => array(
+/* 						// 'delivery_date' => array(
+                                                            // 'type'       => 'date',
+                                                            // 'default'    => '1970-01-01',
+                                                            // 'null' => TRUE
+                                                            // ), */
+						'appointment_time' => array(
                                                             'type' => 'VARCHAR',
                                                             'constraint' => '120',
                                                             'null' => TRUE
@@ -109,15 +84,15 @@ class Module_Appointments extends Module {
                                                             'type' => 'TEXT',
                                                             'null' => TRUE
                                                             ),
-						'log' => array(
-                                                            'type' => 'TEXT',
-                                                            'null' => TRUE
-                                                            ),
-						'i_company' => array(
-                                                            'type' => 'VARCHAR',
-                                                            'constraint' => '120',
-                                                            'default' => '',
-                                                            ),						
+						/* // 'log' => array(
+                                                            // 'type' => 'TEXT',
+                                                            // 'null' => TRUE
+                                                            // ),
+						// 'i_company' => array(
+                                                            // 'type' => 'VARCHAR',
+                                                            // 'constraint' => '120',
+                                                            // 'default' => '',
+                                                            // ),				 */		
 						'i_fullname' => array(
                                                             'type' => 'VARCHAR',
                                                             'constraint' => '120',
@@ -143,26 +118,26 @@ class Module_Appointments extends Module {
                                                             'constraint' => '20',
                                                             'default' => '',
                                                             ),
-						'i_mobile' => array(
-                                                            'type' => 'VARCHAR',
-                                                            'constraint' => '20',
-                                                            'default' => '',
-                                                            ),
-						'i_mail' => array(
-                                                            'type' => 'VARCHAR',
-                                                            'constraint' => '80',
-                                                            'default' => '',
-                                                            ),
+					/* 	// 'i_mobile' => array(
+                                                            // 'type' => 'VARCHAR',
+                                                            // 'constraint' => '20',
+                                                            // 'default' => '',
+                                                            // ),
+						// 'i_mail' => array(
+                                                            // 'type' => 'VARCHAR',
+                                                            // 'constraint' => '80',
+                                                            // 'default' => '',
+                                                            // ), */
 						'i_street1' => array(
                                                             'type' => 'VARCHAR',
                                                             'constraint' => '250',
                                                             'default' => '',
                                                             ),
-						'i_street2' => array(
-                                                            'type' => 'VARCHAR',
-                                                            'constraint' => '250',
-                                                            'default' => '',
-                                                            ),
+			/* 			// 'i_street2' => array(
+                                                            // 'type' => 'VARCHAR',
+                                                            // 'constraint' => '250',
+                                                            // 'default' => '',
+                                                            // ), */
 						'i_town' => array(
                                                             'type' => 'VARCHAR',
                                                             'constraint' => '120',
@@ -173,96 +148,121 @@ class Module_Appointments extends Module {
                                                             'constraint' => '10',
                                                             'default' => '',
                                                             ),
-						'i_region' => array(
+				/* 		// 'i_region' => array(
+                                                            // 'type' => 'VARCHAR',
+                                                            // 'constraint' => '10',
+                                                            // 'default' => '',
+                                                            // ),
+						// 'i_country' => array(
+                                                            // 'type' => 'VARCHAR',
+                                                            // 'constraint' => '10',
+                                                            // 'default' => '',
+                                                            // ), */
+						'payment_type' => array(
                                                             'type' => 'VARCHAR',
-                                                            'constraint' => '10',
+                                                            'constraint' => '100',
                                                             'default' => '',
                                                             ),
-						'i_country' => array(
+						'payment_status' => array(
                                                             'type' => 'VARCHAR',
-                                                            'constraint' => '10',
+                                                            'constraint' => '100',
                                                             'default' => '',
                                                             ),
-						'd_company' => array(
+						'total_pretax' => array(
                                                             'type' => 'VARCHAR',
-                                                            'constraint' => '120',
-                                                            'default' => '',
-                                                            ),	
-						'd_fullname' => array(
+                                                            'constraint' => '11',
+                                                            'default' => 0,
+                                                            ),						
+						'total_final' => array(
                                                             'type' => 'VARCHAR',
-                                                            'constraint' => '120',
-                                                            'default' => '',
-                                                            ),
-						'd_firstname' => array(
-                                                            'type' => 'VARCHAR',
-                                                            'constraint' => '60',
-                                                            'default' => '',
-                                                            ),								
-						'd_lastname' => array(
-                                                            'type' => 'VARCHAR',
-                                                            'constraint' => '60',
-                                                            'default' => '',
-                                                            ),								
-						'd_civility' => array(
-                                                            'type' => 'VARCHAR',
-                                                            'constraint' => '10',
-                                                            'default' => '',
-                                                            ),		
-                                                'd_phone' => array(
-                                                            'type' => 'VARCHAR',
-                                                            'constraint' => '20',
-                                                            'default' => '',
-                                                            ),
-						'd_mobile' => array(
-                                                            'type' => 'VARCHAR',
-                                                            'constraint' => '20',
-                                                            'default' => '',
-                                                            ),
-						'd_mail' => array(
-                                                            'type' => 'VARCHAR',
-                                                            'constraint' => '80',
-                                                            'default' => '',
-                                                            ),
-						'd_street1' => array(
-                                                            'type' => 'VARCHAR',
-                                                            'constraint' => '250',
-                                                            'default' => '',
-                                                            ),
-						'd_street2' => array(
-                                                            'type' => 'VARCHAR',
-                                                            'constraint' => '250',
-                                                            'default' => '',
-                                                            ),
-						'd_town' => array(
-                                                            'type' => 'VARCHAR',
-                                                            'constraint' => '120',
-                                                            'default' => '',
-                                                            ),
-						'd_zipcode' => array(
-                                                            'type' => 'VARCHAR',
-                                                            'constraint' => '10',
-                                                            'default' => '',
-                                                            ),
-						'd_region' => array(
-                                                            'type' => 'VARCHAR',
-                                                            'constraint' => '10',
-                                                            'default' => '',
-                                                            ),
-						'd_country' => array(
-                                                            'type' => 'VARCHAR',
-                                                            'constraint' => '10',
-                                                            'default' => '',
-                                                            ),
-                                                        'ip' => array(
-                                                            'type' => 'VARCHAR',
-                                                            'constraint' => '255',
-                                                            'null' => TRUE
-                                                            ),
-                                                'user_agent' => array(
-                                                            'type' => 'VARCHAR',
-                                                            'constraint' => '255',
-                                                            'null' => TRUE
-                                                            ),
+                                                            'constraint' => '11',
+                                                            'default' => 0,
+                                                            ),					
+				/*		// 'discount' => array(
+                                                            // 'type' => 'VARCHAR',
+                                                            // 'constraint' => '5',
+                                                            // 'default' => 0,
+                                                            // ),	
+						// 'd_company' => array(
+                                                            // 'type' => 'VARCHAR',
+                                                            // 'constraint' => '120',
+                                                            // 'default' => '',
+                                                            // ),	
+						// 'd_fullname' => array(
+                                                            // 'type' => 'VARCHAR',
+                                                            // 'constraint' => '120',
+                                                            // 'default' => '',
+                                                            // ),
+						// 'd_firstname' => array(
+                                                            // 'type' => 'VARCHAR',
+                                                            // 'constraint' => '60',
+                                                            // 'default' => '',
+                                                            // ),								
+						// 'd_lastname' => array(
+                                                            // 'type' => 'VARCHAR',
+                                                            // 'constraint' => '60',
+                                                            // 'default' => '',
+                                                            // ),								
+						// 'd_civility' => array(
+                                                            // 'type' => 'VARCHAR',
+                                                            // 'constraint' => '10',
+                                                            // 'default' => '',
+                                                            // ),		
+                                                // 'd_phone' => array(
+                                                            // 'type' => 'VARCHAR',
+                                                            // 'constraint' => '20',
+                                                            // 'default' => '',
+                                                            // ),
+						// 'd_mobile' => array(
+                                                            // 'type' => 'VARCHAR',
+                                                            // 'constraint' => '20',
+                                                            // 'default' => '',
+                                                            // ),
+						// 'd_mail' => array(
+                                                            // 'type' => 'VARCHAR',
+                                                            // 'constraint' => '80',
+                                                            // 'default' => '',
+                                                            // ),
+						// 'd_street1' => array(
+                                                            // 'type' => 'VARCHAR',
+                                                            // 'constraint' => '250',
+                                                            // 'default' => '',
+                                                            // ),
+						// 'd_street2' => array(
+                                                            // 'type' => 'VARCHAR',
+                                                            // 'constraint' => '250',
+                                                            // 'default' => '',
+                                                            // ),
+						// 'd_town' => array(
+                                                            // 'type' => 'VARCHAR',
+                                                            // 'constraint' => '120',
+                                                            // 'default' => '',
+                                                            // ),
+						// 'd_zipcode' => array(
+                                                            // 'type' => 'VARCHAR',
+                                                            // 'constraint' => '10',
+                                                            // 'default' => '',
+                                                            // ),
+						// 'd_region' => array(
+                                                            // 'type' => 'VARCHAR',
+                                                            // 'constraint' => '10',
+                                                            // 'default' => '',
+                                                            // ),
+						// 'd_country' => array(
+                                                            // 'type' => 'VARCHAR',
+                                                            // 'constraint' => '10',
+                                                            // 'default' => '',
+                                                            // ),
+                                                        // 'ip' => array(
+                                                            // 'type' => 'VARCHAR',
+                                                            // 'constraint' => '255',
+                                                            // 'null' => TRUE
+                                                            // ),
+                                                // 'user_agent' => array(
+                                                            // 'type' => 'VARCHAR',
+                                                            // 'constraint' => '255',
+                                                            // 'null' => TRUE
+                                                            // ), */
 						'created_on' => array(
                                                             'type'       => 'datetime',
                                                             'default'    => '1970-01-01 00:00:01',
@@ -287,58 +287,58 @@ class Module_Appointments extends Module {
                                                                 'type' => 'INT',
                                                                 'constraint' => '11',
                                                                 ),
-                                                'product_id' => array(
-                                                                'type' => 'INT',
-                                                                'constraint' => '11',
-                                                                ),
-						'product_qty' => array(
-                                                                'type' => 'VARCHAR',
-                                                                'constraint' => '11',
-                                                                ),
-						'unit_price' => array(
-                                                                'type' => 'VARCHAR',
-                                                                'constraint' => '11',
-                                                                ),
-						'line_price' => array(
-                                                                'type' => 'VARCHAR',
-                                                                'constraint' => '11',
-                                                                ),
-						'tax' => array(
-                                                                'type' => 'VARCHAR',
-                                                                'constraint' => '3',
-                                                                ),
-						'final_price' => array(
-                                                                'type' => 'VARCHAR',
-                                                                'constraint' => '11',
-                                                                ),
-                                                    'name' => array(
-                                                                'type' => 'VARCHAR',
-                                                                'constraint' => '100',
-                                                                ),
-                                                    'slug' => array(
-                                                                'type' => 'VARCHAR',
-                                                                'constraint' => '100'
-                                                                ),
-                                                    'unit' => array(
-                                                                'type' => 'VARCHAR',
-                                                                'constraint' => '20',
-                                                                'default' => '',
-                                                                ),
-                                                    'origin' => array(
-                                                                'type' => 'VARCHAR',
-                                                                'constraint' => '100',
-                                                                'default' => '',
-                                                                ),
-                                                    'comment' => array(
-                                                                'type' => 'VARCHAR',
-                                                                'constraint' => '120',
-                                                                'default' => '',
-                                                                ),
-                                                'image_filename' => array(
-                                                                'type' => 'VARCHAR',
-                                                                'constraint' => '120',
-                                                                'default' => '',
-                                                                ),
+                                              /*  // 'product_id' => array(
+                                                                // 'type' => 'INT',
+                                                                // 'constraint' => '11',
+                                                                // ),
+						// 'product_qty' => array(
+                                                                // 'type' => 'VARCHAR',
+                                                                // 'constraint' => '11',
+                                                                // ),
+						// 'unit_price' => array(
+                                                                // 'type' => 'VARCHAR',
+                                                                // 'constraint' => '11',
+                                                                // ),
+						// 'line_price' => array(
+                                                                // 'type' => 'VARCHAR',
+                                                                // 'constraint' => '11',
+                                                                // ),
+						// 'tax' => array(
+                                                                // 'type' => 'VARCHAR',
+                                                                // 'constraint' => '3',
+                                                                // ),
+						// 'final_price' => array(
+                                                                // 'type' => 'VARCHAR',
+                                                                // 'constraint' => '11',
+                                                                // ),
+                                                    // 'name' => array(
+                                                                // 'type' => 'VARCHAR',
+                                                                // 'constraint' => '100',
+                                                                // ),
+                                                    // 'slug' => array(
+                                                                // 'type' => 'VARCHAR',
+                                                                // 'constraint' => '100'
+                                                                // ),
+                                                    // 'unit' => array(
+                                                                // 'type' => 'VARCHAR',
+                                                                // 'constraint' => '20',
+                                                                // 'default' => '',
+                                                                // ),
+                                                    // 'origin' => array(
+                                                                // 'type' => 'VARCHAR',
+                                                                // 'constraint' => '100',
+                                                                // 'default' => '',
+                                                                // ),
+                                                    // 'comment' => array(
+                                                                // 'type' => 'VARCHAR',
+                                                                // 'constraint' => '120',
+                                                                // 'default' => '',
+                                                                // ),
+                                                // 'image_filename' => array(
+                                                                // 'type' => 'VARCHAR',
+                                                                // 'constraint' => '120',
+                                                                // 'default' => '',
+                                                                // ), */
 						'created_on' => array(
                                                                 'type'       => 'datetime',
                                                                 'default'    => '1970-01-01 00:00:01',
@@ -352,18 +352,18 @@ class Module_Appointments extends Module {
 						);
 
 		$appointments_settings = array(
-                                array(
-                                            'slug' => 'seller_email',
-                                            'title' => 'Adresse email du vendeur',
-                                            'description' => 'Adresse email du gestionnaire des commandes. Par défault l\'email de contact du site. Plusieurs mails possible, séparés par virgule.',
-                                            '`default`' => '',
-                                            '`value`' => '',
-                                            'type' => 'text',
-                                            '`options`' => '',
-                                            'is_required' => 1,
-                                            'is_gui' => 1,
-                                            'module' => 'appointments'
-                                ),
+                /*                 // array(
+                                            // 'slug' => 'seller_email',
+                                            // 'title' => 'Adresse email du vendeur',
+                                            // 'description' => 'Adresse email du gestionnaire des commandes. Par défault l\'email de contact du site. Plusieurs mails possible, séparés par virgule.',
+                                            // '`default`' => '',
+                                            // '`value`' => '',
+                                            // 'type' => 'text',
+                                            // '`options`' => '',
+                                            // 'is_required' => 1,
+                                            // 'is_gui' => 1,
+                                            // 'module' => 'appointments'
+                                // ), */
                                 array(
                                             'slug' => 'off_period',
                                             'title' => 'Période de fermeture',
@@ -388,42 +388,42 @@ class Module_Appointments extends Module {
                                             'is_gui' => 1,
                                             'module' => 'appointments'
                                 ),
-                                array(
-                                            'slug' => 'paypal_access_token',
-                                            'title' => 'Token PayPal',
-                                            'description' => 'Token d\'accès PayPal?',
-                                            '`default`' => '',
-                                            '`value`' => '',
-                                            'type' => 'text',
-                                            '`options`' => '',
-                                            'is_required' => 0,
-                                            'is_gui' => 1,
-                                            'module' => 'appointments'
-                                ),
-                                array(
-                                            'slug' => 'paypal_commercial_name',
-                                            'title' => 'Nom PayPal',
-                                            'description' => 'Nom de commercant PayPal?',
-                                            '`default`' => '',
-                                            '`value`' => '',
-                                            'type' => 'text',
-                                            '`options`' => '',
-                                            'is_required' => 0,
-                                            'is_gui' => 1,
-                                            'module' => 'appointments'
-                                ),
-                                array(
-                                            'slug' => 'manage_stock',
-                                            'title' => 'Gestion du stock',
-                                            'description' => 'Gérer le stock?',
-                                            '`default`' => '1',
-                                            '`value`' => '1',
-                                            'type' => 'select',
-                                            '`options`' => '1=Oui|0=Non',
-                                            'is_required' => 1,
-                                            'is_gui' => 1,
-                                            'module' => 'appointments'
-                                ),
+                                /*// array(
+                                            // 'slug' => 'paypal_access_token',
+                                            // 'title' => 'Token PayPal',
+                                            // 'description' => 'Token d\'accès PayPal?',
+                                            // '`default`' => '',
+                                            // '`value`' => '',
+                                            // 'type' => 'text',
+                                            // '`options`' => '',
+                                            // 'is_required' => 0,
+                                            // 'is_gui' => 1,
+                                            // 'module' => 'appointments'
+                                // ),
+                                // array(
+                                            // 'slug' => 'paypal_commercial_name',
+                                            // 'title' => 'Nom PayPal',
+                                            // 'description' => 'Nom de commercant PayPal?',
+                                            // '`default`' => '',
+                                            // '`value`' => '',
+                                            // 'type' => 'text',
+                                            // '`options`' => '',
+                                            // 'is_required' => 0,
+                                            // 'is_gui' => 1,
+                                            // 'module' => 'appointments'
+                                // ),
+                                // array(
+                                            // 'slug' => 'manage_stock',
+                                            // 'title' => 'Gestion du stock',
+                                            // 'description' => 'Gérer le stock?',
+                                            // '`default`' => '1',
+                                            // '`value`' => '1',
+                                            // 'type' => 'select',
+                                            // '`options`' => '1=Oui|0=Non',
+                                            // 'is_required' => 1,
+                                            // 'is_gui' => 1,
+                                            // 'module' => 'appointments'
+                                // ),
                                 array(
                                             'slug' => 'delivery_days',
                                             'title' => 'Jours de livraison',
@@ -436,90 +436,90 @@ class Module_Appointments extends Module {
                                             'is_gui' => 1,
                                             'module' => 'appointments'
                                 ),
-                                array(
-                                'slug' => 'hours_weekday1',
-                                            'title' => 'Heures de livraison le lundi',
-                                            'description' => '',
-                                            'type' => 'text',
-                                            'default' => '',
-                                            'value' => '',
-                                            'options' => '',
-                                            'is_required' => 0,
-                                            'is_gui' => 1,
-                                            'module' => 'appointments',
-                                ),
-                                array(
-                                'slug' => 'hours_weekday2',
-                                            'title' => 'Heures de livraison le mardi',
-                                            'description' => '',
-                                            'type' => 'text',
-                                            'default' => '',
-                                            'value' => '',
-                                            'options' => '',
-                                            'is_required' => 0,
-                                            'is_gui' => 1,
-                                            'module' => 'appointments',
-                                ),
-                                array(
-                                'slug' => 'hours_weekday3',
-                                            'title' => 'Heures de livraison le mercredi',
-                                            'description' => '',
-                                            'type' => 'text',
-                                            'default' => '',
-                                            'value' => '',
-                                            'options' => '',
-                                            'is_required' => 0,
-                                            'is_gui' => 1,
-                                            'module' => 'appointments',
-                                ),
-                                array(
-                                'slug' => 'hours_weekday4',
-                                            'title' => 'Heures de livraison le jeudi',
-                                            'description' => '',
-                                            'type' => 'text',
-                                            'default' => '',
-                                            'value' => '',
-                                            'options' => '',
-                                            'is_required' => 0,
-                                            'is_gui' => 1,
-                                            'module' => 'appointments',
-                                ),
-                                array(
-                                'slug' => 'hours_weekday5',
-                                            'title' => 'Heures de livraison le vendredi',
-                                            'description' => '',
-                                            'type' => 'text',
-                                            'default' => '',
-                                            'value' => '',
-                                            'options' => '',
-                                            'is_required' => 0,
-                                            'is_gui' => 1,
-                                            'module' => 'appointments',
-                                ),
-                                array(
-                                'slug' => 'hours_weekday6',
-                                            'title' => 'Heures de livraison le samedi',
-                                            'description' => '',
-                                            'type' => 'text',
-                                            'default' => '',
-                                            'value' => '',
-                                            'options' => '',
-                                            'is_required' => 0,
-                                            'is_gui' => 1,
-                                            'module' => 'appointments',
-                                ),
-                                array(
-                                'slug' => 'hours_weekday0',
-                                            'title' => 'Heures de livraison le dimanche',
-                                            'description' => '',
-                                            'type' => 'text',
-                                            'default' => '',
-                                            'value' => '',
-                                            'options' => '',
-                                            'is_required' => 0,
-                                            'is_gui' => 1,
-                                            'module' => 'appointments',
-                                )    
+                                // array(
+                                // 'slug' => 'hours_weekday1',
+                                            // 'title' => 'Heures de livraison le lundi',
+                                            // 'description' => '',
+                                            // 'type' => 'text',
+                                            // 'default' => '',
+                                            // 'value' => '',
+                                            // 'options' => '',
+                                            // 'is_required' => 0,
+                                            // 'is_gui' => 1,
+                                            // 'module' => 'appointments',
+                                // ),
+                                // array(
+                                // 'slug' => 'hours_weekday2',
+                                            // 'title' => 'Heures de livraison le mardi',
+                                            // 'description' => '',
+                                            // 'type' => 'text',
+                                            // 'default' => '',
+                                            // 'value' => '',
+                                            // 'options' => '',
+                                            // 'is_required' => 0,
+                                            // 'is_gui' => 1,
+                                            // 'module' => 'appointments',
+                                // ),
+                                // array(
+                                // 'slug' => 'hours_weekday3',
+                                            // 'title' => 'Heures de livraison le mercredi',
+                                            // 'description' => '',
+                                            // 'type' => 'text',
+                                            // 'default' => '',
+                                            // 'value' => '',
+                                            // 'options' => '',
+                                            // 'is_required' => 0,
+                                            // 'is_gui' => 1,
+                                            // 'module' => 'appointments',
+                                // ),
+                                // array(
+                                // 'slug' => 'hours_weekday4',
+                                            // 'title' => 'Heures de livraison le jeudi',
+                                            // 'description' => '',
+                                            // 'type' => 'text',
+                                            // 'default' => '',
+                                            // 'value' => '',
+                                            // 'options' => '',
+                                            // 'is_required' => 0,
+                                            // 'is_gui' => 1,
+                                            // 'module' => 'appointments',
+                                // ),
+                                // array(
+                                // 'slug' => 'hours_weekday5',
+                                            // 'title' => 'Heures de livraison le vendredi',
+                                            // 'description' => '',
+                                            // 'type' => 'text',
+                                            // 'default' => '',
+                                            // 'value' => '',
+                                            // 'options' => '',
+                                            // 'is_required' => 0,
+                                            // 'is_gui' => 1,
+                                            // 'module' => 'appointments',
+                                // ),
+                                // array(
+                                // 'slug' => 'hours_weekday6',
+                                            // 'title' => 'Heures de livraison le samedi',
+                                            // 'description' => '',
+                                            // 'type' => 'text',
+                                            // 'default' => '',
+                                            // 'value' => '',
+                                            // 'options' => '',
+                                            // 'is_required' => 0,
+                                            // 'is_gui' => 1,
+                                            // 'module' => 'appointments',
+                                // ),
+                                // array(
+                                // 'slug' => 'hours_weekday0',
+                                            // 'title' => 'Heures de livraison le dimanche',
+                                            // 'description' => '',
+                                            // 'type' => 'text',
+                                            // 'default' => '',
+                                            // 'value' => '',
+                                            // 'options' => '',
+                                            // 'is_required' => 0,
+                                            // 'is_gui' => 1,
+                                            // 'module' => 'appointments',
+                                // )    */
                 );
 
                 // email templates
@@ -531,7 +531,7 @@ class Module_Appointments extends Module {
                                             'subject' => '{{ helper:date format="%A %e %b %Y" timestamp=appointment_data:delivery_date }} - Commande de {{user_data:display_name}} - {{appointment_data:total_final}}€',
                                             'body' => '<p>Une nouvelle commande de {{user_data:display_name}} | {{appointment_data:d_mail}}</p>
                                                         <h2>Date de livraison {{ helper:date format="%A %e %b %Y" timestamp=appointment_data:delivery_date }}</h2>
-                                                        <h3>Plage horaire souhaitée {{ appointment_data:delivery_time }}</h3>
+                                                        <h3>Plage horaire souhaitée {{ appointment_data:appointment_time }}</h3>
 
                                                         <p>
                                                         Adresse:<br />
@@ -588,7 +588,7 @@ class Module_Appointments extends Module {
                                                     </p>
 
                                                     <h2>Date de livraison {{ helper:date format="%A %e %b %Y" timestamp=appointment_data:delivery_date }}</h2>
-                                                    <h3>Plage horaire souhaitée {{ appointment_data:delivery_time }}</h3>
+                                                    <h3>Plage horaire souhaitée {{ appointment_data:appointment_time }}</h3>
 
                                                     <p>Adresse:<br />
                                                     {{appointment_data:d_fullname}}<br />
@@ -628,7 +628,7 @@ class Module_Appointments extends Module {
                                             'subject' => '{{ helper:date format="%A %e %b %Y" timestamp=appointment_data:delivery_date }} - Modification par {{user_data:display_name}}',
                                             'body' => '<h2>La commande de {{user_data:display_name}} | {{appointment_data:d_mail}} a été modifé!</h2>
                                                         <h3>Date de livraison: {{ helper:date format="%A %e %b %Y" timestamp=appointment_data:delivery_date }} </h3>
-                                                        <h3>Plage horaire souhaitée: {{ appointment_data:delivery_time }} </h3>
+                                                        <h3>Plage horaire souhaitée: {{ appointment_data:appointment_time }} </h3>
 
                                                         <p>
                                                         Adresse:<br />
@@ -782,7 +782,7 @@ class Module_Appointments extends Module {
                                             'subject' => '{{ helper:date format="%A %e %b %Y" timestamp=appointment_data:delivery_date }} - Commande de {{user_data:display_name}} - {{appointment_data:total_final}}€',
                                             'body' => '<p>Une nouvelle commande de {{user_data:display_name}} | {{appointment_data:d_mail}}</p>
                                                         <h2>Date de livraison {{ helper:date format="%A %e %b %Y" timestamp=appointment_data:delivery_date }}</h2>
-                                                        <h3>Plage horaire souhaitée {{ appointment_data:delivery_time }}</h3>
+                                                        <h3>Plage horaire souhaitée {{ appointment_data:appointment_time }}</h3>
 
                                                         <p>
                                                         Adresse:<br />
@@ -839,7 +839,7 @@ class Module_Appointments extends Module {
                                                     </p>
 
                                                     <h2>Date de livraison {{ helper:date format="%A %e %b %Y" timestamp=appointment_data:delivery_date }}</h2>
-                                                    <h3>Plage horaire souhaitée {{ appointment_data:delivery_time }}</h3>
+                                                    <h3>Plage horaire souhaitée {{ appointment_data:appointment_time }}</h3>
 
                                                     <p>Adresse:<br />
                                                     {{appointment_data:d_fullname}}<br />
@@ -879,7 +879,7 @@ class Module_Appointments extends Module {
                                             'subject' => '{{ helper:date format="%A %e %b %Y" timestamp=appointment_data:delivery_date }} - Modification par {{user_data:display_name}}',
                                             'body' => '<h2>La commande de {{user_data:display_name}} | {{appointment_data:d_mail}} a été modifé!</h2>
                                                         <h3>Date de livraison: {{ helper:date format="%A %e %b %Y" timestamp=appointment_data:delivery_date }} </h3>
-                                                        <h3>Plage horaire souhaitée: {{ appointment_data:delivery_time }} </h3>
+                                                        <h3>Plage horaire souhaitée: {{ appointment_data:appointment_time }} </h3>
 
                                                         <p>
                                                         Adresse:<br />
@@ -973,7 +973,7 @@ class Module_Appointments extends Module {
                 if(version_compare($this->version, '0.0.01', '<=') ) 
                 {
                             $fields = array(
-                            'delivery_time' => array(
+                            'appointment_time' => array(
                                             'type' => 'VARCHAR',
                                             'constraint' => '120',
                                             'null' => TRUE
