@@ -105,8 +105,8 @@ class Plugin_Doctor extends Plugin
         /**
 	 * doctors list
          * 
-	 * {{ doctor:list_doctors limit="5" order_by="id" order="asc" zone_id="2" areaname="areaname" town="town" }}
-	 *      {{ id }} {{ name }} {{ areaname }} {{ town }}
+	 * {{ doctor:list_doctors limit="5" order_by="id" order="asc" zone_id="2" area_name="area_name" town="town" }}
+	 *      {{ id }} {{ name }} {{ area_name }} {{ town }}
 	 * {{ /doctor:list_doctors }}
 	 *
 	 * @return	array
@@ -118,12 +118,12 @@ class Plugin_Doctor extends Plugin
                 $order_by = !empty($this->attribute('order_by')) ? $this->attribute('order_by') : 'name';
                 $zone_id = $this->attribute('doctor_zone');
 		$town = $this->attribute('town');
-		$areaname = $this->attribute('areaname');
+		$area_name = $this->attribute('area_name');
 		
             // query setting
                 if(!empty($zone_id)) $this->db->where("zone_id",$zone_id);
                 if(!empty($town)) $this->db->or_like("town", $town);
-                if(!empty($areaname)) $this->db->or_like("areaname", $areaname);
+                if(!empty($area_name)) $this->db->or_like("area_name", $area_name);
                 $this->db->order_by($order_by, $order);
 
 

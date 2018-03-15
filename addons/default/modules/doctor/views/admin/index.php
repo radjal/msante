@@ -6,7 +6,10 @@
 <div class="content">
 
 	<?php if ($doctors['total'] > 0): ?>
-	
+
+            <?php echo $this->load->view('admin/partials/filters') ?>
+
+
 		<table class="table" cellpadding="0" cellspacing="0">
 			<thead>
 				<tr>
@@ -20,12 +23,13 @@
 				<?php foreach ($doctors['entries'] as $doctor): ?>
 				<tr>
 					<td><?php echo $doctor['name']; ?></td>
-					<td><?php echo $doctor['days']; ?></td>
 					<td><?php 
-                                        echo $doctor['description']; ?></td>
-					<td class="actions"><?php echo anchor('admin/doctor/edit/' . $doctor['id'], lang('global:edit'), 'class="button edit"'); ?>
-                                            <?php echo anchor('admin/doctor/delete/' . $doctor['id'], lang('global:delete'), array('class' => 'confirm button delete')); ?>
-                                        </td>
+//                                        echo $doctor['days']; ?></td>
+					<td><?php echo $doctor['description']; ?></td>
+					<td class="actions">
+						<?php echo anchor('admin/doctor/edit/' . $doctor['id'], lang('global:edit'), 'class="button edit"'); ?>
+						<?php echo anchor('admin/doctor/delete/' . $doctor['id'], lang('global:delete'), array('class' => 'confirm button delete')); ?>
+					</td>
 				</tr>
 				<?php endforeach; ?>
 			</tbody>

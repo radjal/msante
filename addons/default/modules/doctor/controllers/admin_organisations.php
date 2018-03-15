@@ -68,7 +68,7 @@ class Admin_organisations extends Admin_Controller
             'title' => lang('doctor:organisations:new')
         );
 
-        $skips = array('cat_dom_id');
+        $skips = array('domain_id');
         $this->streams->cp->entry_form('organisations', 'doctor', 'new', null, true, $extra, $skips);
     }
 

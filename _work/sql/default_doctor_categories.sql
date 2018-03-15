@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50709
 File Encoding         : 65001
 
-Date: 2018-03-14 15:40:36
+Date: 2018-03-14 18:48:48
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -25,9 +25,9 @@ CREATE TABLE `default_doctor_categories` (
   `updated` datetime DEFAULT NULL,
   `created_by` int(11) DEFAULT NULL,
   `ordering_count` int(11) DEFAULT NULL,
-  `doctor_cat_title` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `cat_dom_id` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `parent_cat_id` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `speciality` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `domain_id` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `parent_cat` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=10 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 

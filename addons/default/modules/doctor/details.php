@@ -2,7 +2,7 @@
 
 class Module_Doctor extends Module
 {
-    public $version = '1.0.91';
+    public $version = '1.1.10';
 
     public function info()
     {
@@ -18,6 +18,9 @@ class Module_Doctor extends Module
             'frontend' => true,
             'backend' => true,
             'menu' => 'content',
+			'roles' => array(
+				'role1', 'role2', 'role3', 'edit', 'delete', 'create', 'set_location'
+			),
             'sections' => array(
                 'doctor' => array(
                     'name' => 'doctor:doctors',
@@ -64,210 +67,251 @@ class Module_Doctor extends Module
      */
     public function install()
     {
+        //db forge drop
+//        $this->dbforge->drop_table('doctors');
+//        $this->dbforge->drop_table('doctors_categories');
+//        $this->dbforge->drop_table('doctors_organisations');
+        $this->db->delete('settings', array('module' => 'doctor'));
         // We're using the streams API to
         // do data setup.
-        $this->load->driver('Streams');
-        
-        //just in case
-        $this->streams->utilities->remove_namespace('doctor');
-		
-        //$this->load->language('doctor');
-//        $this->lang->load('doctor');
-
+        $this->load->driver('Streams'); 
+        //just in case, remove streams first
+        $this->streams->utilities->remove_namespace('doctor'); 
         // Add doctors streams
         if ( ! $this->streams->streams->add_stream('lang:doctor:doctors', 'doctors', 'doctor', 'doctor_', null)) return false;
         if ( ! $categories_stream_id = $this->streams->streams->add_stream('lang:doctor:categories', 'categories', 'doctor', 'doctor_', null)) return false;
         if ( ! $organisations_stream_id = $this->streams->streams->add_stream('lang:doctor:organisations', 'organisations', 'doctor', 'doctor_', null)) return false;
-
-        
-        
+ 
         // Create image folder
         $this->load->library('files/files');
         $imgfolder = Files::create_folder(0, 'doctors');
         
         // Add some fields
-        $fields = array(
-            //doctors
-            array(
-                'name' => 'Nom du docteur',
-                'slug' => 'name',
-                'namespace' => 'doctor',
-                'type' => 'textarea',
-                'extra' => array('max_length' => 200),
-                'assign' => 'doctors',
-                'required' => false 
-            ),
-            array(
-                'name' => 'Jours ouverts',
-                'slug' => 'days',
-                'namespace' => 'doctor',
-                'type' => 'choice',
-                'extra' => array('choice_data' => "1 : lundi
-                            2 : mardi
-                            3 : mercredi
-                            4 : jeudi
-                            5 : vendredi
-                            6 : samedi
-                            0 : dimanche", 
-                            'choice_type' => 'checkboxes', 
-                            'default_value' => ''),
-                'assign' => 'doctors',
-                'required' => false,
-                'unique' => false
-            ),
-            array(
-                'name' => 'Heures d\'ouverture',
-                'slug' => 'hours',
-                'namespace' => 'doctor',
-                'type' => 'text',
-                'extra' => array('max_length' => 200),
-                'assign' => 'doctors',
-                'required' => false 
-            ),
-            array(
-                'name' => 'Description',
-                'slug' => 'description',
-                'namespace' => 'doctor',
-                'type' => 'textarea',
-                'assign' => 'doctors',
-                'required' => false
-            ),
-            array(
-                'name' => 'Téléphone',
-                'slug' => 'telephone',
-                'namespace' => 'doctor',
-                'type' => 'text',
-                'assign' => 'doctors',
-                'required' => false
-            ),
-            array(
-                'name' => 'Mobile',
-                'slug' => 'mobile',
-                'namespace' => 'doctor',
-                'type' => 'text',
-                'assign' => 'doctors',
-                'required' => false
-            ),
-            array(
-                'name' => 'Email',
-                'slug' => 'email',
-                'namespace' => 'doctor',
-                'type' => 'text',
-                'assign' => 'doctors',
-                'required' => false
-            ),
-            array(
-                'name' => 'Adresse',
-                'slug' => 'address',
-                'namespace' => 'doctor',
-                'type' => 'text',
-                'assign' => 'doctors',
-                'required' => true
-            ),
-            array(
-                'name' => 'Ville',
-                'slug' => 'town',
-                'namespace' => 'doctor',
-                'type' => 'text',
-                'assign' => 'doctors',
-                'required' => true
-            ),
-            array(
-                'name' => 'Quartier',
-                'slug' => 'areaname',
-                'namespace' => 'doctor',
-                'type' => 'text',
-                'assign' => 'doctors',
-                'required' => true
-            ),
-            array(
-                'name' => 'Image docteur',
-                'slug' => 'image',
-                'namespace' => 'doctor',
-                'type' => 'image',
-		 'extra' => array('folder' => $imgfolder['data']['id'], 'required' => FALSE), // use id of folder created with core files modules
-                'assign' => 'doctors',
-                'required' => false
-            ),
-            array(
-                'name' => 'Domain id',
-                'slug' => 'dom_id',
-                'namespace' => 'doctor',
-                'type' => 'text',
-                'assign' => 'doctors',
-                'required' => false
-            ),
-            //categories
-            array(
-                'name' => 'Catégorie',
-                'slug' => 'doctor_cat',
-                'namespace' => 'doctor',
-                'type' => 'relationship',
-                'assign' => 'doctors',
-                'extra' => array('choose_stream' => $categories_stream_id)
-            ),
-            array(
-                'name' => 'Titre categorie',
-                'slug' => 'doctor_cat_title',
-                'namespace' => 'doctor',
-                'type' => 'text',
-                'assign' => 'categories',
-                'title_column' => true,
-                'required' => true,
-                'unique' => true
-            ),
-            array(
-                'name' => 'Domain id',
-                'slug' => 'cat_dom_id',
-                'namespace' => 'doctor',
-                'type' => 'text',
-                'assign' => 'categories',
-                'required' => false
-            ),
-            array(
-                'name' => 'Catégorie parente',
-                'slug' => 'parent_cat_id',
-                'namespace' => 'doctor',
-                'type' => 'text',
-                'assign' => 'categories',
-                'required' => false
-            ),
-            //organisations
-            array(
-                'name' => 'Organismes',
-                'slug' => 'organisation',
-                'namespace' => 'doctor',
-                'type' => 'relationship',
-                'assign' => 'organisations',
-                'extra' => array('choose_stream' => $organisations_stream_id)
-            ),
-            array(
-                'name' => 'Nom organisme',
-                'slug' => 'organisation_name',
-                'namespace' => 'doctor',
-                'type' => 'text',
-                'assign' => 'organisations',
-                'title_column' => true,
-                'required' => true,
-                'unique' => true
-            ),            
-        );
+        if(1)
+        {
+                    $fields = array(
+                        //doctors
+                        array(
+                            'name' => 'Nom du practicien',
+                            'slug' => 'name',
+                            'namespace' => 'doctor',
+                            'type' => 'text',
+                            'extra' => array('max_length' => 200),
+                            'assign' => 'doctors',
+                            'required' => false 
+                        ), 
+                        array(
+                            'name' => 'Jours ouverts',
+                            'slug' => 'days',
+                            'namespace' => 'doctor',
+                            'type' => 'choice',
+                            'extra' => array('choice_data' => "1 : lundi
+                                        2 : mardi
+                                        3 : mercredi
+                                        4 : jeudi
+                                        5 : vendredi
+                                        6 : samedi
+                                        0 : dimanche", 
+                                        'choice_type' => 'checkboxes', 
+                                        'default_value' => ''),
+                            'assign' => 'doctors',
+                            'required' => false,
+                            'unique' => false
+                        ),
+                        array(
+                            'name' => 'Heures d\'ouverture',
+                            'slug' => 'hours',
+                            'namespace' => 'doctor',
+                            'type' => 'text',
+                            'extra' => array('max_length' => 200),
+                            'assign' => 'doctors',
+                            'required' => false 
+                        ),
+                        array(
+                            'name' => 'Ouverture',
+                            'slug' => 'opens',
+                            'namespace' => 'doctor',
+                            'type' => 'text',
+                            'extra' => array('max_length' => 10),
+                            'assign' => 'doctors',
+                            'required' => false 
+                        ),
+                        array(
+                            'name' => 'Fermeture',
+                            'slug' => 'closes',
+                            'namespace' => 'doctor',
+                            'type' => 'text',
+                            'extra' => array('max_length' => 10),
+                            'assign' => 'doctors',
+                            'required' => false 
+                        ),
+                        array(
+                            'name' => 'RDV Max Jour(30")',
+                            'slug' => 'max_per_day',
+                            'namespace' => 'doctor',
+                            'type' => 'text',
+                            'extra' => array('max_length' => 2),
+                            'assign' => 'doctors',
+                            'required' => false 
+                        ),
+                        array(
+                            'name' => 'Description',
+                            'slug' => 'description',
+                            'namespace' => 'doctor',
+                            'type' => 'textarea',
+                            'assign' => 'doctors',
+                            'required' => false
+                        ),
+                        array(
+                            'name' => 'Téléphone',
+                            'slug' => 'telephone',
+                            'namespace' => 'doctor',
+                            'type' => 'text',
+                            'assign' => 'doctors',
+                            'required' => false
+                        ),
+                        array(
+                            'name' => 'Mobile',
+                            'slug' => 'mobile',
+                            'namespace' => 'doctor',
+                            'type' => 'text',
+                            'assign' => 'doctors',
+                            'required' => false
+                        ),
+                        array(
+                            'name' => 'Email',
+                            'slug' => 'email',
+                            'namespace' => 'doctor',
+                            'type' => 'text',
+                            'assign' => 'doctors',
+                            'required' => false
+                        ),
+                        array(
+                            'name' => 'Adresse',
+                            'slug' => 'address',
+                            'namespace' => 'doctor',
+                            'type' => 'text',
+                            'assign' => 'doctors',
+                            'required' => true
+                        ),
+                        array(
+                            'name' => 'Quartier',
+                            'slug' => 'area_name',
+                            'namespace' => 'doctor',
+                            'type' => 'text',
+                            'assign' => 'doctors',
+                            'required' => true
+                        ),
+                        array(
+                            'name' => 'Ville',
+                            'slug' => 'town',
+                            'namespace' => 'doctor',
+                            'type' => 'text',
+                            'assign' => 'doctors',
+                            'required' => true
+                        ),
+                        array(
+                            'name' => 'Image docteur',
+                            'slug' => 'image',
+                            'namespace' => 'doctor',
+                            'type' => 'image',
+                             'extra' => array('folder' => $imgfolder['data']['id'], 'required' => FALSE), // use id of folder created with core files modules
+                            'assign' => 'doctors',
+                            'required' => false
+                        ),
+                        //category link
+                        array(
+                            'name' => 'Catégorie',
+                            'slug' => 'doctor_cat',
+                            'namespace' => 'doctor',
+                            'type' => 'relationship',
+                            'assign' => 'doctors',
+                            'extra' => array('choose_stream' => $categories_stream_id)
+                        ),
+                        //categories
+                        array(
+                            'name' => 'Spécialité médicale',
+                            'slug' => 'speciality',
+                            'namespace' => 'doctor',
+                            'type' => 'text',
+                            'assign' => 'categories',
+                            'title_column' => true,
+                            'required' => true,
+                            'unique' => true
+                        ),
+//                        array(
+//                            'name' => 'Domain id',
+//                            'slug' => 'domain_id',
+//                            'namespace' => 'doctor',
+//                            'type' => 'text',
+//                            'assign' => 'categories',
+//                            'required' => false,
+//                            'hidden' => true
+//                        ),
+                        array(
+                            'name' => 'Catégorie parente',
+                            'slug' => 'parent_cat',
+                            'namespace' => 'doctor',
+                            'type' => 'relationship',
+                            'assign' => 'categories',
+                            'extra' => array('choose_stream' => $categories_stream_id),
+                            'required' => false
+                        ),
+                        //organisation link
+                        array(
+                            'name' => 'Organisme ou groupe',
+                            'slug' => 'groupe',
+                            'namespace' => 'doctor',
+                            'type' => 'relationship',
+                            'assign' => 'doctors',
+                            'extra' => array('choose_stream' => $organisations_stream_id)
+                        ),
+                        //organisations 
+                        array(
+                            'name' => 'Structure',
+                            'slug' => 'organisation',
+                            'namespace' => 'doctor',
+                            'type' => 'relationship',
+                            'assign' => 'organisations',
+                            'extra' => array('choose_stream' => $organisations_stream_id)
+                        ),
+                        array(
+                            'name' => 'Etablissement',
+                            'slug' => 'subset',
+                            'namespace' => 'doctor',
+                            'type' => 'text',
+                            'assign' => 'organisations',
+                            'title_column' => true,
+                            'required' => true,
+                            'unique' => true
+                        ),            
+                    );
+        }
+
         //update
         $this->streams->fields->add_fields($fields);
         //admin views
         $this->streams->streams->update_stream('doctors', 'doctor', array(
             'view_options' => array(
-                'id',
+//                'id',
                 'days',
                 'description',
+                'groupe',
                 'doctor_cat'
             )
-        ));
-
+        )); 
         $this->streams->streams->update_stream('categories', 'doctor', array(
             'view_options' => array(
-                'id',
-                'doctor_cat_title'
+//                'id',
+                'parent_cat',
+                'speciality',
+            )
+        ));
+        $this->streams->streams->update_stream('organisations', 'doctor', array(
+            'view_options' => array(
+//                'id',
+                'organisation', 
+                'subset', 
             )
         ));
 
@@ -298,14 +342,14 @@ class Module_Doctor extends Module
         if(version_compare($this->version, '1.0.1', '<=') ) 
         {   //DB forge method
                 $table = array(
-                        'parent_cat_id' => array( 'type' => 'VARCHAR', 'constraint' => '255', 'unique' => false, 'null' => TRUE),
+                        'parent' => array( 'type' => 'VARCHAR', 'constraint' => '255', 'unique' => false, 'null' => TRUE),
                         );
 
                  if( !$this->dbforge->add_column('doctor_categories', $table) ) return false;
         }
         if(version_compare($this->version, '1.0.5', '<=') ) 
         { //DB forge method
-            $this->dbforge->drop_column('doctor_categories', 'parent_cat_id');
+            $this->dbforge->drop_column('doctor_categories', 'parent');
             return true;
         }
         if(version_compare($this->version, '1.0.6', '<=') ) 
@@ -314,7 +358,7 @@ class Module_Doctor extends Module
                 $fields = array(
                         array(
                             'name' => 'Catégorie parente',
-                            'slug' => 'parent_cat_id',
+                            'slug' => 'parent',
                             'namespace' => 'doctor',
                             'type' => 'text',
                             'assign' => 'categories',
@@ -330,7 +374,7 @@ class Module_Doctor extends Module
                 $data = array(
                    'field_name' => 'Quartier'
                 ); 
-                $this->db->where('field_slug', 'areaname'); // value
+                $this->db->where('field_slug', 'area_name'); // value
                 $this->db->update('data_fields', $data);  // table 
         } 
         if(version_compare($this->version, '1.0.91', '<=') ) 
@@ -339,24 +383,24 @@ class Module_Doctor extends Module
             if ( ! $organisations_stream_id = $this->streams->streams->add_stream('lang:doctor:organisations', 'organisations', 'doctor', 'doctor_', null)) return false; 
             //organisations
             $fields = array(
-            array(
-                'name' => 'Organismes',
-                'slug' => 'organisation',
-                'namespace' => 'doctor',
-                'type' => 'relationship',
-                'assign' => 'organisations',
-                'extra' => array('choose_stream' => $organisations_stream_id)
-            ),
-            array(
-                'name' => 'Nom organisme',
-                'slug' => 'organisation_name',
-                'namespace' => 'doctor',
-                'type' => 'text',
-                'assign' => 'organisations',
-                'title_column' => true,
-                'required' => true,
-                'unique' => true
-            )); 
+                            array(
+                                'name' => 'Organismes',
+                                'slug' => 'organisation',
+                                'namespace' => 'doctor',
+                                'type' => 'relationship',
+                                'assign' => 'organisations',
+                                'extra' => array('choose_stream' => $organisations_stream_id)
+                            ),
+                            array(
+                                'name' => 'Nom organisme',
+                                'slug' => 'subset',
+                                'namespace' => 'doctor',
+                                'type' => 'text',
+                                'assign' => 'organisations',
+                                'title_column' => true,
+                                'required' => true,
+                                'unique' => true
+                            )); 
             //update
             $this->streams->fields->add_fields($fields);
             //admin views
@@ -366,7 +410,23 @@ class Module_Doctor extends Module
                     'organisation', 
                 )
             ));
-        } 
+        }
+        if(version_compare($this->version, '1.0.92', '<=') ) 
+        {
+            $this->streams->streams->update_stream('categories', 'doctor', array(
+                'view_options' => array(
+                    'id',
+                    'parent',
+                    'speciality',
+                )
+            ));
+            $this->streams->streams->update_stream('organisations', 'doctor', array(
+                'view_options' => array(
+                    'id',
+                    'subset', 
+                )
+            )); 
+        }
         return true;
     }
 

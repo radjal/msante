@@ -1,7 +1,7 @@
 <?php if (!defined('BASEPATH')) exit('No direct script access allowed');
 
 /**
- * FAQ Module
+ * Based on FAQ Module example - radja
  *
  * This is a sample module for PyroCMS
  * that illustrates how to use the streams core API
@@ -65,10 +65,10 @@ class Admin extends Admin_Controller
             )
         );
         
-        // custom headers
-        $extra['columns'] = array('id', 'name', 'town', 'days', 'hours', 'address', 'areaname');
+        // customizing headers
+        $extra['columns'] = array('id', 'doctor_cat', 'groupe', 'name', 'days', 'opens', 'closes', 'address', 'area_name', 'town',);
         
-        $this->streams->cp->entries_table('doctors', 'doctor', 20, 'admin/doctor/index', true, $extra);
+        $this->streams->cp->entries_table('doctors', 'doctor', 20, null, true, $extra);
     }
 
     /**
