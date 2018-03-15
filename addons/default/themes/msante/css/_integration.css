@@ -32,8 +32,7 @@ h1, h2, h3 {
 /****************************************************************
 * main page blocks
 *****************************************************************/
-body {
-}
+body {background-attachment: fixed !important;}
 body > #container {
 }
 p {
