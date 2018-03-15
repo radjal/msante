@@ -8,8 +8,8 @@
 	<div id="texte-choix">Veuillez choisir un jour dans le menu ci desous!</div>
 
 
-<div id="blackboard-wrapper">
-    <div id="blackboard" class="{{ data:dayscount }}-days {{ data:days_oddeven }}" data-nodays="{{ data:dayscount }}" data-oddeven="{{ data:days_oddeven }}">
+<div id="weekzone-wrapper">
+    <div id="weekzone" class="{{ data:dayscount }}-days {{ data:days_oddeven }}" data-nodays="{{ data:dayscount }}" data-oddeven="{{ data:days_oddeven }}">
         
 	<center class="calendar-semaine-titre">semaine {{ data:week  }}, du <?php echo format_date($data['week_begin'], "%d %b"); ?> au  <?php echo format_date($data['week_finish'], "%d %B"); ?></center>
 			{{ if lundi }}

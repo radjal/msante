@@ -9,8 +9,8 @@
 <div class="message_global">{{ data:msg_global }}</div>
 <div class="message_jour">{{ data:msg_dujour }}</div>
 
-<div id="blackboard-wrapper" class="jour">
-    <div id="blackboard">
+<div id="weekzone-wrapper" class="jour">
+    <div id="weekzone">
         <center class="calendar-jour-titre">{{ jour }} {{journo}}</center>
             <div class="calendarjour {{ if passe }}date-passed {{ endif }}">
             {{ if entrees }}

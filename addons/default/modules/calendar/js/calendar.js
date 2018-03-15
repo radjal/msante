@@ -2,10 +2,10 @@
 function mobile_calendars()
 {
         /*semaine*/
-        if($('#blackboard > center.calendar-semaine-titre').length)  
+        if($('#weekzone > center.calendar-semaine-titre').length)  
         {
-            $('#blackboard div.calendar_titre').each(function() { $( this ).text('+' +  $( this ).html()) } );
-            $('#blackboard div.calendar_titre').each(function() {$(this).on('click', 
+            $('#weekzone div.calendar_titre').each(function() { $( this ).text('+' +  $( this ).html()) } );
+            $('#weekzone div.calendar_titre').each(function() {$(this).on('click', 
                 function() {
                     event.preventDefault();
 
@@ -18,15 +18,15 @@ function mobile_calendars()
                     $(this).siblings('section').slideToggle();    
                 }
             );});
-            $('#blackboard div.calendar section').slideUp();
+            $('#weekzone div.calendar section').slideUp();
         }
         
         /*jour*/
-        if($('#blackboard div.calendarjour').length) 
+        if($('#weekzone div.calendarjour').length) 
         {
-            $('#blackboard div.calendar_separator').each(function() { $( this ).text('+' +  $( this ).html()) } );
-            $('#blackboard div.calendarjour section div.content').slideUp();
-            $('#blackboard div.calendar_separator').each(function() {$(this).on('click', 
+            $('#weekzone div.calendar_separator').each(function() { $( this ).text('+' +  $( this ).html()) } );
+            $('#weekzone div.calendarjour section div.content').slideUp();
+            $('#weekzone div.calendar_separator').each(function() {$(this).on('click', 
                 function() 
                 {
                     event.preventDefault();
@@ -96,7 +96,7 @@ $( document ).ready(function()
                 $( "div.content form" ).submit(function( event ) {
                   if($('input[name=jscalc_totax]').val() <= minAmount )
                   {
-                      location.hash = '#blackboard-wrapper';
+                      location.hash = '#weekzone-wrapper';
                       alert('Sélectionner vos plats. Le total doit être au moins de '+minAmount+'€');
                   } 
                   else if($('input[name=payment_type]:checked').val() === undefined ) 
@@ -111,7 +111,7 @@ $( document ).ready(function()
                   } 
                   else 
                   {
-                      location.hash = '#blackboard-wrapper';
+                      location.hash = '#weekzone-wrapper';
                       alert('Sélectionner vos plats et renseignez les informations de livraison');
                   }
                   event.preventDefault();

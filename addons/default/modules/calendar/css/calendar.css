@@ -36,7 +36,7 @@ font-size: 14px;
 .mobile #calendar-login > a {
     font-size: 30px;
 }
-.mobile #blackboard div.calendar a div.calendar-spacer { display: none; }
+.mobile #weekzone div.calendar a div.calendar-spacer { display: none; }
 /* normal */
 #order-details div label {
     display: block;
@@ -48,7 +48,7 @@ font-size: 14px;
     font-size: 12px;
     vertical-align: middle;
 }
-#blackboard div.content {
+#weekzone div.content {
         line-height: 55px;
 }
 input[type=text].order_product, input[type=number].order_product {
@@ -66,23 +66,23 @@ input[type=text].order_product, input[type=number].order_product {
     text-align: center;
     font-size: 22px;
 }
-#blackboard div.content p:hover {
+#weekzone div.content p:hover {
     color: #ea5f1a;
 }
-#blackboard div.content p:hover input {
+#weekzone div.content p:hover input {
     border-color: #ea5f1a;
 }
-#blackboard div.content p input:focus, #blackboard div.content p input:active {
+#weekzone div.content p input:focus, #weekzone div.content p input:active {
     border-color: #ea5f1a;
 }
-#blackboard section:nth-child(1) div.calendar, #blackboard section:nth-child(3) div.calendar, #blackboard section:nth-child(5) div.calendar, #blackboard section:nth-child(7) div.calendar {
+#weekzone section:nth-child(1) div.calendar, #weekzone section:nth-child(3) div.calendar, #weekzone section:nth-child(5) div.calendar, #weekzone section:nth-child(7) div.calendar {
     float: right;
     /* clear: left; */
 }
-#blackboard section:nth-child(2) div.calendar, #blackboard section:nth-child(4) div.calendar, #blackboard section:nth-child(6) div.calendar {
+#weekzone section:nth-child(2) div.calendar, #weekzone section:nth-child(4) div.calendar, #weekzone section:nth-child(6) div.calendar {
     float: left;
 }
-#blackboard.odd section:last-child div {
+#weekzone.odd section:last-child div {
     /* width:100%; */
 }
 .calendar_element {
@@ -103,7 +103,7 @@ input[type=text].order_product, input[type=number].order_product {
     font-weight: normal;
     text-shadow: none;
 }
-#blackboard:hover .calendar-semaine-titre, #blackboard:hover .calendar-semaine-dates {
+#weekzone:hover .calendar-semaine-titre, #weekzone:hover .calendar-semaine-dates {
     color: #f06723;
 }
 div.calendar_titre, .calendar_titre a {
@@ -204,8 +204,8 @@ border: none;
     font-size: 15px;
 }
 /*animation*/
-#blackboard div.calendar a section .calendar_separator, #blackboard div.calendar a .calendar_titre, 
-#blackboard .calendar-semaine-titre, #blackboard .calendar-semaine-dates {
+#weekzone div.calendar a section .calendar_separator, #weekzone div.calendar a .calendar_titre, 
+#weekzone .calendar-semaine-titre, #weekzone .calendar-semaine-dates {
         -webkit-transition: margin-top 0.3s ease-in-out;
         -moz-transition: margin-top 0.3s ease-in-out;
         -o-transition: margin-top 0.3s ease-in-out;
@@ -216,13 +216,13 @@ border: none;
         transition-property: color, margin-top;
 
 }
-#blackboard div.calendar a:hover .calendar_separator:first-of-type {
+#weekzone div.calendar a:hover .calendar_separator:first-of-type {
     margin-top: 0;
 }
-#blackboard div.calendar a:hover .calendar_separator {
+#weekzone div.calendar a:hover .calendar_separator {
     margin-top: 30px;
 }
-#blackboard div.calendar a:focus {
+#weekzone div.calendar a:focus {
     outline: none;
 }
 /* responsive */
@@ -241,23 +241,23 @@ border: none;
         /* font-size: 12px; */
     }
     /*spacers*/
-    #blackboard div.calendar a section {
+    #weekzone div.calendar a section {
         float: left;
         width: 96%;
     }
-    #blackboard div.calendar a div.calendar-spacer {
+    #weekzone div.calendar a div.calendar-spacer {
         border-right: solid #8cb752 1px;
         float: right;
         height: 380px;
         margin-top: 80px;
     }
-    #blackboard div.calendar a:hover div.calendar-spacer {
+    #weekzone div.calendar a:hover div.calendar-spacer {
         height: 440px;
     }
-    #blackboard div.calendar:last-of-type a div.calendar-spacer  {
+    #weekzone div.calendar:last-of-type a div.calendar-spacer  {
         visibility: hidden;
     }
-    #blackboard div.calendar a div.calendar-spacer {
+    #weekzone div.calendar a div.calendar-spacer {
             -webkit-transition: height 0.3s ease-in-out;
             -moz-transition: height 0.3s ease-in-out;
             -o-transition: height 0.3s ease-in-out;
