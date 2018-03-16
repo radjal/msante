@@ -38,13 +38,18 @@ class Doctor extends Public_Controller
         );
         
         $category = $this->input->get('c'); 
-            $this->row_m->sql['join'][] = 'LEFT JOIN '.$this->db->protect_identifiers('doctor_categories', true).' ON '.$this->db->protect_identifiers('doctor_categories.id', true).' = '.$this->db->protect_identifiers('doctor_doctors.doctor_cat', true);
+        $this->row_m->sql['join'][] = 'LEFT JOIN '.$this->db->protect_identifiers('doctor_categories', true).' ON '.$this->db->protect_identifiers('doctor_categories.id', true).' = '.$this->db->protect_identifiers('doctor_doctors.doctor_cat', true);
+        $this->row_m->sql['join'][] = 'LEFT JOIN '.$this->db->protect_identifiers('doctor_organisations', true).' ON '.$this->db->protect_identifiers('doctor_organisations.id', true).' = '.$this->db->protect_identifiers('doctor_doctors.groupe', true);
 
         $search = $this->input->get('s');
         if(!empty($search) and !empty($category))   
         { 
             $params['where'] = "default_doctor_categories.speciality LIKE '%$category%' AND ( default_doctor_doctors.town LIKE '%$search%' OR default_doctor_doctors.area_name LIKE '$search%')" ;
         } 
+        else if(!empty($search)) 
+        {
+            $params['where'] = "default_doctor_doctors.town LIKE '%$search%' OR default_doctor_doctors.area_name LIKE '$search%'" ;
+        }
         else if(!empty($category)) 
         {
             $params['where'] = "default_doctor_categories.speciality LIKE '%$category%' " ;
@@ -59,23 +64,24 @@ class Doctor extends Public_Controller
         if($this->input->is_ajax_request() AND $this->template->set_layout(false))
         {
             $adata = $data->doctors;
-            foreach ($adata['entries'] as $key => $value) {
+            foreach ($adata['entries'] as $key => $value) 
+            {
                 $adata['entries'][$key]['js_name'] = json_encode($adata['entries'][$key]['name']) ;
-                $adata['entries'][$key]['js_hours'] = json_encode($adata['entries'][$key]['hours']) ;
                 $adata['entries'][$key]['js_town'] = json_encode($adata['entries'][$key]['town']) ;
                 $adata['entries'][$key]['js_description'] = json_encode($adata['entries'][$key]['description']) ;
                 $adata['entries'][$key]['js_address'] = json_encode($adata['entries'][$key]['address']) ;
                 $adata['entries'][$key]['js_area_name'] = json_encode($adata['entries'][$key]['area_name']) ;
-                $adata['entries'][$key]['doctor_zone']['js_doctor_zone_title'] = json_encode($adata['entries'][$key]['doctor_zone']['doctor_zone_title']) ;
+////                $adata['entries'][$key]['js_hours'] = json_encode($adata['entries'][$key]['hours']) ;
+////                $adata['entries'][$key]['doctor_zone']['js_doctor_zone_title'] = json_encode($adata['entries'][$key]['doctor_zone']['doctor_zone_title']) ;
             }
 //            $data = json_encode($data);
             $template = 'ajax';
             $data->doctors = $adata;
-        }
+        } 
         
         // Build the page
             $this->template->title(lang('doctor:doctors'))
-                ->set('jsdata', $data)
+//                ->set('jsdata', $data)
                 ->build($template, $data);
     }
 

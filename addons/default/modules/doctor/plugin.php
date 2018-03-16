@@ -25,7 +25,7 @@ class Plugin_Doctor extends Plugin
                 
                 $encode = strtolower($this->attribute('encode'));
 		
-		return $this->doctor_m->getfile('js/doctor.js', $encode);
+		return $this->doctor_m->getfile('js/doctors.js', $encode);
 	}
         
 	/**
@@ -66,41 +66,38 @@ class Plugin_Doctor extends Plugin
         /**
          * HTML search form 
          * 
-         * {{ doctor:search_box inputclass='form-control' submitclass='btn btn-primary' geoclass='btn btn-default'}} 
+         * {{ doctor:search_box inputclass='form-control' }} 
          * 
          * @return string
          */
         function search_box() 
         {
             $search = $this->input->get('s');
-            $cat = $this->input->get('c');
+            $cat = $this->input->get('c'); 
             
-            $class = $this->attribute('inputclass');
-            $class = !empty($class)?' class="'.$class.'"':'';
-            
-            $btn = $this->attribute('submitclass');
-            $btn = !empty($btn)?' class="'.$btn.'"':'';
-            
-            $geobtn = $this->attribute('geoclass');
-            $geobtn = !empty($geobtn)?' class="'.$geobtn.'"':'';
-            
-            $html = '<div id="doctor-search">';
-            $html .= '<form method="get" action="'.  site_url().'doctor">' ;
-            $html .= form_input('c', $cat, 'placeholder="Spécialité médicale"'.$class) ;
-            $html .= '<br />';
-            $html .= form_input('s', $search, 'placeholder="Ville ou code postal"'.$class) ;
-            $html .= '<br />';
-            //$html .= 'Localisez moi!' ;
-            $html .= form_button('','Localisez moi!', $geobtn) ;
-            $html .= '<br />';
-            $html .= '<br />';
-            $html .= form_submit('','Rechercher un docteur', $btn) ;
-            if(!empty($search) or !empty($cat)) $html .= anchor(site_url().'doctor','Recharger');
-
-            $html .= '</form></div>' ;
+            $html = '<div id="doctor-search" class="">';
+                $html .= '<form method="get" action="'.  site_url().'doctor">' ;
+                    $html .= '<div class="form-group">';
+                    $html .= form_input('c', $cat, 'placeholder="Domaine ou spécialité médicale"'.' class="form-control"') ;
+                    $html .= '<br />';
+                    $html .= '<div class="input-group">';
+                        $html .= '<span class="input-group-addon"><a class="" onclick="geoGetTown()"><i class="glyphicon glyphicon-map-marker"></i></a></span>';  
+                        $html .= form_input('s', $search, 'placeholder="Ville, quartier ou CP"'.' class="form-control"') ; 
+                        $html .= '<span class="input-group-btn">'; 
+                        $html .= form_button(array('name' => 'submitBtn', 'type'=>'submit'),'<i class="glyphicon glyphicon-search"></i>', ' class="btn btn-primary"') ;
+                        $html .= '</span>';
+                $html .= '</div>';
+                
+                if(!empty($search) or !empty($cat)) { $html .= '<br />'.anchor(site_url().'doctor','Recharger'); }
+                
+//                $html .= '<script> console.log("test") ; $( document ).ready(function(){ ';
+//                $html .= "if(navigator.geolocation !== true) { $('#doctor-search .input-group-addon a').addClass('disabled'); ";
+//                $html .=  "} else { $('#doctor-search .input-group-addon a').on('click', geoGetTown); console.log('geobtn') ;} ";
+//                $html .= ' });</script>';
+                
+            $html .= '</div></form></div>' ;
             return $html;   
-        }
-        
+        } 
           	
         /**
 	 * doctors list

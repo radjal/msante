@@ -4,34 +4,16 @@
 li.doctor h4 {
     margin-bottom:6px;
     clear: both;
-}
-li.doctor p:nth-child(1) {
-    
-}
-li.doctor p:nth-child(2) {
-    width: 48%;
-    margin-right: 2%;
-    min-width: 300px;
-    float: left;
-}
-li.doctor p:nth-child(3) {
-    /* float: right; */
-    /* width: 50%; */
-    /* min-width: 300px; */
-}
+} 
 li.doctor p:nth-child(4) {
     line-height: 20px;
-    /* float: right; */
     min-width: 300px;
     width: 50%;
 }
 li.doctor {
-    
-border-top: 1px solid #6b542a;
-    
-line-height: 20px;
-    
-list-style: none;
+    padding-top: 40px;
+    line-height: 20px;
+    list-style: none;
 }
 #map_canvas {
     height: 500px;
