@@ -51,15 +51,15 @@ function paypalPay()
                 var amount = $('input[name=total_final]').val();
                 var slug = $('input[name=slug]').val();
                 
-                var name = $('input[name=i_fullname]').val();
-                var address1 = $('input[name=i_street1]').val();
+                var name = $('input[name=maiden_name]').val();
+                var address1 = $('input[name=address]').val();
                 var address2 = $('input[name=i_street2]').val();
-                var town = $('input[name=i_town]').val();
-                var postcode = $('input[name=i_zipcode]').val();
+                var town = $('input[name=town]').val();
+                var postcode = $('input[name=area_name]').val();
                 var region = '';
                 var countryCode = 'FR';
-                var phone = $('input[name=i_phone]').val();
-                var mail = $('input[name=i_mail]').val();
+                var phone = $('input[name=phone]').val();
+                var mail = $('input[name=email]').val();
                /* */
                
                 // Get token via server

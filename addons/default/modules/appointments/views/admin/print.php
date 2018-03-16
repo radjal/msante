@@ -295,14 +295,14 @@ if($disabled)  $disabled='disabled';
             <h2><?php echo lang('appointments:appointment_invoice'); ?></h2>
 				
                     <?php echo $this->html_m->form_input('i_company', $appointment->i_company, $disabled) ; ?>
-                    <?php echo $this->html_m->form_input('i_fullname', $appointment->i_fullname, $disabled ); ?>
-                    <?php echo $this->html_m->form_input('i_mobile', $appointment->i_mobile, $disabled ); ?>
-                    <?php echo $this->html_m->form_input('i_phone', $appointment->i_phone, $disabled ); ?>
-                    <?php echo $this->html_m->form_input('i_mail', $appointment->i_mail, $disabled ); ?>
-                    <?php echo $this->html_m->form_input('i_street1', $appointment->i_street1, $disabled ); ?>
+                    <?php echo $this->html_m->form_input('maiden_name', $appointment->maiden_name, $disabled ); ?>
+                    <?php echo $this->html_m->form_input('mobile', $appointment->mobile, $disabled ); ?>
+                    <?php echo $this->html_m->form_input('phone', $appointment->phone, $disabled ); ?>
+                    <?php echo $this->html_m->form_input('email', $appointment->email, $disabled ); ?>
+                    <?php echo $this->html_m->form_input('address', $appointment->address, $disabled ); ?>
                     <?php echo $this->html_m->form_input('i_street2', $appointment->i_street2, $disabled ); ?>
-                    <?php echo $this->html_m->form_input('i_town', $appointment->i_town, $disabled ); ?>
-                    <?php echo $this->html_m->form_input('i_zipcode', $appointment->i_zipcode, $disabled ); ?>
+                    <?php echo $this->html_m->form_input('town', $appointment->town, $disabled ); ?>
+                    <?php echo $this->html_m->form_input('area_name', $appointment->area_name, $disabled ); ?>
                     <?php //echo $this->html_m->form_input('i_country', $appointment->i_country, $disabledAttr ); ?>
         </div> 
 -->

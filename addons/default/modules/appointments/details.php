@@ -52,6 +52,11 @@ class Module_Appointments extends Module {
                                                             'constraint' => '11',
                                                             'default' => 0
                                                             ),
+						'doctor_id' => array(
+                                                            'type' => 'INT',
+                                                            'constraint' => '11',
+                                                            'default' => 0
+                                                            ),
 						'name' => array(
                                                             'type' => 'VARCHAR',
                                                             'constraint' => '100'
@@ -93,42 +98,42 @@ class Module_Appointments extends Module {
                                                             // 'constraint' => '120',
                                                             // 'default' => '',
                                                             // ),				 */		
-						'i_fullname' => array(
+						'maiden_name' => array(
                                                             'type' => 'VARCHAR',
                                                             'constraint' => '120',
                                                             'default' => '',
                                                             ),						
-						'i_firstname' => array(
+						'first_name' => array(
                                                             'type' => 'VARCHAR',
                                                             'constraint' => '60',
                                                             'default' => '',
                                                             ),								
-						'i_lastname' => array(
+						'last_name' => array(
                                                             'type' => 'VARCHAR',
                                                             'constraint' => '60',
                                                             'default' => '',
                                                             ),								
-						'i_civility' => array(
+						'gender' => array(
                                                             'type' => 'VARCHAR',
                                                             'constraint' => '10',
                                                             'default' => '',
                                                             ),						
-                                                'i_phone' => array(
+                                                'phone' => array(
                                                             'type' => 'VARCHAR',
                                                             'constraint' => '20',
                                                             'default' => '',
                                                             ),
-					/* 	// 'i_mobile' => array(
-                                                            // 'type' => 'VARCHAR',
-                                                            // 'constraint' => '20',
-                                                            // 'default' => '',
-                                                            // ),
-						// 'i_mail' => array(
-                                                            // 'type' => 'VARCHAR',
-                                                            // 'constraint' => '80',
-                                                            // 'default' => '',
-                                                            // ), */
-						'i_street1' => array(
+					 	 'mobile' => array(
+                                                             'type' => 'VARCHAR',
+                                                             'constraint' => '20',
+                                                             'default' => '',
+                                                             ),
+						 'email' => array(
+                                                             'type' => 'VARCHAR',
+                                                             'constraint' => '80',
+                                                             'default' => '',
+                                                             ), 
+						'address' => array(
                                                             'type' => 'VARCHAR',
                                                             'constraint' => '250',
                                                             'default' => '',
@@ -138,12 +143,12 @@ class Module_Appointments extends Module {
                                                             // 'constraint' => '250',
                                                             // 'default' => '',
                                                             // ), */
-						'i_town' => array(
+						'town' => array(
                                                             'type' => 'VARCHAR',
                                                             'constraint' => '120',
                                                             'default' => '',
                                                             ),
-						'i_zipcode' => array(
+						'area_name' => array(
                                                             'type' => 'VARCHAR',
                                                             'constraint' => '10',
                                                             'default' => '',
@@ -287,11 +292,11 @@ class Module_Appointments extends Module {
                                                                 'type' => 'INT',
                                                                 'constraint' => '11',
                                                                 ),
-                                              /*  // 'product_id' => array(
-                                                                // 'type' => 'INT',
-                                                                // 'constraint' => '11',
-                                                                // ),
-						// 'product_qty' => array(
+                                                 'product_id' => array(
+                                                                 'type' => 'INT',
+                                                                 'constraint' => '11',
+                                                                 ),
+						/*// 'product_qty' => array(
                                                                 // 'type' => 'VARCHAR',
                                                                 // 'constraint' => '11',
                                                                 // ),

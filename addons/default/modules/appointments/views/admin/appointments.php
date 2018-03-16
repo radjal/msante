@@ -48,13 +48,13 @@
                                         <?php if ($this->input->get('view')=='invoice') 
                                         { ?>
                                         <?php echo $this->html_m->table_header('i_company') ?>
-                                        <?php echo $this->html_m->table_header('i_fullname') ?>
-                                        <?php echo $this->html_m->table_header('i_phone') ?>
-                                        <?php echo $this->html_m->table_header('i_mobile') ?>
-                                        <?php echo $this->html_m->table_header('i_mail') ?>
-                                        <?php echo $this->html_m->table_header('i_street1') ?>
-                                        <?php echo $this->html_m->table_header('i_zipcode') ?>
-                                        <?php echo $this->html_m->table_header('i_town') ?>
+                                        <?php echo $this->html_m->table_header('maiden_name') ?>
+                                        <?php echo $this->html_m->table_header('phone') ?>
+                                        <?php echo $this->html_m->table_header('mobile') ?>
+                                        <?php echo $this->html_m->table_header('email') ?>
+                                        <?php echo $this->html_m->table_header('address') ?>
+                                        <?php echo $this->html_m->table_header('area_name') ?>
+                                        <?php echo $this->html_m->table_header('town') ?>
                                         <?php echo $this->html_m->table_header('total_pretax') ?>
                                         <?php echo $this->html_m->table_header('total_final') ?>
 										<?php } ?>
@@ -174,13 +174,13 @@
 				<?php if ($this->input->get('view')=='invoice') 
 				{ ?>
 					<td><?php echo $appointment->i_company; ?></td>              
-					<td><?php echo $appointment->i_fullname; ?></td>              
-					<td><?php echo $appointment->i_phone; ?></td>      
-					<td><?php echo $appointment->i_mobile; ?></td>            
-					<td><?php echo $appointment->i_mail; ?></td>   
-					<td><?php echo $appointment->i_street1; ?></td>         
-					<td><?php echo $appointment->i_zipcode; ?></td>         
-                                        <td><?php echo $appointment->i_town; ?></td>
+					<td><?php echo $appointment->maiden_name; ?></td>              
+					<td><?php echo $appointment->phone; ?></td>      
+					<td><?php echo $appointment->mobile; ?></td>            
+					<td><?php echo $appointment->email; ?></td>   
+					<td><?php echo $appointment->address; ?></td>         
+					<td><?php echo $appointment->area_name; ?></td>         
+                                        <td><?php echo $appointment->town; ?></td>
 					<td><?php echo $appointment->total_pretax; ?>&nbsp;€</td>
 					<td><?php echo $appointment->total_final; ?>&nbsp;€</td>
 				<?php } ?>

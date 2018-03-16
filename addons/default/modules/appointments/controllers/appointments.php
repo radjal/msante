@@ -57,23 +57,23 @@ class Appointments extends Public_Controller
 				'rules' => 'required|max_length[10]'
 			),
 //			array(
-//				'field' => 'i_fullname',
-//				'label' => lang('appointments:i_fullname'),
+//				'field' => 'maiden_name',
+//				'label' => lang('appointments:maiden_name'),
 //				'rules' => 'required'
 //			),
 //			array(
-//				'field' => 'i_street1',
-//				'label' => lang('appointments:i_street1'),
+//				'field' => 'address',
+//				'label' => lang('appointments:address'),
 //				'rules' => 'required'
 //			),
 //			array(
-//				'field' => 'i_town',
-//				'label' => lang('appointments:i_town'),
+//				'field' => 'town',
+//				'label' => lang('appointments:town'),
 //				'rules' => 'required'
 //			),
 //			array(
-//				'field' => 'i_zipcode',
-//				'label' => lang('appointments:i_zipcode'),
+//				'field' => 'area_name',
+//				'label' => lang('appointments:area_name'),
 //				'rules' => 'required|max_length[10]'
 //			),
 		);
@@ -249,14 +249,14 @@ class Appointments extends Public_Controller
                         //$update['log'] = $this->input->post('log');
                         $update['payment_type'] = !empty($this->input->post('payment_type')) ? $this->input->post('payment_type') : '';
                         $update['log'] = !empty($this->input->post('log')) ? $this->input->post('log')."\n".$appointment->log : $appointment->log ;
-                            $update['i_fullname'] = $this->input->post('i_fullname');
-                            $update['i_mobile'] = $this->input->post('i_mobile');
-                            $update['i_phone'] = $this->input->post('i_phone');
-                            $update['i_mail'] = $this->input->post('i_mail');
-                            $update['i_street1'] = $this->input->post('i_street1') ;
+                            $update['maiden_name'] = $this->input->post('maiden_name');
+                            $update['mobile'] = $this->input->post('mobile');
+                            $update['phone'] = $this->input->post('phone');
+                            $update['email'] = $this->input->post('email');
+                            $update['address'] = $this->input->post('address') ;
                             //$update['i_street2'] = $this->input->post('i_street2');
-                            $update['i_town'] = $this->input->post('i_town') ;
-                            $update['i_zipcode'] = $this->input->post('i_zipcode') ;
+                            $update['town'] = $this->input->post('town') ;
+                            $update['area_name'] = $this->input->post('area_name') ;
                                 $update['d_fullname'] = $this->input->post('d_fullname');
                                 $update['d_mobile'] = $this->input->post('d_mobile');
                                 $update['d_phone'] = $this->input->post('d_phone');

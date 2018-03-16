@@ -53,7 +53,7 @@
 				<?php // echo $this->html_m->table_header('tax') ?>
 				<?php // echo $this->html_m->table_header('final_price') ?>
 				<?php echo $this->html_m->table_header('d_fullname') ?>
-				<?php echo $this->html_m->table_header('i_fullname') ?>
+				<?php echo $this->html_m->table_header('maiden_name') ?>
 				<?php echo $this->html_m->table_header('unit') ?>
 				<?php echo $this->html_m->table_header('origin') ?>
 				<?php // echo $this->html_m->table_header('image_filename') ?>
@@ -106,7 +106,7 @@
                                                     <?php echo $details->d_fullname ?>
                                             </a>
                                         </td>
-					<td><?php echo $details->i_fullname ?></td>
+					<td><?php echo $details->maiden_name ?></td>
 					<td>
                                             <a href="/admin/appointments/list?searchBtn=Search&unit=<?php echo $details->unit; ?>">
                                                     <?php echo lang('appointments:unit_'.$details->unit) ?>

@@ -15,7 +15,7 @@ class Admin_List extends Admin_Controller
                             default_appointments_list.id,
                             default_appointments_list.appointment_status,
                             default_appointments_list.delivery_date,
-                            default_appointments_list.i_fullname,
+                            default_appointments_list.maiden_name,
                             default_appointments_list.d_fullname,
                             default_appointments_list.slug as slug,
                             default_appointments_details.appointment_id,

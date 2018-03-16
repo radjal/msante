@@ -205,38 +205,38 @@ class Appointments_m extends MY_Model {
                         $message        =  ($profile->info_acces != null AND empty($this->input->post('message')) )  ? $profile->info_acces : '';
                         
 			$i_company 	= $profile->company != null 	? $profile->company : ''; 		
-			$i_fullname 	= $profile->last_name != null 	? $profile->first_name . " ". $profile->last_name : '' ; 		
-			$i_mobile 	= $profile->phone != null 		? $profile->phone : ''; 			
-			$i_phone 	= $profile->mobile != null 		? $profile->mobile : '';  			
-			$i_mail 	= $profile->email != null 		? $profile->email : ''; 			
-			$i_street1 	= $profile->address != null 	? $profile->address : ''; 		
+			$maiden_name 	= $profile->last_name != null 	? $profile->first_name . " ". $profile->last_name : '' ; 		
+			$mobile 	= $profile->phone != null 		? $profile->phone : ''; 			
+			$phone 	= $profile->mobile != null 		? $profile->mobile : '';  			
+			$email 	= $profile->email != null 		? $profile->email : ''; 			
+			$address 	= $profile->address != null 	? $profile->address : ''; 		
 			$i_street2 	= ''; 		
-			$i_town 	= $profile->ville != null 		? $profile->ville : ''; 			
-			$i_zipcode 	= $profile->code_postal != null 	? $profile->code_postal : ''; 		
+			$town 	= $profile->ville != null 		? $profile->ville : ''; 			
+			$area_name 	= $profile->code_postal != null 	? $profile->code_postal : ''; 		
 			$i_country 	=  ''; 		
 
 			$d_company 	= $i_company; 		
-			$d_fullname 	= $i_fullname; 		
-			$d_mobile 	= $i_mobile; 			
-			$d_phone 	= $i_phone; 			
-			$d_mail 	= $i_mail; 			
-			$d_street1 	= $i_street1; 		
+			$d_fullname 	= $maiden_name; 		
+			$d_mobile 	= $mobile; 			
+			$d_phone 	= $phone; 			
+			$d_mail 	= $email; 			
+			$d_street1 	= $address; 		
 			$d_street2 	= $i_street2; 		
-			$d_town 	= $i_town; 			
-			$d_zipcode 	= $i_zipcode; 		
+			$d_town 	= $town; 			
+			$d_zipcode 	= $area_name; 		
 			$d_country 	= $i_country; 		
 			
 			
 			// override with POST values
 			$appointment['i_company'] = empty($this->input->post('i_company')) 	? $i_company 	: $this->input->post('i_company');
-			$appointment['i_fullname'] = empty($this->input->post('i_fullname')) 			? $i_fullname 		: $this->input->post('i_fullname');
-			$appointment['i_mobile'] = empty($this->input->post('i_mobile')) 		? $i_mobile 	: $this->input->post('i_mobile') ;
-			$appointment['i_phone'] = empty($this->input->post('i_phone')) 		? $i_phone 		: $this->input->post('i_phone');
-			$appointment['i_mail'] = empty($this->input->post('i_mail')) 			? $i_mail 		: $this->input->post('i_mail');
-			$appointment['i_street1'] = empty($this->input->post('i_street1')) 	? $i_street1 	: $this->input->post('i_street1') ;
+			$appointment['maiden_name'] = empty($this->input->post('maiden_name')) 			? $maiden_name 		: $this->input->post('maiden_name');
+			$appointment['mobile'] = empty($this->input->post('mobile')) 		? $mobile 	: $this->input->post('mobile') ;
+			$appointment['phone'] = empty($this->input->post('phone')) 		? $phone 		: $this->input->post('phone');
+			$appointment['email'] = empty($this->input->post('email')) 			? $email 		: $this->input->post('email');
+			$appointment['address'] = empty($this->input->post('address')) 	? $address 	: $this->input->post('address') ;
 			$appointment['i_street2'] = empty($this->input->post('i_street2')) 	? $i_street2 	: $this->input->post('i_street2');
-			$appointment['i_town'] = empty($this->input->post('i_town')) 			? $i_town 		: $this->input->post('i_town') ;
-			$appointment['i_zipcode'] = empty($this->input->post('i_zipcode')) 	? $i_zipcode 	: $this->input->post('i_zipcode') ;
+			$appointment['town'] = empty($this->input->post('town')) 			? $town 		: $this->input->post('town') ;
+			$appointment['area_name'] = empty($this->input->post('area_name')) 	? $area_name 	: $this->input->post('area_name') ;
 			$appointment['i_country'] = empty($this->input->post('i_country')) 	? $i_country 	: $this->input->post('i_country') ;
 			
 			$appointment['d_company'] = empty($this->input->post('d_company')) 	? $d_company 	: $this->input->post('d_company');

@@ -7,7 +7,7 @@
                                         <?php echo $this->appointments_m->table_header('total_pretax') ?>
                                         <?php echo $this->appointments_m->table_header('total_final') ?>
                                         <?php echo $this->appointments_m->table_header('appointment_status') ?>
-                                        <?php echo $this->appointments_m->table_header('i_fullname') ?>
+                                        <?php echo $this->appointments_m->table_header('maiden_name') ?>
                                         <?php echo $this->appointments_m->table_header('d_fullname') ?>
                                         <?php echo $this->appointments_m->table_header('appointment_date') ?>
 				</tr>
@@ -32,7 +32,7 @@
                                                 {{ helper:lang line="appointments:status_waiting" }}
                                             {{ endif }}
                                         </td>
-					<td>{{ i_fullname }}</td>
+					<td>{{ maiden_name }}</td>
 					<td>{{ d_fullname }}</td>
                                         <td>
                                             {{appointment_date}}

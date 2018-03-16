@@ -130,14 +130,14 @@ $lang['appointments:payment_type']			=	'Type de paiement';
 $lang['appointments:payment_status']			=	'Statut paiement';
 
 $lang['appointments:i_company']			=	'Société';
-$lang['appointments:i_fullname']			=	'Nom facturation';
-$lang['appointments:i_mobile']			=	'Mobile';
-$lang['appointments:i_phone']			=	'Téléphone';
-$lang['appointments:i_mail']			=	'Courriel';
-$lang['appointments:i_street1']			=	'Adresse';
+$lang['appointments:maiden_name']			=	'Nom facturation';
+$lang['appointments:mobile']			=	'Mobile';
+$lang['appointments:phone']			=	'Téléphone';
+$lang['appointments:email']			=	'Courriel';
+$lang['appointments:address']			=	'Adresse';
 $lang['appointments:i_street2']			=	'Adr. suite';
-$lang['appointments:i_town']			=	'Ville ';
-$lang['appointments:i_zipcode']			=	'Code postal';
+$lang['appointments:town']			=	'Ville ';
+$lang['appointments:area_name']			=	'Code postal';
 $lang['appointments:i_country']			=	'Pays';
 
 $lang['appointments:d_company']			=	'Société';
