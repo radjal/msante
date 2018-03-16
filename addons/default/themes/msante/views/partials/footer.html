@@ -6,3 +6,6 @@
 {{ helper:date format="Y" }} <a href="{{ url:site }}">{{ settings:site_name }}</a> {{ helper:lang line="all_right_reserved" }}
    
 </div>
+{{ if {user:logged_in group="devops"} or {user:logged_in group="admin"} }}
+    {{ navigation:links group="dev" }}
+{{ endif }}

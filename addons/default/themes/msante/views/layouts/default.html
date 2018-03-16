@@ -1,7 +1,11 @@
 <!doctype html>
 <html>
   <head>
-    {{ theme:partial name="metadata" }}
+        {{ theme:partial name="metadata" }}
+        <script>
+            //load icon @todo move to templates
+            var pg_load = '<img src="assets/img/loading.gif" />'; 
+        </script> 
   </head> 
   <?php
   // note that to avoid logging << Plugin method "options" does not exist on class "Plugin_Theme". >>
