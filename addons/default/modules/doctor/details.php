@@ -2,7 +2,7 @@
 
 class Module_Doctor extends Module
 {
-    public $version = '1.1.10';
+    public $version = '0.1.10';
 
     public function info()
     {
@@ -19,7 +19,7 @@ class Module_Doctor extends Module
             'backend' => true,
             'menu' => 'content',
 			'roles' => array(
-				'role1', 'role2', 'role3', 'edit', 'delete', 'create', 'set_location'
+				'edit', 'delete', 'create', 'set_location'
 			),
             'sections' => array(
                 'doctor' => array(
@@ -84,7 +84,7 @@ class Module_Doctor extends Module
  
         // Create image folder
         $this->load->library('files/files');
-        $imgfolder = Files::create_folder(0, 'doctors');
+        $imgfolder = Files::create_folder(0, 'Doctors module');
         
         // Add some fields
         if(1)
@@ -339,7 +339,7 @@ class Module_Doctor extends Module
     {
         $this->load->driver('Streams');
         
-        if(version_compare($this->version, '1.0.1', '<=') ) 
+        if(version_compare($this->version, '0.0.01', '<=') ) 
         {   //DB forge method
                 $table = array(
                         'parent' => array( 'type' => 'VARCHAR', 'constraint' => '255', 'unique' => false, 'null' => TRUE),
@@ -347,12 +347,12 @@ class Module_Doctor extends Module
 
                  if( !$this->dbforge->add_column('doctor_categories', $table) ) return false;
         }
-        if(version_compare($this->version, '1.0.5', '<=') ) 
+        if(version_compare($this->version, '0.0.05', '<=') ) 
         { //DB forge method
             $this->dbforge->drop_column('doctor_categories', 'parent');
             return true;
         }
-        if(version_compare($this->version, '1.0.6', '<=') ) 
+        if(version_compare($this->version, '0.0.06', '<=') ) 
         {  //Streams method
                 $categories_stream_id = $this->streams->streams->get_stream('categories', 'doctor' );
                 $fields = array(
@@ -368,7 +368,7 @@ class Module_Doctor extends Module
         
                 $this->streams->fields->add_fields($fields);
         }
-        if(version_compare($this->version, '1.0.9', '<=') ) 
+        if(version_compare($this->version, '0.0.09', '<=') ) 
         { 
             //DB forge method           
                 $data = array(
@@ -377,7 +377,7 @@ class Module_Doctor extends Module
                 $this->db->where('field_slug', 'area_name'); // value
                 $this->db->update('data_fields', $data);  // table 
         } 
-        if(version_compare($this->version, '1.0.91', '<=') ) 
+        if(version_compare($this->version, '0.0.91', '<=') ) 
         {  
             //new stream for organisations
             if ( ! $organisations_stream_id = $this->streams->streams->add_stream('lang:doctor:organisations', 'organisations', 'doctor', 'doctor_', null)) return false; 
@@ -411,7 +411,7 @@ class Module_Doctor extends Module
                 )
             ));
         }
-        if(version_compare($this->version, '1.0.92', '<=') ) 
+        if(version_compare($this->version, '0.0.92', '<=') ) 
         {
             $this->streams->streams->update_stream('categories', 'doctor', array(
                 'view_options' => array(

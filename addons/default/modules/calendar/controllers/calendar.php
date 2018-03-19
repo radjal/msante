@@ -19,21 +19,21 @@ class Calendar extends Public_Controller
     }
     
     /** wrapper for index */
-    public function cette_semaine()
+    public function this_week()
     {
         $this->index();
     }
     
     /** wrapper for index */
-    public function semaine($week_no=false)
+    public function week($week_no=false)
     {
-        $jour = $this->uri->segment(4);
-        if(!empty($jour)) 
-        {
-            $this->jour($jour, $week_no);
-        } else {
+//        $day = $this->uri->segment(4);
+//        if(!empty($day)) 
+//        {
+//            $this->day($day, $week_no);
+//        } else {
             $this->index($week_no);
-        }
+//        }
     }
  	
     /**
@@ -43,7 +43,7 @@ class Calendar extends Public_Controller
      * @access	public
      * @return	void
      */
-    public function jour($jour='', $week_no = false)
+    public function day($jour='', $week_no = false)
     {
         if(empty($jour)) return false;
         
@@ -58,19 +58,13 @@ class Calendar extends Public_Controller
         
         $template = 'jour';
         
-        $data = $this->calendar_m->calcul_semaine($week_no);
+        $data = $this->calendar_m->calculate_week($week_no);
         if(!$week_no) $week_no = $data['week'];	
 
         //get cat id from slug eg:s44 = semaine 44
 //        $week_cat_id =  $this->calendar_m->category_id("s$week_no");
             
-        $data['msg_global']         = Settings::get('msg_global');
-        
-//        $data['no_cat_entree']      = Settings::get('no_cat_entree');
-//        $data['no_cat_plat']        = Settings::get('no_cat_plat');
-//        $data['no_cat_dessert']     = Settings::get('no_cat_dessert');
-//        $data['no_cat_boissons']    = Settings::get('no_cat_boissons');
-//        $catjour                    = Settings::get( 'cat_'.$jour );
+        $data['msg_global']         = Settings::get('msg_global'); 
         $data['msg_dujour']         = Settings::get( 'msg_'.$jour );
         $data['msg_global']         = Settings::get('msg_global');
 //        $data['min_order_amount']         = Settings::get('min_order_amount');
@@ -135,7 +129,7 @@ class Calendar extends Public_Controller
         $this->load->model('orders_m');
         $template = 'info';
         
-        $data = $this->calendar_m->calcul_semaine($jour);
+        $data = $this->calendar_m->calculate_week($jour);
 		
         $data['msg_global']         = Settings::get('msg_global');
         
@@ -169,7 +163,7 @@ class Calendar extends Public_Controller
     {
             $template = 'index';
 
-            $data = $this->calendar_m->calcul_semaine($week_no);
+            $data = $this->calendar_m->calculate_week($week_no);
 
             $data['msg_global']         = Settings::get('msg_global');
             
@@ -191,6 +185,8 @@ class Calendar extends Public_Controller
 //            $data['cat_samedi']         = Settings::get('cat_samedi');
 //            $data['cat_dimanche']       = Settings::get('cat_dimanche');		
 			
+            // get appointments for days
+            //$this->appointments_m->get_for_date($date);
             
             //get cat id from slug eg:s44 = semaine 44
 //            $week_cat_id =  $this->calendar_m->category_id("s$week_no");
@@ -240,7 +236,7 @@ class Calendar extends Public_Controller
 //                                $semaine['samedi']['plats'] = $this->calendar_m->produits($data['cat_samedi'], $week_cat_id, $data['no_cat_plat']) ; // samedi
 //                                $semaine['samedi']['desserts'] = $this->calendar_m->produits($data['cat_samedi'], $week_cat_id, $data['no_cat_dessert']) ; // samedi
                             }
-                            if(strstr($jours_ouverts, '0')) 
+                            if(strstr($jours_ouverts, '7')) 
                             {
                                 $semaine['dimanche'] = true;
 //                                $semaine['dimanche']['entrees'] = $this->calendar_m->produits($data['cat_dimanche'], $week_cat_id, $data['no_cat_entree']) ; // dimanche
@@ -279,7 +275,7 @@ class Calendar extends Public_Controller
                          $data['days_oddeven'] = 'even';
             }
             
-            $day_link_segment = $this->method == 'cette_semaine' ? 'jour' : "semaine/$week_no" ;
+            $day_link_segment = $this->method == 'this_week' ? 'jour' : "week/$week_no" ;
 
             /**
             // AJAX and XHR

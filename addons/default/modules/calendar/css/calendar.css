@@ -104,11 +104,11 @@ input[type=text].order_product, input[type=number].order_product {
     text-shadow: none;
 }
 #weekzone:hover .calendar-semaine-titre, #weekzone:hover .calendar-semaine-dates {
-    color: #f06723;
+    color: #00b0ef;
 }
 div.calendar_titre, .calendar_titre a {
     font-size: 28px;
-    border-bottom: 1px solid #8cb752;
+    border-bottom: 1px solid #fe33cc;
     margin-bottom: 10px;
     width: 90%;
     margin: auto;
@@ -236,7 +236,7 @@ border: none;
 @media only screen and (min-width: 926px) {
     .calendar {
         float: left;
-        width: 18%;
+        width: 14%;
         padding: 1%;
         /* font-size: 12px; */
     }
@@ -246,7 +246,7 @@ border: none;
         width: 96%;
     }
     #weekzone div.calendar a div.calendar-spacer {
-        border-right: solid #8cb752 1px;
+        border-right: solid #df3bc7 1px;
         float: right;
         height: 380px;
         margin-top: 80px;

@@ -47,7 +47,7 @@ class Module_Calendar extends Module
                                             'default' => '1',
                                             'value' => '1,2,3,4,5',
                                             'type' => 'checkbox',
-                                            '`options`' => '1=Lundi|2=Mardi|3=Mercredi|4=Jeudi|5=Vendredi|6=Samedi|0=Dimanche',
+                                            '`options`' => '1=Lundi|2=Mardi|3=Mercredi|4=Jeudi|5=Vendredi|6=Samedi|7=Dimanche',
                                             'is_required' => 1,
                                             'is_gui' => 1,
                                             'module' => 'calendar',

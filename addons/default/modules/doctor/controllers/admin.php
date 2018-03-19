@@ -161,5 +161,14 @@ class Admin extends Admin_Controller
  
         redirect('admin/doctor/');
     }
+    
+    /** returns AJAX list of user IDs for name query
+     * 
+     * @param type $query
+     */
+    public function user_search($query) 
+    {
+        
+    }
 
 }

@@ -1,6 +1,11 @@
 <div id="message-sante">
     	{{ variables:message_sante }}
+</div> 
+{{ doctor:show id={url:segments segment="4"} }}
+<div id="doctor">
+    {{ id }} {{ name }} {{ area_name }} {{ town }}
 </div>
+{{ /doctor:show }}
 <div class="post calendarsemaine">
 
     	
@@ -10,7 +15,7 @@
 <div id="weekzone-wrapper">
     <div id="weekzone" class="{{ data:dayscount }}-days {{ data:days_oddeven }}" data-nodays="{{ data:dayscount }}" data-oddeven="{{ data:days_oddeven }}">
         
-        <center class="calendar-semaine-titre">Semaine {{ data:week }} <a class="next-week" href="{{ url:site }}calendar/semaine/{{ data:next_week_no }}">semaine suivante</a></center>
+        <center class="calendar-semaine-titre">Semaine {{ data:week }} <a class="next-week" href="{{ url:site }}calendar/week/{{ data:next_week_no }}/{{url:segments segment="4"}}">semaine suivante</a></center>
         <center class="calendar-semaine-dates">Du {{helper:date timestamp=week_begin format="%A %e %b %Y" }} au {{helper:date timestamp=week_finish format="%A %e %b %Y" }}</center>
 			{{ if lundi }}
 			<div class="calendar {{ if data:today_no_iso > 1 }}date-passed {{ endif }}">
@@ -187,7 +192,7 @@
 			{{ endif }}
 			{{ if samedi }}
 			<div class="calendar {{ if data:today_no_iso > 6 }}date-passed {{ endif }}">
-					<a href="{{url:site}}calendar/{{day_link_segment}}/vendredi">
+					<a href="{{url:site}}calendar/{{day_link_segment}}/samedi">
 						<div class="calendar_titre">{{ data:isodays:6 }}</div> 
 						<section>
                                                 <?php
@@ -222,7 +227,7 @@
 			{{ endif }}
 			{{ if dimanche }}
 			<div class="calendar">
-					<a href="{{url:site}}calendar/{{day_link_segment}}/vendredi">
+					<a href="{{url:site}}calendar/{{day_link_segment}}/dimanche">
 						<div class="calendar_titre">{{ data:isodays:7 }}</div> 
 						<section>
                                                 <?php

@@ -1,4 +1,4 @@
-
+/* public vars */
 var doctors = []; 
 var mApi = { 
     mapsUrl: "https://maps.googleapis.com/maps/api/js?key=",
@@ -8,7 +8,11 @@ var mApi = {
     centLon:2.44, 
     zoom:10
 }; 
-    
+/* doctor module functions */
+/** builds locations map of doctors
+ *  gets data from HTML5 data attributes in doctor's list
+ * @returns {undefined}
+ */
 function doctorsMap() 
 {
 //    console.log('doctorsMap');
@@ -18,8 +22,6 @@ function doctorsMap()
     if($("#map_canvas").length == 0) $('#doctors-list').prepend('<div id="map_canvas"></div>');
     
     var map;
-    var xadr;
-    var xname; 
     
     //var elevator;
     var myOptions = {
@@ -33,6 +35,8 @@ function doctorsMap()
  
     for (var x = 0; x < doctors.length; x++) 
     {  
+//        var xadr;
+//        var xname; 
         console.log('loop:'+x);
         xadr = doctors[x].address;
         xname = doctors[x].name;
@@ -41,11 +45,10 @@ function doctorsMap()
         { 
             /* exit if has no values */
             if(typeof(data) === 'undefined') return;
+//            console.log('data:'+data);
+            console.log('name:'+data.results[0].formatted_address);
             var p = data.results[0].geometry.location;
 //            console.log('location:'+p);
-//            console.log('data:'+data);
-            console.log('loop '+x+' xadr:'+xadr);
-            console.log('loop '+x+' xname:'+xname);
             var latlng = new google.maps.LatLng(p.lat, p.lng);
             console.log('loop '+x+' lat long:'+latlng);
             new google.maps.Marker({
@@ -68,7 +71,10 @@ function doctorsMap()
     map.fitBounds(bounds);
 */
 }
-
+/**
+ *  gets Google API JS and runs doctorMap on complete
+ * @returns {undefined}
+ */
 function loadMap() 
 {
 //    console.log('loadMap: '+mApi.mapsUrl + mApi.key);
@@ -104,24 +110,77 @@ function geoError(err) {
     alert("positioning error");
 } 
 /********************************************************************************/  
+/** empties search box
+ * 
+ * @returns {undefined}
+ */
+ function cleanDocSearch()
+ {
+     $('.searchbox-query input').val('').removeClass('set');
+//     $('.searchbox-query .input-group-addon '); 
+ }
+ 
+ function selectThis(ob)
+ {
+    ob.select();
+//     $('.searchbox-query .input-group-addon '); 
+ }
+ 
+
 /** On document ready, go  */      
 $( document ).ready(function() 
 {    
-        //geo btn
-        //remove geo btn if no localisation
+        /*geo btn */
+        /* remove geo btn if no localisation */
         if(navigator.geolocation !== true) 
         {
-            $('#doctor-search .input-group-addon a').addClass('disabled');
+            $('.searchbox-area .input-group-addon a').addClass('disabled');
         } else {
-            $('#doctor-search .input-group-addon a').on('click', 'geoGetTown');
-        } 
-        
+            $('.searchbox-area .input-group-addon a').removeClass('disabled'); 
+        }  
+        /* UIX */
+        $('.searchbox-query input, .searchbox-area input').on('focus', function(){ this.select(); });
+        /* jquery autocomplete */
+        $( function() {
+          var medicSpecialities = [
+                  "Dentiste",
+                  "Généraliste",
+                  "Chirurgien dentiste",
+                  "Médecin généraliste",
+                  "Pédiatre",
+                  "Gynécologue obstétrique ou médical",
+                  "Ophtalmologue",
+                  "Dermatologue",
+                  "Ostéopathe",
+                  "Kinésithérapeute",
+                  "Pédicure – Podologue",
+                  "Sage – femme",
+                  "ORL",
+                  "Allergologue",
+                  "Urologue",
+                  "Rhumatologue",
+                  "Endocrinologue",
+                  "Stomatologue",
+                  "Orthopédiste",
+                  "Diététicien",
+                  "Psychologue",
+                  "Neurologue",
+                  "Psychiatre",
+                  "Radiologue",
+                  "Cardiologue",
+                  "Gastro-entérologue et hépatologue"
+          ];
+          $( ".searchbox-query input" ).autocomplete({
+            source: medicSpecialities
+          });
+        } ); 
+        /* populate html5 data attributes */
         var name;    
         var adr;    
-        
-        if( $('#doctors-list').length ) // only if doctors listing
+        /* only if doctors listing */
+        if( $('div.listing').length ) 
         {
-            $('#doctors-list li.doctor').each(function()
+            $('div.listing section.doctor').each(function()
             {
                     name ='';    
                     adr ='';    
@@ -133,8 +192,8 @@ $( document ).ready(function()
                     doctors.push({name:name, address:adr});
                     // console.log({name:name, address:adr}); 
             }); 
-            // show map
-            loadMap();  
+            /* show map */
+//            loadMap();  
         } 
 });
 

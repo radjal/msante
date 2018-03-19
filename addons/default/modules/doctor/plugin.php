@@ -78,15 +78,21 @@ class Plugin_Doctor extends Plugin
             $html = '<div id="doctor-search" class="">';
                 $html .= '<form method="get" action="'.  site_url().'doctor">' ;
                     $html .= '<div class="form-group">';
-                    $html .= form_input('c', $cat, 'placeholder="Domaine ou spécialité médicale"'.' class="form-control"') ;
+                        $html .= '<div class="input-group searchbox-query">';
+                            $html .= '<span class="input-group-addon"><a class="" onclick="cleanDocSearch()"><i class="glyphicon glyphicon-remove-circle"></i></a></span>';  
+                            $html .= form_input('c', $cat, 'placeholder="Domaine ou spécialité médicale"'.' class="form-control"') ;
+                        $html .= '</div> ';
                     $html .= '<br />';
-                    $html .= '<div class="input-group">';
-                        $html .= '<span class="input-group-addon"><a class="" onclick="geoGetTown()"><i class="glyphicon glyphicon-map-marker"></i></a></span>';  
-                        $html .= form_input('s', $search, 'placeholder="Ville, quartier ou CP"'.' class="form-control"') ; 
-                        $html .= '<span class="input-group-btn">'; 
-                        $html .= form_button(array('name' => 'submitBtn', 'type'=>'submit'),'<i class="glyphicon glyphicon-search"></i>', ' class="btn btn-primary"') ;
-                        $html .= '</span>';
-                $html .= '</div>';
+                        $html .= '<div class="input-group searchbox-area">';
+                            $html .= '<span class="input-group-addon"><a class="" onclick="geoGetTown()"><i class="glyphicon glyphicon-map-marker"></i></a></span>';  
+                            $html .= form_input('s', $search, 'placeholder="Ville, quartier ou CP"'.' class="form-control"') ; 
+                            $html .= '<span class="input-group-btn">'; 
+                                $html .= form_button(array('name' => 'submitBtn', 'type'=>'submit'),'<i class="glyphicon glyphicon-search"></i>', ' class="btn btn-primary"') ;
+                            $html .= '</span>';
+                        $html .= '</div>';
+                    $html .= '</div>';
+                $html .= '</form>';
+            $html .= '</div>'; 
                 
                 if(!empty($search) or !empty($cat)) { $html .= '<br />'.anchor(site_url().'doctor','Recharger'); }
                 
@@ -102,13 +108,13 @@ class Plugin_Doctor extends Plugin
         /**
 	 * doctors list
          * 
-	 * {{ doctor:list_doctors limit="5" order_by="id" order="asc" zone_id="2" area_name="area_name" town="town" }}
+	 * {{ doctor:listing limit="5" order_by="id" order="asc" zone_id="2" area_name="area_name" town="town" }}
 	 *      {{ id }} {{ name }} {{ area_name }} {{ town }}
-	 * {{ /doctor:list_doctors }}
+	 * {{ /doctor:listing }}
 	 *
 	 * @return	array
 	 */
-	function list_doctors()
+	function listing()
 	{
                 $limit = $this->attribute('limit');
                 $order = !empty($this->attribute('order')) ? $this->attribute('order') : 'asc';
@@ -132,6 +138,35 @@ class Plugin_Doctor extends Plugin
                 foreach ($data as $key => $value) {
                         $data[$key]['count'] = $key+1; 
                     }
+
+                return $data;
+	}
+          	
+        /**
+	 * show doctor
+         * 
+	 * {{ doctor:show id="10" }}
+	 *      {{ id }} {{ name }} {{ area_name }} {{ town }}
+	 * {{ /doctor:show }}
+	 *
+	 * @return	array or false
+	 */
+	function show()
+	{
+                $limit = 1;  
+                $id = $this->attribute('id');
+                
+            // query setting
+                if(!empty($id)) 
+                {
+                    $this->db->where("id",$id); 
+                } else {
+                    return false;
+                }
+
+		$data = $this->db->limit($limit)
+                                    ->get('doctor_doctors')
+                                    ->result_array(); 
 
                 return $data;
 	}
