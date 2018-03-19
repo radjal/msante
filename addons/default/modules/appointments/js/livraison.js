@@ -16,7 +16,7 @@ $( document ).ready(function()
             });
          
             /* load once */
-            if($('input[name=delivery_date]').val() == '') loadDays(postcode, town);
+            if($('input[name=appointment_date]').val() == '') loadDays(postcode, town);
         }
 });
 
@@ -32,11 +32,11 @@ function loadDays(postcode, town)
         if(typeof url !== 'undefined')
         {
             $("#delivery-times").html( pg_load ); 
-            //$("input[name=delivery_date]").val('');
-            //$("input[name=delivery_date]").removeClass('modified');
+            //$("input[name=appointment_date]").val('');
+            //$("input[name=appointment_date]").removeClass('modified');
             
              $.ajax({url: url, success: function(result){
-                   //$("input[name=delivery_date]").val('');
+                   //$("input[name=appointment_date]").val('');
                    $("#delivery-times").html( result ); 
                    console.log('loadDays got '+url+'\n'+ livraison);
                    selectLivraison(livraison);

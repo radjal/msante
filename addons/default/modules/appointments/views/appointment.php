@@ -12,7 +12,7 @@ $disabled = $editable ? '' :'disabled' ;
 <div  id="appointment-form" class="appointment-form">
     <div id="appointment-menu">
             <h3><a href="javascript:void(0)" onclick="$('div.appointment.section').hide();$('#appointment-details').toggle('fast')"><?php echo lang('appointments:appointment_details'); ?></a></h3>
-            <h3><a href="javascript:void(0)" onclick="$('div.appointment.section').hide();$('#appointment-invoice').toggle('fast')"><?php echo lang('appointments:appointment_invoice'); ?></a></h3>
+            <h3><a href="javascript:void(0)" onclick="$('div.appointment.section').hide();$('#appointment-patient').toggle('fast')"><?php echo lang('appointments:appointment_patient'); ?></a></h3>
             <h3><a href="javascript:void(0)" onclick="$('div.appointment.section').hide();$('#appointment-delivery').toggle('fast')"><?php echo lang('appointments:appointment_delivery'); ?></a></h3>
             <h3><a href="javascript:void(0)" onclick="$('div.appointment.section').hide();$('#appointment-cart').toggle('fast')"><?php echo lang('appointments:appointment_cart'); ?></a></h3>
     </div>    
@@ -30,13 +30,13 @@ $disabled = $editable ? '' :'disabled' ;
                             
                                                        
                                 <?php 
-                                $extra = empty($appointment->delivery_date) ? 'class="tofill" ' : '';
+                                $extra = empty($appointment->appointment_date) ? 'class="tofill" ' : '';
                                 if($editable) {
-                                    echo $this->html_m->form_delivery_date($appointment->delivery_date, $extra.'autocorrect="off"');
+                                    echo $this->html_m->form_appointment_date($appointment->appointment_date, $extra.'autocorrect="off"');
                                 } elseif($this->method == 'view' AND $editable) {
-                                    echo $this->html_m->form_delivery_date($appointment->delivery_date, $extra.'autocorrect="off"');
+                                    echo $this->html_m->form_appointment_date($appointment->appointment_date, $extra.'autocorrect="off"');
                                 } else {   
-                                    echo $this->html_m->form_delivery_date($appointment->delivery_date ,$extra.'disabled');
+                                    echo $this->html_m->form_appointment_date($appointment->appointment_date ,$extra.'disabled');
                                 }
                                 ?> 
                          
@@ -85,9 +85,9 @@ $disabled = $editable ? '' :'disabled' ;
                     </ul>  		
                 </div>                 
     
-                <!-- appointment-invoice -->
-                <div class="appointment section" id="appointment-invoice">
-                <h4><?php echo lang('appointments:appointment_invoice'); ?></h4>
+                <!-- appointment-patient -->
+                <div class="appointment section" id="appointment-patient">
+                <h4><?php echo lang('appointments:appointment_patient'); ?></h4>
                     <ul>
      
 

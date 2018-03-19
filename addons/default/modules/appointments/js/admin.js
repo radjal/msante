@@ -2,16 +2,16 @@
 /*load appointment cart list*/
 function load_cart(link) 
 {
-    console.log('load_cart '+link);
-    var uri = window.location.pathname;
-    var oid = uri.split('/').pop();
-    if(typeof link == 'undefined') var link = SITE_URL + "admin/appointments/list/appointment/"+oid;
-    $.ajax({
-        url: link,
-        cache: false
-      }).done(function( html ) {
-        $( "#appointment-cart" ).html( html );
-      });
+//    console.log('load_cart '+link);
+//    var uri = window.location.pathname;
+//    var oid = uri.split('/').pop();
+//    if(typeof link == 'undefined') var link = SITE_URL + "admin/appointments/list/appointment/"+oid;
+//    $.ajax({
+//        url: link,
+//        cache: false
+//      }).done(function( html ) {
+//        $( "#appointment-cart" ).html( html );
+//      });
 }
 
 function modify_list()
@@ -23,7 +23,7 @@ function modify_list()
 
 jQuery(function($)
 {
-    if($( "input[name=delivery_date]" ).length)
+    if($( "input[name=appointment_date]" ).length)
     {
 
                     // generate a slug when the user types a title in
@@ -33,7 +33,8 @@ jQuery(function($)
                     $( "#form_inputs" ).tabs();
 
                     /* datepicker widget jQuery UI */
-                    $( "input[name=delivery_date]" ).datepicker({
+                    $( "input[name=appointment_date]" ).datepicker({
+                            minDate: 0,
                             dateFormat: 'yy-mm-dd' 
                     });
 
@@ -66,7 +67,7 @@ jQuery(function($)
                 function() 
                 {
                     event.preventDefault();
-                    load_cart($( this ).attr('href'));
+//                    load_cart($( this ).attr('href'));
 
                 }
             );});

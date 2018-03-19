@@ -25,9 +25,11 @@ div.input input[type="radio"]{
 }
 
 /*appointment content*/
-#appointment-details, #appointment-invoice, #appointment-delivery, #appointment-cart, #appointment-extra { 
+#appointment-details, #appointment-patient, #appointment-delivery, #appointment-cart, #appointment-extra {
     padding:16px;
-    width:95%;
+    width: 100%;
+    display: block;
+    clear: both;
 }
 #form_inputs > div.buttons {
     clear: both;

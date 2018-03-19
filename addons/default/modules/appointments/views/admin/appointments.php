@@ -13,51 +13,20 @@
                                     	<th><?php echo form_checkbox(array('name' => 'action_to_all', 'class' => 'check-all'));?></th>
                                         <?php echo $this->html_m->table_header('id') ?>
                                         <?php echo $this->html_m->table_header('appointment_status') ?> 
-                                        <?php echo $this->html_m->table_header('delivery_date') ?> 
+                                        <?php echo $this->html_m->table_header('appointment_date') ?> 
                                         
                                         <?php if (empty($this->input->get('view'))) 
                                         { ?>
-                                        <?php echo $this->html_m->table_header('name', lang('appointments:name_alt')) ?>
-                                        <?php echo $this->html_m->table_header('slug', lang('appointments:slug_alt')) ?>
-                                        <?php echo $this->html_m->table_header('user_id') ?>
-					<?php echo $this->html_m->table_header('d_company') ?>
-                                        <?php echo $this->html_m->table_header('d_fullname') ?>
+                                        <?php // echo $this->html_m->table_header('name', lang('appointments:name_alt')) ?>
+                                        <?php // echo $this->html_m->table_header('slug', lang('appointments:slug_alt')) ?>
+                                        <?php echo $this->html_m->table_header('user_id') ?> 
                                         <?php echo $this->html_m->table_header('total_pretax') ?>
                                         <?php echo $this->html_m->table_header('total_final') ?>
                                         <?php echo $this->html_m->table_header('payment_status') ?>
                                         <?php echo $this->html_m->table_header('payment_type') ?>
                                         <?php echo $this->html_m->table_header('appointment_date') ?>
                                                 <th></th>
-                                        <?php } ?>
-                                        
-                                        
-                                        <?php if ($this->input->get('view')=='delivery') 
-                                        { ?>
-                                        <?php echo $this->html_m->table_header('d_company') ?>
-                                        <?php echo $this->html_m->table_header('d_fullname') ?>
-                                        <?php echo $this->html_m->table_header('d_phone') ?>
-                                        <?php echo $this->html_m->table_header('d_mobile') ?>
-                                        <?php echo $this->html_m->table_header('d_mail') ?>
-                                        <?php echo $this->html_m->table_header('d_street1') ?>
-                                        <?php echo $this->html_m->table_header('d_zipcode') ?>
-                                        <?php echo $this->html_m->table_header('d_town') ?>
-                                        <?php echo $this->html_m->table_header('total_pretax') ?>
-                                        <?php echo $this->html_m->table_header('total_final') ?>
-                                        <?php } ?>
-                                        
-                                        <?php if ($this->input->get('view')=='invoice') 
-                                        { ?>
-                                        <?php echo $this->html_m->table_header('i_company') ?>
-                                        <?php echo $this->html_m->table_header('maiden_name') ?>
-                                        <?php echo $this->html_m->table_header('phone') ?>
-                                        <?php echo $this->html_m->table_header('mobile') ?>
-                                        <?php echo $this->html_m->table_header('email') ?>
-                                        <?php echo $this->html_m->table_header('address') ?>
-                                        <?php echo $this->html_m->table_header('area_name') ?>
-                                        <?php echo $this->html_m->table_header('town') ?>
-                                        <?php echo $this->html_m->table_header('total_pretax') ?>
-                                        <?php echo $this->html_m->table_header('total_final') ?>
-										<?php } ?>
+                                        <?php } ?> 
                                                 <th></th>
 				</tr>
 			</thead>
@@ -84,31 +53,23 @@
                                             </a>
                                         </td>
 					<td>
-                                            <a href="/admin/appointments/list?searchBtn=Search&delivery_date=<?php echo $appointment->delivery_date; ?>" class="button">+</a>&nbsp;<a href="/admin/appointments?searchBtn=Search&delivery_date=<?php echo $appointment->delivery_date; ?>"><?php echo format_date($appointment->delivery_date, 'd/m/Y'); ?>
+                                            <a href="/admin/appointments/list?searchBtn=Search&appointment_date=<?php echo $appointment->appointment_date; ?>" class="button">+</a>&nbsp;<a href="/admin/appointments?searchBtn=Search&appointment_date=<?php echo $appointment->appointment_date; ?>"><?php echo format_date($appointment->appointment_date, 'd/m/Y'); ?>
                                             </a>
                                         </td>
 
 				<?php if (empty($this->input->get('view'))) 
 				{ ?>               
-                                        <td>
+<!--                                        <td>
                                             <a href="/admin/appointments?searchBtn=Search&name=<?php echo $appointment->name; ?>"><?php echo $appointment->name; ?></a>
                                         </td>           
                                         <td>
                                             <a href="/admin/appointments?searchBtn=Search&slug=<?php echo $appointment->slug; ?>"><?php echo $appointment->slug; ?></a>
-                                        </td>           
+                                        </td>           -->
 					<td>
                                             <a href="/admin/users/edit/<?php echo $appointment->user_id; ?>" class="button">+</a> 
                                             <a href="/admin/appointments?searchBtn=Search&user_id=<?php echo $appointment->user_id; ?>"><?php echo str_pad($appointment->user_id, 4); ?>
                                             </a>
-                                        </td>
-					<td>
-                                            <a href="/admin/appointments?searchBtn=Search&d_company=<?php echo $appointment->d_company; ?>"><?php echo $appointment->d_company; ?></a>
-                                            <?php //echo $appointment->d_company ; ?>
-                                        </td> 
-					<td>
-                                            <a href="/admin/appointments?searchBtn=Search&d_fullname=<?php echo $appointment->d_fullname; ?>"><?php echo $appointment->d_fullname; ?></a>
-                                            <?php //echo $appointment->d_fullname; ?>
-                                        </td>         
+                                        </td>    
                                         <td><?php echo $appointment->total_pretax; ?></td>
 					<td><?php echo $appointment->total_final; ?></td>
 					<td>
@@ -127,49 +88,7 @@
                                         <!-- 
 					<td></td> 
                                         -->
-				<?php } ?>
-
-				<?php if ($this->input->get('view')=='delivery') 
-				{ ?>
-					<td>
-                                            <a href="/admin/appointments?searchBtn=Search&d_company=<?php echo $appointment->d_company; ?>">
-                                                    <?php echo $appointment->d_company; ?>
-                                            </a>
-                                        </td>         
-					<td>
-                                            <a href="/admin/appointments?searchBtn=Search&d_fullname=<?php echo $appointment->d_fullname; ?>">
-                                                    <?php echo $appointment->d_fullname; ?>
-                                            </a>
-                                        </td>         
-					<td>
-                                            <a href="/admin/appointments?searchBtn=Search&d_phone=<?php echo $appointment->d_phone; ?>">
-                                                    <?php echo $appointment->d_phone; ?>
-                                            </a>
-                                        </td>      
-					<td>
-                                            <a href="/admin/appointments?searchBtn=Search&d_mobile=<?php echo $appointment->d_mobile; ?>">
-                                                   <?php echo $appointment->d_mobile; ?>
-                                            </a>
-                                        </td>            
-					<td>
-                                            <a href="/admin/appointments?searchBtn=Search&d_mail=<?php echo $appointment->d_mail; ?>">
-                                                    <?php echo $appointment->d_mail; ?>
-                                            </a>
-                                        </td>         
-					<td><?php echo $appointment->d_street1; ?></td>         
-					<td>
-                                            <a href="/admin/appointments?searchBtn=Search&d_zipcode=<?php echo $appointment->d_zipcode; ?>"> 
-                                                    <?php echo $appointment->d_zipcode; ?>
-                                            </a>
-                                        </td>
-                                        <td>
-                                            <a href="/admin/appointments?searchBtn=Search&d_town=<?php echo $appointment->d_town; ?>"> 
-                                                    <?php echo $appointment->d_town; ?>
-                                            </a>
-                                        </td>
-					<td><?php echo $appointment->total_pretax; ?>&nbsp;€</td>
-					<td><?php echo $appointment->total_final; ?>&nbsp;€</td>
-				<?php } ?>
+				<?php } ?> 
 														
 				<?php if ($this->input->get('view')=='invoice') 
 				{ ?>

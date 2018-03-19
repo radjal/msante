@@ -14,7 +14,7 @@
                         <?php echo $this->html_m->form_input('id', $this->input->get('id')) ?>
                         <?php echo $this->html_m->form_input('name', $this->input->get('name'),'', lang('appointments:name_alt')) ?>
                         <?php echo $this->html_m->form_input('slug', $this->input->get('slug'),'', lang('appointments:slug_alt')) ?>
-                        <?php echo $this->html_m->form_input('delivery_date', $this->input->get('delivery_date')) ?> 
+                        <?php echo $this->html_m->form_input('appointment_date', $this->input->get('appointment_date')) ?> 
                         <?php echo $this->html_m->form_input('user_id', $this->input->get('user_id')) ?>
                         <?php echo $this->html_m->form_input('d_fullname', $this->input->get('d_fullname')) ?>
                         <?php echo $this->html_m->form_input('d_company', $this->input->get('d_company')) ?>
@@ -44,7 +44,7 @@
 				<!--<th width="20"><?php echo form_checkbox(array('name' => 'action_to_all', 'class' => 'check-all')) ?></th>-->
 				<?php echo $this->html_m->table_header('appointment_id') ?>
 				<?php echo $this->html_m->table_header('slug') ?>
-				<?php echo $this->html_m->table_header('delivery_date') ?>
+				<?php echo $this->html_m->table_header('appointment_date') ?>
 				<?php echo $this->html_m->table_header('appointment_status') ?>                 
 				<?php //echo $this->html_m->table_header('product_id') ?> 
 				<?php echo $this->html_m->table_header('name') ?>              
@@ -86,8 +86,8 @@
                                             </a>
                                         </td>
                                         <td>
-                                            <a href="/admin/appointments/list?searchBtn=Search&delivery_date=<?php echo $details->delivery_date; ?>">
-                                                    <?php echo format_date($details->delivery_date, 'd/m/Y'); ?>
+                                            <a href="/admin/appointments/list?searchBtn=Search&appointment_date=<?php echo $details->appointment_date; ?>">
+                                                    <?php echo format_date($details->appointment_date, 'd/m/Y'); ?>
                                             </a>
                                         </td>
 					<td>

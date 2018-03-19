@@ -30,11 +30,11 @@ class Plugin_Appointments extends Plugin
         /**
          * delivery date with customized datepicker 
          * usage
-         * {{ appointments:delivery_date }} 
+         * {{ appointments:appointment_date }} 
          * 
          * @return string html 
          */
-        function delivery_date()
+        function appointment_date()
         {
             $html = '';
 		$this->load->model('appointments_m');
@@ -44,7 +44,7 @@ class Plugin_Appointments extends Plugin
                 //$encode = strtolower($this->attribute('encode'));
 
                 $js = $this->appointments_m->getfile('js/datepicker.js' );
-                $html .= $this->html_m->form_delivery_date();   
+                $html .= $this->html_m->form_appointment_date();   
                 return $html;
         }
         
@@ -196,8 +196,8 @@ class Plugin_Appointments extends Plugin
 	{
            $html = '';
            $html .= '<form class="appointments-search" action="'.  site_url().'appointments/listing" method="post">' ;
-           $html .= '<div class="search-field"><label">'.lang('appointments:delivery_date') ;
-           $html .= form_input('delivery_date', $this->input->post('delivery_date')) ;
+           $html .= '<div class="search-field"><label">'.lang('appointments:appointment_date') ;
+           $html .= form_input('appointment_date', $this->input->post('appointment_date')) ;
            $html .= '</label"></div>' ;
            $html .= '<div class="search-field"><label">'.lang('appointments:d_fullname') ;
            $html .= form_input('d_fullname', $this->input->post('d_fullname')) ;

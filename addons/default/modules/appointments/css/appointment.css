@@ -188,7 +188,7 @@ div.appointments-container table tbody tr td:nth-child(1) a, #appointment-cart t
     margin: 5px 20px;
     display: inline-block;
 }
-#appointment-invoice input, #appointment-delivery input {
+#appointment-patient input, #appointment-delivery input {
     width: 100%;
 } 
 
@@ -313,7 +313,7 @@ padding-right: 10px;
             position: relative;
             clear: both;
         }
-        #appointment-invoice {}
+        #appointment-patient {}
         #appointment-delivery  {
             clear: both;
         }

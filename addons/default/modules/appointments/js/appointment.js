@@ -15,16 +15,16 @@ $( document ).ready(function()
         $('#appointment-delivery').show('fast');
         
         /*help*/
-        if($('input[name=delivery_date]').val()=='') 
+        if($('input[name=appointment_date]').val()=='') 
         {
             $("#appointment-details-info").html(lang.choose+lang.reload+lang.profile).fadeIn();
             
         }
         /*binding delivery date */
-//        if($('input[name=delivery_date]').length) 
+//        if($('input[name=appointment_date]').length) 
 //        {
 //            //binding
-//            $("input[name=delivery_date]").change(
+//            $("input[name=appointment_date]").change(
 //                    function(){
 //                        if($(this).val() != '') $('#appointment-msg')
 //                    });

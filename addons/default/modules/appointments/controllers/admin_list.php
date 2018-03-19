@@ -12,23 +12,9 @@ class Admin_List extends Admin_Controller
 	/** @var int The current active section */
 	protected $section = 'list';
 	protected $sql = '
-                            default_appointments_list.id,
-                            default_appointments_list.appointment_status,
-                            default_appointments_list.delivery_date,
-                            default_appointments_list.maiden_name,
-                            default_appointments_list.d_fullname,
-                            default_appointments_list.slug as slug,
+                            default_appointments_list.id, 
                             default_appointments_details.appointment_id,
-                            default_appointments_details.product_id,
-                            default_appointments_details.product_qty,
-                            default_appointments_details.name as p_name,
-                            default_appointments_details.line_price as line_price,
-                            default_appointments_details.tax as tax,
-                            default_appointments_details.final_price as final_price,
-                            default_appointments_details.name as name,
-                            default_appointments_details.image_filename as image_filename,
-                            default_appointments_details.unit as unit,
-                            default_appointments_details.origin as origin';
+                            default_appointments_details.product_id';
         
 	public function __construct()
 	{

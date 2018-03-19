@@ -177,7 +177,7 @@ if($disabled)  $disabled='disabled';
     }
     #appointment-cart,
     #appointment-details,
-    #appointment-invoice,
+    #appointment-patient,
     #appointment-delivery,
     #appointment-extra,
     #appointment-id {
@@ -208,7 +208,7 @@ if($disabled)  $disabled='disabled';
         
     	<!-- appointment-details -->
         <div  id="appointment-details">
-                    <?php echo $this->html_m->form_input('delivery_date', $appointment->delivery_date, $disabled ); ?>
+                    <?php echo $this->html_m->form_input('appointment_date', $appointment->appointment_date, $disabled ); ?>
                     <?php echo $this->html_m->form_input('appointment_time', $appointment->appointment_time, $disabled ); ?>
                     <label for="payment_type"><?php echo lang('appointments:payment_type'); ?></label>
                     <?php echo form_input('payment_type', lang('appointments:po_'.$appointment->payment_type), $disabled ); ?> 
@@ -290,9 +290,9 @@ if($disabled)  $disabled='disabled';
                     <?php echo $this->html_m->form_input('appointment_date', $appointment->appointment_date, $disabled ); ?>
 	 </div>
         
-        <!-- appointment-invoice -->
-<!--	<div  id="appointment-invoice">
-            <h2><?php echo lang('appointments:appointment_invoice'); ?></h2>
+        <!-- appointment-patient -->
+<!--	<div  id="appointment-patient">
+            <h2><?php echo lang('appointments:appointment_patient'); ?></h2>
 				
                     <?php echo $this->html_m->form_input('i_company', $appointment->i_company, $disabled) ; ?>
                     <?php echo $this->html_m->form_input('maiden_name', $appointment->maiden_name, $disabled ); ?>

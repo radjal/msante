@@ -91,7 +91,6 @@ class Html_m extends MY_Model {
             $html .= '</a>';
             $html .= '</th>';
             return $html;
-            
         }        
 
         public function table_header_old($fieldname, $link=false)
@@ -109,13 +108,13 @@ class Html_m extends MY_Model {
             
         }
         
-        public function form_delivery_date($value='', $extra='')
+        public function form_appointment_date($value='', $extra='')
         {
             $html ='';
             // form select
             $html .= '<div id="appointment-customised-datepicker">'."\n";
-            $html .= '<label for="delivery_date">'.lang("appointments:delivery_date").'</label>';
-            $html .= form_input('delivery_date', $value, $extra);   
+            $html .= '<label for="appointment_date">'.lang("appointments:appointment_date").'</label>';
+            $html .= form_input('appointment_date', $value, $extra);   
             $html .= '<p id="delivery-times"></p>'."\n";     
             $html .= '</div>'."\n";
             // datepicker constraint
@@ -201,13 +200,13 @@ class Html_m extends MY_Model {
 	{
                 $options[''] = lang('appointments:status_none') ;                                
                 $options['prep'] = lang('appointments:status_prep') ;                                
-                $options['delivery'] = lang('appointments:status_delivery') ;                                
-                $options['delivered'] = lang('appointments:status_delivered') ;                                
+                $options['delivery'] = lang('appointments:status_seeing') ;                                
+                $options['delivered'] = lang('appointments:status_seen') ;                                
                 $options['waiting'] = lang('appointments:status_waiting') ;                                
                 $options['waiting_pay'] = lang('appointments:status_waiting_pay') ;                                
                 $options['waiting_treatment'] = lang('appointments:status_waiting_treatment') ;                                
                 $options['cancelled'] = lang('appointments:status_cancelled') ;                                
-                $options['cancelled_by_user'] = lang('appointments:status_cancelled_by_user') ;                                
+                $options['cancelled_by_patient'] = lang('appointments:status_cancelled_by_patient') ;                                
 				
             return form_dropdown('appointment_status', $options, $selected, $extra) ;
         }
@@ -235,7 +234,7 @@ class Html_m extends MY_Model {
                             $html .=form_radio('payment_type', 'cash', $selected == 'cash', $extra); 
                             $html .=lang('appointments:po_cash');
                                 $html .=form_radio('payment_type', 'meal_coupon', $selected == 'meal_coupon', $extra); 
-                                $html .=lang('appointments:po_meal_coupon');
+                                $html .=lang('appointments:po_insurance');
 //                            $html .=form_radio('payment_type', 'delivery', $selected == 'delivery', $extra); 
 //                            $html .=lang('appointments:po_delivery');
                 return $html ;

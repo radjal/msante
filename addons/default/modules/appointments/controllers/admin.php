@@ -23,36 +23,96 @@ class Admin extends Admin_Controller
 
 		// Set the validation rules
 		$this->item_validation_rules = array(
-			array(
-				'field' => 'name',
-				'label' => 'Name',
-				'rules' => 'trim|max_length[100]|required'
-			),
-			array(
-				'field' => 'slug',
-				'label' => 'Slug',
-				'rules' => 'unique'
-			),
-			array(
-				'field' => 'appointment_status',
-				'label' => 'Appointment status',
-				'rules' => 'trim'
-			),
-			array(
-				'field' => 'payment_status',
-				'label' => 'Payment status',
-				'rules' => 'trim'
-			),
 //			array(
-//				'field' => 'appointment_status',
-//				'label' => 'Order status',
+//				'field' => 'name',
+//				'label' => 'Nom',
 //				'rules' => 'trim|max_length[100]|required'
 //			),
+//			array(
+//				'field' => 'slug',
+//				'label' => 'Slug',
+//				'rules' => 'trim|max_length[100]'
+//			),
+			array(
+				'field' => 'appointment_status',
+				'label' => 'Statut du RDV',
+				'rules' => 'trim|max_length[100]'
+			),
+			array(
+				'field' => 'appointment_date',
+				'label' => 'Date RDV',
+				'rules' => 'trim|required|max_length[20]'
+			),
+			array(
+				'field' => 'appointment_time',
+				'label' => 'Heure RDV',
+				'rules' => 'trim|required|max_length[10]' 
+			),
+			array(
+				'field' => 'message',
+				'label' => 'Message',
+				'rules' => 'trim'
+			),
+			array(
+				'field' => 'maiden_name',
+				'label' => 'Nom de jeune fille',
+				'rules' => 'trim|max_length[120]'
+			),       
+			array(
+				'field' => 'first_name',
+				'label' => 'Prénom',
+				'rules' => 'trim|required|max_length[60]'
+			),       
+			array(
+				'field' => 'last_name',
+				'label' => 'Nom de famille',
+				'rules' => 'trim|required|max_length[60]'
+			),       
+			array(
+				'field' => 'gender',
+				'label' => 'Sexe',
+				'rules' => 'trim|max_length[10]'
+			),       
+			array(
+				'field' => 'phone',
+				'label' => 'Téléphone',
+				'rules' => 'trim|max_length[20]'
+			),       
+			array(
+				'field' => 'mobile',
+				'label' => 'Mobile',
+				'rules' => 'trim|max_length[20]'
+			),       
+			array(
+				'field' => 'email',
+				'label' => 'Email',
+				'rules' => 'trim|max_length[80]'
+			),       
+			array(
+				'field' => 'address',
+				'label' => 'Adresse',
+				'rules' => 'trim|max_length[250]'
+			),       
+			array(
+				'field' => 'town',
+				'label' => 'Ville',
+				'rules' => 'trim|max_length[120]'
+			),       
+			array(
+				'field' => 'area_name',
+				'label' => 'Quartier',
+				'rules' => 'trim|max_length[100]'
+			),        
 			array(
 				'field' => 'payment_type',
 				'label' => 'Payment type',
 //				'rules' => 'trim'
 			),
+			array(
+				'field' => 'payment_status',
+				'label' => 'Payment status',
+				'rules' => 'trim'
+			), 
 			array(
 				'field' => 'total_pretax',
 				'label' => 'Total pretax',
@@ -63,52 +123,6 @@ class Admin extends Admin_Controller
 				'label' => 'Total final',
 //				'rules' => 'required'
 			),
-			array(
-				'field' => 'appointment_date',
-				'label' => 'Appointment date',
-//				'rules' => 'required'
-			),
-			array(
-				'field' => 'delivery_date',
-				'label' => 'Delivery date',
-//				'rules' => 'required'
-			),
-			array(
-				'field' => 'd_fullname',
-				'label' => 'd_fullname',
-//				'rules' => 'required'
-			),
-			array(
-				'field' => 'd_phone',
-				'label' => 'd_phone',
-//				'rules' => 'required'
-			),
-			array(
-				'field' => 'd_street1',
-				'label' => 'd_street1',
-//				'rules' => 'required'
-			),
-//			array(
-//				'field' => 'd_street2',
-//				'label' => 'Devlivery town',
-//				'rules' => 'required'
-//			),
-			array(
-				'field' => 'd_town',
-				'label' => 'Delivery town',
-//				'rules' => 'required'
-			),
-//			array(
-//				'field' => 'd_zipcode',
-//				'label' => 'Devlivery zipcode',
-//				'rules' => 'required'
-//			),
-			array(
-				'field' => 'message',
-				'label' => 'Message',
-				'rules' => 'trim'
-			),
-
 		);
 
 		// We'll set the partials and metadata here since they're used everywhere
@@ -259,28 +273,28 @@ class Admin extends Admin_Controller
 		$appointment = $this->appointments_m->get($id);
                 
                 // get cart list
-                $cart = $this->appointments_m->get_cartdetails($id);
+//                $cart = $this->appointments_m->get_cartdetails($id);
                 
                 //set values of cart total
                 $totals['total_price'] = $appointment->total_pretax ;
                 $totals['total_taxed'] = $appointment->total_final;
-                foreach ($cart as $p => $p_details) {
-                        $cart[$p]['order_qty'] = $cart[$p]['product_qty'];
-                        $cart[$p]['input_html'] = $cart[$p]['order_qty'];
-                        $cart[$p]['line_total'] = $cart[$p]['final_price'];
-                        $cart[$p]['price'] = $cart[$p]['line_total'] / $cart[$p]['order_qty'];
-                        $cart[$p]['img_url'] = site_url().UPLOAD_PATH.'products/'.$cart[$p]['image_filename'];
-                        $cart[$p]['img_html'] = '<img src="'.$cart[$p]['img_url'].'" height="60"/>';
-                        $cart[$p]['description'] = '';
-                        $cart[$p]['line'] = $p+1;
-                }
-                
+//                foreach ($cart as $p => $p_details) {
+//                        $cart[$p]['order_qty'] = $cart[$p]['product_qty'];
+//                        $cart[$p]['input_html'] = $cart[$p]['order_qty'];
+//                        $cart[$p]['line_total'] = $cart[$p]['final_price'];
+//                        $cart[$p]['price'] = $cart[$p]['line_total'] / $cart[$p]['order_qty'];
+//                        $cart[$p]['img_url'] = site_url().UPLOAD_PATH.'products/'.$cart[$p]['image_filename'];
+//                        $cart[$p]['img_html'] = '<img src="'.$cart[$p]['img_url'].'" height="60"/>';
+//                        $cart[$p]['description'] = '';
+//                        $cart[$p]['line'] = $p+1;
+//                }
+//                
                 // build page
 		$this->template
 			->title($this->module_details['name'], lang('appointments.edit'))
 			->set('disabled', true)
 			->set('appointment', $appointment)
-			->set('cartlist', $cart)
+//			->set('cartlist', $cart)
 			->set('totals', $totals)
 			->build('admin/form');
 	}

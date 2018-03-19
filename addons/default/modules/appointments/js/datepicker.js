@@ -10,8 +10,8 @@ function change_datepicker(show_day) {
     if(typeof show_day[6] =='undefined') show_day[6] = false;
     if(typeof show_day[0] =='undefined') show_day[0] = false;
 
-    $( "input[name=delivery_date]" ).datepicker('destroy');
-        $( "input[name=delivery_date]" ).datepicker({
+    $( "input[name=appointment_date]" ).datepicker('destroy');
+        $( "input[name=appointment_date]" ).datepicker({
             minDate: 0,
             dateFormat: 'yy-mm-dd' ,
             altFormat: "dd/mm/yy",
@@ -55,7 +55,7 @@ $( document ).ready(function()
             /* no weekends */
             // $.datepicker.noWeekends;
             /* no weekends and no past date */
-            $( "input[name=delivery_date]" ).datepicker({
+            $( "input[name=appointment_date]" ).datepicker({
                     minDate: 0,
                     dateFormat: 'yy-mm-dd' ,
                     altFormat: "dd/mm/yy",

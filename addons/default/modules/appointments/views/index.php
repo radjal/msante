@@ -12,7 +12,7 @@
 					<th>{{ helper:lang line="appointments:total_pretax" }}</th>
 					<th>{{ helper:lang line="appointments:total_final" }}</th>
 					<th>{{ helper:lang line="appointments:appointment_date" }}</th>
-					<th>{{ helper:lang line="appointments:delivery_date" }}</th>
+					<th>{{ helper:lang line="appointments:appointment_date" }}</th>
 					<th>{{ helper:lang line="appointments:i_name" }}</th>
 					<th>{{ helper:lang line="appointments:d_name" }}</th>
 				</tr>
@@ -25,7 +25,7 @@
 					<td>{{ total_pretax }}</td>
 					<td>{{ total_final }}</td>
 					<td>{{ appointment_date }}</td>
-					<td>{{ delivery_date }}</td>
+					<td>{{ appointment_date }}</td>
 					<td>{{ i_name }}</td>
 					<td>{{ d_name }}</td>
 				</tr>

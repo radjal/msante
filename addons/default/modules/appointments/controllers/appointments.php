@@ -20,15 +20,15 @@ class Appointments extends Public_Controller
 		$this->lang->load('appointments');
 
 		$this->template
-			->append_css('module::appointments.css');
+			->append_css('module::appointment.css');
                 
                 $this->load->library('form_validation');
                
 		// Set the validation rules
 		$this->item_validation_rules = array(
 			array(
-				'field' => 'delivery_date',
-				'label' => lang('appointments:delivery_date'),
+				'field' => 'appointment_date',
+				'label' => lang('appointments:appointment_date'),
 				'rules' => 'required'
 			),
 			array(
@@ -36,46 +36,46 @@ class Appointments extends Public_Controller
 				'label' => lang('appointments:payment_type'),
 				'rules' => ''
 			),
-			array(
-				'field' => 'd_fullname',
-				'label' => lang('appointments:d_fullname'),
-				'rules' => 'required'
-			),
-			array(
-				'field' => 'd_street1',
-				'label' => lang('appointments:d_street1'),
-				'rules' => 'required'
-			),
-			array(
-				'field' => 'd_town',
-				'label' => lang('appointments:d_town'),
-				'rules' => 'required'
-			),
-			array(
-				'field' => 'd_zipcode',
-				'label' => lang('appointments:d_zipcode'),
-				'rules' => 'required|max_length[10]'
-			),
 //			array(
-//				'field' => 'maiden_name',
-//				'label' => lang('appointments:maiden_name'),
+//				'field' => 'd_fullname',
+//				'label' => lang('appointments:d_fullname'),
 //				'rules' => 'required'
 //			),
 //			array(
-//				'field' => 'address',
-//				'label' => lang('appointments:address'),
+//				'field' => 'd_street1',
+//				'label' => lang('appointments:d_street1'),
 //				'rules' => 'required'
 //			),
 //			array(
-//				'field' => 'town',
-//				'label' => lang('appointments:town'),
+//				'field' => 'd_town',
+//				'label' => lang('appointments:d_town'),
 //				'rules' => 'required'
 //			),
 //			array(
-//				'field' => 'area_name',
-//				'label' => lang('appointments:area_name'),
+//				'field' => 'd_zipcode',
+//				'label' => lang('appointments:d_zipcode'),
 //				'rules' => 'required|max_length[10]'
 //			),
+			array(
+				'field' => 'maiden_name',
+				'label' => lang('appointments:maiden_name'),
+				'rules' => 'required'
+			),
+			array(
+				'field' => 'address',
+				'label' => lang('appointments:address'),
+				'rules' => 'required'
+			),
+			array(
+				'field' => 'town',
+				'label' => lang('appointments:town'),
+				'rules' => 'required'
+			),
+			array(
+				'field' => 'area_name',
+				'label' => lang('appointments:area_name'),
+				'rules' => 'required|max_length[10]'
+			),
 		);
 	}
 
@@ -157,7 +157,7 @@ class Appointments extends Public_Controller
                                 {
                                         $this->session->set_flashdata('success', lang('appointments:saved_waiting'));
                                         $this->_send_email('appointments-admin',$noid, $appointment, $this->current_user, $cart['products']);
-                                        $this->_send_email('appointments-client', $noid, $appointment, $this->current_user, $cart['products'], $this->current_user->email);
+                                        $this->_send_email('appointments-patient', $noid, $appointment, $this->current_user, $cart['products'], $this->current_user->email);
                                         redirect("appointments/listing");
                                 } else {
                                     $this->session->set_flashdata('error', lang('appointments:error'));
@@ -244,7 +244,7 @@ class Appointments extends Public_Controller
                  $this->form_validation->set_rules($this->item_validation_rules);
                     if ($this->form_validation->run())
                     {
-                        $update['delivery_date'] = $this->input->post('delivery_date');
+                        $update['appointment_date'] = $this->input->post('appointment_date');
                         $update['message'] = $this->input->post('message');
                         //$update['log'] = $this->input->post('log');
                         $update['payment_type'] = !empty($this->input->post('payment_type')) ? $this->input->post('payment_type') : '';
@@ -361,11 +361,11 @@ class Appointments extends Public_Controller
 		
                 if(!empty($this->input->post('searchBtn')))
                 {
-                    $delivery_date = $this->input->post('delivery_date');
+                    $appointment_date = $this->input->post('appointment_date');
                     $d_fullname = $this->input->post('d_fullname');
                     $slug = $this->input->post('slug');
 
-                    if(!empty($delivery_date)) $this->db->or_like('delivery_date', $delivery_date, 'after');
+                    if(!empty($appointment_date)) $this->db->or_like('appointment_date', $appointment_date, 'after');
                     if(!empty($d_fullname)) $this->db->or_like('d_fullname', $d_fullname);
                     if(!empty($slug)) $this->db->where('slug', $slug);
                 }
@@ -543,7 +543,7 @@ class Appointments extends Public_Controller
                 // admin
                 return Events::trigger('email', $params, 'array'); 
 //                // client
-//                $params['slug'] = 'appointments-client';
+//                $params['slug'] = 'appointments-patient';
 //                $params['subject'] = 'your appointment';
                // Events::trigger('email', $params, 'array'); 
 		return ;
