@@ -64,7 +64,7 @@
                                             -->
                                             <a href="/admin/appointments?searchBtn=Search&appointment_date=<?php echo $appointment->appointment_date; ?>">
                                                     <?php // echo  $appointment->appointment_date ?> 
-                                                    <?php  echo $this->appointments_m->format_appt_date($appointment->appointment_date); ?>
+                                                    <?php  echo $this->appointments_m->str_to_day($appointment->appointment_date); ?>
                                             </a>
                                         </td> 
 					<td><?php echo  $appointment->appointment_time ; ?></td> 

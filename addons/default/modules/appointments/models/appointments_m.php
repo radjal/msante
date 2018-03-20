@@ -369,7 +369,12 @@ class Appointments_m extends MY_Model
             if($doc_id!==false) $this->db->where('doctor_id', $doc_id);
             $res = $this->db->get('appointments_list')
                             ->result_array();
-        
+//            $res[0]['appointment_time']
+            // time format pad to 4 digits
+            if(isset($res[0]['appointment_time']))
+            {
+                    $res[0]['appointment_time'] = str_pad($res[0]['appointment_time'], 4, '0', STR_PAD_LEFT); 
+            }
             return $res;
         }
                
@@ -378,7 +383,7 @@ class Appointments_m extends MY_Model
          * @param str $datestr
          * @return str day short name
          */
-        public function format_appt_date($datestr) 
+        public function str_to_day($datestr, $format='short') 
         {
             if(is_object($datestr)) $datestr = get_object_vars ($datestr);
             
@@ -391,31 +396,89 @@ class Appointments_m extends MY_Model
             switch ( $check )
             {
                 case 'Mon':
-                    $html .= 'Lun';
+                    $html .= $format=='short'?'Lun':'Lundi';
                     break;
                 case 'Tue':
-                    $html .= 'Mar';
+                    $html .= $format=='short'?'Mar':'Mardi';
                     break;
                 case 'Wed':
-                    $html .= 'Mer';
+                    $html .= $format=='short'?'Mer':'Mercredi';
                     break;
                 case 'Thu':
-                    $html .= 'Jeu';
+                    $html .= $format=='short'?'Jeu':'Jeudi';
                     break;
                 case 'Fri':
-                    $html .= 'Ven';
+                    $html .= $format=='short'?'Ven':'Vendredi';
                     break;
                 case 'Sat':
-                    $html .= 'Sam';
+                    $html .= $format=='short'?'Sam':'Samedi';
                     break;
                 case 'Sun':
-                    $html .= 'Dim';
+                    $html .= $format=='short'?'Dim':'Dimanche';
                     break;
             }
             $html .= ' ';
             $html .= date_format ($date,"d");
             return $html;
         }
+        
+        public function str_to_month($datestr) 
+        {
+            if(is_object($datestr)) $datestr = get_object_vars ($datestr);
+            
+            $year=substr($datestr,0,4);
+            $mo=substr($datestr,4,2);
+            $day=substr($datestr,6,2); 
+            $date=date_create_from_format("Y-m-d","$year-$mo-$day"); 
+            $html='';
+            $check = date_format($date,"m");
+            switch ( $check )
+            {
+                case '1':
+                    $html .= 'Janvier';
+                    break;
+                case '2':
+                    $html .= 'Février';
+                    break;
+                case '3':
+                    $html .= 'Mars';
+                    break;
+                case '4':
+                    $html .= 'Avril';
+                    break;
+                case '5':
+                    $html .= 'Mai';
+                    break;
+                case '6':
+                    $html .= 'Juin';
+                    break;
+                case '7':
+                    $html .= 'Juillet';
+                    break;
+                case '8':
+                    $html .= 'Août';
+                    break;
+                case '9':
+                    $html .= 'Septembre';
+                    break;
+                case '10':
+                    $html .= 'Octobre';
+                    break;
+                case '11':
+                    $html .= 'Novembre';
+                    break;
+                case '12':
+                    $html .= 'Décembre';
+                    break;
+            }
+            $html .= ' ';
+            $html .= date_format ($date,"Y");
+            return $html;
+        }
+        
+        
+        
+        
 //        /** add useful HTML to products array 
 //         *  merges with array of selected IDs for populatinf input with selecteed quantity
 //         * 

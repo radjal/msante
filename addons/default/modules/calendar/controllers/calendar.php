@@ -181,13 +181,15 @@ class Calendar extends Public_Controller
 //            if(!empty($week_cat_id)) 
 //            {
                             // jours
-                            $jours_ouverts = Settings::get('jours_ouverts'); // sun = 0
+                            $jours_ouverts = Settings::get('jours_ouverts'); // sun = 0 //NOT USED
+                            $day_periods = $this->calendar_m->periods_make_day();
                             if(strstr($jours_ouverts, '1')) 
                             {
                                 $semaine['lundi'] = true;
                                 // get appointments for day
                                 $datestr = str_replace('-', '', $data['week_dates_iso'][1]['date']); 
                                 $appointments['lundi'] = $this->appointments_m->get_for_date($datestr, $doctor_id);  
+                                $appointments['lundi_periods'] = $day_periods;
                             }
                             if(strstr($jours_ouverts, '2')) 
                             {
@@ -195,6 +197,7 @@ class Calendar extends Public_Controller
                                 // get appointments for day
                                 $datestr = str_replace('-', '', $data['week_dates_iso'][2]['date']); 
                                 $appointments['mardi'] = $this->appointments_m->get_for_date($datestr, $doctor_id);  
+                                $appointments['mardi_periods'] = $day_periods;
                             }    
                             if(strstr($jours_ouverts, '3')) 
                             {
@@ -202,6 +205,7 @@ class Calendar extends Public_Controller
                                 // get appointments for day
                                 $datestr = str_replace('-', '', $data['week_dates_iso'][3]['date']); 
                                 $appointments['mercredi'] = $this->appointments_m->get_for_date($datestr, $doctor_id);  
+                                $appointments['mercredi_periods'] = $day_periods;
                             }
                             if(strstr($jours_ouverts, '4'))
                             {
@@ -209,13 +213,15 @@ class Calendar extends Public_Controller
                                 // get appointments for day
                                 $datestr = str_replace('-', '', $data['week_dates_iso'][4]['date']); 
                                 $appointments['jeudi'] = $this->appointments_m->get_for_date($datestr, $doctor_id);  
+                                $appointments['jeudi_periods'] = $day_periods;
                             }
                             if(strstr($jours_ouverts, '5')) 
                             {
                                 $semaine['vendredi'] = true;
                                 // get appointments for day
                                 $datestr = str_replace('-', '', $data['week_dates_iso'][5]['date']); 
-                                $appointments['vendredi'] = $this->appointments_m->get_for_date($datestr, $doctor_id);  
+                                $appointments['vendredi'] = $this->appointments_m->get_for_date($datestr, $doctor_id); 
+                                $appointments['vendredi_periods'] = $day_periods; 
                             }
                             if(strstr($jours_ouverts, '6')) 
                             {
@@ -223,6 +229,7 @@ class Calendar extends Public_Controller
                                 // get appointments for day
                                 $datestr = str_replace('-', '', $data['week_dates_iso'][6]['date']); 
                                 $appointments['samedi'] = $this->appointments_m->get_for_date($datestr, $doctor_id);  
+                                $appointments['samedi_periods'] = $day_periods;
                             }
                             if(strstr($jours_ouverts, '7')) 
                             {
@@ -230,6 +237,7 @@ class Calendar extends Public_Controller
                                 // get appointments for day
                                 $datestr = str_replace('-', '', $data['week_dates_iso'][7]['date']); 
                                 $appointments['dimanche'] = $this->appointments_m->get_for_date($datestr, $doctor_id);  
+                                $appointments['dimanche_periods'] = $day_periods;
                             }   
                              
 //            } 

@@ -24,12 +24,16 @@
 //                                                    echo $appts['appointment_date'];
 //                                                    echo ' ';
                                                     echo $appts['appointment_time'];
-//                                                    echo '<br/>';
-//                                                    echo $appts['first_name'];
-//                                                    echo ' ';
-//                                                    echo $appts['last_name'];
-//                                                    echo '<br/>';
-                                                    echo $appts['doctor_id'];
+                                                    echo '[';
+                                                    echo $appts['doctor_id'] .' - '. $appts['user_id'];
+                                                    echo ']<br/>';
+                                                } ?> 
+                                                    
+                                                <?php foreach ($appointments['lundi_periods'] as $periods ) 
+                                                { 
+//                                                    print_r($periods);
+                                                    echo $periods['dt'];
+                                                    echo $periods['break'] == 'true' ? ' En pause': '';
                                                     echo '<br/>';
                                                 } ?>
                                                 </section><div class="calendar-spacer"></div>
@@ -48,12 +52,16 @@
 //                                                    echo $appts['appointment_date'];
 //                                                    echo ' ';
                                                     echo $appts['appointment_time'];
-//                                                    echo '<br/>';
-//                                                    echo $appts['first_name'];
-//                                                    echo ' ';
-//                                                    echo $appts['last_name'];
-//                                                    echo '<br/>';
-                                                    echo $appts['doctor_id'];
+                                                    echo '[';
+                                                    echo $appts['doctor_id'] .' - '. $appts['user_id'];
+                                                    echo ']<br/>';
+                                                } ?> 
+                                                    
+                                                <?php foreach ($appointments['mardi_periods'] as $periods ) 
+                                                { 
+//                                                    print_r($periods);
+                                                    echo $periods['dt'];
+                                                    echo $periods['break'] == 'true' ? ' En pause': '';
                                                     echo '<br/>';
                                                 } ?>
                                                 </section><div class="calendar-spacer"></div>
@@ -71,12 +79,16 @@
 //                                                    echo $appts['appointment_date'];
 //                                                    echo ' ';
                                                     echo $appts['appointment_time'];
-//                                                    echo '<br/>';
-//                                                    echo $appts['first_name'];
-//                                                    echo ' ';
-//                                                    echo $appts['last_name'];
-//                                                    echo '<br/>';
-                                                    echo $appts['doctor_id'];
+                                                    echo '[';
+                                                    echo $appts['doctor_id'] .'-'. $appts['user_id'];
+                                                    echo ']<br/>';
+                                                } ?> 
+                                                    
+                                                <?php foreach ($appointments['mercredi_periods'] as $periods ) 
+                                                { 
+//                                                    print_r($periods);
+                                                    echo $periods['dt'];
+                                                    echo $periods['break'] == 'true' ? ' En pause': '';
                                                     echo '<br/>';
                                                 } ?>
                                                 </section><div class="calendar-spacer"></div>
@@ -94,12 +106,16 @@
 //                                                    echo $appts['appointment_date'];
 //                                                    echo ' ';
                                                     echo $appts['appointment_time'];
-//                                                    echo '<br/>';
-//                                                    echo $appts['first_name'];
-//                                                    echo ' ';
-//                                                    echo $appts['last_name'];
-//                                                    echo '<br/>';
-                                                    echo $appts['doctor_id'];
+                                                    echo '[';
+                                                    echo $appts['doctor_id'] .' - '. $appts['user_id'];
+                                                    echo ']<br/>';
+                                                } ?> 
+                                                    
+                                                <?php foreach ($appointments['jeudi_periods'] as $periods ) 
+                                                { 
+//                                                    print_r($periods);
+                                                    echo $periods['dt'];
+                                                    echo $periods['break'] == 'true' ? ' En pause': '';
                                                     echo '<br/>';
                                                 } ?>
                                                 </section><div class="calendar-spacer"></div>
@@ -117,12 +133,16 @@
 //                                                    echo $appts['appointment_date'];
 //                                                    echo ' ';
                                                     echo $appts['appointment_time'];
-//                                                    echo '<br/>';
-//                                                    echo $appts['first_name'];
-//                                                    echo ' ';
-//                                                    echo $appts['last_name'];
-//                                                    echo '<br/>';
-                                                    echo $appts['doctor_id'];
+                                                    echo '[';
+                                                    echo $appts['doctor_id'] .' - '. $appts['user_id'];
+                                                    echo ']<br/>';
+                                                } ?> 
+                                                    
+                                                <?php foreach ($appointments['vendredi_periods'] as $periods ) 
+                                                { 
+//                                                    print_r($periods);
+                                                    echo $periods['dt'];
+                                                    echo $periods['break'] == 'true' ? ' En pause': '';
                                                     echo '<br/>';
                                                 } ?>
                                                 </section><div class="calendar-spacer"></div>
@@ -140,12 +160,16 @@
 //                                                    echo $appts['appointment_date'];
 //                                                    echo ' ';
                                                     echo $appts['appointment_time'];
-//                                                    echo '<br/>';
-//                                                    echo $appts['first_name'];
-//                                                    echo ' ';
-//                                                    echo $appts['last_name'];
-//                                                    echo '<br/>';
-                                                    echo $appts['doctor_id'];
+                                                    echo '[';
+                                                    echo $appts['doctor_id'] .' - '. $appts['user_id'];
+                                                    echo ']<br/>';
+                                                } ?> 
+                                                    
+                                                <?php foreach ($appointments['samedi_periods'] as $periods ) 
+                                                { 
+//                                                    print_r($periods);
+                                                    echo $periods['dt'];
+                                                    echo $periods['break'] == 'true' ? ' En pause': '';
                                                     echo '<br/>';
                                                 } ?>
                                                 </section><div class="calendar-spacer"></div>
@@ -163,12 +187,16 @@
 //                                                    echo $appts['appointment_date'];
 //                                                    echo ' ';
                                                     echo $appts['appointment_time'];
-//                                                    echo '<br/>';
-//                                                    echo $appts['first_name'];
-//                                                    echo ' ';
-//                                                    echo $appts['last_name'];
-//                                                    echo '<br/>';
-                                                    echo $appts['doctor_id'];
+                                                    echo '[';
+                                                    echo $appts['doctor_id'] .' - '. $appts['user_id']; echo $appts['user_id'];
+                                                    echo ']<br/>';
+                                                } ?> 
+                                                    
+                                                <?php foreach ($appointments['dimanche_periods'] as $periods ) 
+                                                { 
+//                                                    print_r($periods);
+                                                    echo $periods['dt'];
+                                                    echo $periods['break'] == 'true' ? ' En pause': '';
                                                     echo '<br/>';
                                                 } ?>
                                                 </section><div class="calendar-spacer"></div>

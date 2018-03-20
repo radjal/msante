@@ -81,22 +81,37 @@ class Plugin_Appointments extends Plugin
         function my_appointments()
 	{ 
                 $user = $this->current_user;
-		$user_id = $user->id;
-		$futur_past = !empty($this->attribute('futur_past')) ? $this->attribute('futur_past') : 'futur';
-		$other_person = !empty($this->attribute('other_person')) ? $this->attribute('other_person') : 'no';    
+                if(!isset($user)) return false;
+                $user_id = $user->id;
+                $futur_past = !empty($this->attribute('futur_past')) ? $this->attribute('futur_past') : 'futur';
+                $other_person = !empty($this->attribute('other_person')) ? $this->attribute('other_person') : 'no';    
                 if(empty($user_id)) return false;
                 // query setting
-                $select = 'default_appointments_list.*, doctor_doctors.name AS doc_name, doctor_doctors.address AS doc_address, doctor_doctors.town AS doc_town';
-                $this->db->where("user_id",$user_id );
+                $select = 'default_appointments_list.*,'
+                        . ' doctor_doctors.name AS doc_name, doctor_doctors.address AS doc_address, doctor_doctors.town AS doc_town, doctor_doctors.area_name AS doc_area,'
+                        . ' doctor_categories.speciality AS doc_speciality,'
+                        . ' files.filename AS filename';
+//                $this->db->where("user_id",$user_id );
+//                $this->db->join('files', 'doctor_doctors.image = files.id', 'left');
                 if(!empty($other_person)) $this->db->where('default_appointments_list.other_person', $other_person);  
                 if(stristr($futur_past,"futur") ) $this->db->where('default_appointments_list.appointment_date >=', date('Ymd', time()));  
                 if(stristr($futur_past,"past") ) $this->db->where('default_appointments_list.appointment_date <=', date('Ymd', time()));    
-                $this->db->order_by('appointment_date', 'DESC'); 
-//                
-              $appointments = $this->db->select($select)
+                $this->db->order_by('appointment_date', 'ASC');   
+                //get results
+                $appointments = $this->db->select($select)
+                            ->where("appointments_list.user_id",$user_id )
                             ->join('doctor_doctors', 'doctor_doctors.id = appointments_list.doctor_id', 'left')
+                            ->join('doctor_categories', 'doctor_categories.id = doctor_doctors.doctor_cat', 'left')
+                            ->join('files', 'doctor_doctors.image = files.id', 'left')
                             ->get('appointments_list')
                                     ->result_array();
+                //add date strings 
+                $l = count($appointments);
+                for ($c = 0; $c < $l; $c++ ) 
+                {
+                    $appointments[$c]['date_day_str'] = $this->appointments_m->str_to_day($appointments[$c]['appointment_date'], 'long');
+                    $appointments[$c]['date_month_str'] = $this->appointments_m->str_to_month($appointments[$c]['appointment_date']);   
+                } 
              return $appointments; 
 	}
         

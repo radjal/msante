@@ -392,7 +392,7 @@ class Appointments extends Public_Controller
                 foreach ( $items as $appt ) 
                 { 
                     $items[$ic]->short_dayname = $items[$ic]->appointment_date;
-                    $appt->short_dayname = $this->appointments_m->format_appt_date($appt->appointment_date);
+                    $appt->short_dayname = $this->appointments_m->str_to_day($appt->appointment_date);
                     $ic++;
 //                     echo $this->appointments_m->format_appt_date($appointment->appointment_date); 
                 }
