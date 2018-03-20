@@ -2,7 +2,7 @@
 
 class Module_Appointments extends Module {
 
-	public $version = '0.1.0';
+	public $version = '0.1.10';
 
 	public function info()
 	{
@@ -70,26 +70,26 @@ class Module_Appointments extends Module {
                                                             'constraint' => '100',
                                                             'default' => '',
                                                             ),
-//						'appointment_date' => array(
-//                                                            'type' => 'INT',
-//                                                            'constraint' => '11',
-//                                                            'default' => 0
-//                                                            ), 
 						'appointment_date' => array(
-                                                            'type'       => 'datetime',
-                                                            'default'    => '1970-01-01 00:00:01',
-                                                            'null' => TRUE
+                                                            'type' => 'INT',
+                                                            'constraint' => '11',
+                                                            'default' => 0
                                                             ), 
-						'appointment_time' => array(
-                                                            'type' => 'VARCHAR',
-                                                            'constraint' => '20',
-                                                            'null' => TRUE
-                                                            ),
+//						'appointment_date' => array(
+//                                                            'type'       => 'datetime',
+//                                                            'default'    => '1970-01-01 00:00:01',
+//                                                            'null' => TRUE
+//                                                            ), 
 //						'appointment_time' => array(
-//                                                            'type' => 'INT',
-//                                                            'constraint' => '4',
-//                                                            'default' => 0000
+//                                                            'type' => 'VARCHAR',
+//                                                            'constraint' => '20',
+//                                                            'null' => TRUE
 //                                                            ),
+						'appointment_time' => array(
+                                                            'type' => 'INT',
+                                                            'constraint' => '4',
+                                                            'default' => 0000
+                                                            ),
 						'message' => array(
                                                             'type' => 'TEXT',
                                                             'null' => TRUE
@@ -113,7 +113,12 @@ class Module_Appointments extends Module {
                                                             'type' => 'VARCHAR',
                                                             'constraint' => '10',
                                                             'default' => '',
-                                                            ),						
+                                                            ),		
+						'other_person' => array(
+                                                            'type' => 'VARCHAR',
+                                                            'constraint' => '3',
+                                                            'default' => 'no'
+                                                            ),				
                                                 'phone' => array(
                                                             'type' => 'VARCHAR',
                                                             'constraint' => '20',
@@ -164,7 +169,7 @@ class Module_Appointments extends Module {
                                                             'constraint' => '11',
                                                             'default' => 0,
                                                             ),	
-                                             'ip' => array(
+                                                        'ip' => array(
                                                              'type' => 'VARCHAR',
                                                              'constraint' => '255',
                                                              'null' => TRUE

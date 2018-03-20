@@ -24,7 +24,7 @@ class Plugin_Appointments extends Plugin
                 
                 $encode = strtolower($this->attribute('encode'));
 		
-		return $this->appointments_m->getfile('js/appointments.js', $encode);
+		return $this->appointments_m->getfile('js/appointment.js', $encode);
 	}
         
         /**
@@ -65,6 +65,40 @@ class Plugin_Appointments extends Plugin
 		
 		return $this->appointments_m->getfile('css/appointments.css', $encode);
 	}
+                
+        /**
+	 * get appointments for current user id
+	 * Usage:
+	 * 
+	 * {{ appointments:my_appointments futur_past="past|futur" other_person="yes|no" }}
+	 *   {{appointment_date}} à {{appointment_time}}  
+         *   {{gender}}  
+         *   {{first_name}}    {{last_name}}  
+	 * {{ /appointments:my_appointments }}
+	 *
+	 * @return	array
+	 */
+        function my_appointments()
+	{ 
+                $user = $this->current_user;
+		$user_id = $user->id;
+		$futur_past = !empty($this->attribute('futur_past')) ? $this->attribute('futur_past') : 'futur';
+		$other_person = !empty($this->attribute('other_person')) ? $this->attribute('other_person') : 'no';    
+                if(empty($user_id)) return false;
+                // query setting
+                $select = 'default_appointments_list.*, doctor_doctors.name AS doc_name, doctor_doctors.address AS doc_address, doctor_doctors.town AS doc_town';
+                $this->db->where("user_id",$user_id );
+                if(!empty($other_person)) $this->db->where('default_appointments_list.other_person', $other_person);  
+                if(stristr($futur_past,"futur") ) $this->db->where('default_appointments_list.appointment_date >=', date('Ymd', time()));  
+                if(stristr($futur_past,"past") ) $this->db->where('default_appointments_list.appointment_date <=', date('Ymd', time()));    
+                $this->db->order_by('appointment_date', 'DESC'); 
+//                
+              $appointments = $this->db->select($select)
+                            ->join('doctor_doctors', 'doctor_doctors.id = appointments_list.doctor_id', 'left')
+                            ->get('appointments_list')
+                                    ->result_array();
+             return $appointments; 
+	}
         
         /**
 	 * Cart Cookie products list
@@ -78,15 +112,15 @@ class Plugin_Appointments extends Plugin
 	 */
 	function cartlist()
 	{
-		$appointment = $this->attribute('appointment');
-//                $p_cookie= $this->appointments_m->get_cookie_cart();
-                $rid = $this->input->get('remove');
-                $cart = $this->appointments_m->get_cart($rid);
-                if(count($cart['products']) > 0) 
-                { 
-                    return $cart['products'];
-                } 
-            return false;   
+//		$appointment = $this->attribute('appointment');
+////                $p_cookie= $this->appointments_m->get_cookie_cart();
+//                $rid = $this->input->get('remove');
+//                $cart = $this->appointments_m->get_cart($rid);
+//                if(count($cart['products']) > 0) 
+//                { 
+//                    return $cart['products'];
+//                } 
+//            return false;   
 	}
         
         /**
@@ -101,18 +135,18 @@ class Plugin_Appointments extends Plugin
 	 */
 	function carttotal()
 	{
-                $p_cookie= $this->appointments_m->get_cookie_cart();
-                
-                $rid = $this->input->get('remove');
-                $cart = $this->appointments_m->get_cart($rid);
-                if(count($cart['products']) > 0) 
-                { 
-                    $totals['total_price'] = $cart['total_price'] ;
-                    $totals['total_taxed'] = $cart['total_taxed'] ;
-                    $totals['mtz'] = true ; //useful?
-                    
-                    return $totals;
-                } 
+//                $p_cookie= $this->appointments_m->get_cookie_cart();
+//                
+//                $rid = $this->input->get('remove');
+//                $cart = $this->appointments_m->get_cart($rid);
+//                if(count($cart['products']) > 0) 
+//                { 
+//                    $totals['total_price'] = $cart['total_price'] ;
+//                    $totals['total_taxed'] = $cart['total_taxed'] ;
+//                    $totals['mtz'] = true ; //useful?
+//                    
+//                    return $totals;
+//                } 
             return false;   
 	}
         
@@ -122,13 +156,13 @@ class Plugin_Appointments extends Plugin
          */
 	function jsrelays()
 	{           
-            $this->load->model('relay/appointments_m');
-            $html = '';
-            $html .= '<script type="text/javascript">' ;
-            $html .= $this->appointments_m->getfile("js/relays.js" );
-
-            $html .= '</script>' ;
-            return $html;   
+//            $this->load->model('relay/appointments_m');
+//            $html = '';
+//            $html .= '<script type="text/javascript">' ;
+//            $html .= $this->appointments_m->getfile("js/relays.js" );
+//
+//            $html .= '</script>' ;
+//            return $html;   
 	}
 
         /**
@@ -140,29 +174,29 @@ class Plugin_Appointments extends Plugin
          */
         function categories() 
         {
-            	// params
-		$limit = $this->attribute('limit') ;
-		$appointment = $this->attribute('appointment');
-		$cat_id = $this->attribute('cat_id');
-		$parent_id = $this->attribute('parent_id');
-		$slug = $this->attribute('slug');
-		$order_by = !empty($this->attribute('order_by')) ? $this->attribute('order_by') : 'name';
-		$no_cat_id = $this->attribute('no_cat_id');
-		$no_pid = $this->attribute('no_pid');
-                
-            // query setting
-                if(!empty($cat_id)) $this->db->where("id","$cat_id");
-                if(!empty($parent_cid)) $this->db->where("parent_cid","$parent_cid");
-                if(!empty($slug)) $this->db->where("slug",$slug);
-                if(!empty($limit)) $this->db->limit($limit);
-                if(!empty($appointment)) $this->db->order_by($order_by, $appointment);
-                if(!empty($no_cat_id)) $this->db->where_not_in('id', explode(',', $no_cat_id));
-                if(!empty($no_pid)) $this->db->where_not_in('parent_id', explode(',', $no_pid));
-                
-              $categories = $this->db
-                            ->get('products_categories')
-                                    ->result_array();
-              return $categories;
+//            	// params
+//		$limit = $this->attribute('limit') ;
+//		$appointment = $this->attribute('appointment');
+//		$cat_id = $this->attribute('cat_id');
+//		$parent_id = $this->attribute('parent_id');
+//		$slug = $this->attribute('slug');
+//		$order_by = !empty($this->attribute('order_by')) ? $this->attribute('order_by') : 'name';
+//		$no_cat_id = $this->attribute('no_cat_id');
+//		$no_pid = $this->attribute('no_pid');
+//                
+//            // query setting
+//                if(!empty($cat_id)) $this->db->where("id","$cat_id");
+//                if(!empty($parent_cid)) $this->db->where("parent_cid","$parent_cid");
+//                if(!empty($slug)) $this->db->where("slug",$slug);
+//                if(!empty($limit)) $this->db->limit($limit);
+//                if(!empty($appointment)) $this->db->order_by($order_by, $appointment);
+//                if(!empty($no_cat_id)) $this->db->where_not_in('id', explode(',', $no_cat_id));
+//                if(!empty($no_pid)) $this->db->where_not_in('parent_id', explode(',', $no_pid));
+//                
+//              $categories = $this->db
+//                            ->get('products_categories')
+//                                    ->result_array();
+//              return $categories;
         }   	
         
         /**
@@ -175,13 +209,13 @@ class Plugin_Appointments extends Plugin
 	 */
 	function jscarttotal()
 	{
-           $html = '';
-           $html .= '<script type="text/javascript">' ;
-           $html .= $this->appointments_m->getfile("js/jscart.js" );
-           
-           $html .= '</script>' ;
-           
-            return $html;   
+//           $html = '';
+//           $html .= '<script type="text/javascript">' ;
+//           $html .= $this->appointments_m->getfile("js/jscart.js" );
+//           
+//           $html .= '</script>' ;
+//           
+//            return $html;   
 	}
         
 	/**

@@ -108,9 +108,9 @@ input[type=text].order_product, input[type=number].order_product {
 }
 div.calendar_titre, .calendar_titre a {
     font-size: 28px;
-    border-bottom: 1px solid #fe33cc;
+    border-bottom: 1px solid #755888;
     margin-bottom: 10px;
-    width: 90%;
+    /* width: 90%; */
     margin: auto;
 }
 div.calendar a:hover div.calendar_titre {

@@ -155,15 +155,23 @@ class Plugin_Doctor extends Plugin
 	{
                 $limit = 1;  
                 $id = $this->attribute('id');
-                
+                //@todo user role checks
+//                $user_id
+//                $doctor_id
+                $this->db->select('doctor_doctors.*');
+                $this->db->select('doctor_categories.*');
+                $this->db->select('doctor_organisations.*');
+                $this->db->select('files.filename AS img_path');
             // query setting
                 if(!empty($id)) 
                 {
-                    $this->db->where("id",$id); 
+                    $this->db->where("doctor_doctors.id ",$id); 
                 } else {
                     return false;
                 }
-
+                $this->db->join('doctor_categories', 'doctor_categories.id = doctor_doctors.doctor_cat', 'left');
+                $this->db->join('doctor_organisations', 'doctor_doctors.groupe = doctor_organisations.id', 'left');
+                $this->db->join('files', 'doctor_doctors.image = files.id', 'left');
 		$data = $this->db->limit($limit)
                                     ->get('doctor_doctors')
                                     ->result_array(); 

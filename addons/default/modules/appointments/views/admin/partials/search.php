@@ -34,16 +34,18 @@
     
         <div class="appointments-appointment">
             <h2>Rendez vous</h2>
-            <?php echo $this->html_m->form_dropdown_appointment_status($this->input->get('appointment_status')) ?>
+<!--            <?php // echo $this->html_m->form_dropdown_appointment_status($this->input->get('appointment_status')) ?>
             <br/>
-            <?php echo $this->html_m->form_radio_payment_type($this->input->get('payment_type')) ?>
-            <br/>
+            <?php // echo $this->html_m->form_radio_payment_type($this->input->get('payment_type')) ?>
+            <br/>-->
             <?php echo $this->html_m->form_input('id', $this->input->get('id')) ?>
-            <?php echo $this->html_m->form_input('name', $this->input->get('name'),'', lang('appointments:name_alt')) ?>
-            <?php echo $this->html_m->form_input('slug', $this->input->get('slug'),'', lang('appointments:slug_alt')) ?>
+            <?php // echo $this->html_m->form_input('name', $this->input->get('name'),'', lang('appointments:name_alt')) ?>
+            <?php // echo $this->html_m->form_input('slug', $this->input->get('slug'),'', lang('appointments:slug_alt')) ?>
             <?php echo $this->html_m->form_input('appointment_date', $this->input->get('appointment_date')) ?> 
             <?php echo $this->html_m->form_input('user_id', $this->input->get('user_id')) ?>
-            </div>
+            <?php echo $this->html_m->form_input('first_name', $this->input->get('first_name')) ?>
+            <?php echo $this->html_m->form_input('last_name', $this->input->get('last_name')) ?>
+        </div>
     
     <span class="clearfix"></span>
             <?php echo form_hidden('view', $this->input->get('view')); // keep view ?>

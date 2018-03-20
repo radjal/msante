@@ -162,6 +162,8 @@ class Calendar extends Public_Controller
     public function index($week_no=false)
     {
             $template = 'index';
+            $doctor_id = !empty($this->uri->segment(4)) ? $this->uri->segment(4) : false;
+            
 
             $data = $this->calendar_m->calculate_week($week_no);
 
@@ -172,22 +174,8 @@ class Calendar extends Public_Controller
             
             $data['titre'] = 'Calendar ';
             
-//            $data['no_cat_entree']      = Settings::get('no_cat_entree');
-//            $data['no_cat_plat']        = Settings::get('no_cat_plat');
-//            $data['no_cat_dessert']     = Settings::get('no_cat_dessert');
-//            $data['no_cat_boissons']    = Settings::get('no_cat_boissons');
-//
-//            $data['cat_lundi']          = Settings::get('cat_lundi'); 
-//            $data['cat_mardi']          = Settings::get('cat_mardi'); 
-//            $data['cat_mercredi']       = Settings::get('cat_mercredi');
-//            $data['cat_jeudi']          = Settings::get('cat_jeudi');
-//            $data['cat_vendredi']       = Settings::get('cat_vendredi');
-//            $data['cat_samedi']         = Settings::get('cat_samedi');
-//            $data['cat_dimanche']       = Settings::get('cat_dimanche');		
+//            $data['no_cat_entree']      = Settings::get('no_cat_entree'); 	
 			
-            // get appointments for days
-            //$this->appointments_m->get_for_date($date);
-            
             //get cat id from slug eg:s44 = semaine 44
 //            $week_cat_id =  $this->calendar_m->category_id("s$week_no");
 //            if(!empty($week_cat_id)) 
@@ -197,58 +185,53 @@ class Calendar extends Public_Controller
                             if(strstr($jours_ouverts, '1')) 
                             {
                                 $semaine['lundi'] = true;
-//                                $semaine['lundi']['entrees'] = $this->calendar_m->produits($data['cat_lundi'], $week_cat_id, $data['no_cat_entree']) ; // lundi
-//                                $semaine['lundi']['plats'] = $this->calendar_m->produits($data['cat_lundi'], $week_cat_id, $data['no_cat_plat']) ; // lundi
-//                                $semaine['lundi']['desserts'] = $this->calendar_m->produits($data['cat_lundi'], $week_cat_id, $data['no_cat_dessert']) ; // lundi
+                                // get appointments for day
+                                $datestr = str_replace('-', '', $data['week_dates_iso'][1]['date']); 
+                                $appointments['lundi'] = $this->appointments_m->get_for_date($datestr, $doctor_id);  
                             }
                             if(strstr($jours_ouverts, '2')) 
                             {
                                 $semaine['mardi'] = true;
-//                                $semaine['mardi']['entrees'] = $this->calendar_m->produits($data['cat_mardi'], $week_cat_id, $data['no_cat_entree']) ; // mardi
-//                                $semaine['mardi']['plats'] = $this->calendar_m->produits($data['cat_mardi'], $week_cat_id, $data['no_cat_plat']) ; // mardi
-//                                $semaine['mardi']['desserts'] = $this->calendar_m->produits($data['cat_mardi'], $week_cat_id, $data['no_cat_dessert']) ; // mardi
+                                // get appointments for day
+                                $datestr = str_replace('-', '', $data['week_dates_iso'][2]['date']); 
+                                $appointments['mardi'] = $this->appointments_m->get_for_date($datestr, $doctor_id);  
                             }    
                             if(strstr($jours_ouverts, '3')) 
                             {
                                 $semaine['mercredi'] = true;
-//                                $semaine['mercredi']['entrees'] = $this->calendar_m->produits($data['cat_mercredi'], $week_cat_id, $data['no_cat_entree']) ; // mercredi
-//                                $semaine['mercredi']['plats'] = $this->calendar_m->produits($data['cat_mercredi'], $week_cat_id, $data['no_cat_plat']) ; // mercredi
-//                                $semaine['mercredi']['desserts'] = $this->calendar_m->produits($data['cat_mercredi'], $week_cat_id, $data['no_cat_dessert']) ; // mercredi
+                                // get appointments for day
+                                $datestr = str_replace('-', '', $data['week_dates_iso'][3]['date']); 
+                                $appointments['mercredi'] = $this->appointments_m->get_for_date($datestr, $doctor_id);  
                             }
                             if(strstr($jours_ouverts, '4'))
                             {
                                 $semaine['jeudi'] = true;
-//                                $semaine['jeudi']['entrees'] = $this->calendar_m->produits($data['cat_jeudi'], $week_cat_id, $data['no_cat_entree']) ; // jeudi
-//                                $semaine['jeudi']['plats'] = $this->calendar_m->produits($data['cat_jeudi'], $week_cat_id, $data['no_cat_plat']) ; // jeudi
-//                                $semaine['jeudi']['desserts'] = $this->calendar_m->produits($data['cat_jeudi'], $week_cat_id, $data['no_cat_dessert']) ; // jeudi
+                                // get appointments for day
+                                $datestr = str_replace('-', '', $data['week_dates_iso'][4]['date']); 
+                                $appointments['jeudi'] = $this->appointments_m->get_for_date($datestr, $doctor_id);  
                             }
                             if(strstr($jours_ouverts, '5')) 
                             {
                                 $semaine['vendredi'] = true;
-//                                $semaine['vendredi']['entrees'] = $this->calendar_m->produits($data['cat_vendredi'], $week_cat_id, $data['no_cat_entree']) ; // vendredi
-//                                $semaine['vendredi']['plats'] = $this->calendar_m->produits($data['cat_vendredi'], $week_cat_id, $data['no_cat_plat']) ; // vendredi
-//                                $semaine['vendredi']['desserts'] = $this->calendar_m->produits($data['cat_vendredi'], $week_cat_id, $data['no_cat_dessert']) ; // vendredi
+                                // get appointments for day
+                                $datestr = str_replace('-', '', $data['week_dates_iso'][5]['date']); 
+                                $appointments['vendredi'] = $this->appointments_m->get_for_date($datestr, $doctor_id);  
                             }
                             if(strstr($jours_ouverts, '6')) 
                             {
                                 $semaine['samedi'] = true;
-//                                $semaine['samedi']['entrees'] = $this->calendar_m->produits($data['cat_samedi'], $week_cat_id, $data['no_cat_entree']) ; // samedi
-//                                $semaine['samedi']['plats'] = $this->calendar_m->produits($data['cat_samedi'], $week_cat_id, $data['no_cat_plat']) ; // samedi
-//                                $semaine['samedi']['desserts'] = $this->calendar_m->produits($data['cat_samedi'], $week_cat_id, $data['no_cat_dessert']) ; // samedi
+                                // get appointments for day
+                                $datestr = str_replace('-', '', $data['week_dates_iso'][6]['date']); 
+                                $appointments['samedi'] = $this->appointments_m->get_for_date($datestr, $doctor_id);  
                             }
                             if(strstr($jours_ouverts, '7')) 
                             {
                                 $semaine['dimanche'] = true;
-//                                $semaine['dimanche']['entrees'] = $this->calendar_m->produits($data['cat_dimanche'], $week_cat_id, $data['no_cat_entree']) ; // dimanche
-//                                $semaine['dimanche']['plats'] = $this->calendar_m->produits($data['cat_dimanche'], $week_cat_id, $data['no_cat_plat']) ; // dimanche
-//                                $semaine['dimanche']['desserts'] = $this->calendar_m->produits($data['cat_dimanche'], $week_cat_id, $data['no_cat_dessert']) ; // dimanche
+                                // get appointments for day
+                                $datestr = str_replace('-', '', $data['week_dates_iso'][7]['date']); 
+                                $appointments['dimanche'] = $this->appointments_m->get_for_date($datestr, $doctor_id);  
                             }   
-                            
-                            /** unset day if no products */
-//                            foreach($semaine as $j => $produits) 
-//                            {
-//                                if(count($produits) == 0) unset($semaine[$j]); 
-//                            }
+                             
 //            } 
 //            else
 //            {
@@ -256,13 +239,13 @@ class Calendar extends Public_Controller
 //            }
             
             /** make var for each day */
-            $lundi      = isset($semaine['lundi']) ? $semaine['lundi']: false;
-            $mardi      = isset($semaine['mardi']) ? $semaine['mardi']: false;
-            $mercredi   = isset($semaine['mercredi']) ? $semaine['mercredi']: false;
-            $jeudi      = isset($semaine['jeudi']) ? $semaine['jeudi']: false;
-            $vendredi   = isset($semaine['vendredi']) ? $semaine['vendredi']: false;
-            $samedi     = isset($semaine['samedi']) ? $semaine['samedi']: false;
-            $dimanche   = isset($semaine['dimanche']) ? $semaine['dimanche']: false;
+//            $lundi      = isset($semaine['lundi']) ? $semaine['lundi']: false;
+//            $mardi      = isset($semaine['mardi']) ? $semaine['mardi']: false;
+//            $mercredi   = isset($semaine['mercredi']) ? $semaine['mercredi']: false;
+//            $jeudi      = isset($semaine['jeudi']) ? $semaine['jeudi']: false;
+//            $vendredi   = isset($semaine['vendredi']) ? $semaine['vendredi']: false;
+//            $samedi     = isset($semaine['samedi']) ? $semaine['samedi']: false;
+//            $dimanche   = isset($semaine['dimanche']) ? $semaine['dimanche']: false;
 
             /** count days to show */
             $data['dayscount'] = count($semaine);
@@ -286,13 +269,14 @@ class Calendar extends Public_Controller
             // Build the page
             $this->template->title('calendar')
                 ->set('data', $data)
-                ->set('lundi', $lundi)
-                ->set('mardi', $mardi)
-                ->set('mercredi', $mercredi)
-                ->set('jeudi', $jeudi)
-                ->set('vendredi', $vendredi)
-                ->set('samedi', $samedi)
-                ->set('dimanche', $dimanche)
+                ->set('appointments', $appointments)
+                ->set('lundi', $semaine['lundi'])
+                ->set('mardi', $semaine['mardi'])
+                ->set('mercredi', $semaine['mercredi'])
+                ->set('jeudi', $semaine['jeudi'])
+                ->set('vendredi', $semaine['vendredi'])
+                ->set('samedi', $semaine['samedi'])
+                ->set('dimanche', $semaine['dimanche'])
                 ->set('day_link_segment', $day_link_segment)
                 ->build($template, $data);
     }

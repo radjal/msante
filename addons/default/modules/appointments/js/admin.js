@@ -35,7 +35,7 @@ jQuery(function($)
                     /* datepicker widget jQuery UI */
                     $( "input[name=appointment_date]" ).datepicker({
                             minDate: 0,
-                            dateFormat: 'yy-mm-dd' 
+                            dateFormat: 'yymmdd' 
                     });
 
                     /* datepicker localisation */

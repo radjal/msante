@@ -34,6 +34,16 @@ class Admin extends Admin_Controller
 //				'rules' => 'trim|max_length[100]'
 //			),
 			array(
+				'field' => 'user_id',
+				'label' => 'ID user',
+				'rules' => 'trim|max_length[11]|required'
+			),
+			array(
+				'field' => 'doctor_id',
+				'label' => 'ID practicien',
+				'rules' => 'trim|max_length[11]|required'
+			),
+			array(
 				'field' => 'appointment_status',
 				'label' => 'Statut du RDV',
 				'rules' => 'trim|max_length[100]'
@@ -69,6 +79,11 @@ class Admin extends Admin_Controller
 				'rules' => 'trim|required|max_length[60]'
 			),       
 			array(
+				'field' => 'other_person',
+				'label' => 'Famille ou ami',
+				'rules' => 'trim|required|max_length[60]'
+			),       
+			array(
 				'field' => 'gender',
 				'label' => 'Sexe',
 				'rules' => 'trim|max_length[10]'
@@ -76,17 +91,17 @@ class Admin extends Admin_Controller
 			array(
 				'field' => 'phone',
 				'label' => 'Téléphone',
-				'rules' => 'trim|max_length[20]'
+				'rules' => 'trim|required|max_length[20]'
 			),       
 			array(
 				'field' => 'mobile',
 				'label' => 'Mobile',
-				'rules' => 'trim|max_length[20]'
+				'rules' => 'trim|required|max_length[20]'
 			),       
 			array(
 				'field' => 'email',
 				'label' => 'Email',
-				'rules' => 'trim|max_length[80]'
+				'rules' => 'trim|max_length[80]|valid_email'
 			),       
 			array(
 				'field' => 'address',
@@ -144,11 +159,11 @@ class Admin extends Admin_Controller
 	 */
 	public function index($page = 1)
 	{
-            $limit = 20;
+            $limit = 50;
             $offset = $page < 2 ? 0 : ($page-1) * $limit;
             $pag_segment = 4;
             $pag_uri = "admin/appointments/page";
-            $orderby = 'id';
+            $orderby = 'appointment_date';
             $sortdir = 'DESC';
             $svars = false;
             
@@ -242,27 +257,27 @@ class Admin extends Admin_Controller
 		}
 
                 // get cart list
-                $cart = $this->appointments_m->get_cartdetails($id);
+//                $cart = $this->appointments_m->get_cartdetails($id);
                 
                 //set values of cart total
                 $totals['total_price'] = $appointment->total_pretax ;
                 $totals['total_taxed'] = $appointment->total_final;
-                foreach ($cart as $p => $p_details) {
-                        $cart[$p]['order_qty'] = $cart[$p]['product_qty'];
-                        $cart[$p]['input_html'] = $cart[$p]['order_qty'];
-                        $cart[$p]['line_total'] = $cart[$p]['final_price'];
-                        $cart[$p]['price'] = $cart[$p]['line_total'] / $cart[$p]['order_qty'];
-                        $cart[$p]['img_url'] = site_url().UPLOAD_PATH.'products/'.$cart[$p]['image_filename'];
-                        $cart[$p]['img_html'] = '<img src="'.$cart[$p]['img_url'].'" height="60"/>';
-                        $cart[$p]['description'] = '';
-                        $cart[$p]['line'] = $p+1;
-                }
+//                foreach ($cart as $p => $p_details) {
+//                        $cart[$p]['order_qty'] = $cart[$p]['product_qty'];
+//                        $cart[$p]['input_html'] = $cart[$p]['order_qty'];
+//                        $cart[$p]['line_total'] = $cart[$p]['final_price'];
+//                        $cart[$p]['price'] = $cart[$p]['line_total'] / $cart[$p]['order_qty'];
+//                        $cart[$p]['img_url'] = site_url().UPLOAD_PATH.'products/'.$cart[$p]['image_filename'];
+//                        $cart[$p]['img_html'] = '<img src="'.$cart[$p]['img_url'].'" height="60"/>';
+//                        $cart[$p]['description'] = '';
+//                        $cart[$p]['line'] = $p+1;
+//                }
                 
 		$this->template
 			->title($this->module_details['name'], lang('appointments.edit'))
 			->set('disabled', false)
 			->set('appointment', $appointment)
-			->set('cartlist', $cart)
+//			->set('cartlist', $cart)
 			->set('totals', $totals)
 			->build('admin/form');
 	}
@@ -310,7 +325,7 @@ class Admin extends Admin_Controller
                 
                 // get appointment details and cart list
                 $appointment = $this->appointments_m->get($id);
-                $cart = $this->appointments_m->get_cartdetails($id);
+//                $cart = $this->appointments_m->get_cartdetails($id);
                 
                 //set values of cart total
                 $totals['total_price'] = $appointment->total_pretax ;

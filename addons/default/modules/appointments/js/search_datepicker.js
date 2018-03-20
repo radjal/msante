@@ -25,7 +25,7 @@ $( document ).ready(function()
 
             $.datepicker.setDefaults($.datepicker.regional["fr"]);
 
-            $('input[name=appointment_date]').datepicker({ dateFormat: 'yy-mm-dd' , altFormat: "dd/mm/yy"});
+            $('input[name=appointment_date]').datepicker({ dateFormat: 'yymmdd' , altFormat: "ddmmyy"});
         
     }
 });

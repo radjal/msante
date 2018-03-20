@@ -24,14 +24,14 @@ $lang['appointments:edit']			=	'Editer';
 $lang['appointments:modify']			=	'Modifier';
 $lang['appointments:delete']			=	'Supprimer';
 $lang['appointments:print']			=	'Imprimer';
+//filters
+$lang['appointments:futur_past']			=	'Passé ou futur';
 
-$lang['appointments:user_id']	=	'Id utilisateur';
+
 $lang['appointments:list_title']	=	'Détails des rendez vous';
 $lang['appointments:product_name']	=	'Nom produit';
 $lang['appointments:search']	=	'Recherche';
-
 $lang['appointments:price']	=	'Prix';
-
 $lang['appointments:appointment_details']	=	'Détails RDV';
 $lang['appointments:appointment_patient']	=	'Patient';
 //$lang['appointments:appointment_delivery']	=	'LivraisonRDV';
@@ -117,6 +117,8 @@ $lang['appointments:unit_litre']			=	'Au litre';
 $lang['appointments:custom_button']	=	'Custom Button';
 $lang['appointments:items']			=	'Rendez vous';
 //fields
+$lang['appointments:user_id']	=	'Id utilisateur';
+$lang['appointments:doctor_id']	=	'Id practicien';
 $lang['appointments:id']			=	'Id';
 $lang['appointments:appointment_status']			=	'Statut RDV';
 $lang['appointments:total_pretax']			=	'Total HT';
@@ -128,11 +130,12 @@ $lang['appointments:message']			=	'Notes';
 $lang['appointments:log']			=	'Journal';
 $lang['appointments:payment_type']			=	'Type de paiement';
 $lang['appointments:payment_status']			=	'Statut paiement';
+$lang['appointments:other_person']			=	'Autre personne';
 
 //$lang['appointments:i_company']			=	'Société';
 $lang['appointments:maiden_name']			=	'Nom de jeune fille';
-$lang['appointments:first_name']			=	'Nom de famille';
-$lang['appointments:last_name']			=	'Prénom';
+$lang['appointments:first_name']			=	'Prénom';
+$lang['appointments:last_name']			=	'Nom de famille';
 $lang['appointments:mobile']			=	'Mobile';
 $lang['appointments:phone']			=	'Téléphone';
 $lang['appointments:email']			=	'Courriel';

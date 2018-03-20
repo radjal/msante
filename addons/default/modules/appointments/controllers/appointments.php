@@ -85,7 +85,7 @@ class Appointments extends Public_Controller
 	public function index($offset = 0)
 	{   
             $this->template
-                    ->append_js('module::appointments.js')
+                    ->append_js('module::appointment.js')
                     ->append_js('module::jscart.js')
 //                    ->append_js('module::relays.js')
 //                    ->append_js('module::paypal.js')
@@ -190,7 +190,7 @@ class Appointments extends Public_Controller
         {   
             $this->template
                     //->append_js('module::jscart.js')
-                    ->append_js('module::appointments.js')
+                    ->append_js('module::appointment.js')
                     ->append_js('module::datepicker.js')
 //                    ->append_js('module::relays.js')
 //                    ->append_js('module::paypal.js')
@@ -221,18 +221,18 @@ class Appointments extends Public_Controller
             }
             
             $profile_data = $this->profile_m->get_profile();
-            $cart = $this->appointments_m->get_cartdetails($oid);
+//            $cart = $this->appointments_m->get_cartdetails($oid);
             
-            foreach ($cart as $p => $p_details) {
-               $cart[$p]['appointment_qty'] = $cart[$p]['product_qty'];
-               $cart[$p]['input_html'] = $cart[$p]['appointment_qty'];
-               $cart[$p]['line_total'] = $cart[$p]['final_price'];
-               $cart[$p]['price'] = $cart[$p]['line_total'] / $cart[$p]['appointment_qty'];
-               $cart[$p]['img_url'] = site_url().UPLOAD_PATH.'products/'.$cart[$p]['image_filename'];
-               $cart[$p]['img_html'] = '<img src="'.$cart[$p]['img_url'].'" height="60"/>';
-               $cart[$p]['description'] = '';
-               $cart[$p]['line'] = $p+1;
-            }
+//            foreach ($cart as $p => $p_details) {
+//               $cart[$p]['appointment_qty'] = $cart[$p]['product_qty'];
+//               $cart[$p]['input_html'] = $cart[$p]['appointment_qty'];
+//               $cart[$p]['line_total'] = $cart[$p]['final_price'];
+//               $cart[$p]['price'] = $cart[$p]['line_total'] / $cart[$p]['appointment_qty'];
+//               $cart[$p]['img_url'] = site_url().UPLOAD_PATH.'products/'.$cart[$p]['image_filename'];
+//               $cart[$p]['img_html'] = '<img src="'.$cart[$p]['img_url'].'" height="60"/>';
+//               $cart[$p]['description'] = '';
+//               $cart[$p]['line'] = $p+1;
+//            }
             
             //set values of cart total
             $totals[0]['total_price'] = $appointment->total_pretax ;
@@ -283,7 +283,7 @@ class Appointments extends Public_Controller
             
 
                 
-            $cartlist['products'] = $cart;
+//            $cartlist['products'] = $cart;
             if(empty($appointment->appointment_status)) $editable =true;
             
             $this->template
@@ -294,7 +294,7 @@ class Appointments extends Public_Controller
 			->set('profile', $profile_data)
                         ->set('appointment', $appointment)
 			->set('carttotal', $totals)
-			->set('cartlist', $cart)
+//			->set('cartlist', $cart)
 			->build('appointment');
         }
         
@@ -345,7 +345,7 @@ class Appointments extends Public_Controller
          */
         public function listing($offset = 0)
 	{
-            if($offset < 0) $offset = 0; //@todo  a proper job of  negative offset 
+//            if($offset < 0) $offset = 0; //@todo  a proper job of  negative offset 
             $this->template->append_js('module::search_datepicker.js');
             
             if(!$this->current_user)
@@ -358,32 +358,55 @@ class Appointments extends Public_Controller
 		$where = '';
 		$sort = !empty($this->input->get('sort')) ? $this->input->get('sort') : 'id';
 		$sortdir = !empty($this->input->get('sortdir')) ? $this->input->get('sortdir') : 'desc';
+                $offset = $offset < 2 ? 0 : ($offset-1) * $limit; 
 		
+                // search query
+                $svars = $this->input->post();
                 if(!empty($this->input->post('searchBtn')))
                 {
-                    $appointment_date = $this->input->post('appointment_date');
-                    $d_fullname = $this->input->post('d_fullname');
-                    $slug = $this->input->post('slug');
 
-                    if(!empty($appointment_date)) $this->db->or_like('appointment_date', $appointment_date, 'after');
-                    if(!empty($d_fullname)) $this->db->or_like('d_fullname', $d_fullname);
-                    if(!empty($slug)) $this->db->where('slug', $slug);
+//                    $svars = $this->input->post();
+                    $this->appointments_m->_set_search($svars);
+//                    
+//                    $appointment_date = $this->input->post('appointment_date');
+//                    $first_name = $this->input->post('first_name');
+//                    $last_name = $this->input->post('last_name');
+//                    $other_person = $this->input->post('other_person'); 
+//
+//                    if(!empty($appointment_date)) $this->db->like('appointment_date', $appointment_date, 'after');
+//                    if(!empty($first_name)) $this->db->like('first_name', $first_name);
+//                    if(!empty($last_name)) $this->db->like('last_name', $last_name);
+//                    if(!empty($other_person)) $this->db->like('other_person', $other_person);
+////                    if(!empty($slug)) $this->db->where('slug', $slug);
                 }
             
+                //get dataset
 		$items = $this->appointments_m->limit($limit)
 			->offset($offset)
                         ->where($where."user_id = ".$this->current_user->id)
                         ->order_by($sort, $sortdir)
 			->get_all();
 			
+                //format date strings
+                $ic = 0;
+                foreach ( $items as $appt ) 
+                { 
+                    $items[$ic]->short_dayname = $items[$ic]->appointment_date;
+                    $appt->short_dayname = $this->appointments_m->format_appt_date($appt->appointment_date);
+                    $ic++;
+//                     echo $this->appointments_m->format_appt_date($appointment->appointment_date); 
+                }
+                
 		// we'll do a quick check here so we can tell tags whether there is data or not
 		$items_exist = count($items) > 0;
 
                 // proper count for users
-                $query = $this->db->query('SELECT count(*) as count FROM default_appointments_list where ' . "user_id = ".$this->current_user->id);
-                $row = $query->row();
-                $count =  $row->count;
+//                    $this->appointments_m->_set_search($svars); 
+//                $query = $this->db->query('SELECT count(*) as count FROM default_appointments_list where ' . "user_id = ".$this->current_user->id);
+//                $row = $query->row();
+//                $count =  $row->count;
                 
+                $count=  $this->appointments_m->_search_result_count($svars)[0]->count;
 		// we're using the pagination helper to do the pagination for us. Params are: (module/method, total count, limit, uri segment)
 		$pagination = create_pagination('appointments/listing', $count, $limit, 3);
 

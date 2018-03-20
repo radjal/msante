@@ -13,8 +13,8 @@ function change_datepicker(show_day) {
     $( "input[name=appointment_date]" ).datepicker('destroy');
         $( "input[name=appointment_date]" ).datepicker({
             minDate: 0,
-            dateFormat: 'yy-mm-dd' ,
-            altFormat: "dd/mm/yy",
+            dateFormat: 'yymmdd' ,
+            altFormat: "ddmmyy", 
             onSelect:function(){$(this).addClass('modified')}, 
             /* no week ends setting below 
             beforeShowDay: $.datepicker.noWeekends */
@@ -57,8 +57,8 @@ $( document ).ready(function()
             /* no weekends and no past date */
             $( "input[name=appointment_date]" ).datepicker({
                     minDate: 0,
-                    dateFormat: 'yy-mm-dd' ,
-                    altFormat: "dd/mm/yy",
+                    dateFormat: 'yymmdd' ,
+                    altFormat: "ddmmyy",
                     onSelect:function(){$(this).addClass('modified')}, 
                     /* no week ends setting below 
                     beforeShowDay: $.datepicker.noWeekends */

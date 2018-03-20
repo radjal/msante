@@ -13,15 +13,13 @@
   ?>
     <body {{ if theme:options:disable_right_click == 'yes' }} oncontextmenu="return false;"{{endif}}>
 
-<noscript>
-    <div class="alert alert-danger text-center">
-        <span style="font-size: 22px">
-        {{ if lang:code == 'fr' }}
-            Ce site necessite JavaScript pour fonctionner!
-        {{endif}} 
-        </span>
-    </div>
-</noscript>
+    <noscript>
+        <div class="alert alert-danger text-center">
+            <span style="font-size: 22px"> 
+                Ce site necessite JavaScript pour fonctionner! 
+            </span>
+        </div>
+    </noscript>
  
 	<header>
 		{{ theme:partial name="header" }} 
@@ -32,21 +30,21 @@
             {{endif}}
 	{{endif}}
 
-<div id="container" class="container"> 
-    <div class="{{if page:id !=''}}content{{endif}} {{if page:is_home}}homepage col-sm-12{{else}}col-sm-12{{endif}}">  
-            {{ session:messages success="main alert alert-success alert-dismissable" notice="main alert alert-warning alert-dismissable" error="main alert alert-danger alert-dismissable" }}
-			
-            {{ theme:partial name="breadcrumbs"}}
-            {{ template:body }}
-    </div>
-    
-{{# deactivated #}} 
-{{if false }}		
-        {{# aside #}} 
-	{{ theme:partial name="aside" }} 
-{{# deactivated #}} 
-{{endif}}
-</div>   
+    <div id="container" class="container"> 
+        <div class="{{if page:id !=''}}content{{endif}} {{if page:is_home}}homepage {{endif}}">  
+                {{ session:messages success="main alert alert-success alert-dismissable" notice="main alert alert-warning alert-dismissable" error="main alert alert-danger alert-dismissable" }}
+
+                {{ theme:partial name="breadcrumbs"}}
+                {{ template:body }}
+        </div>
+        <!-- aside zone --> 
+        {{# deactivated #}} 
+        {{if false }}		
+                {{# aside #}} 
+                {{ theme:partial name="aside" }} 
+        {{# deactivated #}} 
+        {{endif}}
+    </div>   
 
 
 <footer id="footer">

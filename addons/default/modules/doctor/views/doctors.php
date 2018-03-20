@@ -98,7 +98,7 @@
                                 echo '<a class="btn btn-default '; 
                                     echo !strstr( $doc['daysopenstr'], $cal_week['week_dates_iso'][$dc]['dayname'] ) ? 'disabled ' : '';
                                 echo '"';
-                                echo ' href="calendar/week/'.$cal_week['week'].'/'.$doc['id'].'?doctor='.$doc['id'].'" ' ;
+                                echo ' href="calendar/week/'.$cal_week['week'].'/'.$doc['id'].'" ' ;
                                 echo '>';
                                 echo $cal_week['week_dates_iso'][$dc]['dayshortname'];
                                 echo ' ';

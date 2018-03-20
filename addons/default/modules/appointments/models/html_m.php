@@ -76,37 +76,7 @@ class Html_m extends MY_Model {
             $html .= '</a>';
             $html .= '</th>';
             return $html;
-        }
-        
-        public function table_header_last_old($fieldname, $title=false, $url=false)
-        {
-            $sortdir = !empty($this->input->get('sortdir')) ? $this->input->get('sortdir') : "desc" ;
-            $url = !$url ? site_url().uri_string() : $url ;
-            $url = $url.'?sort='.$fieldname ;
-            $url .= $sortdir=='desc' ? '&sortdir=asc' : '&sortdir=desc' ;
-            
-            $html ='<th>';
-            $html .= '<a href="'.$url.'">';
-            $html .= !$title ? lang('appointments:'.$fieldname) : $title;
-            $html .= '</a>';
-            $html .= '</th>';
-            return $html;
-        }        
-
-        public function table_header_old($fieldname, $link=false)
-        {
-            $sortdir = !empty($this->input->get('sortdir')) ? $this->input->get('sortdir') : "desc" ;
-            $url = !$link ? site_url().uri_string().'?sort='.$fieldname : $link ;
-            $url .= $sortdir=='desc' ? '&sortdir=asc' : '&sortdir=desc' ;
-            
-            $html ='<th>';
-            if($link!=='') $html .= '<a href="'.$url.'">';
-            $html .= lang('appointments:'.$fieldname);
-            if($link!=='') $html .= '</a>';
-            $html .= '</th>';
-            return $html;
-            
-        }
+        } 
         
         public function form_appointment_date($value='', $extra='')
         {
@@ -153,14 +123,14 @@ class Html_m extends MY_Model {
             $dayname[6] = lang('appointments:weekday6') ; 
             $dayname[0] = lang('appointments:weekday0') ; //sun
             
-            $days = explode(',', $this->settings->delivery_days);
-            $html .= "// printout days and hours \n";
-            foreach ($days as $day) {
-                $html .= "show_day[$day] = $day;\n";
-                $html .= "hours_day[$day] = '$hoursday[$day]';\n";
-                $html .= "name_day[$day] = '$dayname[$day]';\n";
-                $html .= "\n";
-            }
+//            $days = explode(',', $this->settings->delivery_days);
+//            $html .= "// printout days and hours \n";
+//            foreach ($days as $day) {
+//                $html .= "show_day[$day] = $day;\n";
+//                $html .= "hours_day[$day] = '$hoursday[$day]';\n";
+//                $html .= "name_day[$day] = '$dayname[$day]';\n";
+//                $html .= "\n";
+//            }
             
             // closed
             $offperiod  = $this->settings->off_period;

@@ -7,7 +7,8 @@
  * @package 	PyroCMS
  * @subpackage 	Appointments Module
  */
-class Appointments_m extends MY_Model {
+class Appointments_m extends MY_Model 
+{
 
 	public function __construct()
 	{		
@@ -45,10 +46,16 @@ class Appointments_m extends MY_Model {
                 //build query
                 if(!empty($search['appointment_status'])) $this->db->where('default_appointments_list.appointment_status', $search['appointment_status'] );
 //                if(!empty($search['payment_type'])) $this->db->where('default_appointments_list.payment_type', $search['payment_type'] );
-                if(!empty($search['name'])) $this->db->like('default_appointments_list.name', $search['name'] );
+                if(!empty($search['name'])) $this->db->like('default_appointments_list.name', $search['name'] ); 
+                if(!empty($search['first_name'])) $this->db->like('default_appointments_list.first_name', $search['first_name'], 'after'); 
+                if(!empty($search['last_name'])) $this->db->like('default_appointments_list.last_name', $search['last_name'], 'after'); 
                 if(!empty($search['id'])) $this->db->like('default_appointments_list.id', $search['id'], 'after'); 
                 if(!empty($search['appointment_date'])) $this->db->like('default_appointments_list.appointment_date', $search['appointment_date'], 'after');
                 if(!empty($search['user_id'])) $this->db->like('default_appointments_list.user_id', $search['user_id'], 'after'); 
+                if(!empty($search['doctor_id'])) $this->db->like('default_appointments_list.doctor_id', $search['doctor_id'], 'after'); 
+                if(!empty($search['other_person'])) $this->db->where('default_appointments_list.other_person', $search['other_person']); 
+                if(!empty($search['futur_past']) && $search['futur_past']=='futur' ) $this->db->where('default_appointments_list.appointment_date >=', date('Ymd', time())); 
+                if(!empty($search['futur_past']) && $search['futur_past']=='past' ) $this->db->where('default_appointments_list.appointment_date <=', date('Ymd', time())); 
         } 	
        
         /** set search conditions for appointment details listing
@@ -69,6 +76,24 @@ class Appointments_m extends MY_Model {
                 if(!empty($search['name'])) $this->db->like('default_appointments_list.name', $search['name'] );
                 if(!empty($search['id'])) $this->db->like('default_appointments_list.id', $search['id'], 'after'); 
                 if(!empty($search['appointment_date'])) $this->db->like('default_appointments_list.appointment_date', $search['appointment_date'], 'after'); 
+        } 
+        
+        
+        public function _search_result_count($search)
+	{
+            $this->_set_search($search);
+//                // convert to string if array
+//                if(isset($search['appointment_status']) && is_array($search['appointment_status']) ) $search['appointment_status'] = implode (' ', $search['appointment_status']); 
+//                if(isset($search['appointment_status']) && !empty($search['appointment_status'])) $search['appointment_status'] = trim($search['appointment_status']) ; 
+//                //build query
+//                if(!empty($search['appointment_status'])) $this->db->where('default_appointments_list.appointment_status', $search['appointment_status'] ); 
+//                if(!empty($search['name'])) $this->db->like('default_appointments_list.name', $search['name'] );
+//                if(!empty($search['id'])) $this->db->like('default_appointments_list.id', $search['id'], 'after'); 
+//                if(!empty($search['appointment_date'])) $this->db->like('default_appointments_list.appointment_date', $search['appointment_date'], 'after'); 
+                
+                return $this->appointments_m->select('count(*) AS count ')
+                        ->where("user_id = ".$this->current_user->id) 
+			->get_all();
         } 	
         
         /**
@@ -78,28 +103,28 @@ class Appointments_m extends MY_Model {
          */
         public function add_to_stock($newstocks) 
         {
-                foreach ($newstocks as $line => $p) {
-                        $res = $this->db->update('products', 
-                                    array(
-                                      'id' => $p['id'] ,
-                                      'stock' => $p['stock'] ,
-                                    ),
-                                    array('id' => $p['id']));
-                }
-                return $res;
+//                foreach ($newstocks as $line => $p) {
+//                        $res = $this->db->update('products', 
+//                                    array(
+//                                      'id' => $p['id'] ,
+//                                      'stock' => $p['stock'] ,
+//                                    ),
+//                                    array('id' => $p['id']));
+//                }
+//                return $res;
         }
 	
         public function substract_from_stock($newstocklist) 
         {
-            $data = array();
-            foreach ($newstocklist as $line => $p) {
-                            $data[] = array(
-                                  'id' => $p['id'] ,
-                                  'stock' => $p['stock'] ,
-                                );
-                                
-            }           
-            return    $this->db->update_batch('products', $data, 'id'); 
+//            $data = array();
+//            foreach ($newstocklist as $line => $p) {
+//                            $data[] = array(
+//                                  'id' => $p['id'] ,
+//                                  'stock' => $p['stock'] ,
+//                                );
+//                                
+//            }           
+//            return    $this->db->update_batch('products', $data, 'id'); 
 
         }
         
@@ -117,7 +142,9 @@ class Appointments_m extends MY_Model {
                 $appointment['total_pretax'] = !empty($appointment['total_pretax']) ? $appointment['total_pretax'] : 0;
                 $appointment['total_final'] = !empty($appointment['total_final']) ? $appointment['total_final'] : 0;
 //                $appointment['appointment_date'] = date( "Y-m-d H:i:s" );
-                $appointment['appointment_date'] = !empty($appointment['appointment_date']) ? format_date($appointment['appointment_date'], "Y-m-d") : null;
+                $appointment['appointment_time'] = !empty($appointment['appointment_time']) ? trim($appointment['appointment_time']) : null;
+                $appointment['appointment_date'] = !empty($appointment['appointment_date']) ? trim($appointment['appointment_date']) : null;
+//                $appointment['appointment_date'] = !empty($appointment['appointment_date']) ? format_date($appointment['appointment_date'], "Y-m-d") : null;
                 $appointment['created_on'] = date( "Y-m-d H:i:s" );
                 $appointment['updated_on'] = null;
                 $appointment['ip'] = $this->input->ip_address();
@@ -327,19 +354,68 @@ class Appointments_m extends MY_Model {
                 return $postarray;
         }
         
-//        /*
-//         * get products using a products id array
-//         */
-//        public function get_selected_products($pidlist, $appointment='asc')
-//        {
-//            $this->db->order_by('name', $appointment);    
-//            $res = $this->db->where_in('id', $pidlist)
-//                            ->get('products')
-//                            ->result_array();
-//        
-//            return $res;
-//        }
-//        
+        /**
+         * get appointments for a date (YYYYmmDD)
+         * with option to filter by id 
+         * 
+         * @param str $date
+         * @param int $doc_id
+         * @return array
+         */
+        public function get_for_date($date, $doc_id=false)
+        {
+            $this->db->order_by('appointment_date', 'DESC');    
+            $this->db->where('appointment_date', $date);
+            if($doc_id!==false) $this->db->where('doctor_id', $doc_id);
+            $res = $this->db->get('appointments_list')
+                            ->result_array();
+        
+            return $res;
+        }
+               
+        /**
+         * day short name from date string YYYYMMDD
+         * @param str $datestr
+         * @return str day short name
+         */
+        public function format_appt_date($datestr) 
+        {
+            if(is_object($datestr)) $datestr = get_object_vars ($datestr);
+            
+            $year=substr($datestr,0,4);
+            $mo=substr($datestr,4,2);
+            $day=substr($datestr,6,2); 
+            $date=date_create_from_format("Y-m-d","$year-$mo-$day"); 
+            $html='';
+            $check = date_format($date,"D");
+            switch ( $check )
+            {
+                case 'Mon':
+                    $html .= 'Lun';
+                    break;
+                case 'Tue':
+                    $html .= 'Mar';
+                    break;
+                case 'Wed':
+                    $html .= 'Mer';
+                    break;
+                case 'Thu':
+                    $html .= 'Jeu';
+                    break;
+                case 'Fri':
+                    $html .= 'Ven';
+                    break;
+                case 'Sat':
+                    $html .= 'Sam';
+                    break;
+                case 'Sun':
+                    $html .= 'Dim';
+                    break;
+            }
+            $html .= ' ';
+            $html .= date_format ($date,"d");
+            return $html;
+        }
 //        /** add useful HTML to products array 
 //         *  merges with array of selected IDs for populatinf input with selecteed quantity
 //         * 

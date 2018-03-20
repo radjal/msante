@@ -42,10 +42,10 @@ $disabled = $editable ? '' :'disabled' ;
                          
                              </li>
 
-                            <li class="<?php echo alternator('', 'even'); ?>">
+<!--                            <li class="<?php echo alternator('', 'even'); ?>">
                                         <?php echo $this->html_m->form_input('total_pretax', $appointment->total_pretax ,'disabled'); ?>
                                         <?php echo $this->html_m->form_input('total_final', $appointment->total_final ,'disabled'); ?>
-                            </li>	
+                            </li>	-->
 
                             <?php if(false OR $this->method == 'view' AND $appointment->payment_type == 'cc' ) { ?>
                             <li class="<?php echo alternator('', 'even'); ?>" >
@@ -92,7 +92,8 @@ $disabled = $editable ? '' :'disabled' ;
      
 
                         <li class="<?php echo alternator('', 'even'); ?>">
-                                <?php echo $this->html_m->form_input('i_company', $appointment->i_company, $disabled); ?>
+                                <?php echo $this->html_m->form_input('first_name', $appointment->first_name, $disabled); ?>
+                                <?php echo $this->html_m->form_input('last_name', $appointment->last_name, $disabled); ?>
                                 <?php echo $this->html_m->form_input('maiden_name', $appointment->maiden_name, $disabled); ?>
                         </li>		
 
@@ -105,8 +106,7 @@ $disabled = $editable ? '' :'disabled' ;
 
                         <li class="<?php echo alternator('', 'even'); ?>">
                                 <?php echo lang("appointments:address"); ?>
-                            <?php echo $this->html_m->form_input('address',  $appointment->address, $disabled); ?>
-                            <?php //echo $this->html_m->form_input('i_street2', $appointment->i_street2, $disabled); ?>
+                            <?php echo $this->html_m->form_input('address',  $appointment->address, $disabled); ?> 
                             <?php echo $this->html_m->form_input('town', $appointment->town, $disabled); ?>
                             <?php echo $this->html_m->form_input('area_name', $appointment->area_name, $disabled); ?>
                         </li>		
@@ -114,34 +114,8 @@ $disabled = $editable ? '' :'disabled' ;
                     </ul>
                 </div>
     
-                <!-- appointment-delivery -->
-                <div class="appointment section " id="appointment-delivery">   
-                <h4><?php echo lang('appointments:appointment_delivery'); ?></h4>
-                    <ul>
-
-                    <li class="<?php echo alternator('', 'even'); ?>">
-                            <?php echo $this->html_m->form_input('d_fullname', $appointment->d_fullname, $disabled); ?>
-                            <?php echo $this->html_m->form_input('d_company', $appointment->d_company, $disabled); ?>
-                    </li>		
-
-
-                    <li class="<?php echo alternator('', 'even'); ?>">
-                             <?php echo $this->html_m->form_input('d_mobile', $appointment->d_mobile, $disabled ); ?>
-                             <?php echo $this->html_m->form_input('d_phone', $appointment->d_phone, $disabled ); ?>
-                             <?php echo $this->html_m->form_input('d_mail', $appointment->d_mail, $disabled ); ?>
-                    </li>		
-
-                    <li class="<?php echo alternator('', 'even'); ?>">
-                            <?php echo $this->html_m->form_input('d_street1',  $appointment->d_street1, $disabled); ?>
-                            <?php //echo $this->html_m->form_input('d_street2', $appointment->d_street2, $disabled); ?>
-                            <?php echo $this->html_m->form_input('d_town', $appointment->d_town, $disabled); ?>
-                            <?php echo $this->html_m->form_input('d_zipcode', $appointment->d_zipcode, $disabled); ?>
-                    </li>		
-
-
-                </ul>
-                </div>		
-                    
+	
+                    <?php if( FALSE ): ?>
                 <!-- appointment-cart -->
                 <div id="appointment-cart" class="appointment section cart" >
                     <h4><?php echo lang('appointments:appointment_cart'); ?></h4>
@@ -162,9 +136,9 @@ $disabled = $editable ? '' :'disabled' ;
                             </thead>
                             <tbody>
                                     <?php 
-                                    $items = 0; // hack for knowing when to show cancel button
+                                    $items = 0; // hack for knowing when to show cancel button 
                                     foreach( $cartlist as $product ): ?>
-                                <?php $items += $product['appointment_qty'] ?>
+                                <?php // $items += $product['appointment_qty'] ?>
                                     <tr>
                                             <!--<td><?php echo $product['img_html']; ?></td>   -->                               
                                             <td><?php echo $product['name']; ?></td>                                  
@@ -185,10 +159,10 @@ $disabled = $editable ? '' :'disabled' ;
                             </tbody>
                             <tfoot>
                                     <tr>
-                                        <td colspan="8" id="cart-total">
+<!--                                        <td colspan="8" id="cart-total">
                                             <h4>{{ helper:lang line="appointments:cart_totals" }}</h4>
                                                 <ul>
-                                            {{ carttotal }} 
+                                            {{# carttotal #}} 
                                             <li>   
                                                     Total HT : {{ total_price }} €
                                             </li>  
@@ -196,18 +170,20 @@ $disabled = $editable ? '' :'disabled' ;
                                                 total TTC : {{ total_taxed }} € 
                                             
                                             </li>
-                                            {{ /carttotal }}
+                                            {{# /carttotal #}}
                                             </ul>
 
                                         </td>
-                                    </tr>
+                                    </tr>-->
                             </tfoot>
                     </table>
                     </div>  
+                    <?php endif; ?>
                 
                 <!-- appointment-buttons -->
 		<div class="buttons" id="appointment-button-wrapper">
                     <?php 
+                    $items = !isset($items)?0:$items; // hack for knowing when to show cancel button 
                     if($editable)
                     {   
                         if(empty($appointment->appointment_status) AND !empty($appointment->id)) 
@@ -237,16 +213,16 @@ $disabled = $editable ? '' :'disabled' ;
                 <ul>       
                     <?php  
                         
-                    echo form_hidden('log', $appointment->log);
-                    echo form_hidden('name', $appointment->name);
-                    echo form_hidden('slug', $appointment->slug);
+//                    echo form_hidden('log', $appointment->log);
+//                    echo form_hidden('name', $appointment->name);
+//                    echo form_hidden('slug', $appointment->slug);
                     if(!empty($appointment->id)) echo form_hidden('id', $appointment->id);
                     echo form_hidden('payment_type', $appointment->payment_type);
                     echo form_hidden('payment_status', $appointment->payment_status);
                     
                         echo "<li>";
-                        echo lang('appointments:slug') ." ". $appointment->slug ;
-                        echo "<br/>";
+//                        echo lang('appointments:slug') ." ". $appointment->slug ;
+//                        echo "<br/>";
                         echo lang('appointments:user_id') ." ". $appointment->user_id ;
                     if(isset($appointment->appointment_date)) { 
                         echo "<br/>";

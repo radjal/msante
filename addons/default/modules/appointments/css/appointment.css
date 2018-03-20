@@ -19,21 +19,9 @@
     font-size: 28px;
 }
 /* normal */
-#appointment-menu {
-        /* margin-bottom: 20px; */
-        background-color: #b0d04c;
-        -webkit-bappointment-radius: 4px;
-        -moz-bappointment-radius: 4px;
-        bappointment-radius: 4px;
-        padding: 10px;
+#appointment-menu { 
 }
-#appointment-menu h3 a {
-    padding-right: 10px;
-    font-weight: bold;
-    font-size: 18px;
-    color: white;
-    text-shadow: none;
-    letter-spacing: 2px;
+#appointment-menu h3 a { 
 }
 #appointment-menu h3 a:hover {
     text-decoration: underline;
@@ -42,6 +30,9 @@
         display: inline;
         margin: 0px 8px;
         text-shadow: none;
+}
+.appointments-data td {
+    padding: 2px 6px;
 }
 #content-wrapper form.appointments-search {
 	
@@ -107,7 +98,7 @@ div.cart.product span.name {
     float:left;
 }
 form label, span.input-label {
-    font-size: 18px;
+    /* font-size: 18px; */
     display: block;
 }
 #relays-list {
@@ -204,8 +195,9 @@ width: 50px;
 background-color: white;
 }
 
-#appointment-details ul li {
+#appointment-form ul li {
     
+    list-style: none;
 }
 #appointment-details input[type="radio"] {
  margin-left: 20px;  
@@ -290,6 +282,7 @@ padding-right: 10px;
         float: left;
         margin: 2%;
         /* clear: right; */
+        list-style: none;
     }
 }    
 @media only screen and (min-width: 1025px)
@@ -302,7 +295,8 @@ padding-right: 10px;
         #appointment-details ul li {
                 width:31%;
                 float:left;
-                margin:1%
+                margin:1%;
+                /* list-style: none; */
         } 
         #appointment-details > ul > li:nth-child(3) {
             float: right;

@@ -33,9 +33,19 @@ if($disabled)  $disabled='disabled';
                             </li> 
                             -->
                             <li class="<?php echo alternator('', 'even'); ?>">
+                                        <?php echo $this->html_m->form_input('user_id', $appointment->user_id, $disabled ); ?>
+                                        <?php echo $this->html_m->form_input('doctor_id', $appointment->doctor_id, $disabled ); ?>
+                            </li> 
+
+                            <li class="<?php echo alternator('', 'even'); ?>">
                                         <?php echo $this->html_m->form_input('appointment_date', $appointment->appointment_date, $disabled ); ?>
                                         <?php echo $this->html_m->form_input('appointment_time', $appointment->appointment_time, $disabled ); ?>
                             </li>		
+
+                            <li class="<?php echo alternator('', 'even'); ?>">
+                                        <?php echo $this->html_m->form_input('other_person', $appointment->other_person, $disabled ); ?> 
+                            </li>		
+                            
                             <li class="<?php echo alternator('', 'even'); ?>">
                                         <label for="message"><?php echo lang('appointments:message'); ?></label>
                                         <?php echo form_textarea('message', $appointment->message, $disabled ); ?>

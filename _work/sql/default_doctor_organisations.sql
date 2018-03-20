@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50709
 File Encoding         : 65001
 
-Date: 2018-03-14 18:48:35
+Date: 2018-03-19 13:06:15
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -33,10 +33,9 @@ CREATE TABLE `default_doctor_organisations` (
 -- ----------------------------
 -- Records of default_doctor_organisations
 -- ----------------------------
-INSERT INTO `default_doctor_organisations` VALUES ('1', '2018-03-14 14:47:35', '2018-03-14 17:42:33', '1', '1', null, 'Privée');
+INSERT INTO `default_doctor_organisations` VALUES ('1', '2018-03-14 14:47:35', '2018-03-15 00:14:47', '1', '1', '1', 'Privée');
 INSERT INTO `default_doctor_organisations` VALUES ('2', '2018-03-14 14:49:59', '2018-03-14 17:43:03', '1', '2', '2', 'Publique');
-INSERT INTO `default_doctor_organisations` VALUES ('3', '2018-03-14 15:03:17', null, '1', '3', '1', 'test3');
-INSERT INTO `default_doctor_organisations` VALUES ('4', '2018-03-14 15:04:27', '2018-03-14 17:37:51', '1', '4', '1', 'Clinique privée');
-INSERT INTO `default_doctor_organisations` VALUES ('5', '2018-03-14 15:04:47', '2018-03-14 17:44:08', '1', '5', '1', 'Soins à domicile');
-INSERT INTO `default_doctor_organisations` VALUES ('6', '2018-03-14 15:05:03', '2018-03-14 17:43:23', '1', '6', '2', 'Hopital ');
-INSERT INTO `default_doctor_organisations` VALUES ('7', '2018-03-14 15:05:15', '2018-03-14 17:43:38', '1', '7', '2', 'Dispensaire');
+INSERT INTO `default_doctor_organisations` VALUES ('4', '2018-03-14 15:04:27', '2018-03-14 17:37:51', '1', '3', '1', 'Clinique privée');
+INSERT INTO `default_doctor_organisations` VALUES ('5', '2018-03-14 15:04:47', '2018-03-14 17:44:08', '1', '4', '1', 'Soins à domicile');
+INSERT INTO `default_doctor_organisations` VALUES ('6', '2018-03-14 15:05:03', '2018-03-14 17:43:23', '1', '5', '2', 'Hopital ');
+INSERT INTO `default_doctor_organisations` VALUES ('7', '2018-03-14 15:05:15', '2018-03-14 17:43:38', '1', '6', '2', 'Dispensaire');
