@@ -31,7 +31,7 @@ class Admin extends Admin_Controller
     }
 
     /**
-     * List all FAQs using Streams CP Driver
+     * List all enrties using Streams CP Driver
      *
      * We are using the Streams API to grab
      * data from the doctors database. It handles
@@ -72,7 +72,7 @@ class Admin extends Admin_Controller
     }
 
     /**
-     * List all FAQs (Alternate)
+     * List all entries (Alternate)
      *
      * This example is similar to index(), but we are
      * getting entries manually using the entries API
@@ -101,7 +101,7 @@ class Admin extends Admin_Controller
     }
 
     /**
-     * Create a new FAQ entry
+     * Create a new entry
      *
      * We're using the entry_form function
      * to generate the form.
@@ -123,7 +123,7 @@ class Admin extends Admin_Controller
     }
     
     /**
-     * Edit a FAQ entry
+     * Edit an entry
      *
      * We're using the entry_form function
      * to generate the edit form. We're passing the
@@ -144,12 +144,18 @@ class Admin extends Admin_Controller
         );
 
         $skips = array('dom_id');
-        $this->streams->cp->entry_form('doctors', 'doctor', 'edit', $id, true, $extra, $skips);
+         $this->streams->cp->entry_form('doctors', 'doctor', 'edit', $id, true, $extra, $skips);
+//        $this->streams->cp->entry_form('doctors', 'doctor', 'edit', $id, true, $extra);
+        
+        // Build the page 
+//        $this->template
+//                    ->title($this->module_details['name'])
+//                    ->build('admin/form' );
         
     }
 
     /**
-     * Delete a FAQ entry
+     * Delete an entry
      * 
      * @param   int [$id] The id of FAQ to be deleted
      * @return  void

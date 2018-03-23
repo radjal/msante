@@ -100,6 +100,7 @@ class Plugin_Appointments extends Plugin
                 //get results
                 $appointments = $this->db->select($select)
                             ->where("appointments_list.user_id",$user_id )
+                            ->where("appointments_list.appointment_status",'' ) 
                             ->join('doctor_doctors', 'doctor_doctors.id = appointments_list.doctor_id', 'left')
                             ->join('doctor_categories', 'doctor_categories.id = doctor_doctors.doctor_cat', 'left')
                             ->join('files', 'doctor_doctors.image = files.id', 'left')

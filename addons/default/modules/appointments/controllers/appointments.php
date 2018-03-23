@@ -317,11 +317,12 @@ class Appointments extends Public_Controller
 //                    $this->appointments_m->delete($oid);
                     $this->session->set_flashdata('success', lang('appointments:success'));
                     $this->_send_email('appointments-deleted-admin',$oid, $appointment, $this->current_user);
-                    redirect('appointments/listing');
+//                    redirect('appointments/listing');
                 } else {
                     $this->session->set_flashdata('error', lang('appointments:no_delete_if_status'));
-                    redirect('appointments/listing');
+//                    redirect('appointments/listing');
                 }
+                redirect('rendez-vous');
             }            
             
             $this->template

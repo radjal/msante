@@ -365,11 +365,11 @@ class Appointments_m extends MY_Model
         public function get_for_date($date, $doc_id=false)
         {
             $this->db->order_by('appointment_date', 'DESC');    
+            $this->db->order_by('appointment_time', 'ASC');    
             $this->db->where('appointment_date', $date);
             if($doc_id!==false) $this->db->where('doctor_id', $doc_id);
             $res = $this->db->get('appointments_list')
-                            ->result_array();
-//            $res[0]['appointment_time']
+                            ->result_array(); 
             // time format pad to 4 digits
             if(isset($res[0]['appointment_time']))
             {

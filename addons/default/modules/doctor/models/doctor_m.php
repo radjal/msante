@@ -8,6 +8,16 @@ class Doctor_m extends MY_Model {
 		$this->_table = 'doctors';
 	}       
         
+        
+        public function get_doctor($doc_id=false)
+        {
+            if($doc_id===false) $return;
+            $res = $this->db->where('id', $doc_id)
+                            ->get('doctor_doctors')
+                            ->result_array();  
+            return $res[0];
+        }
+        
         public function form_checkbox_days($selected, $extra='class="width-15"')
         {
                 $html  =form_checkbox('days', 'weekday_1', $selected == 'weekday_1', $extra); 

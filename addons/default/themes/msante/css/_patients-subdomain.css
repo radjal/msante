@@ -1,0 +1,13 @@
+/*********************************** 
+    Author     : Radja Lomas
+ patients theme  custom CSS  
+************************************/ 
+nav.patients {
+    background-color: #dbe1e6;
+    /* margin: 20px; */
+    padding-bottom: 15px;
+}
+div#doc-cat-icon {
+    text-align: center;
+    margin-bottom: 30px;
+}

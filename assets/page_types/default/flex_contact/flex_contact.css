@@ -1,0 +1,27 @@
+#contact-infos label, #contact-message label {
+	width:100%;
+}
+.error {
+    background-color: red;
+    color: white;
+    font-weight: 100;
+    padding: 0 4px;
+}
+a.btn-link:hover {
+    color: #7f5944;
+}
+a.btn-link.badge {
+    color: white;
+    background-color: #7f5944;
+    font-size: initial;
+    margin-left: -8px;
+}
+#contact-reservation table > tbody > tr  {}
+#contact-reservation table > tbody > tr:hover {
+    /* background: #c6c6c6; */
+    /* color: white; */
+}
+#contact-reservation table tr td > a {
+    min-width: 40px;
+}
+

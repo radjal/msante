@@ -8,7 +8,6 @@ var mApi = {
 //    centLon:2.44, 
     zoom:10
 }; 
-
 /* doctor module functions */
 /** builds locations map of doctors
  *  gets data from HTML5 data attributes in doctor's list
@@ -104,7 +103,6 @@ function loadMap()
     $('#doctors-map-btn').after('<div id="map_canvas"></div>');
     $('#map_canvas').html(pg_load);
 }
-    
 /** based on function from
  * https://stackoverflow.com/questions/6797569/get-city-name-using-geolocation
  * answered Apr 29 '16 at 4:12 Mikhail
@@ -132,6 +130,18 @@ function geoError(err) {
     alert("positioning error");
 } 
 /********************************************************************************/  
+ {{if false }}
+function myPosition(position) {
+    var infopos = "Position déterminée :\n";
+    infopos += "Latitude : "+position.coords.latitude +"\n";
+    infopos += "Longitude: "+position.coords.longitude+"\n";
+    infopos += "Altitude : "+position.coords.altitude +"\n";
+    return infopos;
+}
+{{endif}}
+{{# load doctor module JS #}}
+{{# doctor:js #}}
+
 /** empties search box
  * 
  * @returns {undefined}
@@ -142,28 +152,30 @@ function geoError(err) {
      $('.searchbox-query').removeClass('has-success'); 
      $('#doctor-search input[name=c]').val('').removeClass('set');
     /*UX*/
-    $('#categories div.row, .titre-pro, .titre-rdv').slideDown();
+    
+    $('#categories').show();
  }
- 
- function selectThis(ob)
+ function cleanAreaSearch()
  {
-    ob.select();
-//     $('.searchbox-query .input-group-addon '); 
+     console.log('clean');
+     $('.searchbox-area').removeClass('has-success'); 
+     $('#doctor-search input[name=s]').val('').removeClass('set');
+    /*UX*/ 
+    $('.titre-auto').hide() ;
  }
  
-
-/** On document ready, go  */      
+ 
 $( document ).ready(function() 
 {    
         /*geo btn */
         /* remove geo btn if no localisation */
-        if(navigator.geolocation !== true) 
-        {
-            $('.searchbox-area .input-group-addon a').addClass('disabled');
-        } else {
-            $('.searchbox-area .input-group-addon a').removeClass('disabled'); 
-        }  
-        /* UIX */
+//        if(navigator.geolocation !== true) 
+//        {
+//            $('.searchbox-locate .input-group-addon a').addClass('disabled');
+//        } else {
+            $('.searchbox-locate a').removeClass('disabled'); 
+//        }  
+        /* UIX select all */
         $('.searchbox-query input, .searchbox-area input').on('focus', function(){ this.select(); });
         /* jquery autocomplete */
         $( function() {
@@ -199,26 +211,28 @@ $( document ).ready(function()
             source: medicSpecialities
           });
         } ); 
-        /* populate html5 data attributes */
-        var name;    
-        var adr;    
-        /* only if doctors listing */
-        if( $('div.listing').length ) 
+    //add functionality to specialities
+    $('.ico-grp .specialite').each(function() {
+        $( this ).on('click', function _selectType(event) 
         {
-            $('div.listing section.doctor').each(function()
-            {
-                    name ='';    
-                    adr ='';    
-                    // adr = $(this).attr('data-rid');
-                    name = $(this).attr('data-name');
-                    if($(this).attr('data-address').length)   adr += ' '+ $(this).attr('data-address');
-                    if($(this).attr('data-area_name').length)   adr += ' '+ $(this).attr('data-area_name');
-                    if($(this).attr('data-town').length)        adr += ' '+ $(this).attr('data-town'); 
-                    doctors.push({name:name, address:adr});
-                    // console.log({name:name, address:adr}); 
-            }); 
-            /* show map */
-//            loadMap();  
-        } 
-});
+            if(typeof(event)!=='undefined') event.preventDefault();
+            var cat = $(this).attr("data-cat"); 
+            var type = $(this).attr("data-type"); 
+            $('.searchbox-query').addClass('has-success');
+            $('#doctor-search input[name=c]').val(cat).addClass('set');
+            /*UX*/
+            $('#categories').hide();
+            $('.titre-auto').show().text('Choisir votre '+cat.toLowerCase());
+            
+//            $('.titre-'+type).slideDown();
+            console.log(type);
+            
+            
+//            /* https://www.taniarascia.com/smooth-scroll-to-id-with-jquery/ */
+//            $('html, body').animate({
+//                    scrollTop: $('div.searchbox-query').offset().top
+//            }, 500, 'linear');
+        });
+    });
 
+});

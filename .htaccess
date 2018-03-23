@@ -1,3 +1,26 @@
+########  msante.net
+Options +FollowSymLinks
+RewriteEngine On
+RewriteBase /
+
+## force https http://www.inmotionhosting.com/support/website/ssl/how-to-force-https-using-the-htaccess-file
+#RewriteEngine On 
+#RewriteCond %{HTTP_HOST} ^msante\.net [NC]
+#RewriteCond %{SERVER_PORT} 80 
+#RewriteRule ^(.*)$ https://msante.net/$1 [R,L]
+##
+
+
+####
+### OVH BASIC auth
+#AuthUserFile /home/msantenen/www/.htpasswd
+#AuthGroupFile /dev/null
+#AuthName "Accès Restreint"
+#AuthType Basic
+#require valid-user
+#### 
+
+
 # Multiple Environment config
 # Set this to development, staging or production
 # SetEnv PYRO_ENV production

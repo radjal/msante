@@ -1,11 +1,7 @@
-{{# sub domain check and inclusion #}}
-{{if custom:subdomain_value}}  
-    {{ theme:partial name={custom:subdomain_value} }}
-{{# normal domain below #}}
-{{else}}<!doctype html>
+<!doctype html>{{# PATIENTS sub domain #}}
 <html>
   <head>
-        {{ theme:partial name="metadata" }}
+        {{ theme:partial name="patients-meta" }}
         <script>
             //load icon @todo move to templates
             var pg_load = '<img src="assets/img/loading.gif" />'; 
@@ -17,6 +13,7 @@
   ?>
     <body {{ if theme:options:disable_right_click == 'yes' }} oncontextmenu="return false;"{{endif}}>
 
+        <!-- SUBDOMAIN {{ custom:subdomain_value }}  -->
     <noscript>
         <div class="alert alert-danger text-center">
             <span style="font-size: 22px"> 
@@ -26,13 +23,8 @@
     </noscript>
  
 	<header>
-		{{ theme:partial name="header" }} 
-	</header>	
-	
-	{{if page:is_home}}
-            {{ if template:show_slideshow }}
-            {{endif}}
-	{{endif}}
+		{{ theme:partial name="patients-header" }}  
+	</header>	 
         <h1 class="hidden">{{if custom:subdomain_value}} SUBDOMAIN {{custom:subdomain_value}} {{endif}}</h1>
     <div id="container" class="container"> 
         <div class="{{if page:id !=''}}content{{endif}} {{if page:is_home}}homepage {{endif}}">  
@@ -40,52 +32,17 @@
 
                 {{ theme:partial name="breadcrumbs"}}
                 {{ template:body }}
-        </div>
-        <!-- aside zone --> 
-        {{# deactivated #}} 
-        {{if false }}		
-                {{# aside #}} 
-                {{# theme:partial name="aside" #}} 
-        {{# deactivated #}} 
-        {{endif}}
+        </div> 
     </div>   
 
 
-<footer id="footer">
-{{# theme:partial name="footer" #}}
+<footer id="footer"> 
 </footer>
-	
-<!-- cookie eula -->
-<div id="cookie-accept" style="display:none;"> 
-           En continuant à naviguer sur ce site vous acceptez l'utilisation des cookies. 
-        <a href="#" onclick="setcookieeula();return false;" class="btn btn-xs btn-primary" >Fermer</a>
-</div>	
-
-<!-- Modal -->
-<div class="modal fade" id="myModal" role="dialog" style="display: none;">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title"></h4>
-      </div>
-      <div class="modal-body">
-        <p></p>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
-      </div>
-    </div>
-  </div>
-</div>
-
+	  
 
 <?php if( ENVIRONMENT == 'production' ) : ?>
 <!-- tracking -->
-{{# analytics #}} 
-        {{ if user:has_cp_permissions =="" }}
-                {{ integration:analytics }}
-        {{ endif }}
+ 
 <?php endif; ?>	
 
 <!-- Scripts -->
@@ -104,5 +61,4 @@
 {{ theme:partial name="adminbox" }}
         
 </body>
-</html>
-{{endif}}{{# END sub domain check and inclusion #}}
+</html> 

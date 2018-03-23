@@ -104,17 +104,17 @@ input[type=text].order_product, input[type=number].order_product {
     text-shadow: none;
 }
 #weekzone:hover .calendar-semaine-titre, #weekzone:hover .calendar-semaine-dates {
-    color: #00b0ef;
+    /* color: #00b0ef; */
 }
 div.calendar_titre, .calendar_titre a {
-    font-size: 28px;
+    font-size: 20px;
     border-bottom: 1px solid #755888;
     margin-bottom: 10px;
     /* width: 90%; */
     margin: auto;
 }
 div.calendar a:hover div.calendar_titre {
-    color: #f06723;
+    /* color: #f06723; */
 }
 div.calendar a:hover div.calendar_separator  {
     color: #f06723;
@@ -138,6 +138,17 @@ border: none;
     clear: both;
     font-size: 22px;
 }
+.calendar-jour .pause, .calendar-jour .has_appt {
+    background: lightgray;
+    color: gray;
+}
+.calendar a, .calendar a:hover { 
+    color:#333333;
+}
+ .calendar a:hover { 
+ font-weight:bold;
+ text-decoration:none;
+ }
 /* orders customising */
 #order-form-container {
     max-width: 788px;

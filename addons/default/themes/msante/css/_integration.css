@@ -33,8 +33,7 @@ h1, h2, h3 {
 * main page blocks
 *****************************************************************/
 body {background-attachment: fixed !important;}
-body > #container {
-}
+body > #container {margin-top: 40px;}
 p {
 }
 /****************************************************************
@@ -150,3 +149,4 @@ div#cookie-accept {
 		width: 996px;
 	}
 }
+

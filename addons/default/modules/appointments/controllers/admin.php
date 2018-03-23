@@ -181,7 +181,9 @@ class Admin extends Admin_Controller
             $this->db->order_by($orderby, $sortdir); //default
             
             $this->db->limit($limit, $offset);
-            $appointments = $this->db->get('default_appointments_list')
+            $appointments = $this->db
+                            ->join('doctor_doctors', 'doctor_doctors.id = default_appointments_list.doctor_id', 'left')
+                            ->get('default_appointments_list')
                             ->result();
             
             //count results
@@ -237,7 +239,9 @@ class Admin extends Admin_Controller
 	
 	public function edit($id = 0)
 	{
-		$appointment = $this->appointments_m->get($id);
+		$appointment = $this->appointments_m->get($id);  
+		$this->load->model('doctor/doctor_m');
+                $doctor=$this->doctor_m->get_doctor($appointment->doctor_id);
 
 		$this->form_validation->set_rules($this->item_validation_rules);
 
@@ -255,29 +259,17 @@ class Admin extends Admin_Controller
 				redirect('admin/appointments/create');
 			}
 		}
-
-                // get cart list
-//                $cart = $this->appointments_m->get_cartdetails($id);
+ 
                 
                 //set values of cart total
                 $totals['total_price'] = $appointment->total_pretax ;
-                $totals['total_taxed'] = $appointment->total_final;
-//                foreach ($cart as $p => $p_details) {
-//                        $cart[$p]['order_qty'] = $cart[$p]['product_qty'];
-//                        $cart[$p]['input_html'] = $cart[$p]['order_qty'];
-//                        $cart[$p]['line_total'] = $cart[$p]['final_price'];
-//                        $cart[$p]['price'] = $cart[$p]['line_total'] / $cart[$p]['order_qty'];
-//                        $cart[$p]['img_url'] = site_url().UPLOAD_PATH.'products/'.$cart[$p]['image_filename'];
-//                        $cart[$p]['img_html'] = '<img src="'.$cart[$p]['img_url'].'" height="60"/>';
-//                        $cart[$p]['description'] = '';
-//                        $cart[$p]['line'] = $p+1;
-//                }
+                $totals['total_taxed'] = $appointment->total_final; 
                 
 		$this->template
 			->title($this->module_details['name'], lang('appointments.edit'))
 			->set('disabled', false)
-			->set('appointment', $appointment)
-//			->set('cartlist', $cart)
+			->set('appointment', $appointment) 
+			->set('doctor', $doctor) 
 			->set('totals', $totals)
 			->build('admin/form');
 	}

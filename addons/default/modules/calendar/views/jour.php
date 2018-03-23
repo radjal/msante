@@ -1,152 +1,145 @@
 {{ if showinput }}
     {{ products:productsform_start }}
     <input type="hidden" name="_token" value="{{token}}" />
-    <input type="hidden" name="delivery_date" value="{{jourdate}}" />
+    <input type="hidden" name="appointment_date" value="{{jourdate}}" />
     <input type="hidden" name="name" value="s{{ data:week }} {{ jour }} {{journo}} " />
     <input type="hidden" id="minAllowedAmount" value="{{ data:min_order_amount }}" />
 {{ endif }}
 
 <div class="message_global">{{ data:msg_global }}</div>
-<div class="message_jour">{{ data:msg_dujour }}</div>
+<!--<div class="message_jour">{{ data:msg_dujour }}</div>-->
+<?php $this->load->view('doctor') ;
+        
+    $show=$this->input->get('show');
+    $show_am = strtolower($show)=='am' ? true : false ;
+    $show_pm = strtolower($show)=='pm' ?  true : false ;
+    $show_am_attr = $show_am ? 'none' : 'block' ;
+    $show_pm_atrr = $show_pm  ? 'none' : 'block' ;
+//			$show_am=$show_pm=true;
+    ?> 
 
 <div id="weekzone-wrapper" class="jour">
-    <div id="weekzone">
-        <center class="calendar-jour-titre">{{ jour }} {{journo}}</center>
-            <div class="calendarjour {{ if passe }}date-passed {{ endif }}">
-            {{ if entrees }}
-                    <section id="entrees">
-                    <div class="calendar_separator">Entrées</div>
-						<div class="content">
-                                     {{ entrees }}
-                                     <p{{if stock<="0"}} class="no-stock"{{endif}}>
-                                         {{ input_html }} {{ name }} {{ final_price }}€ {{ if description }}<span>{{ description }}</span>{{endif}} {{ if informations }}<span>{{ informations }}</span>{{endif}} <br />	
-                                     </p>
-                                     {{ /entrees }}
-						</div>
-                    </section>
-            {{ endif }}  
-
-            {{ if plats }}
-                    <section id="plats">
-                    <div class="calendar_separator">Plats</div>
-						<div class="content">
-                                     {{ plats }}
-                                     <p{{if stock<="0"}} class="no-stock"{{endif}}>
-                                         {{ input_html }} {{ name }} {{ final_price }}€ {{ if description }}<span>{{ description }}</span>{{endif}} {{ if informations }}<span>{{ informations }}</span>{{endif}} <br />	
-                                     </p>
-                                     {{ /plats }}
-						</div>
-                    </section>
-            {{ endif }}  
-
-            {{ if desserts }}
-                    <section id="desserts">
-                    <div class="calendar_separator">Desserts</div>
-						<div class="content">
-                                     {{ desserts }}
-                                     <p{{if stock<="0"}} class="no-stock"{{endif}}>
-                                         {{ input_html }} {{ name }} {{ final_price }}€ {{ if description }}<span>{{ description }}</span>{{endif}} {{ if informations }}<span>{{ informations }}</span>{{endif}} <br />	
-                                     </p>
-                                     {{ /desserts }}
-						</div>
-                    </section>
-            {{ endif }}  
-
-            {{ if boissons }}
-                    <section id="boissons">
-                    <div class="calendar_separator">Boissons</div>
-						<div class="content">
-                                     {{ boissons }}
-                                     <p{{if stock<="0"}} class="no-stock"{{endif}}>
-                                     {{ input_html }} {{ name }} {{ final_price }}€ {{ if description }}<span>{{ description }}</span>{{endif}} {{ if informations }}<span>{{ informations }}</span>{{endif}} <br />	
-                                     </p>
-                                     {{ /boissons }}
-						</div>
-                    </section>
-            {{ endif }}  
-            </div> 
+    <div id="weekzone"> 
+        <center class="h3">
+            {{ jour }} {{journo}}  {{ helper:date format=" m Y" timestamp=jourdate }} 
+            <!-- {{jourdate}} {{data:month_name}} {{data:year}}--> 
+        </center>
         
-        {{ if showinput }}
-            {{ products:jscarttotal }}
-        {{ endif }}
+        <center class="h3">
+            Choisir votre horaire de RDV
+        </center>
         
+        <center class="h3">
+            <button id="btn-am" class="btn btn-default <?= $show_am ? 'active' : '' ?>" onclick="periodShow('am')" type="button">Matin</button>
+            <button id="btn-pm"class="btn btn-default <?= $show_pm ? 'active' : '' ?>" onclick="periodShow('pm')" type="button">Après midi</button>
+        </center>
+        
+        <div class="calendar-jour row {{ if passe }}date-passed {{ endif }}">  
+            <?php
+//            $no_periods = count($appointments); 
+//            $x = round($no_periods/3, 0)  ;
+            $appts_total = 0 ; $appts_pre_break = $appts_post_break = false;
+            $html_pre_break = $html_post_break = '';
+            
+    //                        echo'<ul>'; 
+                        //loop periods
+                        $break_passed =false;
+                        foreach ($appointments as $periods ) 
+                        {   
+                            $html = $class = ''; 
+                            $html .= $periods['dt'];
+                            if($periods['break'] == 'true')
+                            {
+                                $break_passed = true;
+                                $html .= ' En pause';
+                                $class .= 'pause ';
+//                                $html .= !$appts_pre_break&&$appts_total>0?"<br/>$appts_total&nbsp;RDV avant la pause":'';
+                                $appts_pre_break = $appts_total;
+                                
+                            }
+                            if(isset($periods['appointment']) && count($periods['appointment'])>0 )
+                            {   
+                                $class .= ' has_appt';
+                                $appts_total += count($periods['appointment']);
+                                $html .= $this->calendar_m->html_caldots($periods['appointment']) ; 
+                            } 
+                            //output pre render                            
+                            if($periods['break'] !== 'true' && !$break_passed) 
+                            { 
+                                $html_pre_break .=  '<div class="panel panel-default break-pre '.$class.'"><div class="panel-body">'.$html.'</div></div>' ; 
+                            } else if($periods['break'] !== 'true' && $break_passed) {
+                                $html_post_break .=  '<div class="panel panel-default break-post'.$class.'"><div class="panel-body">'.$html.'</div></div>' ;
+                            }
+                            //final render 
+                        }   
+//                        echo'</ul>';
+                        //post loop output
+                        echo "<div class=\"period-am\" style=\"display:$show_am_attr;\" >$html_pre_break</div>" ;
+                        echo "<div class=\"period-pm\" style=\"display:$show_pm_atrr;\" >$html_post_break</div>" ;
+                        $appts_post_break = $appts_total - $appts_pre_break ;
+                        echo $appts_pre_break>0 ? "$appts_pre_break RDV avant la pause <br/>" : '' ;
+                        echo $appts_post_break>0 ? "$appts_post_break RDV après la pause <br/>" : '' ;
+                        echo $appts_total >0 ? "$appts_total RDV au total" : '' ; 
+            ?> 
+            
+        </div>
+    
     </div>
   </div> 
   
 
 {{ if showinput }}
-<div id="order-form-container">
+<div id="order-form-container" class="hidden">
     {{ if user:logged_in }}
         {{ user:profile }}
             <div id="order-details">
-            <h4>Passez la commande</h4>
-            <p class="profile_fields">Vous pouvez modifier les informations qui apparraissent ci-dessous en <a href="{{url:site}}edit-profile">modifiant votre profil</a></p>
-            
-            <section> <label for="payment_type">Type de paiement </label>
-                <div class="input">
-                    <label><input type="radio" name="payment_type" value="cc" {{ if user:moyen_de_paiement == 'Carte bancaire' }} checked="checked" {{ endif }}>
-                        Carte de crédit</label>
-                    <label><input type="radio" name="payment_type" value="cheque" {{ if user:moyen_de_paiement == 'Chèque bancaire' }} checked="checked" {{ endif }}>
-                        Chèque</label>
-                    <label><input type="radio" name="payment_type" value="cash" {{ if user:moyen_de_paiement == 'Espèces' }} checked="checked" {{ endif }}>
-                        Espèces</label>
-                    <label><input type="radio" name="payment_type" value="meal_coupon" {{ if user:moyen_de_paiement == 'Chèque déjeuner' }} checked="checked" {{ endif }}>
-                        Ticket restaurant</label>
-                </div>   
-            <p class="profile_fields">Vous pouvez nous régler en espèces, calendar bancaire,chèque bancaire ou ticket restaurant.</p>
-            </section>
-
+            <h4>Prendre RDV</h4>
+            <!--<p class="profile_fields">Vous pouvez modifier les informations qui apparraissent ci-dessous en <a href="{{url:site}}edit-profile">modifiant votre profil</a></p>-->
+ 
 
             <section>
-                <label for="delivery_time">Heure de livraison souhaitée</label>
+                <label for="appointment_time">Heure de RDV</label>
                 <div class="input">
-                    <select name="delivery_time" id="delivery_time"> 
-                        <option value="">-----</option>                         
-                        <option value="11h30 - 12h00" {{ if user:heure_de_livraison == '11h30 - 12h00' }} selected="selected" {{ endif }} >11h30 - 12h00</option>
-                        <option value="12h00 - 12h30" {{ if user:heure_de_livraison == '12h00 - 12h30' }} selected="selected" {{ endif }} >12h00 - 12h30</option>
-                        <option value="12h30 - 13h00" {{ if user:heure_de_livraison == '12h30 - 13h00' }} selected="selected" {{ endif }} >12h30 - 13h00</option>
-                        <option value="13h00 - 13h30" {{ if user:heure_de_livraison == '13h00 - 13h30' }} selected="selected" {{ endif }} >13h00 - 13h30</option>
-                        <option value="13h30 - 14h00" {{ if user:heure_de_livraison == '13h30 - 14h00' }} selected="selected" {{ endif }} >13h30 - 14h00</option>
-
-                    </select>
+                    <input name="appointment_time" id="appointment_time" type="text" > 
                 </div>   
             </section>
 
             <section>
-                <label for="message">Votre message </label>
+                <label for="message">Note</label>
                 <div class="input"><textarea name="message" cols="40" rows="10">{{ info_acces }}</textarea>
                 </div>   
             </section>
 
             </div>
 
-            <div id="order-delivery">   
+            <div id="order-appointment">   
             <h4>Vos coordonnées</h4>
                     <div>
-                            <label for="d_name">Nom </label>
+                            <label for="last_name">Nom </label>
                             <div class="input">
-                                    <input type="text" name="d_fullname" value="{{ first_name }} {{ last_name }}">
+                                    <input type="text" name="last_name" value="{{ last_name }}">
                             </div>                            
-                            <label for="d_company">Société livrée</label>
-                            <div class="input"><input type="text" name="d_company" value="{{ societe }}">
+                            <label for="first_name">Nom </label>
+                            <div class="input">
+                                    <input type="text" name="first_name" value="{{ first_name }}">
+                            </div>                            
+                            <label for="maiden_name">Nom de jeune fille</label>
+                            <div class="input"><input type="text" name="maiden_name" value="{{ maiden_name }}">
                             </div>                  
-                             <label for="d_mobile">Mobile</label>
-                            <div class="input"><input type="text" aria-type="tel" name="d_mobile" value="{{ mobile }}">
-                            </div>          
-                             <label for="d_phone">Téléphone</label>
-                            <div class="input"><input type="text" aria-type="tel" name="d_phone" value="{{ phone }}">
-                            </div>          
+                             <label for="mobile">Mobile</label>
+                            <div class="input"><input type="text" aria-type="tel" name="mobile" value="{{ mobile }}">
+                            </div>             
                     </div>
                     <div>
-                            <label for="d_street1">Rue</label>
-                            <div class="input"><input type="text" name="d_street1" value="{{ address }}">
+                            <label for="address">Rue</label>
+                            <div class="input"><input type="text" name="address" value="{{ address }}">
                             </div> 
-                            <label for="d_town">Ville</label>
+                            <label for="town">Ville</label>
 
-                            <div class="input"><input type="text" name="d_town" value="{{ ville }}">
+                            <div class="input"><input type="text" name="town" value="{{ town }}">
                             </div>                            
-                            <label for="d_zipcode">Code postal</label>
-                            <div class="input"><input type="text"aria-type="number"  name="d_zipcode" value="{{ code_postal }}">
+                            <label for="area_name">Quartier</label>
+                            <div class="input"><input type="text"aria-type="number"  name="area_name" value="{{ code_postal }}">
                             </div>      
                     </div>  
 
@@ -157,12 +150,12 @@
         {{ /user:profile }}
     {{else}}
     <p id="calendar-connect-msg">
-        <a href="{{url:site}}users/login">Vous devez vous connecter pour passer une commande.</a>
+        <a href="{{url:site}}users/login">Vous devez vous connecter pour prendre un RDV.</a>
+        <a href="{{url:site}}users/register">Enregistrez vous.</a>
     </p>
     {{ endif }}
     <div style="clear: both;"></div>
-</div>
-	{{ products:productsform_end showbutton='false' }}
+</div> 
 {{ endif }}
 
 {{ if !user:logged_in AND !passe }}

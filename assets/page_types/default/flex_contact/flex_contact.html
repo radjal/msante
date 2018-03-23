@@ -1,0 +1,161 @@
+{{ custom:disable_theme_if_ajax }}
+{{ dev:empty_cache }}
+
+<h1>{{title}}</h1>
+{{ pre_html }}
+{{ body }}
+
+{{ contact:form 
+name="text|required" 
+societe="text" 
+telephone="text" 
+email="text|required|valid_email" 
+reservation_date="text"
+reservation_heure="text"
+reservation_heure_menu="dropdown||11h00|11h30|12h00|12h30|13h00|13h30|14h00|14h30|15h00|15h30|16h00|16h30|17h00|17h30|18h00|18h30|19h00|19h30|20h00"
+reservation_soin="dropdown||Massage traditionnel thai|Massage des pieds|Massage aux huiles chaudes|Massage aux huiles aromatiques|Gommage du corps|Hammam|Hammam + gommage + massage au choix|Hammam + massage thai|Hammam + massage aux huiles|Réflexologie plantaire|Massage avec des pierres chaudes|Massage avec des plantes chaudes"
+reservation_duree="text"
+reservation_prix="text"
+
+to="bgoulin@hotmail.fr"
+
+subject="dropdown||Contact|Réservation|Autre" 
+message="textarea" 
+template = "contact-form" 
+button = "Envoyer" 
+success-redirect="merci" 
+sent = "Votre message a bien été transmis."
+}}
+<div id="contact-sujet">
+	{{ if page:is_home }}
+		{{ subject }}
+	{{ elseif page:slug == "contact" }}
+		<input value="Contact" type="hidden" name="subject" /> 
+	{{ elseif page:slug == "reservation" }}
+		<input value="Réservation" type="hidden" name="subject" /> 
+	{{ elseif false }}
+		<label><input value="Contact" type="radio" name="subject"/> Contact</label>
+		<label><input value="Réservation" type="radio" name="subject" checked/> Réservation</label>
+	{{ endif }}
+</div>
+
+<div id="contact-reservation" {{ if page:slug == "contact" }}style="display:none;"{{ endif }}>
+	<fieldset>
+		<legend>
+			Demande de réservation
+		</legend>     
+            
+	{{ if page:slug == "reservation" }}
+		<div class="soin form-group">
+			<label style="width:100%">Soin souhaité 
+			<select name="reservation_soin">
+				<option></option>
+				{{ reservation:prestations id="6" order_by="id" }}
+			</select>
+			</label>
+		</div>
+
+		<div class="duree-prix form-group" style="display:none;">
+			<label>Durée {{ reservation_duree }}</label>
+			<label>Prix {{ reservation_prix }}</label>
+		</div>    
+		
+		<div class="date-heure form-group">
+			<label>Date souhaitée {{ reservation_date }}</label>
+			<label>Heure souhaitée {{ reservation_heure }}</label>
+		</div>
+		
+		<div class="form-control-static help-block">Choisissez une offre dans le tableau ci-dessous. <i class="glyphicon glyphicon-arrow-down"></i></div>
+		<div class="form-group table-responsive"> 
+				<table class="table table-condensed">
+						<thead>
+								<tr>
+										<th>Les prestations de massages</th>
+										<th>1/2h</th>
+										<th>1h00</th>
+										<th>1h30</th>
+										<th>2h00</th>
+										<th>duo&nbsp;1h00</th>
+								</tr>
+						</thead>
+				{{ pages:children id="6" }}
+								<tr>
+										<td class="soin">{{ helper:ucfirst str=title }}</td>
+						{{ custom_fields }}
+										<td data-duration="30" data-price="{{prix_30_min}}"    >{{if prix_30_min}}{{prix_30_min}}€{{endif}}</td>
+										<td data-duration="60" data-price="{{prix_60_min}}"    >{{if prix_60_min}}{{prix_60_min}}€{{endif}}</td>
+										<td data-duration="90" data-price="{{prix_90_min}}"    >{{if prix_90_min}}{{prix_90_min}}€{{endif}}</td>
+										<td data-duration="120" data-price="{{prix_120_min}}"  >{{if prix_120_min}}{{prix_120_min}}€{{endif}}</td>
+										<td data-duration="60" data-price="{{prix_60_min_duo}}">{{if prix_60_min_duo}}{{prix_60_min_duo}}€{{endif}}</td>
+						{{ /custom_fields }}
+								</tr>
+				{{ /pages:children }}
+						</tbody>
+				</table>
+
+		</div>
+	{{endif}}
+                
+                {{if false}} 
+		<!-- contact plugin generated input -->
+		<div class="form-group">
+			<label>Soin souhaitée {{ reservation_soin }}</label>
+		</div>
+		<!-- select html with LEX -->  
+		<div class="form-group select-box">
+			<label>Soin souhaitée 
+				<select name="">
+					{{ pages:children id="6" }}
+							<option>{{ title }}
+						{{ custom_fields }}
+								{{if prix_30_min}}&bullet; 1/2h' {{prix_30_min}}€{{endif}}
+								{{if prix_60_min}}&bullet; 1h {{prix_60_min}}€{{endif}}
+								{{if prix_90_min}}&bullet; 1h30 {{prix_90_min}}€{{endif}}
+								{{if prix_120_min}}&bullet; 2h {{prix_120_min}}€{{endif}}
+								{{if prix_60_min_duo}}&bullet; 1h duo {{prix_60_min_duo}}€{{endif}}
+						{{ /custom_fields }}
+							</option>
+					{{ /pages:children }}
+				</select>
+			</label>
+		</div>
+                {{ endif }}    
+
+            
+                {{if false}}
+                {{endif}}
+	</fieldset>
+</div>
+
+<div id="contact-infos">
+	<fieldset>
+		<legend>
+			Informations
+		</legend>
+		<div class="row">
+			<div class="form-group col-sm-8 ">
+				<label>Nom et prénom {{ name }}</label>
+			</div>
+			<div class="form-group col-sm-4">
+				<label>Société {{ societe }}</label>
+			</div>
+			<div class="form-group col-sm-6">
+				<label>Email {{ email }}</label>
+			</div>
+			<div class="form-group col-sm-6">
+				<label>Téléphone {{ telephone }}</label>  
+			</div>
+		</div>
+	</fieldset>
+</div> 
+
+<div id="contact-message">
+	<fieldset>
+		<legend>
+			Message
+		</legend>
+
+<label>{{ message }}</label>
+</fieldset>
+</div>
+{{ /contact:form }} 

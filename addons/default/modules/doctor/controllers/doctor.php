@@ -11,6 +11,7 @@ class Doctor extends Public_Controller
     public function __construct()
     {
         parent::__construct();
+        $this->load->model('doctor_m');
         $this->lang->load('doctor');
         $this->load->driver('Streams');
         $this->template->append_css('module::doctor.css');
@@ -28,9 +29,7 @@ class Doctor extends Public_Controller
      * @return	void
      */
     public function index()
-    {
-        
-        $this->load->model('doctor_m');
+    {        
         $params = array(
             'stream' => 'doctors',
             'namespace' => 'doctor',
@@ -73,9 +72,36 @@ class Doctor extends Public_Controller
         }
         $data->doctors = $xdata ; //reassign
         
-        //calendar
+        /* calendar */
+        $this->load->model('appointments/appointments_m');
         $this->load->model('calendar/calendar_m');
-        $cal_week=  $this->calendar_m->calculate_week();
+        // day periods calculation
+        $day_periods = $this->calendar_m->periods_make_day();   
+        $cal_week=  $this->calendar_m->calculate_week(); 
+        //LOOP doctors 
+        $weekArr = explode(',', 'lundi,mardi,mercredi,jeudi,vendredi,samedi,dimanche'); 
+        $jours_ouverts= implode(',',$weekArr);  
+        $dcount = 0;
+        foreach ($data->doctors['entries'] as $doctor) 
+        {
+            // calculate whole week of days
+            for($wc = 1; $wc < 8; $wc++) 
+            { 
+                    $dn = $weekArr[$wc-1]; //day names
+                    if(strstr($jours_ouverts, $dn )) //if open on day
+                    { 
+                        // get appointments for one day
+                        $datestr = str_replace('-', '', $cal_week['week_dates_iso'][$wc]['date']); 
+                        $doctor['appointments'][$dn] = $this->appointments_m->get_for_date($datestr, $doctor['id']);   
+                        $doctor['calendar'][$dn] = $this->calendar_m->periods_splice_arrays( $day_periods, $doctor['appointments'][$dn] ) ;  
+                    }
+            }
+            //update doctors array
+            $data->doctors['entries'][$dcount] = $doctor;
+            $dcount++; 
+        }   
+            
+            
 
         $template = 'doctors';
  				
@@ -101,6 +127,9 @@ class Doctor extends Public_Controller
         // Build the page
             $this->template->title(lang('doctor:doctors'))
 //                ->set('jsdata', $data)
+                ->set('search', $search)
+                ->set('doc_count', $dcount)
+                ->set('category', $category)
                 ->set('cal_week', $cal_week)
                 ->build($template, $data);
     }
@@ -115,7 +144,7 @@ class Doctor extends Public_Controller
      * @access	public
      * @return	void
      */
-    public function id($id)
+    public function view($id)
     {
         
         $this->load->model('doctor_m');
@@ -133,22 +162,51 @@ class Doctor extends Public_Controller
         $data = new stdClass();
         $data = $this->streams->entries->get_entries($params);
 //        $data->doctor = $this->streams->entries->get_entry($id, $params['stream'], $params['namespace'] );
-
+        $doctor = $data['entries'][0];
         
-        //open days as string for template usage  
-        $xdata =  $data['entries'][0]  ;  
+        //open days as string for template usage   
         $str='';
-        foreach ($xdata['days'] as $day ) 
+        foreach ($doctor['days'] as $day ) 
         { 
                 $str .= $day["value"] . ","; 
         }
         $str = trim($str, ',');//removes the final comma 
-        $xdata['daysopenstr']=$str; 
+        $doctor['daysopenstr']=$str; //FINISH
         
         //calendar
+        
+        $week_id = !empty($this->uri->segment(4)) ? $this->uri->segment(4) : false; 
+        $this->load->model('appointments/appointments_m');
         $this->load->model('calendar/calendar_m');
-        $cal_week =  $this->calendar_m->calculate_week();
+        // day periods calculation
+        $day_periods = $this->calendar_m->periods_make_day();    
+        $cal_week =  $this->calendar_m->calculate_week($week_id);
 
+        //LOOP doctors 
+        $weekArr = explode(',', 'lundi,mardi,mercredi,jeudi,vendredi,samedi,dimanche'); 
+        $jours_ouverts= implode(',',$weekArr);  
+//        $dcount = 0;
+//        foreach ($data->doctors['entries'] as $doctor) 
+//        {
+            // calculate whole week of days
+            for($wc = 1; $wc < 8; $wc++) 
+            { 
+                    $dn = $weekArr[$wc-1]; //day names
+                    if(strstr($jours_ouverts, $dn )) //if open on day
+                    { 
+                        // get appointments for day
+                        $datestr = str_replace('-', '', $cal_week['week_dates_iso'][$wc]['date']); 
+                        $doctor['appointments'][$dn] = $this->appointments_m->get_for_date($datestr, $doctor['id']);   
+                        $doctor['calendar'][$dn] = $this->calendar_m->periods_splice_arrays( $day_periods, $doctor['appointments'][$dn] ) ;  
+                    }
+            }
+            //update doctors array
+            $doctor = $doctor; //reassign
+//            $dcount++; 
+//        }   
+        
+        
+        
         $template = 'doctor';
  				
         // AJAX and XHR
@@ -174,7 +232,7 @@ class Doctor extends Public_Controller
             $this->template->title(lang('doctor:doctor'))
 //                ->set('jsdata', $data)
                 ->set('cal_week', $cal_week)
-                ->build($template, $xdata);
+                ->build($template, $doctor);
     }
 
 }

@@ -66,7 +66,7 @@ class Plugin_Doctor extends Plugin
         /**
          * HTML search form 
          * 
-         * {{ doctor:search_box inputclass='form-control' }} 
+         * {{ doctor:search_box }} 
          * 
          * @return string
          */
@@ -77,13 +77,13 @@ class Plugin_Doctor extends Plugin
             
             $html = '<div id="doctor-search" class="">';
                 $html .= '<form method="get" action="'.  site_url().'doctor">' ;
-                    $html .= '<div class="form-group">';
-                        $html .= '<div class="input-group searchbox-query">';
+                    $html .= '<div class="form-group searchbox-query">';
+                        $html .= '<div class="input-group">';
                             $html .= '<span class="input-group-addon"><a class="" onclick="cleanDocSearch()"><i class="glyphicon glyphicon-remove-circle"></i></a></span>';  
                             $html .= form_input('c', $cat, 'placeholder="Domaine ou spécialité médicale"'.' class="form-control"') ;
                         $html .= '</div> ';
-                    $html .= '<br />';
-                        $html .= '<div class="input-group searchbox-area">';
+                    $html .= '</div> <div class="form-group searchbox-area">';
+                        $html .= '<div class="input-group">';
                             $html .= '<span class="input-group-addon"><a class="" onclick="geoGetTown()"><i class="glyphicon glyphicon-map-marker"></i></a></span>';  
                             $html .= form_input('s', $search, 'placeholder="Ville, quartier ou CP"'.' class="form-control"') ; 
                             $html .= '<span class="input-group-btn">'; 
@@ -155,6 +155,7 @@ class Plugin_Doctor extends Plugin
 	{
                 $limit = 1;  
                 $id = $this->attribute('id');
+                if(empty($id)) return false;
                 //@todo user role checks
 //                $user_id
 //                $doctor_id

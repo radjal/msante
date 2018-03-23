@@ -91,6 +91,7 @@ if($disabled)  $disabled='disabled';
 		</ul>
 	 </div>  
         
+                <?php $this->load->view('admin/partials/doctor')  ?>
         <?php if(!$disabled) :?>
         <div class="buttons" style="clear:both">
 			<?php $this->load->view('admin/partials/buttons', array('buttons' => array('save', 'cancel') )); ?>

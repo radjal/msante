@@ -14,9 +14,9 @@
  
                 <div class="collapse navbar-collapse" id="navbar-collapse">
                         <ul class="nav navbar-nav nav-pills">
-                                <li><a href="{{url:site}}rendez-vous">Mes RDV</a></li>
                                 {{ navigation:links group="header" }}
-                                {{ if user:logged_in }}                                     
+                                {{ if user:logged_in }}                         
+                                        <li><a href="{{url:site}}rendez-vous">Mes RDV</a></li>            
                                         <li><a href="{{url:site}}users/edit">Mes informations personnelles</a></li>
                                         <li><a href="{{url:site}}users/logout">Déconnexion</a></li>            
                                 {{ else }}

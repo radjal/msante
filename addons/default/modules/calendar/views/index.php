@@ -9,199 +9,64 @@
 <div id="weekzone-wrapper">
     <div id="weekzone" class="{{ data:dayscount }}-days {{ data:days_oddeven }}" data-nodays="{{ data:dayscount }}" data-oddeven="{{ data:days_oddeven }}">
         
-        <center class="calendar-semaine-titre">Semaine {{ data:week }} <a class="next-week" href="{{ url:site }}calendar/week/{{ data:next_week_no }}/{{url:segments segment="4"}}">semaine suivante</a></center>
-        <center class="calendar-semaine-dates">Du {{helper:date timestamp=week_begin format="%A %e %b %Y" }} au {{helper:date timestamp=week_finish format="%A %e %b %Y" }}</center>
-			{{ if lundi }}
+        <center class="calendar-semaine-titre h1">
+            Semaine {{ data:week }} 
+            <a class="btn btn-default next-week" href="{{ url:site }}calendar/week/{{ data:next_week_no }}/{{url:segments segment="4"}}"> 
+                <i class="glyphicon glyphicon-calendar"></i> semaine suivante<i class="glyphicon glyphicon-chevron-right"></i></a>
+        </center>
+        <center class="calendar-semaine-dates h2">Du {{helper:date timestamp=week_begin format="%A %e %b %Y" }} au {{helper:date timestamp=week_finish format="%A %e %b %Y" }}</center>
+		 <?php 
+                 $days = array(1=>'lundi',2=>'mardi',3=>'mercredi',4=>'jeudi',5=>'vendredi',6=>'samedi',7=>'dimanche');
+                 for($d=1;$d<=7;$d++): 
+                    $day = $days[$d]; 
+                    $calendar_titre=$data['week_dates_iso'][$d]['dayname'].' '.$data['week_dates_iso'][$d]['day'] ;
+                    ?>
 			<div class="calendar {{ if data:today_no_iso > 1 }}date-passed {{ endif }}">
-					<a href="{{url:site}}calendar/{{day_link_segment}}/lundi">
-					</a>
-						<div class="calendar_titre">{{ data:isodays:1 }}</div>
-                                                <section>
-                                                <?php // print_r ($appointments['lundi']);  ?>
-                                                <?php foreach ($appointments['lundi'] as $appts ) 
+                                <a href="{{url:site}}calendar/day/<?= $data['week_dates_iso'][$d]['dayname'].'/'.$data['week'] ?>/">
+                                    <div class="calendar_titre"><?= $calendar_titre ?></div>
+                                </a> 
+                                    <div class="calendar-day">  
+                                            <?php 
+                                            $appts_total = 0 ; $appts_pre_break = $appts_post_break = false;
+                                            $prds_count = $prds_pre_break = $prds_post_break = 0;
+                                            foreach ($appointments[$day.'_joined'] as $periods ) 
+                                            {   
+        //                                        echo $periods['break']=='false'?'<br/>'.$periods['dt']:'';  
+                                                echo $periods['dt'];
+                                                echo " ({$periods['end']})";
+                                                $prds_count = $periods['break'] == 'false' ? $prds_count+1 : $prds_count;
+                                                if($periods['break'] == 'true')
                                                 {
-//                                                    print_r($appts);
-//                                                    echo $appts['appointment_date'];
-//                                                    echo ' ';
-                                                    echo $appts['appointment_time'];
-                                                    echo '[';
-                                                    echo $appts['doctor_id'] .' - '. $appts['user_id'];
-                                                    echo ']<br/>';
-                                                } ?> 
-                                                    
-                                                <?php foreach ($appointments['lundi_periods'] as $periods ) 
-                                                { 
-//                                                    print_r($periods);
-                                                    echo $periods['dt'];
-                                                    echo $periods['break'] == 'true' ? ' En pause': '';
-                                                    echo '<br/>';
-                                                } ?>
-                                                </section><div class="calendar-spacer"></div>
-				</div>
-			{{ endif }}
-			{{ if mardi }}
-			<div class="calendar {{ if data:today_no_iso > 2 }}date-passed {{ endif }}">
-					<a href="{{url:site}}calendar/{{day_link_segment}}/mardi">
-					</a>
-						<div class="calendar_titre">{{ data:isodays:2 }}</div>
-                                                <section>
-                                                <?php // print_r ($appointments['mardi']);  ?>
-                                                <?php foreach ($appointments['mardi'] as $appts ) 
-                                                {
-//                                                    print_r($appts);
-//                                                    echo $appts['appointment_date'];
-//                                                    echo ' ';
-                                                    echo $appts['appointment_time'];
-                                                    echo '[';
-                                                    echo $appts['doctor_id'] .' - '. $appts['user_id'];
-                                                    echo ']<br/>';
-                                                } ?> 
-                                                    
-                                                <?php foreach ($appointments['mardi_periods'] as $periods ) 
-                                                { 
-//                                                    print_r($periods);
-                                                    echo $periods['dt'];
-                                                    echo $periods['break'] == 'true' ? ' En pause': '';
-                                                    echo '<br/>';
-                                                } ?>
-                                                </section><div class="calendar-spacer"></div>
-				</div>
-			{{ endif }}
-			{{ if mercredi }}
-			<div class="calendar {{ if data:today_no_iso > 3 }}date-passed {{ endif }}">
-					<a href="{{url:site}}calendar/{{day_link_segment}}/mercredi">
-					</a>
-						<div class="calendar_titre">{{ data:isodays:3 }}</div>
-						<section><?php // print_r ($appointments['mercredi']);  ?>
-                                                <?php foreach ($appointments['mercredi'] as $appts ) 
-                                                {
-//                                                    print_r($appts);
-//                                                    echo $appts['appointment_date'];
-//                                                    echo ' ';
-                                                    echo $appts['appointment_time'];
-                                                    echo '[';
-                                                    echo $appts['doctor_id'] .'-'. $appts['user_id'];
-                                                    echo ']<br/>';
-                                                } ?> 
-                                                    
-                                                <?php foreach ($appointments['mercredi_periods'] as $periods ) 
-                                                { 
-//                                                    print_r($periods);
-                                                    echo $periods['dt'];
-                                                    echo $periods['break'] == 'true' ? ' En pause': '';
-                                                    echo '<br/>';
-                                                } ?>
-                                                </section><div class="calendar-spacer"></div>
-				</div>
-			{{ endif }}
-			{{ if jeudi }}
-			<div class="calendar {{ if data:today_no_iso > 4 }}date-passed {{ endif }}">
-					<a href="{{url:site}}calendar/{{day_link_segment}}/jeudi">
-					</a>
-						<div class="calendar_titre">{{ data:isodays:4 }}</div>
-						<section>
-                                                <?php foreach ($appointments['jeudi'] as $appts ) 
-                                                {
-//                                                    print_r($appts);
-//                                                    echo $appts['appointment_date'];
-//                                                    echo ' ';
-                                                    echo $appts['appointment_time'];
-                                                    echo '[';
-                                                    echo $appts['doctor_id'] .' - '. $appts['user_id'];
-                                                    echo ']<br/>';
-                                                } ?> 
-                                                    
-                                                <?php foreach ($appointments['jeudi_periods'] as $periods ) 
-                                                { 
-//                                                    print_r($periods);
-                                                    echo $periods['dt'];
-                                                    echo $periods['break'] == 'true' ? ' En pause': '';
-                                                    echo '<br/>';
-                                                } ?>
-                                                </section><div class="calendar-spacer"></div>
-				</div>
-			{{ endif }}
-			{{ if vendredi }}
-			<div class="calendar {{ if data:today_no_iso > 5 }}date-passed {{ endif }}">
-					<a href="{{url:site}}calendar/{{day_link_segment}}/vendredi">
-					</a>
-						<div class="calendar_titre">{{ data:isodays:5 }}</div> 
-						<section>
-                                                <?php foreach ($appointments['vendredi'] as $appts ) 
-                                                {
-//                                                    print_r($appts);
-//                                                    echo $appts['appointment_date'];
-//                                                    echo ' ';
-                                                    echo $appts['appointment_time'];
-                                                    echo '[';
-                                                    echo $appts['doctor_id'] .' - '. $appts['user_id'];
-                                                    echo ']<br/>';
-                                                } ?> 
-                                                    
-                                                <?php foreach ($appointments['vendredi_periods'] as $periods ) 
-                                                { 
-//                                                    print_r($periods);
-                                                    echo $periods['dt'];
-                                                    echo $periods['break'] == 'true' ? ' En pause': '';
-                                                    echo '<br/>';
-                                                } ?>
-                                                </section><div class="calendar-spacer"></div>
-				</div>
-			{{ endif }}
-			{{ if samedi }}
-			<div class="calendar {{ if data:today_no_iso > 6 }}date-passed {{ endif }}">
-					<a href="{{url:site}}calendar/{{day_link_segment}}/samedi">
-					</a>
-						<div class="calendar_titre">{{ data:isodays:6 }}</div> 
-						<section>
-                                                <?php foreach ($appointments['samedi'] as $appts ) 
-                                                {
-//                                                    print_r($appts);
-//                                                    echo $appts['appointment_date'];
-//                                                    echo ' ';
-                                                    echo $appts['appointment_time'];
-                                                    echo '[';
-                                                    echo $appts['doctor_id'] .' - '. $appts['user_id'];
-                                                    echo ']<br/>';
-                                                } ?> 
-                                                    
-                                                <?php foreach ($appointments['samedi_periods'] as $periods ) 
-                                                { 
-//                                                    print_r($periods);
-                                                    echo $periods['dt'];
-                                                    echo $periods['break'] == 'true' ? ' En pause': '';
-                                                    echo '<br/>';
-                                                } ?>
-                                                </section><div class="calendar-spacer"></div>
-				</div>
-			{{ endif }}
-			{{ if dimanche }}
-			<div class="calendar">
-					<a href="{{url:site}}calendar/{{day_link_segment}}/dimanche">
-					</a>
-						<div class="calendar_titre">{{ data:isodays:7 }}</div> 
-						<section>
-                                                <?php foreach ($appointments['dimanche'] as $appts ) 
-                                                {
-//                                                    print_r($appts);
-//                                                    echo $appts['appointment_date'];
-//                                                    echo ' ';
-                                                    echo $appts['appointment_time'];
-                                                    echo '[';
-                                                    echo $appts['doctor_id'] .' - '. $appts['user_id']; echo $appts['user_id'];
-                                                    echo ']<br/>';
-                                                } ?> 
-                                                    
-                                                <?php foreach ($appointments['dimanche_periods'] as $periods ) 
-                                                { 
-//                                                    print_r($periods);
-                                                    echo $periods['dt'];
-                                                    echo $periods['break'] == 'true' ? ' En pause': '';
-                                                    echo '<br/>';
-                                                } ?>
-                                                </section><div class="calendar-spacer"></div>
-				</div>
-			{{ endif }}
+                                                    echo ' En pause';
+//                                                    echo !$appts_pre_break&&$appts_total>0?"<br/>$appts_total&nbsp;RDV avant la pause":'';
+                                                    $appts_pre_break = $appts_total;
+                                                    $prds_pre_break = $prds_count;
+//                                                    $prds_count = 0;
+                                                }
+                                                if(isset($periods['appointment']) && count($periods['appointment'])>0 )
+                                                {   
+                                                    $appts_total += count($periods['appointment']);
+                                                    echo $this->calendar_m->html_caldots($periods['appointment']) ; 
+                                                } 
+                                                echo '<br/>'; 
+                                            }   
+                                            //post loop
+                                            $appts_post_break = $appts_total - $appts_pre_break ;
+                                            $prds_post_break = $prds_count - $prds_pre_break;
+                                            echo '<br/>'; 
+                                            echo "periods_pre_break: $prds_pre_break periods_post_break: $prds_post_break<br/>" ;
+                                            echo $appts_pre_break>0?"$appts_pre_break RDV avant la pause <br/>":'';
+                                            echo $appts_post_break>0?"$appts_post_break RDV après la pause <br/>":'';
+                                            echo $appts_total >0?"$appts_total RDV au total":''; 
+                                            ?>
+                                    </div>
+                                    <div class="calendar-spacer"></div>
+                        </div>
+                    <?php 
+                    endfor; 
+                ?>
+
+                         
 	<center id="calendar-semaine-bas">{{variables:explication_calendar }}</center>
 	<center id="calendar-semaine-bas">{{variables:telephone_commande }}</center>
 	</div>

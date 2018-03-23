@@ -34,8 +34,8 @@
     
         <div class="appointments-appointment">
             <h2>Rendez vous</h2>
-<!--            <?php // echo $this->html_m->form_dropdown_appointment_status($this->input->get('appointment_status')) ?>
-            <br/>
+            <?php echo $this->html_m->form_dropdown_appointment_status($this->input->get('appointment_status')) ?>
+<!--            <br/>
             <?php // echo $this->html_m->form_radio_payment_type($this->input->get('payment_type')) ?>
             <br/>-->
             <?php echo $this->html_m->form_input('id', $this->input->get('id')) ?>

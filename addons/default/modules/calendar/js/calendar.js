@@ -78,6 +78,27 @@ function mobile_calendars()
                 
 }
 
+
+/* for doctor */
+function periodShow(period)
+{
+    if(typeof(period)!=='undefined' && period.toLowerCase(period) == 'am')
+    {
+        $('.period-pm').slideUp();
+        $('.period-am').slideDown();
+        $('#btn-am').addClass('active');
+        $('#btn-pm').removeClass('active');
+        
+    }
+    if(typeof(period)!=='undefined' && period.toLowerCase(period) == 'pm')
+    {
+        $('.period-am').slideUp();
+        $('.period-pm').slideDown();
+        $('#btn-pm').addClass('active');
+        $('#btn-am').removeClass('active');
+    }
+}
+
 $( document ).ready(function() 
 {   
     if($('input[name=orderSend]').length) 
@@ -116,9 +137,6 @@ $( document ).ready(function()
                   }
                   event.preventDefault();
                 });
-                 */ 
-        
-    }
-                
-        
+                 */  
+    }      
 });

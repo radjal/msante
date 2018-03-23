@@ -28,6 +28,7 @@
                                         <?php echo $this->html_m->table_header('address') ?> 
                                         <?php echo $this->html_m->table_header('area_name') ?> 
                                         <?php echo $this->html_m->table_header('town') ?> 
+                                        <?php echo $this->html_m->table_header('name') ?> 
                                         <?php // echo $this->html_m->table_header('total_pretax') ?>
                                         <?php // echo $this->html_m->table_header('total_final') ?>
                                         <?php // echo $this->html_m->table_header('payment_status') ?>
@@ -95,6 +96,8 @@
                                         <td><?php echo $appointment->address; ?></td>
                                         <td><?php echo $appointment->area_name; ?></td>
                                         <td><?php echo $appointment->town; ?></td>
+                                        <td><?php 
+                                        echo $appointment->name ; ?></td>
                                         <!-- 
                                         <td><?php echo $appointment->total_pretax; ?></td>
 					<td><?php echo $appointment->total_final; ?></td>
@@ -140,6 +143,7 @@
 				<?php endforeach; ?>
 			</tbody>
 		</table>
+    
 		
 		<div class="table_action_buttons">
 			<?php $this->load->view('admin/partials/buttons', array('buttons' => array('delete'))); ?>

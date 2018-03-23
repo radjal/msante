@@ -24,12 +24,11 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {/* color: #337ab7; */}
 /*cookie eula*/
 body {
 	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#f8f8f8+0,849eb2+30,849eb2+64,71437c+100 */
-	background: #f8f8f8; /* Old browsers */
+	background: #dbe1e6; /* Old browsers */
 	background: -moz-linear-gradient(top, #f8f8f8 0%, #849eb2 30%, #849eb2 64%, #71437c 100%); /* FF3.6-15 */
-	background: -webkit-linear-gradient(top, #f8f8f8 0%,#849eb2 30%,#849eb2 64%,#71437c 100%); /* Chrome10-25,Safari5.1-6 */
-	background: linear-gradient(to bottom, #f8f8f8 0%,#849eb2 30%,#849eb2 64%,#71437c 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	/* background: -webkit-linear-gradient(top, #f8f8f8 0%,#849eb2 30%,#849eb2 64%,#71437c 100%); */ /* Chrome10-25,Safari5.1-6 */
+	/* background: linear-gradient(to bottom, #f8f8f8 0%,#849eb2 30%,#849eb2 64%,#71437c 100%); */ /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f8f8f8', endColorstr='#71437c',GradientType=0 ); /* IE6-9 */
-
 }
 /*cookie eula*/
 div#cookie-accept {
