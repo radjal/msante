@@ -13,8 +13,10 @@
     $show=$this->input->get('show');
     $show_am = strtolower($show)=='am' ? true : false ;
     $show_pm = strtolower($show)=='pm' ?  true : false ;
-    $show_am_attr = $show_am ? 'none' : 'block' ;
-    $show_pm_atrr = $show_pm  ? 'none' : 'block' ;
+    $show_am_attr = '' ;
+    $show_pm_attr = '' ;
+//    $show_am_attr = $show_am ? 'none' : 'block' ;
+//    $show_pm_attr = $show_pm  ? 'none' : 'block' ;
 //			$show_am=$show_pm=true;
     ?> 
 
@@ -34,7 +36,7 @@
             <button id="btn-pm"class="btn btn-default <?= $show_pm ? 'active' : '' ?>" onclick="periodShow('pm')" type="button">Après midi</button>
         </center>
         
-        <div class="calendar-jour row {{ if passe }}date-passed {{ endif }}">  
+        <div class="calendar-jour {{ if passe }}date-passed {{ endif }}">  
             <?php
 //            $no_periods = count($appointments); 
 //            $x = round($no_periods/3, 0)  ;
@@ -66,16 +68,18 @@
                             //output pre render                            
                             if($periods['break'] !== 'true' && !$break_passed) 
                             { 
-                                $html_pre_break .=  '<div class="panel panel-default break-pre '.$class.'"><div class="panel-body">'.$html.'</div></div>' ; 
+                                $html_pre_break .=  '<div class="col-xs-2 col-sm-1" ><button class="btn btn-default break-pre '.$class.'" onclick="setTime()">'.$html.'</button></div>' ; 
+//                                $html_pre_break .=  '<div class="panel panel-default break-pre '.$class.'"><div class="panel-body">'.$html.'</div></div>' ; 
                             } else if($periods['break'] !== 'true' && $break_passed) {
-                                $html_post_break .=  '<div class="panel panel-default break-post'.$class.'"><div class="panel-body">'.$html.'</div></div>' ;
+                                $html_post_break .=  '<div class="col-xs-2 col-sm-1" ><button class="btn btn-default break-post'.$class.' onclick="setTime()">'.$html.'</button></div>' ;
+//                                $html_post_break .=  '<div class="panel panel-default break-post'.$class.'"><div class="panel-body">'.$html.'</div></div>' ;
                             }
                             //final render 
                         }   
 //                        echo'</ul>';
                         //post loop output
-                        echo "<div class=\"period-am\" style=\"display:$show_am_attr;\" >$html_pre_break</div>" ;
-                        echo "<div class=\"period-pm\" style=\"display:$show_pm_atrr;\" >$html_post_break</div>" ;
+                        echo "<div class=\"period-am row\" style=\"display:$show_am_attr;\" >$html_pre_break</div>" ;
+                        echo "<div class=\"period-pm row\" style=\"display:$show_pm_attr;\" >$html_post_break</div>" ;
                         $appts_post_break = $appts_total - $appts_pre_break ;
                         echo $appts_pre_break>0 ? "$appts_pre_break RDV avant la pause <br/>" : '' ;
                         echo $appts_post_break>0 ? "$appts_post_break RDV après la pause <br/>" : '' ;
