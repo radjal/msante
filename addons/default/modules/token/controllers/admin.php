@@ -44,10 +44,10 @@ class Admin extends Admin_Controller
          * multi page view
          * @param int $offset
          */
-        public function page($page = 1 )
-        {
-            $this->index($page);
-        }
+//        public function page($page = 1 )
+//        {
+//            $this->index($page);
+//        }
         
 	/**
 	 * List all items
@@ -91,17 +91,25 @@ class Admin extends Admin_Controller
 	 */
 	public function cleanup()
 	{
-            $this->token_m->cleanup_dead_tokens(0);
-            //$this->index();
+            $this->token_m->cleanup_dead_tokens();
             redirect('admin/token');
 	}
+        
 	/**
 	 * List all items after cleaning old tokens
 	 */
 	public function kill()
 	{
-            $this->token_m->kill_tokens(0);
-            //$this->index();
+            $this->token_m->kill_tokens();
+            redirect('admin/token');
+	}
+        
+	/**
+	 * List all items after cleaning old tokens
+	 */
+	public function expired()
+	{
+            $this->token_m->kill_tokens_expired();
             redirect('admin/token');
 	}
 
@@ -188,6 +196,7 @@ class Admin extends Admin_Controller
 		{
 			// pass the ids and let MY_Model delete the items
 			$this->token_m->delete_many($this->input->post('action_to'));
+                        $this->session->set_flashdata('success', 'Deleted multiple tokens. IDs '. implode(', ', $_POST['action_to']));
 		}
 		elseif (is_numeric($id))
 		{
@@ -196,4 +205,44 @@ class Admin extends Admin_Controller
 		}
 		redirect('admin/token');
 	}
+        
+	public function update()
+	{
+		// active on / off
+		if (isset($_POST['btnActivate']) AND is_array($_POST['action_to']))
+		{
+//                        $updated = date("Y-m-d H:i:s");
+                        $value = $this->input->post('btnActivate');
+                        $ids = $_POST['action_to'];   
+                        foreach ($ids as $index) 
+                        {
+                                $update[] = array(
+                                    'id' => $index,
+//                                    'updated_on'=> $updated,
+                                    'alive'=> $value
+                                );
+                        }
+
+                        // do update
+                        $this->db->update_batch('tokens', $update, 'id'); 
+                        $this->session->set_flashdata('success', 'Updated multiple tokens. Alive = '.$value.' IDs '. implode(', ', $ids));
+		}
+		redirect('admin/token');
+	}
+        
+	public function tests($token =false)
+        {
+            $html = '';
+            $html .= 'Creating 10 tokens'.'<br>';
+            for ($i = 1; $i <= 10; $i++) 
+            {
+                // get_token($length, $expiry = null)
+                $html .= $this->token_m->get_token(6, 60 ).'<br>';
+                //echo $i;
+            }
+            
+            $this->template->title($this->module_details['name'], ' tests')
+                    ->set('html', $html)
+                    ->build('admin/tests');
+        }
 }

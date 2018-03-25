@@ -19,6 +19,7 @@ $lang['token:user_agent']			=	'User&nbsp;agent';
 $lang['token:counter']			=	'Counter';
 $lang['token:timestamp']			=	'Timestamp';
 $lang['token:alive']			=	'Alive';
+$lang['token:expires']			=	'Expires';
 
 //labels
 $lang['token:name']			=	'Name';
@@ -32,6 +33,7 @@ $lang['token:delete']			=	'Delete';
 $lang['token:refresh']			=	'Refresh';
 $lang['token:kill']			=	'Kill';
 $lang['token:cleanup']			=	'Cleanup';
+$lang['token:expired']			=	'Expired';
 
 //buttons
 $lang['token:custom_button']	=	'Custom Button';

@@ -1,5 +1,5 @@
 <div class="token-container">
-
+    
 	{{ if items_exist == false }}
 		<p>There are no items.</p>
 	{{ else }}
@@ -14,6 +14,7 @@
 					<th>{{ helper:lang line="token:counter" }}</th>
 					<th>{{ helper:lang line="token:timestamp" }}</th>
 					<th>{{ helper:lang line="token:alive" }}</th>
+					<th>{{ helper:lang line="token:expires" }}</th>
 				</tr>
 				<!-- Here we loop through the $items array -->
 				{{ items }}
@@ -26,6 +27,7 @@
 					<td>{{ count }}</td>
 					<td>{{ timestamp }}</td>
 					<td>{{ alive }}</td>
+					<td>{{ expires }}</td>
 				</tr>
 				{{ /items }}
 			</table>

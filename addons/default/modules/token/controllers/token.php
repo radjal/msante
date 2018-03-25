@@ -8,8 +8,8 @@
  * @subpackage 	Token Module
  */
 class Token extends Public_Controller
-{
-	public function __construct()
+{    
+    public function __construct()
 	{
 		parent::__construct();
 
@@ -27,6 +27,8 @@ class Token extends Public_Controller
 	 */
 	public function listtokens($offset = 0)
 	{
+            redirect(); // souldn't expose this on front
+            // 
 		// set the pagination limit
 		$limit = 5;
 		

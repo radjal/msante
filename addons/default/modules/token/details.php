@@ -2,7 +2,7 @@
 
 class Module_Token extends Module {
 
-	public $version = '0.01.31';
+	public $version = '0.5.01';
 
 	public function info()
 	{
@@ -31,6 +31,11 @@ class Module_Token extends Module {
 								'uri' 	=> 'admin/token/kill',
 								'class' => ''
 								),
+							'expired' => array(
+								'name' 	=> 'token:expired',
+								'uri' 	=> 'admin/token/expired',
+								'class' => ''
+								),
 							'cleanup' => array(
 								'name' 	=> 'token:cleanup',
 								'uri' 	=> 'admin/token/cleanup',
@@ -49,59 +54,18 @@ class Module_Token extends Module {
                 
                 $success = true ;                
 		$tokens = array(
-                        'id' => array(
-                                                        'type' => 'INT',
-                                                        'unsigned' => TRUE,
-                                                        'constraint' => '11',
-                                                        'auto_increment' => TRUE,
-                                                        'primary' => true,
-                                                        'unique' => true,
-                                                        ),
-                        'token' => array(
-                                                        'type' => 'VARCHAR',
-                                                        'constraint' => '255',
-                                                        'unique' => true
-                                                        ),
-                        'user_id' => array(
-                                                        'type' => 'INT',
-                                                        'constraint' => '5',
-                                                        'null' => TRUE
-                                                        ),
-                        'ip' => array(
-                                                        'type' => 'VARCHAR',
-                                                        'constraint' => '255',
-                                                        'null' => TRUE
-                                                        ),
-                        'user_agent' => array(
-                                                        'type' => 'VARCHAR',
-                                                        'constraint' => '255',
-                                                        'null' => TRUE
-                                                        ),
-                        'counter' => array(
-                                                        'type' => 'INT',
-                                                        'constraint' => '5',
-                                                        'null' => TRUE
-                                                        ),
-                        'timestamp' => array(
-                                                        'type'       => 'datetime',
-                                                        'default'    => '0000-00-00 00:00:00',
-                                                        'null' => TRUE
-                                                        ),
-                        'expires' => array(
-                                                        'type'       => 'datetime',
-                                                        'default'    => '0000-00-00 00:00:00',
-                                                        'null' => TRUE
-                                                        ),
-                        'created_on' => array(
-                                                        'type'       => 'datetime',
-                                                        'default'    => '0000-00-00 00:00:00',
-                                                        'null' => TRUE
-                                                        ),
-                        'alive' => array(
-                                                        'type' => 'INT',
-                                                        'constraint' => '1',
-                                                        'null' => TRUE
-                                                        ),
+                        'id' => array( 'type' => 'INT', 'unsigned' => TRUE, 'constraint' => '11', 'auto_increment' => TRUE, 'primary' => true, 'unique' => true, ),
+                        'token' => array( 'type' => 'VARCHAR', 'constraint' => '255', 'unique' => true ),
+                        'user_id' => array( 'type' => 'INT', 'constraint' => '5', 'null' => TRUE ),
+                        'ip' => array( 'type' => 'VARCHAR', 'constraint' => '255', 'null' => TRUE ),
+                        'user_agent' => array( 'type' => 'VARCHAR', 'constraint' => '255', 'null' => TRUE ),
+                        'counter' => array( 'type' => 'INT', 'constraint' => '5', 'null' => TRUE ),
+                        'timestamp' => array( 'type'       => 'datetime', 'default'    => '1970-01-01 00:00:01', 'null' => TRUE ),
+                        'expires' => array( 'type'       => 'datetime', 'default'    => NULL, 'null' => TRUE ),
+                        'created_on' => array( 'type'       => 'datetime', 'default'    => '1970-01-01 00:00:01', 'null' => TRUE ),
+                        'alive' => array( 'type' => 'INT', 'constraint' => '1', 'null' => TRUE ),
+                    
+                        'module' => array( 'type' => 'VARCHAR', 'constraint' => '20', 'null' => TRUE ),
                         );
 
 		$token_setting = array(
@@ -144,7 +108,28 @@ class Module_Token extends Module {
 	public function upgrade($old_version)
 	{
 		// Your Upgrade Logic
-		return TRUE;
+            $ret = true;
+                if(version_compare($this->version, '0.1.37', '<=') ) 
+                {
+                        $fields = array(
+                                'expires' => array( 'type'       => 'datetime', 'default'    => null, 'null' => TRUE ),
+                                'timestamp' => array( 'type'       => 'datetime', 'default'    => null, 'null' => TRUE ),
+                                'created_on' => array( 'type'       => 'datetime', 'default'    => null, 'null' => TRUE ),
+                                );                        
+                        // $this->dbforge->add_column('tokens', $fields);
+                       $ret = $this->dbforge->modify_column('tokens', $fields);
+                }
+                
+                if(version_compare($this->version, '0.2.01', '<=') ) 
+                {
+                        $fields = array(
+                                'module' => array( 'type' => 'VARCHAR', 'constraint' => '20', 'null' => TRUE ),
+                                );                        
+                        // $this->dbforge->add_column('tokens', $fields);
+                       $ret = $this->dbforge->add_column('tokens', $fields);
+                }
+                
+		return $ret ;
 	}
 
 	public function help()

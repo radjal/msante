@@ -21,12 +21,13 @@
                                         <?php echo $this->html_m->table_header('counter') ?>
                                         <?php echo $this->html_m->table_header('timestamp') ?>
                                         <?php echo $this->html_m->table_header('alive') ?>
+                                        <?php echo $this->html_m->table_header('expires') ?>
 					<th></th>
 				</tr>
 			</thead>
 			<tfoot>
 				<tr>
-					<td colspan="10">
+					<td colspan="11">
 						<div class="inner"><?php $this->load->view('admin/partials/pagination'); ?></div>
 					</td>
 				</tr>
@@ -78,11 +79,15 @@
 					<td>
                                             <a href="/admin/token?searchBtn=Search&alive=<?php echo $item->alive; ?>">
                                                 <?php echo $item->alive; ?>
-                                                    
+                                            </a>
+                                        </td>
+					<td>
+                                            <a href="/admin/token?searchBtn=Search&expires=<?php echo $item->expires; ?>">
+                                                <?php echo $item->expires; ?>
                                             </a>
                                         </td>
                                                                               
-                    <td class="actions">
+                                        <td class="actions">
 						<?php echo
 						//anchor('token', lang('token:view'), 'class="button" target="_blank"').' '.
 						//anchor('admin/token/edit/'.$item->id, lang('token:edit'), 'class="button"').' '.
@@ -95,6 +100,16 @@
 		
 		<div class="table_action_buttons">
 			<?php $this->load->view('admin/partials/buttons', array('buttons' => array('delete'))); ?>
+                    
+                    
+                    <button formaction="admin/token/update" name="btnActivate" type="submit" value="1" class="button btn blue">
+                            Alive = 1
+                        </button>
+
+                        <button formaction="admin/token/update" name="btnActivate" type="submit" value="0" class="button btn orange">
+                             Alive = 0
+                        </button>
+
 		</div>
 		
 	<?php else: ?>
