@@ -28,7 +28,7 @@ class Doctor extends Public_Controller
      * @access	public
      * @return	void
      */
-    public function index()
+    public function index($search=false, $category=false)
     {        
         $params = array(
             'stream' => 'doctors',
@@ -37,19 +37,19 @@ class Doctor extends Public_Controller
         );
         
         $category = $this->input->get('c'); 
+        $search = $this->input->get('s');
         $this->row_m->sql['join'][] = 'LEFT JOIN '.$this->db->protect_identifiers('doctor_categories', true).' ON '.$this->db->protect_identifiers('doctor_categories.id', true).' = '.$this->db->protect_identifiers('doctor_doctors.doctor_cat', true);
         $this->row_m->sql['join'][] = 'LEFT JOIN '.$this->db->protect_identifiers('doctor_organisations', true).' ON '.$this->db->protect_identifiers('doctor_organisations.id', true).' = '.$this->db->protect_identifiers('doctor_doctors.groupe', true);
 
-        $search = $this->input->get('s');
-        if(!empty($search) and !empty($category))   
+        if(!$search and !$category)   
         { 
             $params['where'] = "default_doctor_categories.speciality LIKE '%$category%' AND ( default_doctor_doctors.town LIKE '%$search%' OR default_doctor_doctors.area_name LIKE '$search%')" ;
         } 
-        else if(!empty($search)) 
+        else if(!$search) 
         {
             $params['where'] = "default_doctor_doctors.town LIKE '%$search%' OR default_doctor_doctors.area_name LIKE '$search%'" ;
         }
-        else if(!empty($category)) 
+        else if(!$category) 
         {
             $params['where'] = "default_doctor_categories.speciality LIKE '%$category%' " ;
         }
@@ -58,19 +58,17 @@ class Doctor extends Public_Controller
         $data->doctors = $this->streams->entries->get_entries($params);
 
         
-        //open days as string for template usage
-        $xdata = $data->doctors;
-        foreach ($xdata['entries'] as $key => $value) 
+        //open days as string for template usage 
+        foreach ($data->doctors['entries'] as $key => $value) 
         {
             $str='';
-            foreach ($xdata['entries'][$key]['days'] as $arr) {
+            foreach ($data->doctors['entries'][$key]['days'] as $arr) {
                 $str .= $arr["value"] . ",";
             }
             $str = trim($str, ',');//removes the final comma 
-            $xdata['entries'][$key]['daysopenstr']=$str;
+            $data->doctors['entries'][$key]['daysopenstr']=$str;
 
-        }
-        $data->doctors = $xdata ; //reassign
+        } 
         
         /* calendar */
         $this->load->model('appointments/appointments_m');

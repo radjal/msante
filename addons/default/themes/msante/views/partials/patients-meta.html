@@ -17,15 +17,20 @@
 <!--[if IE]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
 
 <link href="//netdna.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
+ 
+{{ asset:css file="bootstrap.css" }}
+{{ asset:css file="bootstrap-theme.css" }}
 
-{{ asset:css file="{{theme:options:bootSwatch_layout}}.css" }}
 {{ asset:css file="pyro_bootswatch.css" }}
 
 {{ asset:css file="_lightbox.css" }}
+{{# asset:css file="_radio-btns_1.css" #}}
+
 {{if theme:options:custom_css == 'yes' }}
     {{ asset:css file="_integration.css" }}
     {{ asset:css file="_colors.css" }}
 {{endif}}
+
 {{ asset:css file="jqui/jquery-ui.css" }}
 {{ asset:css file="jqui/jquery-ui-timepicker-addon.css" }}
 

@@ -10,27 +10,23 @@ $disabled = $editable ? '' :'disabled' ;
     }
 ?>
 <div  id="appointment-form" class="appointment-form">
-    <div id="appointment-menu">
+<!--    <div id="appointment-menu">
             <h3><a href="javascript:void(0)" onclick="$('div.appointment.section').hide();$('#appointment-details').toggle('fast')"><?php echo lang('appointments:appointment_details'); ?></a></h3>
             <h3><a href="javascript:void(0)" onclick="$('div.appointment.section').hide();$('#appointment-patient').toggle('fast')"><?php echo lang('appointments:appointment_patient'); ?></a></h3>
             <h3><a href="javascript:void(0)" onclick="$('div.appointment.section').hide();$('#appointment-delivery').toggle('fast')"><?php echo lang('appointments:appointment_delivery'); ?></a></h3>
             <h3><a href="javascript:void(0)" onclick="$('div.appointment.section').hide();$('#appointment-cart').toggle('fast')"><?php echo lang('appointments:appointment_cart'); ?></a></h3>
-    </div>    
+    </div>    -->
 	<?php echo form_open_multipart($this->uri->uri_string() , 'class="crud"'); ?>
                 <!-- appointment-details -->
                 <div class="appointment section" id="appointment-details">
                 <h4><?php echo lang('appointments:appointment_details'); ?></h4>
                     <ul>    
                             
-                            <li class="<?php echo alternator('', 'even'); ?>">
+<!--                            <li class="<?php echo alternator('', 'even'); ?>">
                                <span class="input-label"><?php echo lang('appointments:appointment_status'); ?> </span>
                                 <?php 
-                                    echo form_input('appointment_status-ui', lang('appointments:status_'.$appointment->appointment_status) ,'disabled'); 
-                                ?>
-                            
-                                                       
-                                <?php 
-                                $extra = empty($appointment->appointment_date) ? 'class="tofill" ' : '';
+                                    echo form_input('appointment_status-ui', lang('appointments:status_'.$appointment->appointment_status) ,'disabled');  
+                                    $extra = empty($appointment->appointment_date) ? 'class="tofill" ' : '';
                                 if($editable) {
                                     echo $this->html_m->form_appointment_date($appointment->appointment_date, $extra.'autocorrect="off"');
                                 } elseif($this->method == 'view' AND $editable) {
@@ -40,6 +36,22 @@ $disabled = $editable ? '' :'disabled' ;
                                 }
                                 ?> 
                          
+                             </li>-->
+                            
+                            <li class="<?php echo alternator('', 'even'); ?>">
+                                <?php echo $this->html_m->form_input('appointment_status', $appointment->appointment_status, $disabled); ?>                         
+                             </li>
+                            
+                            <li class="<?php echo alternator('', 'even'); ?>">
+                                <?php echo $this->html_m->form_input('appointment_date', $appointment->appointment_date, $disabled); ?>                         
+                             </li>
+                            
+                            <li class="<?php echo alternator('', 'even'); ?>">
+                                <?php echo $this->html_m->form_input('appointment_time', $appointment->appointment_time, $disabled); ?>                         
+                             </li>
+                            
+                            <li class="<?php echo alternator('', 'even'); ?>">
+                                <?php echo $this->html_m->form_input('birth_date', $appointment->birth_date, $disabled); ?>                         
                              </li>
 
 <!--                            <li class="<?php echo alternator('', 'even'); ?>">
@@ -75,42 +87,42 @@ $disabled = $editable ? '' :'disabled' ;
                             </li>    
                             <?php } ?>
 
-                            <li class="<?php echo alternator('', 'even'); ?>">
-                            <!--
+<!--                            <li class="<?php echo alternator('', 'even'); ?>">
+                            
                                     <label for="message"><?php echo lang('appointments:message'); ?> </label>
-                            -->     <div class="input"><?php 
-                                    echo form_textarea('message', set_value('message', $appointment->message), 'placeholder="'.lang('appointments:message').'"'.$disabled); 
+                                 <div class="input"><?php 
+//                                    echo form_textarea('message', set_value('message', $appointment->message), 'placeholder="'.lang('appointments:message').'"'.$disabled); 
                                     ?></div>
-                            </li>	
+                            </li>	-->
                     </ul>  		
                 </div>                 
     
                 <!-- appointment-patient -->
                 <div class="appointment section" id="appointment-patient">
                 <h4><?php echo lang('appointments:appointment_patient'); ?></h4>
-                    <ul>
-     
-
+                    <ul>  
                         <li class="<?php echo alternator('', 'even'); ?>">
+                                <?php echo $this->html_m->form_input('gender', $appointment->gender, $disabled); ?>
                                 <?php echo $this->html_m->form_input('first_name', $appointment->first_name, $disabled); ?>
                                 <?php echo $this->html_m->form_input('last_name', $appointment->last_name, $disabled); ?>
                                 <?php echo $this->html_m->form_input('maiden_name', $appointment->maiden_name, $disabled); ?>
-                        </li>		
-
-
-                        <li class="<?php echo alternator('', 'even'); ?>">
-                                 <?php echo $this->html_m->form_input('mobile', $appointment->mobile, $disabled ); ?>
-                                 <?php echo $this->html_m->form_input('phone', $appointment->phone, $disabled ); ?>
-                                <?php echo $this->html_m->form_input('email', $appointment->email, $disabled ); ?>
-                        </li>		
-
-                        <li class="<?php echo alternator('', 'even'); ?>">
-                                <?php echo lang("appointments:address"); ?>
+                        </li>		 
+<!--                        <li class="<?php echo alternator('', 'even'); ?>">
+                                 <?php // echo $this->html_m->form_input('mobile', $appointment->mobile, $disabled ); ?>
+                                 <?php // echo $this->html_m->form_input('phone', $appointment->phone, $disabled ); ?>
+                                <?php // echo $this->html_m->form_input('email', $appointment->email, $disabled ); ?>
+                        </li>		 -->
+                        <li class="<?php echo alternator('', 'even'); ?>"> 
                             <?php echo $this->html_m->form_input('address',  $appointment->address, $disabled); ?> 
-                            <?php echo $this->html_m->form_input('town', $appointment->town, $disabled); ?>
+                            <?php echo $this->html_m->form_input('district',  $appointment->district, $disabled); ?> 
                             <?php echo $this->html_m->form_input('area_name', $appointment->area_name, $disabled); ?>
-                        </li>		
-
+                            <?php echo $this->html_m->form_input('town', $appointment->town, $disabled); ?>
+                        </li>		 
+                        <li class="<?php echo alternator('', 'even'); ?>"> 
+                            <?php echo $this->html_m->form_input('insurance',  $appointment->insurance, $disabled); ?> 
+                            <?php echo $this->html_m->form_input('known_doctor', $appointment->town, $disabled); ?>
+                            <?php echo $this->html_m->form_input('area_name', $appointment->area_name, $disabled); ?>
+                        </li>		 
                     </ul>
                 </div>
     
@@ -209,7 +221,7 @@ $disabled = $editable ? '' :'disabled' ;
                     <?php endif; ?>
                 </div>
                 
-                <!-- appointment-extra -->
+<!--                 appointment-extra 
                 <ul>       
                     <?php  
                         
@@ -246,7 +258,7 @@ $disabled = $editable ? '' :'disabled' ;
                         } 
                     ?>
                     </li>
-                </ul>
+                </ul>-->
 
         <?php echo form_close(); ?>
 

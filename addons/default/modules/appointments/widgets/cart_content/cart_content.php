@@ -29,7 +29,7 @@ class Widget_Cart_content extends Widgets
                 $p_cookie= $this->appointments_m->get_cookie_cart();
                 
                 $rid = $this->input->get('remove');
-                $cart = $this->appointments_m->get_cart($rid);
+//                $cart = $this->appointments_m->get_cart($rid);
                 $count = count($cart['products']);
                 if($count > 0) 
                 { 

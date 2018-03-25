@@ -25,7 +25,6 @@
             <?php echo $error_string;?>
     </div>
     <?php endif;?>
-
     <?php echo form_open('register', array('id' => 'register')) ?>
     <ul>
 
@@ -43,11 +42,17 @@
             </li>
 
             <li>
+                    <label for="email">Confirmez votre email</label>
+                    <input type="text" name="email" maxlength="100" value="<?php echo $_user->email ?>" class="form-control input-sm"/> 
+            </li>
+
+            <li>
                     <label for="password"><?php echo lang('global:password') ?></label>
                     <input type="password" name="password" maxlength="100" class="form-control input-sm" />
             </li>
-
-            <?php foreach($profile_fields as $field) { if($field['required'] and $field['field_slug'] != 'display_name') { ?>
+ 
+            <?php 
+            foreach($profile_fields as $field) { if($field['required'] and $field['field_slug'] != 'display_name') { ?>
             <li>
                     <label for="<?php echo $field['field_slug'] ?>"><?php echo (lang($field['field_name'])) ? lang($field['field_name']) : $field['field_name'];  ?></label>
                     <input type="text" 
@@ -60,7 +65,7 @@
                         <?php // echo $field['input'] ?>
                         <?php // echo htmlentities($field['input']) //debug ?>
             </li>
-            <?php } } ?>
+            <?php } } ?> 
 
 
             <li>
@@ -69,8 +74,4 @@
     </ul>
     <?php echo form_close() ?>
     </div>
-</div>
-<script>
-//	jQuery('#register input[type=text], #register input[type=password]').addClass('form-control');
-	
-</script>
+</div> 

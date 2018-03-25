@@ -205,7 +205,8 @@ class Appointments_m extends MY_Model
             $appointment['appointment_status'] = '';
             $appointment['total_pretax'] = 0;
             $appointment['total_final'] = 0;
-            $appointment['appointment_date'] = date( "Y-m-d H:i:s" );
+//            $appointment['appointment_date'] = date( "Y-m-d H:i:s" );
+            $appointment['appointment_date'] = date( "Ymd" );
             $appointment['appointment_date'] = $this->input->post('appointment_date');
             $appointment['appointment_time'] = $this->input->post('appointment_time');
 //            $appointment['log'] = $this->input->post('log');
@@ -213,55 +214,40 @@ class Appointments_m extends MY_Model
             $appointment['payment_status'] = '';
 			
 			// defaults adapt to pyro user custom fields 
-                        $message        =  ($profile->info_acces != null AND empty($this->input->post('message')) )  ? $profile->info_acces : '';
-                        
-//			$i_company 	= $profile->company != null 	? $profile->company : ''; 		
-			$maiden_name 	= $profile->last_name != null 	? $profile->first_name . " ". $profile->last_name : '' ; 		
+//                        $message        =  ($profile->info_acces != null AND empty($this->input->post('message')) )  ? $profile->info_acces : '';
+                
+			$birth_date 	= $profile->birth_date != null 	? $profile->birth_date : '' ; 		 		
+			$gender 	= $profile->gender != null 	? $profile->gender : '' ; 		 		
+			$first_name 	= $profile->first_name != null 	? $profile->first_name : '' ; 		 		
+			$last_name 	= $profile->last_name != null 	? $profile->last_name : '' ; 		
+			$maiden_name 	= $profile->maiden_name != null 	? $profile->maiden_name : '' ;
 			$mobile 	= $profile->phone != null 		? $profile->phone : ''; 			
 			$phone 	= $profile->mobile != null 		? $profile->mobile : '';  			
 			$email 	= $profile->email != null 		? $profile->email : ''; 			
-			$address 	= $profile->address != null 	? $profile->address : ''; 		
+			$district 	= $profile->district != null 	? $profile->district : ''; 		
+			$address 	= $profile->address_line1 != null 	? $profile->address_line1 : ''; 		
 //			$i_street2 	= ''; 		
-			$town 	= $profile->ville != null 		? $profile->ville : ''; 			
-			$area_name 	= $profile->code_postal != null 	? $profile->code_postal : ''; 		
-//			$i_country 	=  ''; 		
-
-//			$d_company 	= $i_company; 		
-//			$d_fullname 	= $maiden_name; 		
-//			$d_mobile 	= $mobile; 			
-//			$d_phone 	= $phone; 			
-//			$d_mail 	= $email; 			
-//			$d_street1 	= $address; 		
-//			$d_street2 	= $i_street2; 		
-//			$d_town 	= $town; 			
-//			$d_zipcode 	= $area_name; 		
-//			$d_country 	= $i_country; 		
+			$town 	= $profile->town != null 		? $profile->town : ''; 			
+			$area_name 	= $profile->area_name != null 	? $profile->area_name : ''; 		 
+			$insurance 	= $profile->insurance != null 	? $profile->insurance : ''; 		 
 			
-			
-			// override with POST values
-//			$appointment['i_company'] = empty($this->input->post('i_company')) 	? $i_company 	: $this->input->post('i_company');
+			// override with POST values 
+			$appointment['birth_date'] = empty($this->input->post('birth_date')) 	? $birth_date 	: $this->input->post('birth_date');
+			$appointment['gender'] = empty($this->input->post('gender')) 	? $gender 	: $this->input->post('gender');
+			$appointment['first_name'] = empty($this->input->post('first_name')) 	? $first_name 	: $this->input->post('first_name');
+			$appointment['last_name'] = empty($this->input->post('last_name')) 	? $last_name 	: $this->input->post('last_name');
 			$appointment['maiden_name'] = empty($this->input->post('maiden_name')) 	? $maiden_name 	: $this->input->post('maiden_name');
 			$appointment['mobile'] = empty($this->input->post('mobile'))            ? $mobile 	: $this->input->post('mobile') ;
 			$appointment['phone'] = empty($this->input->post('phone'))              ? $phone 	: $this->input->post('phone');
 			$appointment['email'] = empty($this->input->post('email'))              ? $email 	: $this->input->post('email');
+			$appointment['district'] = empty($this->input->post('district'))          ? $district 	: $this->input->post('district') ;
 			$appointment['address'] = empty($this->input->post('address'))          ? $address 	: $this->input->post('address') ;
 //			$appointment['i_street2'] = empty($this->input->post('i_street2')) 	? $i_street2 	: $this->input->post('i_street2');
 			$appointment['town'] = empty($this->input->post('town'))                        	? $town 	: $this->input->post('town') ;
 			$appointment['area_name'] = empty($this->input->post('area_name'))                      ? $area_name 	: $this->input->post('area_name') ;
-//			$appointment['i_country'] = empty($this->input->post('i_country')) 	? $i_country 	: $this->input->post('i_country') ;
-			
-//			$appointment['d_company'] = empty($this->input->post('d_company')) 	? $d_company 	: $this->input->post('d_company');
-//			$appointment['d_fullname'] = empty($this->input->post('d_fullname')) 			? $d_fullname 		: $this->input->post('d_fullname');
-//			$appointment['d_mobile'] = empty($this->input->post('d_mobile')) 		? $d_mobile 	: $this->input->post('d_mobile') ;
-//			$appointment['d_phone'] = empty($this->input->post('d_phone')) 		? $d_phone 		: $this->input->post('d_phone');
-//			$appointment['d_mail'] = empty($this->input->post('d_mail')) 			? $d_mail 		: $this->input->post('d_mail');
-//			$appointment['d_street1'] = empty($this->input->post('d_street1')) 	? $d_street1 	: $this->input->post('d_street1') ;
-//			$appointment['d_street2'] = empty($this->input->post('d_street2')) 	? $d_street2 	: $this->input->post('d_street2');
-//			$appointment['d_town'] = empty($this->input->post('d_town')) 			? $d_town 		: $this->input->post('d_town') ;
-//			$appointment['d_zipcode'] = empty($this->input->post('d_zipcode')) 	? $d_zipcode 	: $this->input->post('d_zipcode') ;
-//			$appointment['d_country'] = empty($this->input->post('d_country')) 	? $d_country 	: $this->input->post('d_country') ;
+			$appointment['insurance'] = empty($this->input->post('insurance'))                      ? $insurance 	: $this->input->post('insurance') ;  
 					
-                    $appointment['message'] = $this->input->post('message')."\n$message";
+//                    $appointment['message'] = $this->input->post('message')."\n$message";
             
             return (object) $appointment;
         }

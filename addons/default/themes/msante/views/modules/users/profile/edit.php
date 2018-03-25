@@ -4,8 +4,7 @@
                                 sprintf(lang('user_edit_title'), $_user->display_name) :
                                 lang('profile_edit') ?>
         </h3>
-</div> 
-
+</div>  
 <section id="login">
     <div class="row-fluid">
         <?php if (validation_errors()): ?>      
@@ -43,7 +42,7 @@
                                                     <?php //display user fields for editing
                                                             foreach($profile_fields as $field): ?>
                                                             <?php // space separated field_slugs to NOT display
-                                                            $exclude = explode(' ', 'INSERT FIELDS HERE');
+                                                            $exclude = explode(' ', 'desk_no phone_valid doctor_id postcode address_line2 phone floor');
                                                             $display = true;
                                                             if(in_array($field['field_slug'], $exclude))
                                                             {

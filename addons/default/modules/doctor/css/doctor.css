@@ -43,3 +43,7 @@ a.break-post, a.break-pre {
 .weekdays .btn {
     width: 80px;
 }
+.weekdays .btn {
+    width: 100px;
+    text-align: center;
+}

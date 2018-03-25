@@ -1,85 +1,4 @@
-//calendar js
-function mobile_calendars()
-{
-        /*semaine*/
-        if($('#weekzone > center.calendar-semaine-titre').length)  
-        {
-            $('#weekzone div.calendar_titre').each(function() { $( this ).text('+' +  $( this ).html()) } );
-            $('#weekzone div.calendar_titre').each(function() {$(this).on('click', 
-                function() {
-                    event.preventDefault();
-
-                    if($(this).text().indexOf('-') == 0)
-                    {
-                        $(this).html( $(this).text().replace('-', '+'));
-                    }   else {
-                        $(this).html( $(this).text().replace('+', '-')); 
-                    }
-                    $(this).siblings('section').slideToggle();    
-                }
-            );});
-            $('#weekzone div.calendar section').slideUp();
-        }
-        
-        /*jour*/
-        if($('#weekzone div.calendarjour').length) 
-        {
-            $('#weekzone div.calendar_separator').each(function() { $( this ).text('+' +  $( this ).html()) } );
-            $('#weekzone div.calendarjour section div.content').slideUp();
-            $('#weekzone div.calendar_separator').each(function() {$(this).on('click', 
-                function() 
-                {
-                    event.preventDefault();
-
-                    if($(this).text().indexOf('-') == 0)
-                    {
-                        $(this).html( $(this).text().replace('-', '+'));
-                    }   else {
-                        $(this).html( $(this).text().replace('+', '-')); 
-                    }
-                    $(this).siblings('div.content').slideToggle(); 
-                }
-            );});
-            
-            $('#order-details h4, #order-delivery h4').each(function() { $( this ).text('+' +  $( this ).html()) } );
-            $('#order-details > section, #order-details p.profile_fields, #order-delivery > div').slideUp();
-            
-            $('#order-delivery h4').on('click', 
-                function() 
-                {
-                    event.preventDefault();
-
-                    if($(this).text().indexOf('-') == 0)
-                    {
-                        $(this).html( $(this).text().replace('-', '+'));
-                    }   else {
-                        $(this).html( $(this).text().replace('+', '-')); 
-                    }
-                    $(this).siblings('#order-delivery > div').slideToggle(); 
-                }
-            );
-    
-            $('#order-details h4').on('click', 
-                function() 
-                {
-                    event.preventDefault();
-
-                    if($(this).text().indexOf('-') == 0)
-                    {
-                        $(this).html( $(this).text().replace('-', '+'));
-                    }   else {
-                        $(this).html( $(this).text().replace('+', '-')); 
-                    }
-                    $(this).siblings('#order-details > section').slideToggle(); 
-                    $('#order-details p.profile_fields').slideToggle(); 
-                }
-            );
-        }
-                
-}
-
-
-/* for doctor */
+ /* for doctor */
 function periodShow(period)
 {
     if(typeof(period)!=='undefined' && period.toLowerCase(period) == 'am')
@@ -97,6 +16,12 @@ function periodShow(period)
         $('#btn-pm').addClass('active');
         $('#btn-am').removeClass('active');
     }
+}
+
+function setTime(time)
+{
+    console.log(time);
+    $('input[name=appointment_time]').val(time);
 }
 
 $( document ).ready(function() 
@@ -118,7 +43,7 @@ $( document ).ready(function()
                   if($('input[name=jscalc_totax]').val() <= minAmount )
                   {
                       location.hash = '#weekzone-wrapper';
-                      alert('Sélectionner vos plats. Le total doit être au moins de '+minAmount+'€');
+                      alert('Sélectionner ...');
                   } 
                   else if($('input[name=payment_type]:checked').val() === undefined ) 
                   {

@@ -80,7 +80,7 @@ class Appointments extends Public_Controller
 	}
 
 	/**
-	 * appointment form and selected products
+	 * appointment form crud
 	 */
 	public function index($offset = 0)
 	{   
@@ -103,29 +103,29 @@ class Appointments extends Public_Controller
             
             $details = null;
             $msg ='';
-            $remove = $this->input->get('remove');
+//            $remove = $this->input->get('remove');
             $this->load->model('users/profile_m');
             
             $appointment = $this->appointments_m->newappointment();
             $profile_data = $this->profile_m->get_profile();
-            $cart = $this->appointments_m->get_cart($remove);
+//            $cart = $this->appointments_m->get_cart($remove);
             
             // token check
             $token = $this->token_m->current_token();
             
-            if(!$cart) 
-            {
-                unset($cart);
-                 $cart['total_price'] = 0;
-                 $cart['total_taxed'] = 0;
-                 $cart['products'] = array();
-            }
+//            if(!$cart) 
+//            {
+//                unset($cart);
+//                 $cart['total_price'] = 0;
+//                 $cart['total_taxed'] = 0;
+//                 $cart['products'] = array();
+//            }
                       
-            //set values of cart total
-            $totals[0]['total_price'] = $cart['total_price'] ;
-            $totals[0]['total_taxed'] = $cart['total_taxed'] ;
-            $appointment->total_pretax = $cart['total_price'];
-            $appointment->total_final = $cart['total_taxed']; 
+//            //set values of cart total
+//            $totals[0]['total_price'] = $cart['total_price'] ;
+//            $totals[0]['total_taxed'] = $cart['total_taxed'] ;
+//            $appointment->total_pretax = $cart['total_price'];
+//            $appointment->total_final = $cart['total_taxed']; 
 
             // saving the appointment
             $this->form_validation->set_rules($this->item_validation_rules);
@@ -177,8 +177,8 @@ class Appointments extends Public_Controller
 			->set('profile', $profile_data)
 			->set('message', $msg)
 			->set('appointment', $appointment)
-			->set('cartlist', $cart['products'])
-			->set('carttotal', $totals)
+//			->set('cartlist', $cart['products'])
+//			->set('carttotal', $totals)
 			->set('details', $details)
 			->build('appointment');
 	}
