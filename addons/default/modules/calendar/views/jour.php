@@ -82,4 +82,4 @@
     </div>
   </div> 
  
-<?php $this->load->view('jour-rdv') ?> 
+<?php $this->load->view('jour-form') ?> 

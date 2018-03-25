@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50709
 File Encoding         : 65001
 
-Date: 2018-03-24 02:42:37
+Date: 2018-03-25 09:31:40
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -420,9 +420,14 @@ INSERT INTO `default_ci_sessions` VALUES ('71b558f8e686a4bd1b77b55b3c49f93c', ':
 INSERT INTO `default_ci_sessions` VALUES ('122342a13c8b6fee47203898d5d5506a', '::1', 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36', '1521770183', 'a:5:{s:5:\"email\";s:14:\"radjal@free.fr\";s:2:\"id\";s:1:\"1\";s:7:\"user_id\";s:1:\"1\";s:8:\"group_id\";s:1:\"1\";s:5:\"group\";s:5:\"admin\";}');
 INSERT INTO `default_ci_sessions` VALUES ('0451e9d435eea37f5edd099cb2988483', '::1', 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36', '1521839263', '');
 INSERT INTO `default_ci_sessions` VALUES ('513d82453224ccd238df442a49d2f130', '::1', 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36', '1521811806', '');
-INSERT INTO `default_ci_sessions` VALUES ('b823115fa8d916e59f9baa9563b06b79', '::1', 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36', '1521855584', 'a:6:{s:8:\"username\";s:5:\"admin\";s:5:\"email\";s:14:\"radjal@free.fr\";s:2:\"id\";s:1:\"1\";s:7:\"user_id\";s:1:\"1\";s:8:\"group_id\";s:1:\"1\";s:5:\"group\";s:5:\"admin\";}');
+INSERT INTO `default_ci_sessions` VALUES ('36536cf53392ce420b7fca5bc5610faf', '::1', 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36', '1521935680', 'a:6:{s:8:\"username\";s:5:\"admin\";s:5:\"email\";s:14:\"radjal@free.fr\";s:2:\"id\";s:1:\"1\";s:7:\"user_id\";s:1:\"1\";s:8:\"group_id\";s:1:\"1\";s:5:\"group\";s:5:\"admin\";}');
 INSERT INTO `default_ci_sessions` VALUES ('52169022552e0592a0f542b6bebfa967', '::1', 'Mozilla/5.0 (Linux; Android 8.0; Pixel 2 Build/OPD3.170816.012) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.', '1521839604', '');
-INSERT INTO `default_ci_sessions` VALUES ('614b772048e79009848ab335814f62ef', '::1', 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36', '1521855563', 'a:6:{s:8:\"username\";s:5:\"admin\";s:5:\"email\";s:14:\"radjal@free.fr\";s:2:\"id\";s:1:\"1\";s:7:\"user_id\";s:1:\"1\";s:8:\"group_id\";s:1:\"1\";s:5:\"group\";s:5:\"admin\";}');
+INSERT INTO `default_ci_sessions` VALUES ('c6aab2c4855b0c908e8a88ccf73f1636', '::1', 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36', '1521938386', '');
+INSERT INTO `default_ci_sessions` VALUES ('939d21ce806a463fde81138795bf8605', '::1', 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Mobil', '1521938549', 'a:1:{s:14:\"admin_redirect\";s:18:\"admin/users/fields\";}');
+INSERT INTO `default_ci_sessions` VALUES ('4d12316b451245c5bffea616eea96d8d', '::1', 'Mozilla/5.0 (iPhone; CPU iPhone OS 11_0 like Mac OS X) AppleWebKit/604.1.38 (KHTML, like Gecko) Version/11.0 Mobile/15A3', '1521936520', '');
+INSERT INTO `default_ci_sessions` VALUES ('3dca5738df17bb01616e7ccc67541c10', '::1', 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Mobil', '1521938144', '');
+INSERT INTO `default_ci_sessions` VALUES ('b47cd228a4643aef7b1299dc1cbde428', '::1', 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36', '1521961136', 'a:7:{s:8:\"username\";s:5:\"admin\";s:5:\"email\";s:14:\"radjal@free.fr\";s:2:\"id\";s:1:\"1\";s:7:\"user_id\";s:1:\"1\";s:8:\"group_id\";s:1:\"1\";s:5:\"group\";s:5:\"admin\";s:17:\"flash:old:success\";s:40:\"Module \"token\" mis à jour avec succès.\";}');
+INSERT INTO `default_ci_sessions` VALUES ('a61a72b01551cd262ba385d5c965a85c', '::1', 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36', '1521962612', '');
 
 -- ----------------------------
 -- Table structure for `default_comments`
@@ -503,7 +508,7 @@ CREATE TABLE `default_data_fields` (
   `view_options` blob,
   `is_locked` enum('yes','no') COLLATE utf8_unicode_ci NOT NULL DEFAULT 'no',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=568 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=570 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- ----------------------------
 -- Records of default_data_fields
@@ -514,15 +519,14 @@ INSERT INTO `default_data_fields` VALUES ('3', 'lang:user:first_name_label', 'fi
 INSERT INTO `default_data_fields` VALUES ('4', 'lang:user:last_name_label', 'last_name', 'users', 'text', 0x613A323A7B733A31303A226D61785F6C656E677468223B693A35303B733A31333A2264656661756C745F76616C7565223B4E3B7D, null, 'no');
 INSERT INTO `default_data_fields` VALUES ('20', 'Ville', 'town', 'users', 'text', 0x613A323A7B733A31303A226D61785F6C656E677468223B733A303A22223B733A31333A2264656661756C745F76616C7565223B733A303A22223B7D, null, 'no');
 INSERT INTO `default_data_fields` VALUES ('19', 'Informations personelles', 'personal_info', 'users', 'textarea', 0x613A333A7B733A31323A2264656661756C745F74657874223B733A303A22223B733A31303A22616C6C6F775F74616773223B733A313A226E223B733A31323A22636F6E74656E745F74797065223B733A343A2274657874223B7D, null, 'no');
-INSERT INTO `default_data_fields` VALUES ('8', 'lang:profile_dob', 'birth_date', 'users', 'datetime', 0x613A353A7B733A383A227573655F74696D65223B733A323A226E6F223B733A31303A2273746172745F64617465223B733A353A222D31303059223B733A383A22656E645F64617465223B733A303A22223B733A373A2273746F72616765223B733A343A22756E6978223B733A31303A22696E7075745F74797065223B733A383A2264726F70646F776E223B7D, null, 'no');
+INSERT INTO `default_data_fields` VALUES ('8', 'lang:profile_dob', 'birth_date', 'users', 'datetime', 0x613A353A7B733A383A227573655F74696D65223B733A333A22796573223B733A31303A2273746172745F64617465223B733A303A22223B733A383A22656E645F64617465223B733A303A22223B733A373A2273746F72616765223B733A383A226461746574696D65223B733A31303A22696E7075745F74797065223B733A31303A22646174657069636B6572223B7D, null, 'no');
 INSERT INTO `default_data_fields` VALUES ('23', 'Civilité', 'gender', 'users', 'choice', 0x613A353A7B733A31313A2263686F6963655F64617461223B733A32303A2268203A20486F6D6D650D0A66203A2046656D6D65223B733A31313A2263686F6963655F74797065223B733A353A22726164696F223B733A31333A2264656661756C745F76616C7565223B733A303A22223B733A31313A226D696E5F63686F69636573223B733A303A22223B733A31313A226D61785F63686F69636573223B733A303A22223B7D, null, 'no');
 INSERT INTO `default_data_fields` VALUES ('10', 'lang:profile_phone', 'phone', 'users', 'text', 0x613A323A7B733A31303A226D61785F6C656E677468223B733A323A223230223B733A31333A2264656661756C745F76616C7565223B733A303A22223B7D, null, 'no');
 INSERT INTO `default_data_fields` VALUES ('11', 'lang:profile_mobile', 'mobile', 'users', 'text', 0x613A323A7B733A31303A226D61785F6C656E677468223B733A323A223230223B733A31333A2264656661756C745F76616C7565223B733A303A22223B7D, null, 'no');
 INSERT INTO `default_data_fields` VALUES ('12', 'lang:profile_address_line1', 'address_line1', 'users', 'text', 0x613A323A7B733A31303A226D61785F6C656E677468223B733A303A22223B733A31333A2264656661756C745F76616C7565223B733A303A22223B7D, null, 'no');
 INSERT INTO `default_data_fields` VALUES ('13', 'lang:profile_address_line2', 'address_line2', 'users', 'text', 0x613A323A7B733A31303A226D61785F6C656E677468223B733A303A22223B733A31333A2264656661756C745F76616C7565223B733A303A22223B7D, null, 'no');
-INSERT INTO `default_data_fields` VALUES ('21', 'Quartier', 'neighbourhood', 'users', 'text', 0x613A323A7B733A31303A226D61785F6C656E677468223B4E3B733A31333A2264656661756C745F76616C7565223B4E3B7D, null, 'no');
+INSERT INTO `default_data_fields` VALUES ('21', 'Quartier', 'area_name', 'users', 'text', 0x613A323A7B733A31303A226D61785F6C656E677468223B733A303A22223B733A31333A2264656661756C745F76616C7565223B733A303A22223B7D, null, 'no');
 INSERT INTO `default_data_fields` VALUES ('15', 'lang:profile_address_postcode', 'postcode', 'users', 'text', 0x613A323A7B733A31303A226D61785F6C656E677468223B693A32303B733A31333A2264656661756C745F76616C7565223B4E3B7D, null, 'no');
-INSERT INTO `default_data_fields` VALUES ('17', 'Nom de naissance', 'birth_name', 'users', 'text', 0x613A323A7B733A31303A226D61785F6C656E677468223B733A303A22223B733A31333A2264656661756C745F76616C7565223B733A303A22223B7D, null, 'no');
 INSERT INTO `default_data_fields` VALUES ('22', 'Mutuelle', 'insurance', 'users', 'text', 0x613A323A7B733A31303A226D61785F6C656E677468223B733A303A22223B733A31333A2264656661756C745F76616C7565223B733A303A22223B7D, null, 'no');
 INSERT INTO `default_data_fields` VALUES ('24', 'Médecin habituel', 'doctor_id', 'users', 'text', 0x613A323A7B733A31303A226D61785F6C656E677468223B4E3B733A31333A2264656661756C745F76616C7565223B4E3B7D, null, 'no');
 INSERT INTO `default_data_fields` VALUES ('25', 'pre html', 'pre_html', 'pages', 'textarea', 0x613A333A7B733A31323A2264656661756C745F74657874223B733A303A22223B733A31303A22616C6C6F775F74616773223B733A313A2279223B733A31323A22636F6E74656E745F74797065223B733A343A2268746D6C223B7D, null, 'no');
@@ -550,6 +554,8 @@ INSERT INTO `default_data_fields` VALUES ('550', 'Heures d\'ouverture', 'hours',
 INSERT INTO `default_data_fields` VALUES ('549', 'Jours ouverts', 'days', 'doctor', 'choice', 0x613A353A7B733A31313A2263686F6963655F64617461223B733A3332353A2231203A206C756E64690D0A2020202020202020202020202020202020202020202020202020202020202020202020202020202032203A206D617264690D0A2020202020202020202020202020202020202020202020202020202020202020202020202020202033203A206D657263726564690D0A2020202020202020202020202020202020202020202020202020202020202020202020202020202034203A206A657564690D0A2020202020202020202020202020202020202020202020202020202020202020202020202020202035203A2076656E64726564690D0A2020202020202020202020202020202020202020202020202020202020202020202020202020202036203A2073616D6564690D0A2020202020202020202020202020202020202020202020202020202020202020202020202020202030203A2064696D616E636865223B733A31313A2263686F6963655F74797065223B733A31303A22636865636B626F786573223B733A31333A2264656661756C745F76616C7565223B733A303A22223B733A31313A226D696E5F63686F69636573223B4E3B733A31313A226D61785F63686F69636573223B4E3B7D, null, 'no');
 INSERT INTO `default_data_fields` VALUES ('548', 'Nom du practicien', 'name', 'doctor', 'text', 0x613A323A7B733A31303A226D61785F6C656E677468223B693A3230303B733A31333A2264656661756C745F76616C7565223B4E3B7D, null, 'no');
 INSERT INTO `default_data_fields` VALUES ('507', 'Etage', 'floor', 'users', 'text', 0x613A323A7B733A31303A226D61785F6C656E677468223B733A303A22223B733A31333A2264656661756C745F76616C7565223B733A303A22223B7D, null, 'no');
+INSERT INTO `default_data_fields` VALUES ('568', 'Commune', 'district', 'users', 'text', 0x613A323A7B733A31303A226D61785F6C656E677468223B733A303A22223B733A31333A2264656661756C745F76616C7565223B733A303A22223B7D, null, 'no');
+INSERT INTO `default_data_fields` VALUES ('569', 'Nom de jeune fille', 'maiden_name', 'users', 'text', 0x613A323A7B733A31303A226D61785F6C656E677468223B4E3B733A31333A2264656661756C745F76616C7565223B4E3B7D, null, 'no');
 
 -- ----------------------------
 -- Table structure for `default_data_field_assignments`
@@ -565,7 +571,7 @@ CREATE TABLE `default_data_field_assignments` (
   `instructions` text COLLATE utf8_unicode_ci,
   `field_name` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=565 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=567 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- ----------------------------
 -- Records of default_data_field_assignments
@@ -574,19 +580,18 @@ INSERT INTO `default_data_field_assignments` VALUES ('1', '1', '1', '1', 'yes', 
 INSERT INTO `default_data_field_assignments` VALUES ('2', '2', '2', '2', 'no', 'no', null, null);
 INSERT INTO `default_data_field_assignments` VALUES ('3', '1', '3', '3', 'yes', 'no', null, null);
 INSERT INTO `default_data_field_assignments` VALUES ('4', '1', '3', '4', 'yes', 'no', null, null);
-INSERT INTO `default_data_field_assignments` VALUES ('19', '11', '3', '19', 'no', 'no', 'Vos informations médicales', null);
-INSERT INTO `default_data_field_assignments` VALUES ('8', '3', '3', '8', 'no', 'no', '', null);
-INSERT INTO `default_data_field_assignments` VALUES ('23', '1', '3', '23', 'yes', 'no', 'Vous êtes un homme ou une femme?', null);
+INSERT INTO `default_data_field_assignments` VALUES ('19', '16', '3', '19', 'no', 'no', 'Vos informations médicales', null);
+INSERT INTO `default_data_field_assignments` VALUES ('8', '2', '3', '8', 'no', 'no', '', null);
+INSERT INTO `default_data_field_assignments` VALUES ('23', '1', '3', '23', 'no', 'no', 'Vous êtes un homme ou une femme?', null);
 INSERT INTO `default_data_field_assignments` VALUES ('10', '4', '3', '10', 'no', 'no', 'Votre numéro de téléphone fixe', null);
 INSERT INTO `default_data_field_assignments` VALUES ('11', '5', '3', '11', 'yes', 'no', 'Votre numéro de téléphone portable', null);
-INSERT INTO `default_data_field_assignments` VALUES ('12', '6', '3', '12', 'no', 'no', 'Adresse lligne 1', null);
+INSERT INTO `default_data_field_assignments` VALUES ('12', '6', '3', '12', 'no', 'no', 'Adresse ligne 1', null);
 INSERT INTO `default_data_field_assignments` VALUES ('13', '7', '3', '13', 'no', 'no', 'Adresse ligne 2', null);
 INSERT INTO `default_data_field_assignments` VALUES ('20', '10', '3', '20', 'no', 'no', 'Votre ville ou village de résidence', null);
-INSERT INTO `default_data_field_assignments` VALUES ('15', '9', '3', '15', 'no', 'no', null, null);
-INSERT INTO `default_data_field_assignments` VALUES ('17', '2', '3', '17', 'no', 'no', 'Votre nom de jeune fille si vous êtes une femme mariée.', null);
+INSERT INTO `default_data_field_assignments` VALUES ('15', '17', '3', '15', 'no', 'no', null, null);
 INSERT INTO `default_data_field_assignments` VALUES ('21', '8', '3', '21', 'no', 'no', 'Votre quartier de résidence si applicable', null);
-INSERT INTO `default_data_field_assignments` VALUES ('22', '12', '3', '22', 'no', 'no', 'Votre mutuelle si vous en avez une', null);
-INSERT INTO `default_data_field_assignments` VALUES ('24', '13', '3', '24', 'no', 'no', 'Si vous connaissez le numéro identifiant de votre médecin, vous pouvez le renseigner ici.', null);
+INSERT INTO `default_data_field_assignments` VALUES ('22', '11', '3', '22', 'no', 'no', 'Votre mutuelle si vous en avez une', null);
+INSERT INTO `default_data_field_assignments` VALUES ('24', '15', '3', '24', 'no', 'no', 'Si vous connaissez le numéro identifiant de votre médecin, vous pouvez le renseigner ici.', null);
 INSERT INTO `default_data_field_assignments` VALUES ('25', '1', '2', '25', 'no', 'no', '', null);
 INSERT INTO `default_data_field_assignments` VALUES ('26', '3', '2', '26', 'no', 'no', '', null);
 INSERT INTO `default_data_field_assignments` VALUES ('502', '14', '3', '505', 'no', 'no', '', null);
@@ -594,24 +599,26 @@ INSERT INTO `default_data_field_assignments` VALUES ('564', '2', '87', '567', 'y
 INSERT INTO `default_data_field_assignments` VALUES ('545', '1', '85', '548', 'no', 'no', null, null);
 INSERT INTO `default_data_field_assignments` VALUES ('546', '2', '85', '549', 'no', 'no', null, null);
 INSERT INTO `default_data_field_assignments` VALUES ('547', '3', '85', '550', 'no', 'no', null, null);
-INSERT INTO `default_data_field_assignments` VALUES ('548', '4', '85', '551', 'no', 'no', null, null);
-INSERT INTO `default_data_field_assignments` VALUES ('549', '5', '85', '552', 'no', 'no', null, null);
-INSERT INTO `default_data_field_assignments` VALUES ('550', '6', '85', '553', 'no', 'no', null, null);
-INSERT INTO `default_data_field_assignments` VALUES ('551', '7', '85', '554', 'no', 'no', null, null);
-INSERT INTO `default_data_field_assignments` VALUES ('552', '8', '85', '555', 'no', 'no', null, null);
-INSERT INTO `default_data_field_assignments` VALUES ('553', '9', '85', '556', 'no', 'no', null, null);
-INSERT INTO `default_data_field_assignments` VALUES ('554', '10', '85', '557', 'no', 'no', null, null);
-INSERT INTO `default_data_field_assignments` VALUES ('555', '11', '85', '558', 'yes', 'no', null, null);
-INSERT INTO `default_data_field_assignments` VALUES ('556', '12', '85', '559', 'yes', 'no', null, null);
-INSERT INTO `default_data_field_assignments` VALUES ('557', '13', '85', '560', 'yes', 'no', null, null);
-INSERT INTO `default_data_field_assignments` VALUES ('558', '14', '85', '561', 'no', 'no', null, null);
-INSERT INTO `default_data_field_assignments` VALUES ('559', '15', '85', '562', 'no', 'no', null, null);
+INSERT INTO `default_data_field_assignments` VALUES ('548', '3', '85', '551', 'no', 'no', null, null);
+INSERT INTO `default_data_field_assignments` VALUES ('549', '4', '85', '552', 'no', 'no', null, null);
+INSERT INTO `default_data_field_assignments` VALUES ('550', '5', '85', '553', 'no', 'no', null, null);
+INSERT INTO `default_data_field_assignments` VALUES ('551', '6', '85', '554', 'no', 'no', null, null);
+INSERT INTO `default_data_field_assignments` VALUES ('552', '7', '85', '555', 'no', 'no', null, null);
+INSERT INTO `default_data_field_assignments` VALUES ('553', '8', '85', '556', 'no', 'no', null, null);
+INSERT INTO `default_data_field_assignments` VALUES ('554', '9', '85', '557', 'no', 'no', null, null);
+INSERT INTO `default_data_field_assignments` VALUES ('555', '10', '85', '558', 'yes', 'no', null, null);
+INSERT INTO `default_data_field_assignments` VALUES ('556', '11', '85', '559', 'yes', 'no', null, null);
+INSERT INTO `default_data_field_assignments` VALUES ('557', '12', '85', '560', 'yes', 'no', null, null);
+INSERT INTO `default_data_field_assignments` VALUES ('558', '13', '85', '561', 'no', 'no', null, null);
+INSERT INTO `default_data_field_assignments` VALUES ('559', '14', '85', '562', 'no', 'no', null, null);
 INSERT INTO `default_data_field_assignments` VALUES ('560', '1', '86', '563', 'yes', 'yes', null, null);
 INSERT INTO `default_data_field_assignments` VALUES ('561', '2', '86', '564', 'no', 'no', null, null);
-INSERT INTO `default_data_field_assignments` VALUES ('562', '16', '85', '565', 'no', 'no', null, null);
+INSERT INTO `default_data_field_assignments` VALUES ('562', '15', '85', '565', 'no', 'no', null, null);
 INSERT INTO `default_data_field_assignments` VALUES ('563', '1', '87', '566', 'no', 'no', null, null);
-INSERT INTO `default_data_field_assignments` VALUES ('503', '15', '3', '506', 'no', 'no', 'Numéro de bureau ou instructitons d\'accès', null);
-INSERT INTO `default_data_field_assignments` VALUES ('504', '16', '3', '507', 'no', 'no', '', null);
+INSERT INTO `default_data_field_assignments` VALUES ('503', '12', '3', '506', 'no', 'no', 'Numéro de bureau ou instructitons d\'accès', null);
+INSERT INTO `default_data_field_assignments` VALUES ('504', '13', '3', '507', 'no', 'no', '', null);
+INSERT INTO `default_data_field_assignments` VALUES ('565', '9', '3', '568', 'no', 'no', '', null);
+INSERT INTO `default_data_field_assignments` VALUES ('566', '3', '3', '569', 'no', 'no', '', null);
 
 -- ----------------------------
 -- Table structure for `default_data_streams`
@@ -989,7 +996,7 @@ CREATE TABLE `default_modules` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `slug` (`slug`),
   KEY `enabled` (`enabled`)
-) ENGINE=MyISAM AUTO_INCREMENT=77 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=80 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- ----------------------------
 -- Records of default_modules
@@ -1018,7 +1025,7 @@ INSERT INTO `default_modules` VALUES ('21', 'a:10:{s:2:\"en\";s:7:\"WYSIWYG\";s:
 INSERT INTO `default_modules` VALUES ('69', 'a:2:{s:2:\"en\";s:7:\"Doctors\";s:2:\"fr\";s:8:\"Docteurs\";}', 'doctor', '0.1.10', null, 'a:2:{s:2:\"en\";s:12:\"Doctors list\";s:2:\"fr\";s:18:\"Liste des Docteurs\";}', '0', '1', '1', 'content', '1', '1', '0', '1521461438');
 INSERT INTO `default_modules` VALUES ('24', 'a:2:{s:2:\"en\";s:20:\"Calendars(Commandes)\";s:2:\"fr\";s:11:\"Rendez vous\";}', 'calendars', '0.1.0', null, 'a:2:{s:2:\"en\";s:16:\"Calendars module\";s:2:\"fr\";s:21:\"Module de rendez vous\";}', '0', '1', '1', 'content', '1', '1', '0', '1520995285');
 INSERT INTO `default_modules` VALUES ('25', 'a:2:{s:2:\"en\";s:17:\"Orders(Commandes)\";s:2:\"fr\";s:9:\"Commandes\";}', 'orders', '0.73.08', null, 'a:2:{s:2:\"en\";s:13:\"Orders module\";s:2:\"fr\";s:19:\"Module de commandes\";}', '0', '1', '1', 'content', '0', '0', '0', '1520994630');
-INSERT INTO `default_modules` VALUES ('76', 'a:1:{s:2:\"en\";s:12:\"Token module\";}', 'token', '0.01.31', null, 'a:1:{s:2:\"en\";s:16:\"Token management\";}', '0', '1', '1', 'content', '1', '1', '0', '1521642871');
+INSERT INTO `default_modules` VALUES ('79', 'a:1:{s:2:\"en\";s:12:\"Token module\";}', 'token', '0.5.01', null, 'a:1:{s:2:\"en\";s:16:\"Token management\";}', '0', '1', '1', 'content', '1', '1', '0', '1521961136');
 INSERT INTO `default_modules` VALUES ('75', 'a:2:{s:2:\"en\";s:23:\"Appointments(Commandes)\";s:2:\"fr\";s:11:\"Rendez vous\";}', 'appointments', '0.1.10', null, 'a:2:{s:2:\"en\";s:19:\"Appointments module\";s:2:\"fr\";s:21:\"Module de rendez vous\";}', '0', '1', '1', 'content', '1', '1', '0', '1521508457');
 INSERT INTO `default_modules` VALUES ('53', 'a:1:{s:2:\"fr\";s:9:\"Semainier\";}', 'carte', '0.98', null, 'a:1:{s:2:\"fr\";s:28:\"Module de calendrier semaine\";}', '0', '1', '1', 'content', '0', '0', '0', '1521079824');
 INSERT INTO `default_modules` VALUES ('70', 'a:1:{s:2:\"fr\";s:9:\"Semainier\";}', 'calendar', '0.1.01', null, 'a:1:{s:2:\"fr\";s:18:\"Calendrier semaine\";}', '0', '1', '1', 'content', '1', '1', '0', '1521468454');
@@ -1351,28 +1358,33 @@ CREATE TABLE `default_profiles` (
   `address_line2` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `postcode` varchar(20) COLLATE utf8_unicode_ci DEFAULT NULL,
   `updated_on` int(11) unsigned DEFAULT NULL,
-  `birth_name` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `personal_info` longtext COLLATE utf8_unicode_ci,
   `town` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `neighbourhood` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `area_name` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `insurance` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `gender` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `doctor_id` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `phone_valid` varchar(3) COLLATE utf8_unicode_ci DEFAULT 'no',
   `desk_no` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `floor` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `district` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `maiden_name` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `user_id` (`user_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=10 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- ----------------------------
 -- Records of default_profiles
 -- ----------------------------
-INSERT INTO `default_profiles` VALUES ('1', null, null, null, null, '1', 'Administrateur', 'Radja', 'Lomas', '303955200', null, '0678957826', '4 allée Jacques Ibert', null, '91240', '1520621218', null, 'Sourd de l\'oreille droite', 'Saint Michel sur Orge', null, null, 'h', null, 'no', null, null);
-INSERT INTO `default_profiles` VALUES ('2', '2018-03-15 00:41:01', null, '1', '1', '2', 'Alfred docteur test', 'Alfred', 'Mozart', '0', '678957826', '678957826', '4 allée Jacques Ibert', '91240', '91240', null, null, null, 'Saint Michel sur Orge', null, null, 'h', null, 'no', null, null);
-INSERT INTO `default_profiles` VALUES ('3', '2018-03-15 00:43:37', null, '1', '2', '3', 'Medical Staff', 'Sandra', 'Hitchcok', '0', '678957826', '678957826', '17 rue Gutenberg', null, '91070', null, 'Beyoncé', null, 'Bondoufle', null, null, 'f', null, 'no', null, null);
-INSERT INTO `default_profiles` VALUES ('4', '2018-03-15 00:44:48', null, '1', '3', '4', 'Techie', 'Radja', 'Lomas', '0', '678957826', '678957826', '17 rue Gutenberg', null, '91070', null, null, null, 'Bondoufle', null, null, 'h', null, 'no', null, null);
-INSERT INTO `default_profiles` VALUES ('5', '2018-03-15 01:25:15', null, '1', '4', '5', 'devops', 'devops', 'devops', '0', null, '0678957826', null, null, null, null, null, null, null, null, null, 'h', null, 'no', null, null);
+INSERT INTO `default_profiles` VALUES ('1', null, null, null, null, '1', 'Administrateur', 'Radja', 'Lomas', '303955200', null, '0678957826', '4 allée Jacques Ibert', null, '91240', '1520621218', 'Sourd de l\'oreille droite', 'Saint Michel sur Orge', null, null, 'h', null, 'no', null, null, null, null);
+INSERT INTO `default_profiles` VALUES ('2', '2018-03-15 00:41:01', null, '1', '1', '2', 'Alfred docteur test', 'Alfred', 'Mozart', '0', '678957826', '678957826', '4 allée Jacques Ibert', '91240', '91240', null, null, 'Saint Michel sur Orge', null, null, 'h', null, 'no', null, null, null, null);
+INSERT INTO `default_profiles` VALUES ('3', '2018-03-15 00:43:37', null, '1', '2', '3', 'Medical Staff', 'Sandra', 'Hitchcok', '0', '678957826', '678957826', '17 rue Gutenberg', null, '91070', null, null, 'Bondoufle', null, null, 'f', null, 'no', null, null, null, null);
+INSERT INTO `default_profiles` VALUES ('4', '2018-03-15 00:44:48', null, '1', '3', '4', 'Techie', 'Radja', 'Lomas', '0', '678957826', '678957826', '17 rue Gutenberg', null, '91070', null, null, 'Bondoufle', null, null, 'h', null, 'no', null, null, null, null);
+INSERT INTO `default_profiles` VALUES ('5', '2018-03-15 01:25:15', null, '1', '4', '5', 'devops', 'devops', 'devops', '0', null, '0678957826', null, null, null, null, null, null, null, null, 'h', null, 'no', null, null, null, null);
+INSERT INTO `default_profiles` VALUES ('6', '2018-03-25 01:03:02', null, null, '5', '6', 'radja.lomas', 'Radja', 'Lomas', null, null, '678957826', null, null, null, null, null, null, null, null, null, null, 'no', null, null, null, null);
+INSERT INTO `default_profiles` VALUES ('7', '2018-03-25 01:57:02', null, null, '6', '7', 'radja.lomas1', 'Radja', 'Lomas', null, null, '678957826', null, null, null, null, null, null, null, null, null, null, 'no', null, null, null, null);
+INSERT INTO `default_profiles` VALUES ('8', '2018-03-25 02:10:01', null, null, '7', '8', 'bilbo.higgins', 'bilbo', 'higgins', null, null, '0163486116', null, null, null, null, null, null, null, null, null, null, 'no', null, null, null, null);
+INSERT INTO `default_profiles` VALUES ('9', '2018-03-25 02:30:51', null, null, '8', '9', 'another.1', 'another', '1', null, null, '678957826', null, null, null, null, null, null, null, null, null, null, 'no', null, null, null, null);
 
 -- ----------------------------
 -- Table structure for `default_redirects`
@@ -1511,10 +1523,10 @@ INSERT INTO `default_settings` VALUES ('files_cf_api_key', 'Rackspace Cloud File
 INSERT INTO `default_settings` VALUES ('files_upload_limit', 'Filesize Limit', 'Maximum filesize to allow when uploading. Specify the size in MB. Example: 5', 'text', '5', '5', '', '1', '1', 'files', '987');
 INSERT INTO `default_settings` VALUES ('auto_username', 'Auto Username', 'Create the username automatically, meaning users can skip making one on registration.', 'radio', '1', '', '1=Enabled|0=Disabled', '0', '1', 'users', '964');
 INSERT INTO `default_settings` VALUES ('enable_profiles', 'Enable profiles', 'Allow users to add and edit profiles.', 'radio', '1', '', '1=Enabled|0=Disabled', '1', '1', 'users', '963');
-INSERT INTO `default_settings` VALUES ('activation_email', 'Activation Email', 'Send out an e-mail with an activation link when a user signs up. Disable this so that admins must manually activate each account.', 'select', '1', '', '0=activate_by_admin|1=activate_by_email|2=no_activation', '0', '1', 'users', '961');
+INSERT INTO `default_settings` VALUES ('activation_email', 'Activation Email', 'Send out an e-mail with an activation link when a user signs up. Disable this so that admins must manually activate each account.', 'select', '1', '2', '0=activate_by_admin|1=activate_by_email|2=no_activation', '0', '1', 'users', '961');
 INSERT INTO `default_settings` VALUES ('registered_email', 'User Registered Email', 'Send a notification email to the contact e-mail when someone registers.', 'radio', '1', '', '1=Enabled|0=Disabled', '0', '1', 'users', '962');
 INSERT INTO `default_settings` VALUES ('enable_registration', 'Enable user registration', 'Allow users to register in your site.', 'radio', '1', '', '1=Enabled|0=Disabled', '0', '1', 'users', '961');
-INSERT INTO `default_settings` VALUES ('profile_visibility', 'Profile Visibility', 'Specify who can view user profiles on the public site', 'select', 'public', '', 'public=profile_public|owner=profile_owner|hidden=profile_hidden|member=profile_member', '0', '1', 'users', '960');
+INSERT INTO `default_settings` VALUES ('profile_visibility', 'Profile Visibility', 'Specify who can view user profiles on the public site', 'select', 'public', 'owner', 'public=profile_public|owner=profile_owner|hidden=profile_hidden|member=profile_member', '0', '1', 'users', '960');
 INSERT INTO `default_settings` VALUES ('ckeditor_config', 'CKEditor Config', 'You can find a list of valid configuration items in <a target=\"_blank\" href=\"http://docs.cksource.com/ckeditor_api/symbols/CKEDITOR.config.html\">CKEditor\'s documentation.</a>', 'textarea', '', '{{# this is a wysiwyg-simple editor customized for the blog module (it allows images to be inserted) #}}\r\n$(\'textarea#intro.wysiwyg-simple\').ckeditor({\r\n	toolbar: [\r\n		[\'pyroimages\'],\r\n		[\'Bold\', \'Italic\', \'-\', \'NumberedList\', \'BulletedList\', \'-\', \'Link\', \'Unlink\']\r\n	  ],\r\n	extraPlugins: \'pyroimages\',\r\n	width: \'99%\',\r\n	height: 100,\r\n	dialog_backgroundCoverColor: \'#000\',\r\n	defaultLanguage: \'{{ helper:config item=\"default_language\" }}\',\r\n	language: \'{{ global:current_language }}\'\r\n});\r\n\r\n{{# this is the config for all wysiwyg-simple textareas #}}\r\n$(\'textarea.wysiwyg-simple\').ckeditor({\r\n	toolbar: [\r\n		[\'Bold\', \'Italic\', \'-\', \'NumberedList\', \'BulletedList\', \'-\', \'Link\', \'Unlink\']\r\n	  ],\r\n	width: \'99%\',\r\n	height: 100,\r\n	dialog_backgroundCoverColor: \'#000\',\r\n	defaultLanguage: \'{{ helper:config item=\"default_language\" }}\',\r\n	language: \'{{ global:current_language }}\'\r\n});\r\n\r\n{{# and this is the advanced editor #}}\r\n$(\'textarea.wysiwyg-advanced\').ckeditor({\r\n	toolbar: [\r\n		[\'Maximize\'],\r\n		[\'pyroimages\', \'pyrofiles\'],\r\n		[\'Cut\',\'Copy\',\'Paste\',\'PasteFromWord\'],\r\n		[\'Undo\',\'Redo\',\'-\',\'Find\',\'Replace\'],\r\n		[\'Link\',\'Unlink\'],\r\n		[\'Table\',\'HorizontalRule\',\'SpecialChar\'],\r\n		[\'Bold\',\'Italic\',\'StrikeThrough\'],\r\n		[\'JustifyLeft\',\'JustifyCenter\',\'JustifyRight\',\'JustifyBlock\',\'-\',\'BidiLtr\',\'BidiRtl\'],\r\n		[\'Format\', \'FontSize\', \'Subscript\',\'Superscript\', \'NumberedList\',\'BulletedList\',\'Outdent\',\'Indent\',\'Blockquote\'],\r\n		[\'ShowBlocks\', \'RemoveFormat\', \'Source\']\r\n	],\r\n	extraPlugins: \'pyroimages,pyrofiles\',\r\n	width: \'99%\',\r\n	height: 400,\r\n	dialog_backgroundCoverColor: \'#000\',\r\n	removePlugins: \'elementspath\',\r\n	defaultLanguage: \'{{ helper:config item=\"default_language\" }}\',\r\n	language: \'{{ global:current_language }}\'\r\n});', '', '1', '1', 'wysiwyg', '993');
 INSERT INTO `default_settings` VALUES ('token_setting', 'Tokens Setting', 'A Yes or No option for the token module', 'select', '1', '1', '1=Yes|0=No', '1', '1', 'token', '0');
 INSERT INTO `default_settings` VALUES ('jours_ouverts', 'Jours ouverts', 'Les jours d\'ouverture (Non implementé)', 'checkbox', '1', '1,2,3,4,5,6,7', '1=Lundi|2=Mardi|3=Mercredi|4=Jeudi|5=Vendredi|6=Samedi|7=Dimanche', '1', '1', 'calendar', '660');
@@ -1574,20 +1586,18 @@ CREATE TABLE `default_tokens` (
   `ip` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `user_agent` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `counter` int(5) DEFAULT NULL,
-  `timestamp` datetime DEFAULT '0000-00-00 00:00:00',
-  `expires` datetime DEFAULT '0000-00-00 00:00:00',
-  `created_on` datetime DEFAULT '0000-00-00 00:00:00',
+  `timestamp` datetime DEFAULT '1970-01-01 00:00:01',
+  `expires` datetime DEFAULT NULL,
+  `created_on` datetime DEFAULT '1970-01-01 00:00:01',
   `alive` int(1) DEFAULT NULL,
+  `module` varchar(20) COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- ----------------------------
 -- Records of default_tokens
 -- ----------------------------
-INSERT INTO `default_tokens` VALUES ('5', '27436', '0', '::1', 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36', '62', '2018-03-23 23:38:20', '0000-00-00 00:00:00', '2018-03-23 21:16:03', '1');
-INSERT INTO `default_tokens` VALUES ('4', '19762', '0', '::1', 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36', '69', '2018-03-24 01:41:02', '0000-00-00 00:00:00', '2018-03-23 19:17:40', '1');
-INSERT INTO `default_tokens` VALUES ('2', '43621', '1', '::1', 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36', '112', '2018-03-22 23:11:46', '0000-00-00 00:00:00', '2018-03-22 11:40:31', '0');
-INSERT INTO `default_tokens` VALUES ('3', '38597', '1', '::1', 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36', '8', '2018-03-23 21:16:03', '0000-00-00 00:00:00', '2018-03-23 15:23:39', '0');
+INSERT INTO `default_tokens` VALUES ('1', '348216', '0', '::1', 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36', '25', '2018-03-25 07:28:11', null, '2018-03-25 06:55:47', '1', null);
 
 -- ----------------------------
 -- Table structure for `default_users`
@@ -1609,16 +1619,20 @@ CREATE TABLE `default_users` (
   `remember_code` varchar(40) COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `email` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='Registered User Information';
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='Registered User Information';
 
 -- ----------------------------
 -- Records of default_users
 -- ----------------------------
-INSERT INTO `default_users` VALUES ('1', 'radjal@free.fr', '5e44f772e016797f89db5d19d179975c24d8ee85', '4cd53', '1', '', '1', '', '1495107565', '1521850996', 'admin', null, 'c0295b85cfedecb50184b72a02da225b399b7cf4');
+INSERT INTO `default_users` VALUES ('1', 'radjal@free.fr', '5e44f772e016797f89db5d19d179975c24d8ee85', '4cd53', '1', '', '1', '', '1495107565', '1521961800', 'admin', null, 'c0295b85cfedecb50184b72a02da225b399b7cf4');
 INSERT INTO `default_users` VALUES ('2', 'practicien@nowhere.com', '7db15a5af242f976d62282149602188eb0cd96ad', 'e5d396', '5', '::1', '1', null, '1521074461', '1521076949', 'docteur.test', null, '61de7be305a949a0b6a141d5bf33fcb63a04e967');
 INSERT INTO `default_users` VALUES ('3', 'medstaff@nowhere.com', '757129871de30daf6040f50f828b02d8744e8c39', '0d8c10', '3', '::1', '1', null, '1521074617', '1521076980', 'med.staff', null, 'b40d2018448fd8177b1b1527d4ca244c30e29e36');
 INSERT INTO `default_users` VALUES ('4', 'support@nowhere.com', '1031f9a492618d59461444aa240ee82023354704', 'd70a25', '4', '::1', '1', null, '1521074688', '1521077026', 'support', null, '3cc21520c7d43c51f8c77ae0c74417fe32250f72');
 INSERT INTO `default_users` VALUES ('5', 'devops@nowhere.com', 'f2229cde76e4ca9c4a658f6f091158fea4338bee', 'b92942', '1', '::1', '1', null, '1521077115', '1521077115', 'devops', null, null);
+INSERT INTO `default_users` VALUES ('6', 'r.lomas@spelldesign.fr', 'cbbb411ad2fdf686c2852ea88eafab1c8a7ce770', 'bd6a55', '2', '::1', '1', '', '1521939782', '1521939818', 'radja.lomas', null, null);
+INSERT INTO `default_users` VALUES ('7', 'another@nowhere.com', 'cbe625abed0276d71a963a3a5cd26f62867a6d27', '8f54f7', '2', '::1', '1', '', '1521943022', '1521943023', 'radja.lomas1', null, null);
+INSERT INTO `default_users` VALUES ('8', 'bilbohiggins@nowhere.com', 'fcb1fee8af18e0891169128bdcb6e846adc24484', '802f91', '2', '::1', '1', '', '1521943801', '1521945086', 'bilbo.higgins', null, null);
+INSERT INTO `default_users` VALUES ('9', 'another1@nowhere.com', 'b1faf7c85f27834db049c923085c1d2d69272a46', 'c6549b', '2', '::1', '1', '', '1521945051', '1521945052', 'another.1', null, null);
 
 -- ----------------------------
 -- Table structure for `default_variables`
