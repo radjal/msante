@@ -1,0 +1,56 @@
+<title>{{ template:title }} | {{ settings:site_name }}</title>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<base href="{{ url:base }}"/>
+
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#ffffff">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="theme-color" content="#ffffff">
+
+<!-- Use Html5Shiv in order to allow IE render HTML5 -->
+<!--[if IE]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
+ 
+{{ asset:css file="bootstrap.css" }}
+{{ asset:css file="bootstrap-theme.css" }}
+
+{{ asset:css file="pyro_bootswatch.css" }}
+
+{{ asset:css file="_lightbox.css" }}
+{{# asset:css file="_radio-btns_1.css" #}}
+
+{{if theme:options:custom_css == 'yes' }}
+    {{ asset:css file="_integration.css" }}
+    {{ asset:css file="_colors.css" }}
+{{endif}}
+
+{{ asset:css file="jqui/jquery-ui.css" }}
+{{ asset:css file="jqui/jquery-ui-timepicker-addon.css" }}
+
+
+{{ asset:js file="jquery-1.9.1.js" }}
+{{ asset:js file="jqui/jquery-ui.js" }}
+{{ asset:js file="bootstrap.js" }}
+{{  asset:js file="jqui/jquery-ui-timepicker-addon.js" }}
+
+{{# subdomain #}}
+{{ asset:css file="_patients-subdomain.css" }}
+
+{{ asset:render }}
+
+<!-- jquery UI  -->
+<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+
+<!--font
+
+<link href="https://fonts.googleapis.com/css?family=Courgette|Kaushan+Script|Merienda+One" rel="stylesheet"> 
+-->
+
+{{ template:metadata }}

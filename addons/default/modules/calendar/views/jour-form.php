@@ -55,19 +55,19 @@
                             </div>             
                     </div>
                     <div class="form-group"> 
-                            <label for="address">Rue</label>
+<!--                            <label for="address">Rue</label>
                             <div class="input">
                                 <input type="text" class="form-control" name="address" value="{{ address }}">
-                            </div>       
+                            </div>       -->
 
                             <label for="area_name">Quartier</label>
                             <div class="input">
-                                <input type="text" class="form-control" aria-type="number"  name="area_name" value="{{ area_name }}">
+                                <input type="text" class="form-control" name="area_name" value="{{ area_name }}">
                             </div>      
 
                             <label for="commune">Commune</label>
                             <div class="input">
-                                <input type="text" class="form-control" aria-type="number"  name="commune" value="{{ district }}">
+                                <input type="text" class="form-control" name="district" value="{{ district }}">
                             </div>      
 
                             <label for="town">Ville</label>

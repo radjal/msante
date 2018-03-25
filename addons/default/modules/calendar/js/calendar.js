@@ -22,6 +22,9 @@ function setTime(time)
 {
     console.log(time);
     $('input[name=appointment_time]').val(time);
+    $('#container-appt').show();
+    $('#weekzone-wrapper').hide();
+    
 }
 
 $( document ).ready(function() 
