@@ -69,10 +69,21 @@ $config['theme'] = null;
 |
 */
 
+// hack for subdomain theming
 $config['theme_locations'] = array(
-	APPPATH.'themes/',
+    APPPATH.'themes/',
 	SHARED_ADDONPATH . 'themes/'
 );
+if(defined('SUBDOMAIN') && !empty(SUBDOMAIN))
+{
+    $config['theme_locations'][] = 'addons/subdomains/'.SUBDOMAIN.'/themes/' ;
+}
+
+
+//$config['theme_locations'] = array(
+//	APPPATH.'themes/',
+//	SHARED_ADDONPATH . 'themes/'
+//);
 
 /*
 |--------------------------------------------------------------------------
