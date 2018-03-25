@@ -2,25 +2,18 @@
 <html>
   <head>
         {{ theme:partial name="patients-meta" }}
-        <script>
-            //load icon @todo move to templates
+        <script> 
             var pg_load = '<img src="assets/img/loading.gif" />'; 
         </script> 
   </head> 
-  <?php
-  // note that to avoid logging << Plugin method "options" does not exist on class "Plugin_Theme". >>
+  {{#
+  // note that to avoid logging the message << Plugin method "options" does not exist on class "Plugin_Theme". >>
   // you have te reindex the theme in admin 
-  ?>
+  // this is a subdomain theme so theme settings are global root domain theme settings 
+  #}}
     <body {{ if theme:options:disable_right_click == 'yes' }} oncontextmenu="return false;"{{endif}}>
 
-        <!-- SUBDOMAIN {{ custom:subdomain_value }}  -->
-    <noscript>
-        <div class="alert alert-danger text-center">
-            <span style="font-size: 22px"> 
-                Ce site necessite JavaScript pour fonctionner! 
-            </span>
-        </div>
-    </noscript>
+  
  
 	<header>
 		{{ theme:partial name="patients-header" }}  
@@ -30,7 +23,7 @@
         <div class="content">  
                 {{ session:messages success="main alert alert-success alert-dismissable" notice="main alert alert-warning alert-dismissable" error="main alert alert-danger alert-dismissable" }}
 
-                {{ theme:partial name="breadcrumbs"}}
+                {{ theme:partial name="patients-breadcrumbs"}}
                 {{ template:body }}
         </div> 
     </div>   
@@ -46,19 +39,12 @@
 <?php endif; ?>	
 
 <!-- Scripts -->
-{{ theme:partial name="script" }}
-
-{{ asset:js file="theme::js.cookie.js"  group="extras" }}
-{{# asset:js file="theme::lightbox.min.js" file_min="theme::lightbox.min.js"  group="extras" #}}
-{{# asset:js file="theme::jquery.montage.js" file_min="theme::jquery.montage.min.js"  group="extras" #}}
-{{# asset:js file="theme::clipboard.js" file_min="theme::clipboard.min.js"  group="extras" #}}
-{{# IE bug http://jsfiddle.net/sEEMZ/ #}}
-{{# asset:js file="theme::placeholders.jquery.js" file_min="theme::placeholders.jquery.min.js"  group="extras" #}}
-{{# asset:js file="jq-ui-1.12.0/jquery-ui.js" file_min="jq-ui-1.12.0/jquery-ui.min.js"  group="extras" #}}
-
-{{ asset:render group="extras" }}
+{{ theme:partial name="patients-script" }}
  
-{{ theme:partial name="adminbox" }}
+{{ asset:js file="theme::js.cookie.js"  group="patients-extras" }}
+{{ asset:render group="patients-extras" }}
+ 
+{{ theme:partial name="patients-adminbox" }}
         
 </body>
 </html> 

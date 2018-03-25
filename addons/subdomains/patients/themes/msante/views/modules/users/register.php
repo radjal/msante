@@ -1,4 +1,5 @@
 {{ custom:disable_theme_if_ajax }}
+ 
 <div class="col-lg-4 col-lg-offset-4 col-sm-6 col-sm-offset-3" style="margin-top: 5%">
 
     <div class="module-header">
