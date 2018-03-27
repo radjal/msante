@@ -29,7 +29,7 @@ class Appointments extends Public_Controller
 			array(
 				'field' => 'appointment_date',
 				'label' => lang('appointments:appointment_date'),
-				'rules' => 'required'
+				'rules' => 'trim|required'
 			),
 			array(
 				'field' => 'payment_type',
@@ -59,22 +59,22 @@ class Appointments extends Public_Controller
 			array(
 				'field' => 'maiden_name',
 				'label' => lang('appointments:maiden_name'),
-				'rules' => 'required'
+				'rules' => 'trim'
 			),
 			array(
 				'field' => 'address',
 				'label' => lang('appointments:address'),
-				'rules' => 'required'
+				'rules' => 'trim'
 			),
 			array(
 				'field' => 'town',
 				'label' => lang('appointments:town'),
-				'rules' => 'required'
+				'rules' => 'trim|required'
 			),
 			array(
 				'field' => 'area_name',
 				'label' => lang('appointments:area_name'),
-				'rules' => 'required|max_length[10]'
+				'rules' => 'trim'
 			),
 		);
 	}
@@ -129,30 +129,33 @@ class Appointments extends Public_Controller
 
             // saving the appointment
             $this->form_validation->set_rules($this->item_validation_rules);
-                if(isset($_POST['appointmentSend']) AND $appointment->total_final > 0)  // appointment sent
+//            redirect();
+                if(isset($_POST['appointmentSend']) )  // appointment sent
+//                if(isset($_POST['appointmentSend']) AND $appointment->total_final > 0)  // appointment sent
                 {   
-                        if($appointment->total_final < $this->settings->min_appointment_amount) 
-                        {
-                                $this->session->set_flashdata('error', lang('appointments:min_amount_not_met'));
-                                redirect('appointments');
-                        }
+//                        if($appointment->total_final < $this->settings->min_appointment_amount) 
+//                        {
+//                                $this->session->set_flashdata('error', lang('appointments:min_amount_not_met'));
+//                                redirect('appointments');
+//                        }
 
-                        if(isset($_POST['_token'])) // for retro compatibility 
-                        {
-                                if($this->token_m->check_token($this->input->post('_token'), true ) === false) {
-                                    // stop
-                                    $this->session->set_flashdata('error', lang('appointments:token_error'));
-                                    redirect('appointments');
-                                }
-                                                           
-                                // if it got this far we can remove token
-                                $this->token_m->kill_token($token); 
-                                $this->token_m->delete_cookie_token($token); 
-                        } 
+//                        if(isset($_POST['_token'])) // for retro compatibility 
+//                        {
+//                                if($this->token_m->check_token($this->input->post('_token'), true ) === false) {
+//                                    // stop
+//                                    $this->session->set_flashdata('error', lang('appointments:token_error'));
+//                                    redirect('appointments');
+//                                }
+//                                                           
+//                                // if it got this far we can remove token
+//                                $this->token_m->kill_token($token); 
+//                                $this->token_m->delete_cookie_token($token); 
+//                        } 
                         
                         if ($this->form_validation->run())
                         {
-                                $noid = $this->appointments_m->save_appointment($appointment, $cart);
+                                $noid = $this->appointments_m->save_appointment($appointment);
+//                                $noid = $this->appointments_m->save_appointment($appointment, $cart);
                                 if ($noid)
                                 {
                                         $this->session->set_flashdata('success', lang('appointments:saved_waiting'));

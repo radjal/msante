@@ -78,7 +78,6 @@ class Appointments_m extends MY_Model
                 if(!empty($search['appointment_date'])) $this->db->like('default_appointments_list.appointment_date', $search['appointment_date'], 'after'); 
         } 
         
-        
         public function _search_result_count($search)
 	{
             $this->_set_search($search);

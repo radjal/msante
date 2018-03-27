@@ -108,7 +108,7 @@ echo'';
                             </div>   
 
                             <div class="buttons" id="appt-button-wrapper">
-                                    <button name="orderSend" value="Prendre RDV" type="submit" class="btn btn-success">Prendre RDV</button>
+                                    <button name="appointmentSend" value="Prendre RDV" type="submit" class="btn btn-success">Prendre RDV</button>
                             </div>
                         </div>
                 {{ /user:profile }}
