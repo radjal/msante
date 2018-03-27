@@ -1,33 +1,13 @@
-div.listing section:nth-child(1) {
-    /* border-top: 0; */
-}
-section.doctor h4 {
-    /* margin-bottom:6px; */
-    /* clear: both; */
-}  
-section.doctor {
-    /* padding-top: 40px; */
-    /* line-height: 20px; */
-    /* clear: both !important; */
-    /* display: inline-block; */
-}
 section.doctor div.row {
     margin-bottom:20px;
 }
 .weekcalendar p {
     display: inline-block;
-}
-#doctors-list {
-    /* background-color: #f3f4f5; */
-    /* padding: 10px; */
-}
+} 
 #map_canvas {
     height: 300px;
     width: 100%;
-}
-.listing {
-    /*background-color: #f3f4f5;*/
-}
+} 
 a.break-post, a.break-pre {
     width: 100%;
 }
@@ -46,4 +26,16 @@ a.break-post, a.break-pre {
 .weekdays .btn {
     width: 100px;
     text-align: center;
+}
+.weekdays, .weekdays-nano {
+    margin-top: 20px;
+}  
+.weekdays-nano a {
+    margin-bottom: 15px;
+}
+.weekdays>div {
+    margin-bottom: 20px;
+}  
+.calendar_titre {
+    height: 40px;
 }

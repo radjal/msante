@@ -8,6 +8,7 @@ Integration file for bootstrap
 *************************************************/
 i.close {
     opacity: 0.2;
+    font-style: normal;
 }
 i.glyphicon.glyphicon-info-sign {
     color: #c1c1c1;

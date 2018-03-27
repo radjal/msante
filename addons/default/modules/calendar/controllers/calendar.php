@@ -63,7 +63,9 @@ class Calendar extends Public_Controller
         $data['titre']  = $data['isodays'][$jour]; 
         //date of selected day
         $jourdate = $data['week_dates_iso'][$data['isodays'][$jour]]['date'] ;
-        $journo = $data['week_dates_iso'][$data['isodays'][$jour]]['day'] ; 
+        $journo = $data['week_dates_iso'][$data['isodays'][$jour]]['day'] ;  
+        $mois_no =  date('n', strtotime($jourdate))  ;  
+        $mois_nom = $data['months'][$mois_no]   ;  
         //jour passé
         $passe = false;
         $showinput = false;
@@ -99,6 +101,8 @@ class Calendar extends Public_Controller
                 ->set('appointments', $appointments) 
                 ->set('jour', $jour)
                 ->set('jourdate', $jourdate)
+                ->set('mois_no', $mois_no)
+                ->set('mois_nom', $mois_nom)
                 ->set('journo', $journo)
                 ->set('passe', $passe)
                 ->set('showinput', $showinput) 

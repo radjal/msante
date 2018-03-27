@@ -1,22 +1,14 @@
-{{ doctor:show id={url:segments segment="4"} }}
-<div id="doctor" class="well">
-    <h4><a href="doctor/id/{{url:segments segment="4"}}">{{name}}</a></h4>         
-    <h5>
-        {{if speciality}}{{speciality}}{{endif}} 
-        {{if speciality and groupe}} &bullet; {{endif}} 
-        {{if subset}}{{subset}}{{endif}} 
-    </h5> 
-    <?php 
-    echo '' ; 
-    ?>
-    <p> 
-        <!-- image --> 
-        <!--<img src="{{ url:site }}files/large/{{if image}}IMG{{endif}} height="80" class="img-circle"/>-->
-<?php
 
-    echo '';
-?>
-                            {{ if img_path }}
+{{# custom:get_value name="c"#}}
+<!--<div class="text-center" id="doc-cat-icon"> 
+    {{ msante:doc_cat_img cat={custom:get_value name="c"} }}
+</div>-->
+
+{{ doctor:show id={url:segments segment="4"} }}
+<div id="doctor" class="">  
+        <div class="panel panel-body">
+            <div class="col-sm-4 col-xs-4">
+                {{ if img_path }}
                                     <img src="{{url:site}}files/large/{{img_path}}" height="80" class="img-circle"/>
                             {{ elseif speciality  }} 
                                 {{ if speciality == "Médecins généralistes" }} 
@@ -44,13 +36,32 @@
                             {{# default image #}}
                                 <img src="{{ url:site }}files/large/8b37a2a2cbf9537714125a8f8476e63a.jpg" height="80" class="img-circle"/>
                             {{ endif }}
+            </div>
+            <div class="col-sm-4">
+                <h4>{{name}}
+                    <!--<a href="doctor/id/{{url:segments segment="4"}}"></a>-->
+                </h4>         
+                <h5>
+                    {{if speciality}}{{speciality}}{{endif}} 
+                    {{if speciality and groupe}} &bullet; {{endif}} 
+                    {{if subset}}{{subset}}{{endif}} 
+                </h5> 
+                    {{address}}  
+                    {{area_name}}, {{town}} 
+            </div> 
+            
+        </div>
+               
+    <div class="row">
+    </div>
+    
+
+    <p>                    
 <!--
         <strong>Téléphone:</strong>{{telephone}}<br/>
         <strong>Mobile:</strong>{{mobile}}<br/>
         <strong>Email:</strong>{{email}}<br/>-->
 
-        Adresse<br/> 
-        {{area_name}} , {{town}}
 <!--            <br/>
         <strong>Jours d'ouverture</strong><br/> 
             <span data-dayno="xxx" data-dayshortname="value">
@@ -61,5 +72,7 @@
             opens - closes -->
     </p>
     <!--<p>{{description}}</p>-->
+    
+    <div style="clear: both;" class="clearfix"></div> 
 </div>
 {{ /doctor:show }} 

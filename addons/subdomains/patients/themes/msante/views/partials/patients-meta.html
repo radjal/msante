@@ -19,30 +19,32 @@
 
 <link href="//netdna.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
  
-{{ asset:css file="bootstrap.css" }}
-{{ asset:css file="bootstrap-theme.css" }}
+{{ asset:css file="bootstrap.css" group="patients-meta" }}
+{{ asset:css file="bootstrap-theme.css"  group="patients-meta" }}
 
-{{ asset:css file="pyro_bootswatch.css" }}
+{{ asset:css file="pyro_bootswatch.css"  group="patients-meta" }}
 
-{{ asset:css file="_lightbox.css" }}
-{{# asset:css file="_radio-btns_1.css" #}}
+{{# asset:css file="_lightbox.css"  group="patients-meta" #}}
+{{# asset:css file="_radio-btns_2.css"  group="patients-meta" #}}
 
 {{if theme:options:custom_css == 'yes' }}
-    {{ asset:css file="_integration.css" }}
-    {{ asset:css file="_colors.css" }}
+    {{ asset:css file="_integration.css"  group="patients-meta" }}
+    {{ asset:css file="_colors.css"  group="patients-meta" }}
+    {{  asset:css file="_patients-subdomain.css"  group="patients-meta" }}
 {{endif}}
 
-{{ asset:css file="jqui/jquery-ui.css" }}
-{{ asset:css file="jqui/jquery-ui-timepicker-addon.css" }}
+{{ asset:css file="jqui/jquery-ui.css" group="patients-meta" }}
+{{ asset:css file="jqui/jquery-ui-timepicker-addon.css"  group="patients-meta" }}
 
 
-{{ asset:js file="jquery-1.9.1.js" }}
-{{ asset:js file="jqui/jquery-ui.js" }}
-{{ asset:js file="bootstrap.js" }}
-{{  asset:js file="jqui/jquery-ui-timepicker-addon.js" }}
+{{ asset:js file="jquery-1.9.1.js" } group="patients-meta" }
+{{ asset:js file="jqui/jquery-ui.js"  group="patients-meta" }}
+{{ asset:js file="bootstrap.js"  group="patients-meta" }}
+{{  asset:js file="jqui/jquery-ui-timepicker-addon.js"  group="patients-meta" }}
 
 
-{{ asset:render }}
+
+{{ asset:render  group="patients-meta" }}
 
 <!-- jquery UI  -->
 <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">

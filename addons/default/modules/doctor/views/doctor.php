@@ -1,6 +1,5 @@
-
 <section class="doctor" data-rid="{{id}}" data-town="{{town}}" data-address="{{address}}" data-area_name="{{area_name}}" data-name="{{name}}">
-    <div class="well">
+    <div class="panel panel-body">
     
             <div class="col-sm-4 col-xs-4"> 
             <!-- image --> 
@@ -58,7 +57,8 @@
                             if($doctor_cat['speciality']) echo $doctor_cat['speciality'];
                             if($doctor_cat['speciality'] and $groupe['subset']) echo " &bullet; ";
                             if($groupe['subset']) echo $groupe['subset'];
-                        ?></h5> 
+                        ?>
+                    </h5> 
 
 
             <!--
@@ -76,26 +76,20 @@
         <span class="clearfix"></span>
     </div> 
 
-            <div class="weekcalendar ">
-
-                <center class="h4">
+            <div class="weekcalendar "> 
+                <center class="h4 text-center ">
+                    Choisir votre date de RDV
+                </center>
+                <center class="h5">
                     Semaine {{ cal_week:week }} 
                     <!--<a class="btn btn-default next-week" href="{{ url:site }}calendar/week/{{ cal_week:next_week_no }}/{{url:segments segment="4"}}">--> 
                     <a class="btn btn-default next-week" href="{{ url:site }}doctor/view/{{id}}/{{ cal_week:next_week_no }}"> 
                         <i class="glyphicon glyphicon-calendar"></i> semaine suivante<i class="glyphicon glyphicon-chevron-right"></i>
                     </a>
                 </center>
- 
-                <h3 class="text-center ">
-                    Choisir votre date de RDV
-                </h3>
-                 
-<!--                <p>
-                    <strong>Prochaine disponibilités</strong> Semaine <?php echo $cal_week['week']; ?> 
-                </p>   -->
-                <div class="weekdays well well-sm">
-                    <?php 
-                    $this->load->view('micro-calendar' ) ?> 
+                  
+                <div class="weekdays text-center ">
+                    <?php   $this->load->view('micro-calendar' ) ?> 
                 </div>
             </div>
 

@@ -1,6 +1,18 @@
 .period-am {
     margin-bottom: 15px;
 } 
+.period-am button, .period-pm button {
+    margin-bottom: 15px;
+    width: 100%;
+}
+#doctor .img-circle {
+    max-width: 100%;
+}
+.appt-time a {
+    float: right;
+    font-size: small;
+    font-weight: normal;
+}
 /* responsive */
 @media only screen and (min-width: 626px) { 
 }

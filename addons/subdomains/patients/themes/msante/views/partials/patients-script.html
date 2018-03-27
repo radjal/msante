@@ -1,3 +1,4 @@
+{{# file is included in layout so LEX tags are available and js vars have global scope #}}
 <script>
     var theme = {};
     theme.loadimg = '<div style="text-align:center;width:100%"><img src="{{url:site}}addons/default/themes/bs3/img/loading.gif" /></div>';
@@ -104,11 +105,11 @@
 			});
 				
             /*close btns*/
-            //$('.i.close').css('visibility', 'visible');
+            /*$('.i.close').css('visibility', 'visible');*/
             /*system alerts*/
                 $('div.main.alert').prepend('<a class="close">&times;</a>');
             /* alerts */
-                $('.alert a.close').on('click', function(){
+                $('.alert a.close, .alert i.close').on('click', function(){
                         $(this).parent().slideUp();
                 });
 

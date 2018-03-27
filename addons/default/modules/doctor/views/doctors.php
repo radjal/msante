@@ -1,19 +1,29 @@
 <?php  $docCount = 0; ?>   
 {{# custom:get_value name="c"#}}
 <div class="text-center" id="doc-cat-icon"> 
-    {{ msante:doc_cat_img cat={custom:get_value name="c"} }}
+    {{if {custom:get_value name="c"} }}
+        {{ msante:doc_cat_img cat={custom:get_value name="c"} }}
+    {{else}}
+                                 <img src="{{url:site}}files/large/8b37a2a2cbf9537714125a8f8476e63a.jpg" height="80" class="img-circle" />
+    {{# default placeholder #}}
+        
+    {{endif}}
 </div>
 <div id="doctors-list">
 	<!--<h3>{{ helper:lang line="doctor:doctors" }}</h3>-->
-	<div class="h3 text-center" >
+	<div class="h4 panel-body text-center" >
             {{if category}}Choisir votre {{category}}{{endif}}{{if search && category}}, {{elseif search && !category}}Choisir un practicien, {{endif}}
             {{if search}}{{search}}
-            et prendre votre RDV
+                et prendre votre RDV
             {{endif}}
         </div>
         {{if !doc_count }}
-        <p class="alert alert-danger">Aucun résultat, veuiller changer de requete</p>
-            {{ doctor:search_box }} 
+                <p class="alert alert-danger">Aucun résultat, veuiller changer de requete</p>
+                {{ doctor:search_box }} 
+        {{else}} 
+                <p class="alert alert-success"><i class="close">×</i>
+                    {{if doc_count == "1"}}{{doc_count}} enregistrement trouvé{{elseif doc_count >"1"}}{{doc_count}} enregistrements trouvés{{endif}}
+                </p>
         {{endif}} 
         {{ if doctors.entries }}
         <div class="listing"> 
@@ -28,8 +38,8 @@
                         echo '';
                 ?> 
                  
-		<section class="doctor well" data-rid="<?php echo $doc['id'] ?>" data-town="<?= $doc['town'] ?>" data-address="<?= $doc['address'] ?>" data-area_name="<?= $doc['area_name'] ?>" data-name="<?php echo $doc['name'] ?>">
-                    <div class="row-fluid">
+		<section class="doctor panel panel-body" data-rid="<?php echo $doc['id'] ?>" data-town="<?= $doc['town'] ?>" data-address="<?= $doc['address'] ?>" data-area_name="<?= $doc['area_name'] ?>" data-name="<?php echo $doc['name'] ?>">
+                    <div class="">
                             <div class="col-sm-4 col-xs-4"> 
                                 <!-- image --> 
                                 <?php 
@@ -114,7 +124,7 @@
     <!--                            <p>
                             <strong>Prochaine disponibilités</strong> pour la semaine <?= $cal_week['week']; ?>  
                         </p>   -->
-                        <div class="weekdays">
+                        <div class="weekdays-nano center-block">
                             <?php $this->load->view('nano-calendar', $doc) ?> 
                         </div>
                     </div>

@@ -225,11 +225,12 @@ class Appointments_m extends MY_Model
 			$phone 	= $profile->mobile != null 		? $profile->mobile : '';  			
 			$email 	= $profile->email != null 		? $profile->email : ''; 			
 			$district 	= $profile->district != null 	? $profile->district : ''; 		
-			$address 	= $profile->address_line1 != null 	? $profile->address_line1 : ''; 		
-//			$i_street2 	= ''; 		
+			$address 	= $profile->address_line1 != null 	? $profile->address_line1 : ''; 	 
 			$town 	= $profile->town != null 		? $profile->town : ''; 			
 			$area_name 	= $profile->area_name != null 	? $profile->area_name : ''; 		 
 			$insurance 	= $profile->insurance != null 	? $profile->insurance : ''; 		 
+//			$knows_doctor 	= $profile->knows_doctor != null 	? $profile->knows_doctor : ''; 		 
+//			$other_person 	= $profile->other_person != null 	? $profile->other_person : ''; 		 
 			
 			// override with POST values 
 			$appointment['birth_date'] = empty($this->input->post('birth_date')) 	? $birth_date 	: $this->input->post('birth_date');
@@ -241,11 +242,12 @@ class Appointments_m extends MY_Model
 			$appointment['phone'] = empty($this->input->post('phone'))              ? $phone 	: $this->input->post('phone');
 			$appointment['email'] = empty($this->input->post('email'))              ? $email 	: $this->input->post('email');
 			$appointment['district'] = empty($this->input->post('district'))          ? $district 	: $this->input->post('district') ;
-			$appointment['address'] = empty($this->input->post('address'))          ? $address 	: $this->input->post('address') ;
-//			$appointment['i_street2'] = empty($this->input->post('i_street2')) 	? $i_street2 	: $this->input->post('i_street2');
+			$appointment['address'] = empty($this->input->post('address'))          ? $address 	: $this->input->post('address') ; 
 			$appointment['town'] = empty($this->input->post('town'))                        	? $town 	: $this->input->post('town') ;
 			$appointment['area_name'] = empty($this->input->post('area_name'))                      ? $area_name 	: $this->input->post('area_name') ;
 			$appointment['insurance'] = empty($this->input->post('insurance'))                      ? $insurance 	: $this->input->post('insurance') ;  
+			$appointment['knows_doctor'] = empty($this->input->post('knows_doctor'))                ? 'no'	: $this->input->post('knows_doctor') ;  
+			$appointment['other_person'] = empty($this->input->post('other_person'))                ? 'no' 	: $this->input->post('other_person') ;  
 					
 //                    $appointment['message'] = $this->input->post('message')."\n$message";
             

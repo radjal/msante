@@ -41,18 +41,22 @@ class Doctor extends Public_Controller
         $this->row_m->sql['join'][] = 'LEFT JOIN '.$this->db->protect_identifiers('doctor_categories', true).' ON '.$this->db->protect_identifiers('doctor_categories.id', true).' = '.$this->db->protect_identifiers('doctor_doctors.doctor_cat', true);
         $this->row_m->sql['join'][] = 'LEFT JOIN '.$this->db->protect_identifiers('doctor_organisations', true).' ON '.$this->db->protect_identifiers('doctor_organisations.id', true).' = '.$this->db->protect_identifiers('doctor_doctors.groupe', true);
 
-        if(!$search and !$category)   
+        if($search and $category)   
         { 
-            $params['where'] = "default_doctor_categories.speciality LIKE '%$category%' AND ( default_doctor_doctors.town LIKE '%$search%' OR default_doctor_doctors.area_name LIKE '$search%')" ;
+            $params['where'] = "default_doctor_doctors.name LIKE '%$search%' OR default_doctor_categories.speciality LIKE '%$category%' AND ( default_doctor_doctors.town LIKE '%$search%' OR default_doctor_doctors.area_name LIKE '$search%')" ;
         } 
-        else if(!$search) 
+        else if(!$search and $category) 
         {
-            $params['where'] = "default_doctor_doctors.town LIKE '%$search%' OR default_doctor_doctors.area_name LIKE '$search%'" ;
+            $params['where'] = "default_doctor_doctors.name LIKE '%$category%' OR default_doctor_categories.speciality LIKE '%$category%' " ;
         }
-        else if(!$category) 
+        else if($search and !$category) 
         {
-            $params['where'] = "default_doctor_categories.speciality LIKE '%$category%' " ;
+            $params['where'] = "default_doctor_doctors.name LIKE '%$search%' OR default_doctor_doctors.town LIKE '%$search%' OR default_doctor_doctors.area_name LIKE '$search%'" ;
         }
+//        else if(!$search and !$category) 
+//        {
+//            $params['where'] = "default_doctor_doctors.name LIKE '%$search%'" ;
+//        }
         
         $data = new stdClass();
         $data->doctors = $this->streams->entries->get_entries($params);

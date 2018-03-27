@@ -12,24 +12,32 @@
   // this is a subdomain theme so theme settings are global root domain theme settings 
   #}}
     <body {{ if theme:options:disable_right_click == 'yes' }} oncontextmenu="return false;"{{endif}}>
-
-  
- 
-	<header>
-		{{ theme:partial name="patients-header" }}  
-	</header>	 
+    <header>
+            {{ theme:partial name="patients-header" }}  
+    </header>	 
         <h1 class="hidden">{{if custom:subdomain_value}} SUBDOMAIN {{custom:subdomain_value}} {{endif}}</h1>
     <div id="container" class="container"> 
         <div class="content">  
                 {{ session:messages success="main alert alert-success alert-dismissable" notice="main alert alert-warning alert-dismissable" error="main alert alert-danger alert-dismissable" }}
-
-                {{ theme:partial name="patients-breadcrumbs"}}
-                {{ template:body }}
+                {{if custom:subdomain_value and {url:segments segment="1"} =='' }} 
+                        {{if false}}
+                            <!-- home/js -->
+                            {{ theme:partial name="home/js" }}  
+                            <!-- home/css -->
+                            {{ theme:partial name="home/css" }} 
+                            <!-- home/body --> 
+                            {{ theme:partial name="home/body" }}   
+                        {{endif}}
+                {{else}}
+                    {{ theme:partial name="patients-breadcrumbs"}}  
+                    {{ template:body }} 
+                {{endif}}
         </div> 
     </div>   
 
 
 <footer id="footer"> 
+		{{ theme:partial name="patients-footer" }}  
 </footer>
 	  
 

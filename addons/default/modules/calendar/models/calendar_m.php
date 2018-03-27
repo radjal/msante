@@ -18,6 +18,7 @@ class Calendar_m extends MY_Model {
 		$days[4] = 'jeudi';
 		$days[5] = 'vendredi';
 		$days[6] = 'samedi';
+		$days[7] = 'dimanche';
 		$days[0] = 'dimanche';
 	
 		$months[1] = 'janvier';
@@ -70,29 +71,34 @@ class Calendar_m extends MY_Model {
 		$data['next_week_no'] = str_pad($data['week'] +1, 2, 0, STR_PAD_LEFT) ;
 		$data['previous_week_no'] = str_pad($data['week'] -1, 2, 0, STR_PAD_LEFT) ;
 		
-		// @todo correct week if necessary
+		// @todo correct week if necessary?
 		$start_date = new DateTime();
-		$start_date -> setISODate($data['year'],$data['week']);
+		$start_date -> setISODate($data['year'],$data['week'], 1);
 		$data['week_begin'] = $start_date -> format('Y-m-d');
 		$data['week_begin_day'] = $start_date -> format('j');
 		$data['week_begin_day_no'] = $start_date -> format('w');
 		$data['week_begin_day_iso'] = $start_date -> format('N');
 		$data['week_begin_day_name'] = $days[$data['week_begin_day_no']];
-		
+		$data['week_begin_month'] = $months[$start_date -> format('n')];
+		$data['week_begin_month_no'] = $start_date -> format('n');
+                
+		// @todo week days as param
 		$dtstamp = strtotime($data['week_begin'], time());
 		$end_date = $dtstamp;
-		$end_date += 4*24*3600; // add 4 days, just for the week days 
+//		$end_date += 4*24*3600; // add 4 days, just for the week days 
+		$end_date += 6*24*3600; 
 		$data['week_finish'] = date('Y-m-d', $end_date);
 		$data['week_finish_day'] = date('j', $end_date);
 		$data['week_finish_day_no'] = date('w', $end_date);
 		$data['week_finish_day_iso'] = date('N', $end_date);
 		$data['week_finish_day_name'] = $days[$data['week_finish_day_no']];
-		
+		$data['week_finish_month'] = $months[date('n', $end_date)];
+		$data['week_finish_month_no'] = date('n', $end_date); 
                 // first step/day for days of week
                 $data['week_dates_iso'][1]['date'] = date('Y-m-d', $dtstamp) ;
                 $data['week_dates_iso'][1]['day'] = date('j', $dtstamp); 
                 $data['week_dates_iso'][1]['dayname'] = $isodays[1] ;
-                $data['week_dates_iso'][1]['dayshortname'] = $isodaysshort[1] ;
+                $data['week_dates_iso'][1]['dayshortname'] = $isodaysshort[1] ; 
                 // LOOP calcluate dates for each subsequent day of week
                 for ($i = 2; $i <= 7; $i++) {
                     $dtstamp += 1*24*3600 ;// add a day
@@ -103,6 +109,7 @@ class Calendar_m extends MY_Model {
                 }
                 
                 $data['isodays'] = $isodays;
+                $data['months'] = $months;
                 
 		return $data;
 	}

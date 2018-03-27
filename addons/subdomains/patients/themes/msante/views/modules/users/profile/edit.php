@@ -42,7 +42,7 @@
                                                     <?php //display user fields for editing
                                                             foreach($profile_fields as $field): ?>
                                                             <?php // space separated field_slugs to NOT display
-                                                            $exclude = explode(' ', 'desk_no phone_valid doctor_id postcode address_line2 phone floor');
+                                                            $exclude = explode(' ', 'desk_no phone_valid doctor_id postcode address_line2 phone floor personal_info');
                                                             $display = true;
                                                             if(in_array($field['field_slug'], $exclude))
                                                             {

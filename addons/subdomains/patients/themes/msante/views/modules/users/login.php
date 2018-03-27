@@ -2,7 +2,7 @@
 <section id="login">
 
 	<div class="container">
-		<div class="row">
+		<div class="">
 		<?php 
                 //use GET var for redirect via menu
                 if(!empty($this->agent->referrer()) ) 
@@ -21,7 +21,7 @@
                             </div> 
                             
                             
-                            <fieldset class="well">
+                            <fieldset class="">
 	        		
 	        		
 		<?php if (validation_errors()): ?>
@@ -60,9 +60,15 @@
 		          	</div>
 
 		          	<div align="center" class="form-actions">
-	            		<?php echo form_submit('btnSubmit', lang('user:login_btn'), 'class="btn btn-primary"'); ?>
-	            		<?php echo anchor('register', lang('user:register_btn'), 'class="btn btn-link"'); ?></a>
-	            		<?php echo anchor('users/reset_pass', lang('user:reset_password_link'), 'class="btn btn-link"'); ?>
+                                    <div>
+                                        <?php echo form_submit('btnSubmit', lang('user:login_btn'), 'class="btn btn-primary"'); ?> 
+                                    </div>
+                                    <div>
+                                        <?php echo anchor('users/reset_pass', lang('user:reset_password_link'), 'class="btn btn-link"'); ?> 
+                                    </div>
+                                    <div>
+                                        <?php echo anchor('register', lang('user:register_btn'), 'class="btn btn-link"'); ?></a> 
+                                    </div>
 	          		</div>
 
                             </fieldset>

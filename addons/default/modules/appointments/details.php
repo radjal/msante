@@ -2,7 +2,7 @@
 
 class Module_Appointments extends Module {
 
-	public $version = '0.1.10';
+	public $version = '0.1.20';
 
 	public function info()
 	{
@@ -115,6 +115,11 @@ class Module_Appointments extends Module {
                                                             'default' => '',
                                                             ),		
 						'other_person' => array(
+                                                            'type' => 'VARCHAR',
+                                                            'constraint' => '3',
+                                                            'default' => 'no'
+                                                            ),				
+						'knows_doctor' => array(
                                                             'type' => 'VARCHAR',
                                                             'constraint' => '3',
                                                             'default' => 'no'

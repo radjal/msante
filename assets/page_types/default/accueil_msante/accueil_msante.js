@@ -123,6 +123,7 @@ function geoSuccess(position) {
         returned_address=location.results[0].address_components[2].long_name;
         $('#doctor-search input[name=s]').val(returned_address); 
         $('.searchbox-area').addClass('has-success'); 
+        $('.searchbox-area input').addClass('set'); 
     });
 } 
 function geoError(err) {
@@ -161,7 +162,7 @@ function myPosition(position) {
      $('.searchbox-area').removeClass('has-success'); 
      $('#doctor-search input[name=s]').val('').removeClass('set');
     /*UX*/ 
-    $('.titre-auto').hide() ;
+//    $('.titre-auto').hide() ;
  }
  
  
