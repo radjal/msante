@@ -53,15 +53,14 @@
 		          	<div class="form-group">
 						
 			            	
-			            <label class="control-label" >
-                                        <?php echo form_checkbox('remember', '1', FALSE); ?>
-                                        <?php echo lang('user:remember'); ?></label>
-
+					<label class="control-label" >
+							<?php echo form_checkbox('remember', '1', FALSE); ?>
+							<?php echo lang('user:remember'); ?></label>
 		          	</div>
 
 		          	<div align="center" class="form-actions">
 	            		<?php echo form_submit('btnSubmit', lang('user:login_btn'), 'class="btn btn-primary"'); ?>
-	            		<?php echo anchor('register', lang('user:register_btn'), 'class="btn btn-link"'); ?></a>
+	            		<!-- <?php echo anchor('register', lang('user:register_btn'), 'class="btn btn-link"'); ?></a> -->
 	            		<?php echo anchor('users/reset_pass', lang('user:reset_password_link'), 'class="btn btn-link"'); ?>
 	          		</div>
 

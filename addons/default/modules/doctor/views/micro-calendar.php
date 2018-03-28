@@ -37,14 +37,14 @@ for($d=1;$d<=7;$d++):
     //echo $appts_post_break >= $prds_post_break ? "Plus de disponibilité l'après midi<br/>":'';
     //echo $appts_total >0?"$appts_total RDV au total":''; 
     ?>
-    <div class="col-xs-3 <?=  !$dayopen ? "disabled closed" : '' ?>"> 
+    <div class="col-xs-4"> 
             <div class="calendar_titre"><?= $calendar_titre ?></div>
             <div class="btn-group-vertical">
                     <a href="{{url:site}}calendar/<?= $cal_week['week_dates_iso'][$d]['dayname'].'/'.$cal_week['week'].'/'.$id ?>/?show=am" 
-                       class="break-pre btn <?=  $appts_total>=$prds_count ? "btn-danger " : 'btn-success '; ?><?=  $appts_pre_break >= $prds_pre_break ? " full" : '' ?>">Matin <?=  $appts_total>=$prds_count ? "Plein " : ''; ?></a>
-                       <!--<a class="disabled btn btn-default ">&nbsp;</a>-->
+                       class="break-pre btn <?=  !$dayopen ? "disabled closed" : '' ?> <?=  $appts_total>=$prds_count ? "btn-danger " : 'btn-success '; ?><?=  $appts_pre_break >= $prds_pre_break ? " full" : '' ?>">Matin <?=  $appts_total>=$prds_count ? "Plein " : ''; ?></a>
+
                     <a href="{{url:site}}calendar/<?= $cal_week['week_dates_iso'][$d]['dayname'].'/'.$cal_week['week'].'/'.$id ?>/?show=pm" 
-                       class="break-post btn <?=  $appts_total>=$prds_count ? "btn-danger " : 'btn-success '; ?><?=  $appts_post_break >= $prds_post_break ? " full" : '' ?>">Midi <?=  $appts_total>=$prds_count ? "Plein " : ''; ?></a>
+                       class="break-post btn <?=  !$dayopen ? "disabled closed" : '' ?> <?=  $appts_total>=$prds_count ? "btn-danger " : 'btn-success '; ?><?=  $appts_post_break >= $prds_post_break ? " full" : '' ?>">Après midi <?=  $appts_total>=$prds_count ? "Plein " : ''; ?></a>
             </div>
     </div>  
 <?php endfor; //end days loop ?> 

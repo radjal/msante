@@ -6,8 +6,7 @@ function periodShow(period)
         $('.period-pm').slideUp();
         $('.period-am').slideDown();
         $('#btn-am').addClass('active');
-        $('#btn-pm').removeClass('active');
-        
+        $('#btn-pm').removeClass('active'); 
     }
     if(typeof(period)!=='undefined' && period.toLowerCase(period) == 'pm')
     {
@@ -17,20 +16,29 @@ function periodShow(period)
         $('#btn-am').removeClass('active');
     }
 }
- /* for appointments input */
+/* for appointments input */
 function setTime(time)
 {
-    console.log(time);
     $('input[name=appointment_time]').val(time);
-    $('.appt-time span').text(time);
+    ftime = formatTime(time);
+    ftime =  time<=1200 ?  ftime += ' du matin' : ftime += ' de l\'après midi' ;
+    $('.appt-time span').text(ftime);
     $('#weekday-wrapper').hide(); 
     $('#container-appt').slideDown();
-}
-
+    console.log(time); 
+    console.log(ftime); 
+} 
+function formatTime(time)
+{
+    time = String(time);
+    console.log(time);
+    var h = time.substring(0,2);
+    var m = time.substring(2); 
+    return h+':'+m;
+} 
 function setField(fname, object)
 {
-    if(typeof(fname)==='undefined' || fname==='') return;
-//    if(typeof(object)==='undefined' || object==='') return;   '  
+    if(typeof(fname)==='undefined' || fname==='') return; 
     var value = $(object).attr('data-value'); 
     var usedata = false; 
     if (typeof(value)==='undefined' || value==='')
@@ -56,8 +64,7 @@ function setField(fname, object)
     }); 
     $('.'+fname+'_ui input').val(value); 
     return value;
-} 
-
+}  
 function setOtherPerson(obj)
 {
     var value = $(obj).attr('data-value').toLowerCase();
@@ -66,52 +73,16 @@ function setOtherPerson(obj)
     $(obj).addClass('active btn-success'); 
     if(value === 'yes') 
     {  
-            $('#appt-patient .input').addClass('disabled'); 
-//            $('#appt-patient, #appt-gender').hide(); 
+            $('#appt-patient input').addClass('disabled');  
     } else {
             $('#appt-patient, #appt-gender').show(); 
     }
     $('#other_person').val(value);
 } 
+function setGender(obj)
+{ 
+} 
 
 $( document ).ready(function() 
-{    
-    if($('input[name=orderSend]').length) 
-    {
-//            var minAmount = parseFloat( $('#minAllowedAmount').val() ) ;
-            
-                /* binding checks on stock
-                $('input.order_product').on('change', 
-                    function() {
-                            if($(this).val() > $(this).data('stock')) $(this).val($(this).data('stock'));
-                    }
-                ); */
-
-                /* pre submit checks 
-                 *                
-                $( "div.content form" ).submit(function( event ) {
-                  if($('input[name=jscalc_totax]').val() <= minAmount )
-                  {
-                      location.hash = '#weekzone-wrapper';
-                      alert('Sélectionner ...');
-                  } 
-                  else if($('input[name=payment_type]:checked').val() === undefined ) 
-                  {
-                      alert('Choisissez un mode de règlement');
-                      location.hash = '#order-details';
-                  } 
-                  else if($('input[name=jscalc_totax]').val() > minAmount )
-                  {
-                        $( "#order-form-container" ).slideUp();
-                        return;
-                  } 
-                  else 
-                  {
-                      location.hash = '#weekzone-wrapper';
-                      alert('Sélectionner vos plats et renseignez les informations de livraison');
-                  }
-                  event.preventDefault();
-                });
-                 */  
-    }      
+{     
 });

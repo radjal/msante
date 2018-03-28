@@ -25,13 +25,13 @@ foreach ( $calendar[$day] as $periods )
 $appts_post_break = $appts_total - $appts_pre_break ;
 $prds_post_break = $prds_count - $prds_pre_break;
 ?>
-<div class="col-xs-3 <?=  !$dayopen ? " disabled" : '' ?>">
+<div class="col-xs-3 <?= $day ?>">
     <!--<div class="calendar_titre"><?= $calendar_titre ?></div>-->
         <div class="">
             
                 <a 
                 href="{{url:site}}doctor/view/<?= $id.'/'.$cal_week['week'].'/?c='.$this->input->get('c') ?>" 
-                class="btn btn-xs <?=  $appts_total>=$prds_count ? "btn-danger " : 'btn-success '; ?><?=  $appts_total >= $prds_count ? "full" : '' ?>">
+                class="btn btn-xs <?=  !$dayopen ? " disabled" : '' ?> <?=  $appts_total>=$prds_count ? "btn-danger " : 'btn-success '; ?><?=  $appts_total >= $prds_count ? "full" : '' ?>">
                            <?= $calendar_titre ?>
                 </a>
   

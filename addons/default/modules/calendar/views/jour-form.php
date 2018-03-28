@@ -1,13 +1,11 @@
-<div id="container-appt" class="" style="display: none">
-<?php
-echo'';
-?>
-
+<div id="container-appt" class="" style="display: none"> 
 {{ if user:logged_in }} 
    <?php  
     echo form_open_multipart('appointments' , 'class="crud"'); ?>
-            <center class="appt-time alert alert-success h3"> <i class="glyphicon glyphicon-time"></i>
-                    <a onclick="$('#container-appt, #weekday-wrapper').slideToggle()"><i class="glyphicon glyphicon-remove"></i></a> <span>{{appointment_time}}</span> 
+            <center class="appt-time alert alert-success h3">
+                <a onclick="$('#container-appt, #weekday-wrapper').slideToggle()"><i class="glyphicon glyphicon-remove"></i></a> 
+                <i class="glyphicon glyphicon-time"></i>
+                    à <span>{{appointment_time}}</span> 
                     <input class="" name="appointment_time" id="appointment_time" type="hidden"  value="{{ appointment_time }}" />  
             </center>
                 {{ user:profile }} 
@@ -115,9 +113,9 @@ echo'';
     <?php echo form_close(); ?>
 {{else}} 
         <center>
-            <a href="{{url:site}}users/login" class="btn btn-success">Connectez-vou</a>
+            <a href="{{url:site}}users/login" class="btn btn-success">Se connecter</a>
             <p>Ou</p>
-            <a href="{{url:site}}users/register" class="btn btn-primary">Enregistrez-vous</a> 
+            <a href="{{url:site}}users/register" class="btn btn-primary">Créer un compte</a> 
         </center>  
 {{ endif }}
 <div style="clear: both;"></div> 

@@ -70,8 +70,7 @@ class Doctor extends Public_Controller
                 $str .= $arr["value"] . ",";
             }
             $str = trim($str, ',');//removes the final comma 
-            $data->doctors['entries'][$key]['daysopenstr']=$str;
-
+            $data->doctors['entries'][$key]['daysopenstr']=$str; 
         } 
         
         /* calendar */

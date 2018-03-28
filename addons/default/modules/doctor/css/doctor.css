@@ -15,7 +15,7 @@ a.break-post, a.break-pre {
     text-transform: uppercase;
 }
 .weekdays a.btn {
-    width: 52px;
+    /* width: 52px; */
 }
 .doctor img {
     max-width: 100%;

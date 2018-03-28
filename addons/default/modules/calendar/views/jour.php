@@ -1,14 +1,15 @@
-<?php $this->load->view('jour-doctor') ?> 
-
+<?php 
+$this->load->view('jour-doctor');
+//morning or afternoon
+$show=$this->input->get('show');
+$show_am = strtolower($show)=='am' ? true : false ;
+$show_pm = strtolower($show)=='pm' ?  true : false ;
+//style display attribute
+$show_am_attr = $show_am && !$show_pm ? 'block' : 'none' ; 
+$show_pm_attr =   !$show_am && $show_pm ? 'block' : 'none' ; 
+?> 
 <div class="message_global">{{ data:msg_global }}</div>
 <!--<div class="message_jour">{{ data:msg_dujour }}</div>-->
-<?php  
-    $show=$this->input->get('show');
-//    $show_am = strtolower($show)=='am' ? true : false ;
-//    $show_pm = strtolower($show)=='pm' ?  true : false ;
-    $show_am = $show_pm = false ;
-    $show_am_attr =  $show_pm_attr = '' ; 
-    ?> 
 
 <center class="h3 alert alert-success"> <i class="glyphicon glyphicon-calendar"></i>
     {{jour}} {{journo}} {{mois_nom}}  {{data:year}}
@@ -44,7 +45,8 @@
                         foreach ($appointments as $periods ) 
                         {   
                                 $html = $class = ''; 
-                                $html .= $periods['dt'];
+                                $html .= substr($periods['dt'], 0, 2) .':'. substr($periods['dt'], 2 ) ; // format time presentation
+//                                $html .= $periods['dt']; // 4 digit time
                                 if($periods['break'] == 'true')
                                 {
                                     $break_passed = true;
@@ -64,10 +66,10 @@
                                 if($periods['break'] !== 'true' && !$break_passed) 
                                 { 
                                     $html_pre_break .=   '<div class="col-xs-4 cols-sm-1" >'
-                                                    . '<button class="btn btn-default break-pre col-xs-4 cols-sm-1'.$class.'" onclick="setTime('.$periods['dt'].')">'.$html.'</button>'
+                                                    . '<button class="break-pre btn btn-default '.$class.'" onclick="setTime('.$periods['dt'].')">'.$html.'</button>'
                                             . '</div>';   
                                 } else if($periods['break'] !== 'true' && $break_passed) {
-                                    $html_post_break .=  '<div class="col-xs-4 cols-sm-1" ><button class="btn btn-default break-post'.$class.'" onclick="setTime('.$periods['dt'].')">'.$html.'</button></div>' ; 
+                                    $html_post_break .=  '<div class="col-xs-4 cols-sm-1" ><button class="break-post btn btn-default '.$class.'" onclick="setTime('.$periods['dt'].')">'.$html.'</button></div>' ; 
                                 }
                                 //final render 
                                 //----------

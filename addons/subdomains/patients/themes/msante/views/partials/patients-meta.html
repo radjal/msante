@@ -33,17 +33,14 @@
     {{  asset:css file="_patients-subdomain.css"  group="patients-meta" }}
 {{endif}}
 
-{{ asset:css file="jqui/jquery-ui.css" group="patients-meta" }}
-{{ asset:css file="jqui/jquery-ui-timepicker-addon.css"  group="patients-meta" }}
-
-
 {{ asset:js file="jquery-1.9.1.js" } group="patients-meta" }
 {{ asset:js file="jqui/jquery-ui.js"  group="patients-meta" }}
 {{ asset:js file="bootstrap.js"  group="patients-meta" }}
-{{  asset:js file="jqui/jquery-ui-timepicker-addon.js"  group="patients-meta" }}
 
-
-
+{{ asset:css file="jqui/jquery-ui.css" group="patients-meta" }}
+{{ asset:css file="jqui/jquery-ui-timepicker-addon.css"  group="patients-meta" }}
+{{# asset:js file="jqui/jquery-ui-timepicker-addon.js"  group="patients-meta" #}} 
+  
 {{ asset:render  group="patients-meta" }}
 
 <!-- jquery UI  -->
