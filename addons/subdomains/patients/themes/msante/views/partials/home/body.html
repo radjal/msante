@@ -1,0 +1,128 @@
+{{ dev:empty_cache }}
+
+<div id="categories"> 
+    <div class="text-center h3 titre-rdv"> 
+        Prenez rendez vous avec votre professionnel de sant&eacute; 
+    </div>
+    <div class="row specialite-rdv" >
+        <div class="col-lg-4 ico-grp">
+                    <div class="specialite" data-cat="Médecins généralistes" data-type="rdv">
+                            <img src="{{ url:site }}files/thumb/997cd2e64fac717/80/80" alt="Généraliste"/> 
+                            <p>Médecins généralistes</p>
+                    </div>
+                    <div class="specialite" data-cat="Ophtalmologue" data-type="rdv">
+                            <img src="{{ url:site }}files/thumb/292281c45a9207c/80/80" alt="Ophtalmologue"/> 
+                            <p>Ophtalmologue</p>
+                    </div>
+                    <div class="specialite" data-cat="ORL" data-type="rdv">
+                            <img src="{{ url:site }}files/thumb/25e01b2784711d9/80/80" alt="ORL"/> 
+                            <p>ORL</p>
+                    </div>
+        </div>
+
+        <div class="col-lg-4 ico-grp">
+                    <div class="specialite" data-cat="Cardiologie" data-type="rdv">
+                            <img src="{{ url:site }}files/thumb/a4278245d864a56/80/80" alt="Cardiologie"/> 
+                            <p>Cardiologue</p> 
+                    </div>
+                    <div class="specialite" data-cat="Spécialistes femme" data-type="rdv">
+                            <img src="{{ url:site }}files/thumb/3590b30f5b17f8c/80/80" alt="Spécialistes femme"/> 
+                            <p>Spécialistes femme</p>
+                    </div>
+                    <div class="specialite" data-cat="Dentiste" data-type="rdv">
+                            <img src="{{ url:site }}files/thumb/28bf736b0c65fb4/80/80" alt="Dentiste"/> 
+                            <p>Dentiste</p>
+                    </div> 
+        </div>
+
+        <div class="col-lg-4 ico-grp">
+                    <div class="specialite" data-cat="Radiologue" data-type="rdv">
+                            <img src="{{ url:site }}files/thumb/82ed2c7f7efb8a4/80/80" alt="Radiologue"/> 
+                            <p>Radiologue</p>
+                    </div>
+                    <div class="specialite" data-cat="Autres médecins" data-type="rdv">
+                            <img src="{{ url:site }}files/thumb/c8e8886f9e65488/80/80" alt="Autres médecins"/> 
+                            <p>Autres médecins</p>
+                    </div>
+                    <div class="specialite" data-cat="Etablissements de santé" data-type="rdv">
+                            <img src="{{ url:site }}files/thumb/353de3d9e958976/80/80" alt="Etablissements de santé"/> 
+                            <p>Etablissements de santé</p>
+                    </div>
+        </div> 
+        
+    </div>
+ 
+    <div class="text-center h3 titre-pro"> 
+        Contactez un professionnel
+    </div>
+
+    <div class="row specialite-pro" >
+        <div class="col-lg-4 ico-grp"></div>
+
+        <div class="col-lg-4 ico-grp">
+                    <div class="specialite" data-cat="Pharmacies" data-type="pro">
+                            <img src="{{ url:site }}files/thumb/8b37a2a2cbf9537714125a8f8476e63a.jpg/80/80" alt="Généraliste"/> 
+                            <p>Pharmacies</p>
+                    </div> 
+                    <div class="specialite" data-cat="Laboratoires" data-type="pro">
+                            <img src="{{ url:site }}files/thumb/8b37a2a2cbf9537714125a8f8476e63a.jpg/80/80" alt="Spécialistes femme"/> 
+                            <p>Laboratoires</p>
+                    </div> 
+                    <div class="specialite" data-cat="Numéros d'urgences" data-type="pro">
+                            <img src="{{ url:site }}files/thumb/8b37a2a2cbf9537714125a8f8476e63a.jpg/80/80" alt="Radiologue"/> 
+                            <p>Numéros d'urgences</p>
+                    </div> 
+        </div>
+
+        <div class="col-lg-4 ico-grp"></div> 
+        
+    </div>
+</div>
+
+
+<div class="h3 text-center titre-auto">   
+</div>
+{{# doctor:search_box #}} 
+<div id="doctor-search" class="">
+    <form method="get" action="{{url:site}}doctor">
+        <div class="form-group searchbox-query">
+            <div class="input-group">
+                <span class="input-group-addon">
+                    <a class="" onclick="cleanDocSearch()">
+                        <i class="glyphicon glyphicon-remove-circle"></i>
+                    </a>
+                </span>
+                <input type="text" name="c" value="" placeholder="Domaine ou spécialité médicale" class="form-control ui-autocomplete-input" autocomplete="off">
+            </div> 
+        </div> 
+        <div class="form-group searchbox-locate"> 
+                <div class="input-group center-block">
+                    <a class="btn btn-success disabled" onclick="geoGetTown()">
+                        <i class="glyphicon glyphicon-map-marker"></i> Autour de vous
+                    </a>
+                </div> 
+            </div>
+        <div class="form-group searchbox-area"> 
+            <div class="input-group">
+                <span class="input-group-addon">
+                    <a class="" onclick="cleanAreaSearch()">
+                        <i class="glyphicon glyphicon-remove-circle"></i>
+                    </a>
+                </span>
+                <input type="text" name="s" value="" placeholder="Ville, quartier ou CP" class="form-control">                  
+            </div>
+        </div> 
+        <div class="form-group searchbox-btn"> 
+                <button name="submitBtn" type="submit" class="btn btn-primary">
+                        <i class="glyphicon glyphicon-search"></i> Rechercher
+                </button> 
+        </div>
+    </form>
+</div>
+
+
+{{# dessous gabarit des pages normales, sauf titre H2  #}}
+
+{{ pre_html }}
+{{ body }}
+{{ post_html }}

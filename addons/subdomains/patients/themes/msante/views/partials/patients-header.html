@@ -9,52 +9,31 @@
                 </div>
                 {{endif}}
                 <div class="col-xs-9" >  
-                                            <div class="text-center" >
-                                                <a class="" href="{{site:url}}"><img src="{{ url:site }}files/thumb/fea67cd85d808e4/200/40" alt="Accueil"/></a> 
-                                            </div>
-				</div>
-                <div class="col-xs-3" >
-                    
-                        {{ if user:logged_in }}             
-                        
-                        
-                        {{if false}}
-                        
-                                          <a class="btn btn-default btn-lg" id="top-user-btn"> 
-                                               {{ user:username }} 
-                                                <span class="glyphicon glyphicon-user"></span>
-                                                <span class="caret"></span>
-                                          </a>
-                        
-                        
-                                    <ul class="nav navbar-nav ">        
-                                              <ul class="dropdown-menu">
-                                                <li><a href="{{url:site}}rendez-vous">Mes rendez vous</a></li>
-                                                <li><a href="{{url:site}}users/edit">Mes informations personnelles</a></li>
-                                                <li><a href="{{url:site}}users/logout" class="btn btn-danger">Déconnexion</a></li>
-                                              </ul>            
-                                    </ul>    
-                        {{endif}}        
-                                <ul class="nav navbar-nav ">                   
-                                        <li class="dropdown ">
-                                          <a class="btn btn-default dropdown-toggle" data-toggle="dropdown"> 
-                                                {{ if user:logged_in }} {{ user:username }}{{ endif }} <span class="glyphicon glyphicon-user"></span>
-                                          <span class="caret"></span></a>
-                                          <ul class="dropdown-menu">
-                                            <li><a href="{{url:site}}rendez-vous">Mes rendez vous</a></li>
-                                            <li><a href="{{url:site}}users/edit">Mes informations personnelles</a></li>
-                                            <li><a href="{{url:site}}users/logout" class="btn btn-danger">Déconnexion</a></li>
-                                          </ul>
-                                        </li>  
-                                </ul>     
-                        
-                        {{ else }}
-                                {{# connect #}}
-                                <ul class="nav navbar-nav ">
-                                    <li><a href="{{url:site}}users/login" class="btn btn-default ">Connexion</a></li>  
-                                    
-                                </ul>     
-                        {{ endif }}     
+                        <div class="text-center" >
+                            <a href="{{site:url}}"><img class="logo" src="{{ url:site }}files/thumb/fea67cd85d808e4/200/40" alt="Accueil"/></a> 
+                        </div>
+                </div>
+                <div class="col-xs-3" > 
+                {{ if user:logged_in }}              
+                        <ul class="nav navbar-nav ">                   
+                                <li class="dropdown ">
+                                  <a class="btn btn-default dropdown-toggle" data-toggle="dropdown"> 
+                                        {{ if user:logged_in }} {{ user:username }}{{ endif }} <span class="glyphicon glyphicon-user"></span>
+                                  <span class="caret"></span></a>
+                                  <ul class="dropdown-menu">
+                                    <li><a href="{{url:site}}rendez-vous">Mes rendez vous</a></li>
+                                    <li><a href="{{url:site}}users/edit">Mes informations personnelles</a></li>
+                                    <li><a href="{{url:site}}users/logout" class="btn btn-danger">Déconnexion</a></li>
+                                  </ul>
+                                </li>  
+                        </ul>      
+                {{ else }}
+                        {{# connect #}}
+                        <ul class="nav navbar-nav ">
+                            <li><a href="{{url:site}}users/login" class="btn btn-default ">Connexion</a></li>  
+
+                        </ul>     
+                {{ endif }}     
                 </div> 
             </div> 
 	</div>

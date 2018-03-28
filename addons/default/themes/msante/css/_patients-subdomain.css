@@ -15,3 +15,9 @@ nav#top-nav {
     background: #dbe1e6;
     border-bottom: 1px solid #cccccc;
 }
+#bottom-nav .logo {
+    width: 140px;
+}
+#top-nav .logo {
+    width: 200px;
+}
