@@ -79,7 +79,7 @@ class Admin extends Admin_Controller
 				'rules' => 'trim|required|max_length[60]'
 			),       
 			array(
-				'field' => 'other_person',
+				'field' => 'for_user',
 				'label' => 'Famille ou ami',
 				'rules' => 'trim|required|max_length[60]'
 			),       
@@ -181,7 +181,7 @@ class Admin extends Admin_Controller
             $this->db->order_by($orderby, $sortdir); //default
             
             $this->db->limit($limit, $offset);
-            $appointments = $this->db
+            $appointments = $this->db->select('*, default_appointments_list.id AS id')
                             ->join('doctor_doctors', 'doctor_doctors.id = default_appointments_list.doctor_id', 'left')
                             ->get('default_appointments_list')
                             ->result();

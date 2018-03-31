@@ -13,6 +13,12 @@
     font-size: small;
     font-weight: normal;
 }
+.msgBox {
+    margin-top: 20px;
+}
+
+
+
 /* responsive */
 @media only screen and (min-width: 626px) { 
 }

@@ -66,6 +66,7 @@ class Calendar extends Public_Controller
         $journo = $data['week_dates_iso'][$data['isodays'][$jour]]['day'] ;  
         $mois_no =  date('n', strtotime($jourdate))  ;  
         $mois_nom = $data['months'][$mois_no]   ;  
+        $datenumero = str_replace('-', '',$jourdate) ;
         //jour passé
         $passe = false;
         $showinput = false;
@@ -98,8 +99,10 @@ class Calendar extends Public_Controller
             $this->template->title('calendar')
                 ->set('token', $token)
                 ->set('data', $data)
+                ->set('doctor_id', $doctor_id)
                 ->set('appointments', $appointments) 
                 ->set('jour', $jour)
+                ->set('datenumero', $datenumero)
                 ->set('jourdate', $jourdate)
                 ->set('mois_no', $mois_no)
                 ->set('mois_nom', $mois_nom)
@@ -187,6 +190,7 @@ class Calendar extends Public_Controller
             $this->template->title('calendar')
                 ->set('data', $data)
                 ->set('appointments', $appointments)
+                ->set('doctor_id', $doctor_id)
                 ->set('lundi', $semaine['lundi'])
                 ->set('mardi', $semaine['mardi'])
                 ->set('mercredi', $semaine['mercredi'])

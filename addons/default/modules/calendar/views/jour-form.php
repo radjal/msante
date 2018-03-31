@@ -1,49 +1,56 @@
 <div id="container-appt" class="" style="display: none"> 
 {{ if user:logged_in }} 
    <?php  
-    echo form_open_multipart('appointments' , 'class="crud"'); ?>
+   echo form_open_multipart('appointments/set' , 'class="crud"'); 
+   echo'';
+   ?>
             <center class="appt-time alert alert-success h3">
                 <a onclick="$('#container-appt, #weekday-wrapper').slideToggle()"><i class="glyphicon glyphicon-remove"></i></a> 
                 <i class="glyphicon glyphicon-time"></i>
                     à <span>{{appointment_time}}</span> 
                     <input class="" name="appointment_time" id="appointment_time" type="hidden"  value="{{ appointment_time }}" />  
+                    <input class="" name="doctor_id" id="doctor_id" type="hidden"  value="{{ doctor_id }}" />  
             </center>
                 {{ user:profile }} 
 
-                        <input type="hidden" name="appointment_date" value="{{jourdate}}" />
-
-                        <p class="alert alert-warning"> <i class="close">×</i>
-                                    Il est important que le médecin connaisse votre identité, merci de remplir les champs suivants :   
-                        </p>          
+                <?php
+                echo'';
+                ?>
+                
+                        <input type="hidden" name="appointment_date" value="{{datenumero}}" />        
                         
-                        <div id="appt-info">
-                            <!--<h4>Le RDV est :</h4>-->
+                        <div id="appt-info"> 
                             <div class="appt-person">
-                                    <label for="other_person">Le RDV est pour vous? Oui/non (parent ou proche)</label> 
-                                        <div class="other_person_ui" > 
-                                            <a onclick="setOtherPerson(this)" data-value="yes" class="btn btn-primary btn-sm">pour vous</a>
-                                            <a onclick="setOtherPerson(this)" data-value="no"  class="btn btn-primary btn-sm ">pour un proche</a> 
-                                            <input class="" name="other_person" id="other_person" type="hidden"  value="{{ other_person }}" />  
-                                        </div> 
-                            </div>                   
-                            <p class="profile_fields-txt">
+                                    <label for="for_user">Le RDV est pour vous? Oui/non (parent ou proche)</label> 
+                                    <div class="for_user_ui" > 
+                                        <a onclick="setIsForMe(this)" data-value="yes" class="btn btn-primary btn-sm ">pour vous</a>
+                                        <a onclick="setIsForMe(this)" data-value="no"  class="btn btn-primary btn-sm ">pour un proche</a> 
+                                        <input class="" name="for_user" id="for_user" type="hidden"  value="{{ for_user }}" />  
+                                    </div> 
+                            </div>  
+                            
+                            <div id="appt-gender" class="" style="display:none">
+                                    <label for="gender">Civilité :</label>
+                                    <div class="gender_ui" > 
+                                        <a onclick="setGender(this)" data-value="Homme" class="btn btn-primary btn-sm <?= isset($this->current_user->gender) && strtolower($this->current_user->gender) == 'homme' ? 'active btn-success' :null ?>">Homme</a>
+                                        <a onclick="setGender(this)" data-value="Femme" class="btn btn-primary btn-sm <?= isset($this->current_user->gender) && strtolower($this->current_user->gender) == 'femme' ? 'active btn-success' :null ?>">Femme</a>
+                                        <input class="" name="gender" id="gender" type="hidden" value="{{ gender:value }}"/>   
+                                    </div>  
+                            </div>  
+                            
+                            <p class="msgBox alert alert-warning" style="display:none"> <i class="close">×</i>
+                                <span> </span>
+                            </p>   
+                        </div>   
+                             
+                        <p class="profile_fields-txt alert alert-warning"> <i class="close">×</i>
                                 Vous pouvez modifier les informations qui apparraissent ci-dessous en 
                                 <a href="{{url:site}}edit-profile">modifiant votre profil</a>
-                            </p>
+                        </p> 
 
-                        <div id="appt-gender">
-                                <label for="gender">Civilité :</label>
-                                <div class="gender_ui" > 
-                                    <a onclick="setField('gender', this);$('.field-mainden_name').slideUp()" data-value="h" class="btn btn-primary btn-sm <?= isset($this->current_user->gender) && strtolower($this->current_user->gender) == 'h' ? 'active' :null ?>">Homme</a>
-                                    <a onclick="setField('gender', this);$('.field-mainden_name').slideDown();$('.field-mainden_name input').val($('input[name=first_name]').val())" data-value="f" class="btn btn-primary btn-sm <?= isset($this->current_user->gender) && strtolower($this->current_user->gender) == 'f' ? 'active' :null ?>">Femme</a>
-                                    <input class="" name="gender" id="gender" type="hidden" value="{{ gender:value }}"/>   
-                                </div>  
-                            </div>  
-                        </div>  
-
-                        <div id="appt-patient">   
+                        <div id="appt-patient" class="hidden">   
                         <!--<h4>Vos coordonnées</h4>-->
-                            <div class="form-group">
+                            <div class="info form-group">
 
                                     <label for="last_name">Nom de famille </label>
                                     <div class="input">
@@ -53,7 +60,7 @@
                                     <div class="input">
                                             <input type="text" class="form-control" name="first_name" value="{{ first_name }}"  autocomplete="given-name">
                                     </div> 
-                                    <div class="field-mainden_name" style="display:"<?= isset($this->current_user->gender) && strtolower($this->current_user->gender) == 'h' ? 'none' :'block' ?>>
+                                    <div class="field-mainden_name" style="display:"<?= isset($this->current_user->gender) and strtolower($this->current_user->gender) == 'homme' ? 'none' :'block' ?>>
                                         <label for="maiden_name">Nom de jeune fille</label>
                                         <div class="input">
                                             <input type="text" class="form-control" name="maiden_name" value="{{ maiden_name }}" autocomplete="additional-name">
@@ -68,7 +75,7 @@
                                         <input type="text" class="form-control" aria-type="tel" name="mobile" value="{{ mobile }}"  autocomplete="tel-national">
                                     </div>             
                             </div>
-                            <div class="form-group"> 
+                            <div class="address form-group"> 
 
                                     <label for="area_name">Quartier</label>
                                     <div class="input">
@@ -89,8 +96,8 @@
                             <div class="form-group">    
                                     <label for="insurance">Avez-vous une mutuelle santé?</label>
                                         <div class="insurance_ui" >
-                                            <a onclick="setField('insurance', this)" class="btn btn-primary btn-sm <?= isset($this->current_user->insurance) && strtolower($this->current_user->insurance) == 'oui' ? 'active' :null ?>">Oui</a>
-                                            <a onclick="setField('insurance', this)" class="btn btn-primary btn-sm <?= isset($this->current_user->insurance) && strtolower($this->current_user->insurance) == 'non' ? 'active' :null ?>">Non</a>
+                                            <a onclick="setField('insurance', this)" class="btn btn-primary btn-sm <?= isset($this->current_user->insurance) && strtolower($this->current_user->insurance) == 'oui' ? 'active btn-success' :null ?>">Oui</a>
+                                            <a onclick="setField('insurance', this)" class="btn btn-primary btn-sm <?= isset($this->current_user->insurance) && strtolower($this->current_user->insurance) == 'non' ? 'active btn-success' :null ?>">Non</a>
                                             <input type="hidden" class="form-control" id="insurance" name="insurance" value="{{ insurance }}">
                                         </div>
                             </div>  

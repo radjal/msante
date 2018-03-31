@@ -56,15 +56,7 @@ $lang['appointments:default_view']		=	'Vue par défaut';
 $lang['appointments:address']		=	'Adresse';
 //$lang['appointments:delivery']		=	'Livraison';
 $lang['appointments:invoicing']		=	'Facturation';
-//form data model
-//$lang['appointments:products_info']		=	'Information';
-//$lang['appointments:products_qty']		=	'Quantité';
-//$lang['appointments:products_unit_price']		=	'Prix Unitaire';
-//$lang['appointments:products_price']		=	'Prix HT';
-//$lang['appointments:products_tax']		=	'Taxe';
-//$lang['appointments:products_final_price']		=	'Prix TTC';
-//$lang['appointments:products_line_price']		=	'ST HT';
-//$lang['appointments:products_line_total']		=	'ST TTC';
+//form data model 
 //details
 $lang['appointments:appointment_id']		=	'Id RDV';
 $lang['appointments:product_id']		=	'Id produit';
@@ -116,6 +108,7 @@ $lang['appointments:unit_litre']			=	'Au litre';
 //buttons
 $lang['appointments:custom_button']	=	'Custom Button';
 $lang['appointments:items']			=	'Rendez vous';
+$lang['appointments:doctor']			=	'Docteur';
 //fields
 $lang['appointments:user_id']	=	'Id utilisateur';
 $lang['appointments:doctor_id']	=	'Id practicien';
@@ -124,15 +117,17 @@ $lang['appointments:appointment_status']			=	'Statut RDV';
 $lang['appointments:total_pretax']			=	'Total HT';
 $lang['appointments:total_final']			=	'Total TTC';
 $lang['appointments:appointment_date']			=	'Date RDV';
-//$lang['appointments:appointment_date']			=	'Date livraison';
+$lang['appointments:birth_date']			=	'Date de naissance';
+$lang['appointments:gender']			=	'Sexe'; 
 $lang['appointments:appointment_time']			=	'Heure de RDV';
 $lang['appointments:message']			=	'Notes';
 $lang['appointments:log']			=	'Journal';
 $lang['appointments:payment_type']			=	'Type de paiement';
 $lang['appointments:payment_status']			=	'Statut paiement';
-$lang['appointments:other_person']			=	'Autre personne';
+$lang['appointments:for_user']			=	'Pour l\'utilisateur';
+$lang['appointments:insurance']			=	'Disposez vous d\'une mutuelle?';
+$lang['appointments:knows_doctor']			=	'Connaissez vous ce médecin?';
 
-//$lang['appointments:i_company']			=	'Société';
 $lang['appointments:maiden_name']			=	'Nom de jeune fille';
 $lang['appointments:first_name']			=	'Prénom';
 $lang['appointments:last_name']			=	'Nom de famille';
@@ -140,10 +135,9 @@ $lang['appointments:mobile']			=	'Mobile';
 $lang['appointments:phone']			=	'Téléphone';
 $lang['appointments:email']			=	'Courriel';
 $lang['appointments:address']			=	'Adresse';
-//$lang['appointments:i_street2']			=	'Adr. suite';
-$lang['appointments:town']			=	'Ville ';
 $lang['appointments:area_name']			=	'Quartier';
-//$lang['appointments:i_country']			=	'Pays';
+$lang['appointments:district']			=	'Commune';
+$lang['appointments:town']			=	'Ville ';
 
 //$lang['appointments:d_company']			=	'Société';
 //$lang['appointments:d_fullname']			=	'Nom livraison';

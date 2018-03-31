@@ -1,5 +1,5 @@
+<!-- subdomain patients.body -->
 {{ dev:empty_cache }}
-
 <div id="categories"> 
     <div class="text-center h3 titre-rdv"> 
         Prenez rendez vous avec votre professionnel de sant&eacute; 
@@ -84,7 +84,7 @@
 </div>
 {{# doctor:search_box #}} 
 <div id="doctor-search" class="">
-    <form method="get" action="{{url:site}}doctor">
+    <form method="post" action="{{url:site}}doctor">
         <div class="form-group searchbox-query">
             <div class="input-group">
                 <span class="input-group-addon">
@@ -119,7 +119,6 @@
         </div>
     </form>
 </div>
-
 
 {{# dessous gabarit des pages normales, sauf titre H2  #}}
 

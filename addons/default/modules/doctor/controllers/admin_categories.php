@@ -53,6 +53,8 @@ class Admin_categories extends Admin_Controller
             )
         );
         
+        // customizing headers
+        $extra['columns'] = array('id', 'parent_cat', 'speciality', 'doc_cat_image' );
         //entries_table($stream_slug, $namespace_slug, $pagination = null, $pagination_uri = null, $view_override = false, $extra = array())
         $this->streams->cp->entries_table('categories', 'doctor', 20, 'admin/doctor/categories/index', true, $extra);
     }

@@ -27,44 +27,49 @@ class Appointments extends Public_Controller
 		// Set the validation rules
 		$this->item_validation_rules = array(
 			array(
+				'field' => 'doctor_id',
+				'label' => lang('appointments:doctor_id'),
+				'rules' => 'trim|required'
+			),
+			array(
 				'field' => 'appointment_date',
 				'label' => lang('appointments:appointment_date'),
+				'rules' => 'trim|required'
+			),
+			array(
+				'field' => 'appointment_time',
+				'label' => lang('appointments:appointment_time'),
+				'rules' => 'trim|required'
+			),
+			array(
+				'field' => 'birth_date',
+				'label' => lang('appointments:birth_date'),
 				'rules' => 'trim|required'
 			),
 			array(
 				'field' => 'payment_type',
 				'label' => lang('appointments:payment_type'),
 				'rules' => ''
-			),
+			), 
 //			array(
-//				'field' => 'd_fullname',
-//				'label' => lang('appointments:d_fullname'),
-//				'rules' => 'required'
+//				'field' => 'maiden_name',
+//				'label' => lang('appointments:maiden_name'),
+//				'rules' => 'trim'
 //			),
-//			array(
-//				'field' => 'd_street1',
-//				'label' => lang('appointments:d_street1'),
-//				'rules' => 'required'
-//			),
-//			array(
-//				'field' => 'd_town',
-//				'label' => lang('appointments:d_town'),
-//				'rules' => 'required'
-//			),
-//			array(
-//				'field' => 'd_zipcode',
-//				'label' => lang('appointments:d_zipcode'),
-//				'rules' => 'required|max_length[10]'
-//			),
-			array(
-				'field' => 'maiden_name',
-				'label' => lang('appointments:maiden_name'),
-				'rules' => 'trim'
-			),
 			array(
 				'field' => 'address',
 				'label' => lang('appointments:address'),
 				'rules' => 'trim'
+			),
+			array(
+				'field' => 'area_name',
+				'label' => lang('appointments:area_name'),
+				'rules' => 'trim'
+			),
+			array(
+				'field' => 'district',
+				'label' => lang('appointments:district'),
+				'rules' => 'trim|required'
 			),
 			array(
 				'field' => 'town',
@@ -72,24 +77,30 @@ class Appointments extends Public_Controller
 				'rules' => 'trim|required'
 			),
 			array(
-				'field' => 'area_name',
-				'label' => lang('appointments:area_name'),
+				'field' => 'insurance',
+				'label' => lang('appointments:insurance'),
+				'rules' => 'trim'
+			),
+			array(
+				'field' => 'knows_doctor',
+				'label' => lang('appointments:knows_doctor'),
 				'rules' => 'trim'
 			),
 		);
 	}
 
+        public function index($segment1=0)
+        {
+            $this->set($segment1);
+//            $this->listing($segment1); 
+        }
 	/**
 	 * appointment form crud
 	 */
-	public function index($offset = 0)
+	public function set($offset = 0)
 	{   
             $this->template
-                    ->append_js('module::appointment.js')
-                    ->append_js('module::jscart.js')
-//                    ->append_js('module::relays.js')
-//                    ->append_js('module::paypal.js')
-//                    ->append_js('module::livraison.js')
+                    ->append_js('module::appointment.js') 
                     ->append_js('module::datepicker.js');   
            
             $this->load->model('token/token_m');
@@ -107,60 +118,50 @@ class Appointments extends Public_Controller
             $this->load->model('users/profile_m');
             
             $appointment = $this->appointments_m->newappointment();
-            $profile_data = $this->profile_m->get_profile();
-//            $cart = $this->appointments_m->get_cart($remove);
+            $profile_data = $this->profile_m->get_profile(); 
+            
+            // get doctor info
+            $this->load->model('doctor/doctor_m');
+            $doctor = isset($appointment->doctor_id) ? $this->doctor_m->get_doctor($appointment->doctor_id) : ' '; 
             
             // token check
             $token = $this->token_m->current_token();
-            
-//            if(!$cart) 
-//            {
-//                unset($cart);
-//                 $cart['total_price'] = 0;
-//                 $cart['total_taxed'] = 0;
-//                 $cart['products'] = array();
-//            }
-                      
-//            //set values of cart total
-//            $totals[0]['total_price'] = $cart['total_price'] ;
-//            $totals[0]['total_taxed'] = $cart['total_taxed'] ;
-//            $appointment->total_pretax = $cart['total_price'];
-//            $appointment->total_final = $cart['total_taxed']; 
-
+                
             // saving the appointment
             $this->form_validation->set_rules($this->item_validation_rules);
 //            redirect();
-                if(isset($_POST['appointmentSend']) )  // appointment sent
-//                if(isset($_POST['appointmentSend']) AND $appointment->total_final > 0)  // appointment sent
-                {   
-//                        if($appointment->total_final < $this->settings->min_appointment_amount) 
-//                        {
-//                                $this->session->set_flashdata('error', lang('appointments:min_amount_not_met'));
-//                                redirect('appointments');
-//                        }
+                if(isset($_POST['appointmentSend']) )  // appointment sent 
+                {    
+//                        
+                        if(!$appointment->doctor_id) 
+                        {
+                                $this->session->set_flashdata('error', 'No doctor ID');
+                                redirect('appointments');
+                        }
 
-//                        if(isset($_POST['_token'])) // for retro compatibility 
-//                        {
-//                                if($this->token_m->check_token($this->input->post('_token'), true ) === false) {
-//                                    // stop
-//                                    $this->session->set_flashdata('error', lang('appointments:token_error'));
-//                                    redirect('appointments');
-//                                }
-//                                                           
-//                                // if it got this far we can remove token
-//                                $this->token_m->kill_token($token); 
-//                                $this->token_m->delete_cookie_token($token); 
-//                        } 
+                        if(isset($_POST['_token'])) // for retro compatibility /@todo check if being used
+                        {
+                                if($this->token_m->check_token($this->input->post('_token'), true ) === false) {
+                                    // stop
+                                    $this->session->set_flashdata('error', lang('appointments:token_error'));
+                                    redirect('appointments');
+                                }
+                                                           
+                                // if it got this far we can remove token
+                                $this->token_m->kill_token($token); 
+                                $this->token_m->delete_cookie_token($token); 
+                        } 
                         
                         if ($this->form_validation->run())
                         {
                                 $noid = $this->appointments_m->save_appointment($appointment);
 //                                $noid = $this->appointments_m->save_appointment($appointment, $cart);
-                                if ($noid)
+                                if ($noid>0)
                                 {
                                         $this->session->set_flashdata('success', lang('appointments:saved_waiting'));
-                                        $this->_send_email('appointments-admin',$noid, $appointment, $this->current_user, $cart['products']);
-                                        $this->_send_email('appointments-patient', $noid, $appointment, $this->current_user, $cart['products'], $this->current_user->email);
+                                        $this->_send_email('appointments-admin', $noid, $appointment, $this->current_user);
+                                        $this->_send_email('appointments-patient', $noid, $appointment, $this->current_user, null, $this->current_user->email);
+//                                        $this->_send_email('appointments-doctor', $noid, $appointment, $this->current_user, null, $this->current_user->email);
                                         redirect("appointments/listing");
                                 } else {
                                     $this->session->set_flashdata('error', lang('appointments:error'));
@@ -176,6 +177,7 @@ class Appointments extends Public_Controller
 		$this->template
 			->title($this->module_details['name'], lang('appointments:create'))
 			->set('token', $token)
+			->set('doctor', $doctor)
 			->set('editable', true)
 			->set('profile', $profile_data)
 			->set('message', $msg)
@@ -191,13 +193,8 @@ class Appointments extends Public_Controller
 	 */
         public function view($oid) 
         {   
-            $this->template
-                    //->append_js('module::jscart.js')
-                    ->append_js('module::appointment.js')
-                    ->append_js('module::datepicker.js')
-//                    ->append_js('module::relays.js')
-//                    ->append_js('module::paypal.js')
-                    ->append_js('module::livraison.js');
+            $this->template 
+                    ->append_js('module::appointment.js'); 
             
             $msg='';
             $editable=false;
@@ -213,8 +210,12 @@ class Appointments extends Public_Controller
             if(!isset($appointment)) 
             {
                 $this->session->set_flashdata('error', lang('appointments:error').' no oid');
-                redirect('appointments/listing');
+//                redirect('appointments/listing');
             }
+            
+            /* get doctor info */
+            $this->load->model('doctor/doctor_m');
+            $doctor = $this->doctor_m->get_doctor($appointment->doctor_id);
             
             /* check if same user */
             if($appointment->user_id != $user->id)
@@ -224,56 +225,30 @@ class Appointments extends Public_Controller
             }
             
             $profile_data = $this->profile_m->get_profile();
-//            $cart = $this->appointments_m->get_cartdetails($oid);
-            
-//            foreach ($cart as $p => $p_details) {
-//               $cart[$p]['appointment_qty'] = $cart[$p]['product_qty'];
-//               $cart[$p]['input_html'] = $cart[$p]['appointment_qty'];
-//               $cart[$p]['line_total'] = $cart[$p]['final_price'];
-//               $cart[$p]['price'] = $cart[$p]['line_total'] / $cart[$p]['appointment_qty'];
-//               $cart[$p]['img_url'] = site_url().UPLOAD_PATH.'products/'.$cart[$p]['image_filename'];
-//               $cart[$p]['img_html'] = '<img src="'.$cart[$p]['img_url'].'" height="60"/>';
-//               $cart[$p]['description'] = '';
-//               $cart[$p]['line'] = $p+1;
-//            }
-            
-            //set values of cart total
-            $totals[0]['total_price'] = $appointment->total_pretax ;
-            $totals[0]['total_taxed'] = $appointment->total_final;
-            
-            //update allowed fields if no status
+                
+            //update selected fields if no status
             if(isset($_POST['appointmentSend']) AND empty($appointment->appointment_status)) 
             {
                  $this->form_validation->set_rules($this->item_validation_rules);
                     if ($this->form_validation->run())
                     {
-                        $update['appointment_date'] = $this->input->post('appointment_date');
+//                        $update['appointment_date'] = $this->input->post('appointment_date');
                         $update['message'] = $this->input->post('message');
                         //$update['log'] = $this->input->post('log');
                         $update['payment_type'] = !empty($this->input->post('payment_type')) ? $this->input->post('payment_type') : '';
                         $update['log'] = !empty($this->input->post('log')) ? $this->input->post('log')."\n".$appointment->log : $appointment->log ;
-                            $update['maiden_name'] = $this->input->post('maiden_name');
-                            $update['mobile'] = $this->input->post('mobile');
-                            $update['phone'] = $this->input->post('phone');
-                            $update['email'] = $this->input->post('email');
-                            $update['address'] = $this->input->post('address') ;
-                            //$update['i_street2'] = $this->input->post('i_street2');
+                            $update['maiden_name'] = $this->input->post('maiden_name'); 
                             $update['town'] = $this->input->post('town') ;
+                            $update['district'] = $this->input->post('district') ;
                             $update['area_name'] = $this->input->post('area_name') ;
-                                $update['d_fullname'] = $this->input->post('d_fullname');
-                                $update['d_mobile'] = $this->input->post('d_mobile');
-                                $update['d_phone'] = $this->input->post('d_phone');
-                                $update['d_mail'] = $this->input->post('d_mail');
-                                $update['d_street1'] = $this->input->post('d_street1') ;
-                                //$update['d_street2'] = $this->input->post('d_street2');
-                                $update['d_town'] = $this->input->post('d_town') ;
-                                $update['d_zipcode'] = $this->input->post('d_zipcode') ;
+                            $update['insurance'] = $this->input->post('insurance') ;
+                            $update['knows_doctor'] = $this->input->post('knows_doctor') ;
                                     
                         $update['updated_on'] = date( "Y-m-d H:i:s" );
                         if($this->appointments_m->update($oid, $update))
                         {
                             $this->session->set_flashdata('success', lang('appointments:modified'));                                        
-                            $this->_send_email('appointments-modified-admin',$oid, $update, $this->current_user, $cart);
+                            $this->_send_email('appointments-modified-admin',$oid, $update, $this->current_user);
                             redirect("appointments/view/$oid");
                         }
                     }
@@ -283,21 +258,22 @@ class Appointments extends Public_Controller
                     }        
                     
             }
-            
-
                 
-//            $cartlist['products'] = $cart;
+            //can user edit
             if(empty($appointment->appointment_status)) $editable =true;
+            //output formatting
+            $appointment->formatted_date = $this->appointments_m->datestr_to_day($appointment->appointment_date)
+                                    .' '. $this->appointments_m->datestr_to_month($appointment->appointment_date) ;
+            $appointment->formatted_time = $this->appointments_m->timestr_format($appointment->appointment_time) ;
             
             $this->template
 			->title($this->module_details['name'], lang('appointments:view'))
 			->set('token', '')
+			->set('doctor', $doctor)
 			->set('editable', $editable)
 			->set('message', $msg)
 			->set('profile', $profile_data)
-                        ->set('appointment', $appointment)
-			->set('carttotal', $totals)
-//			->set('cartlist', $cart)
+                        ->set('appointment', $appointment) 
 			->build('appointment');
         }
         
@@ -311,9 +287,18 @@ class Appointments extends Public_Controller
             {
                 redirect('users/login');
             }
+            $appointment = $this->appointments_m->get($oid);
+            //output formatting
+            $appointment->time_formatted = $this->appointments_m->timestr_format($appointment->appointment_time);
+            $appointment->date_formatted = $this->appointments_m->datestr_to_day($appointment->appointment_date);
+            $appointment->month = $this->appointments_m->datestr_to_month($appointment->appointment_date);
+            /* get doctor info */
+//            $this->load->model('doctor/doctor_m');
+//            $doctor = $this->doctor_m->get_doctor($appointment->doctor_id);
+            
             if(isset($_POST['appointmentDelete'])) 
             {
-                $appointment = $this->appointments_m->get($oid);
+//                $appointment = $this->appointments_m->get($oid);
                 if(empty($appointment->appointment_status) AND $appointment->user_id == $this->current_user->id) 
                 {
                     $this->appointments_m->soft_delete($oid); // keep in DB
@@ -328,20 +313,24 @@ class Appointments extends Public_Controller
                 redirect('rendez-vous');
             }            
             
+            
+            
             $this->template
 			->title($this->module_details['name'], ' delete appointment')
-			->build('delete');
+//			->set('doctor', $doctor)  
+			->set('doctor_id', $appointment->doctor_id)  
+			->build('delete',$appointment);
         }
         
         /**
          * erase cookie
          */
-        public function cancel_appointment() 
-        {       
-                $this->session->set_flashdata('success', lang('appointments:cart_cancelled'));
-                $appointment = $this->appointments_m->delete_cookie_cart();
-                redirect();
-        }
+//        public function cancel_appointment() 
+//        {       
+//                $this->session->set_flashdata('success', lang('appointments:cart_cancelled'));
+////                $appointment = $this->appointments_m->delete_cookie_cart();
+////                redirect();
+//        }
         
         /**
          * list appointments for user 
@@ -359,8 +348,8 @@ class Appointments extends Public_Controller
             }
 		// set the pagination limit
 		$limit = 20;
-		$where = '';
-		$sort = !empty($this->input->get('sort')) ? $this->input->get('sort') : 'id';
+//		$where = '';
+		$sort = !empty($this->input->get('sort')) ? $this->input->get('sort') : 'appointments_list.id';
 		$sortdir = !empty($this->input->get('sortdir')) ? $this->input->get('sortdir') : 'desc';
                 $offset = $offset < 2 ? 0 : ($offset-1) * $limit; 
 		
@@ -368,47 +357,35 @@ class Appointments extends Public_Controller
                 $svars = $this->input->post();
                 if(!empty($this->input->post('searchBtn')))
                 {
-
-//                    $svars = $this->input->post();
-                    $this->appointments_m->_set_search($svars);
-//                    
-//                    $appointment_date = $this->input->post('appointment_date');
-//                    $first_name = $this->input->post('first_name');
-//                    $last_name = $this->input->post('last_name');
-//                    $other_person = $this->input->post('other_person'); 
-//
-//                    if(!empty($appointment_date)) $this->db->like('appointment_date', $appointment_date, 'after');
-//                    if(!empty($first_name)) $this->db->like('first_name', $first_name);
-//                    if(!empty($last_name)) $this->db->like('last_name', $last_name);
-//                    if(!empty($other_person)) $this->db->like('other_person', $other_person);
-////                    if(!empty($slug)) $this->db->where('slug', $slug);
+                    $this->appointments_m->_set_search($svars); 
                 }
             
                 //get dataset
 		$items = $this->appointments_m->limit($limit)
+                        ->join('doctor_doctors', 'appointments_list.doctor_id = doctor_doctors.id')
+                        ->join('doctor_categories', 'doctor_doctors.doctor_cat = doctor_categories.id', 'left')
 			->offset($offset)
-                        ->where($where."user_id = ".$this->current_user->id)
+                        ->select('appointments_list.*')
+                        ->select('doctor_doctors.id AS doc_id,  doctor_doctors.name AS doc_name,  doctor_doctors.image AS doc_img')
+                        ->select('doctor_categories.speciality AS doc_speciality')
+                        ->where("appointments_list.user_id = ".$this->current_user->id)
                         ->order_by($sort, $sortdir)
 			->get_all();
 			
-                //format date strings
+                //format date and time strings
                 $ic = 0;
                 foreach ( $items as $appt ) 
                 { 
                     $items[$ic]->short_dayname = $items[$ic]->appointment_date;
-                    $appt->short_dayname = $this->appointments_m->str_to_day($appt->appointment_date);
+                    $appt->time_formatted = $this->appointments_m->timestr_format($appt->appointment_time);
+                    $appt->date_formatted = $this->appointments_m->datestr_to_day($appt->appointment_date);
+                    $appt->month = $this->appointments_m->datestr_to_month($appt->appointment_date);
                     $ic++;
 //                     echo $this->appointments_m->format_appt_date($appointment->appointment_date); 
                 }
                 
 		// we'll do a quick check here so we can tell tags whether there is data or not
-		$items_exist = count($items) > 0;
-
-                // proper count for users
-//                    $this->appointments_m->_set_search($svars); 
-//                $query = $this->db->query('SELECT count(*) as count FROM default_appointments_list where ' . "user_id = ".$this->current_user->id);
-//                $row = $query->row();
-//                $count =  $row->count;
+		$items_exist = count($items) > 0; 
                 
                 $count=  $this->appointments_m->_search_result_count($svars)[0]->count;
 		// we're using the pagination helper to do the pagination for us. Params are: (module/method, total count, limit, uri segment)
@@ -547,10 +524,9 @@ class Appointments extends Public_Controller
 	{
 		$this->load->library('email');
 		$this->load->library('user_agent');
-                $from = Settings::get('server_email');
-                $to = $to === null ?  Settings::get('seller_email') : $to ;
-                $to = empty($to) ?  Settings::get('default_email') : $to ; // default to general site email
-                //$to = Settings::get('contact_email');
+                $from = Settings::get('server_email'); 
+                $to =  $to === null ?  Settings::get('default_email') : $to ; // default to general site email
+                $to = empty($to) ?  Settings::get('contact_email') : $to ;
                 
                 $params = array(
 							//'subject' => 'new appointment',

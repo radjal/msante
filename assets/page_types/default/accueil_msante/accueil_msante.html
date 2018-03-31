@@ -1,5 +1,6 @@
 {{ dev:empty_cache }}
-
+<!-- accueil msante page type -->
+{{if !custom:subdomain_value and page:is_home }} 
 <div id="categories"> 
     <div class="text-center h3 titre-rdv"> 
         Prenez rendez vous avec votre professionnel de sant&eacute; 
@@ -11,6 +12,8 @@
 </div>
 {{# doctor:search_box #}} 
 <div id="doctor-search" class="">
+                <!-- doctor search -->
+            <!--
     <form method="get" action="{{url:site}}doctor">
         <div class="form-group searchbox-query">
             <div class="input-group">
@@ -45,8 +48,10 @@
                 </button> 
         </div>
     </form>
+            -->
 </div>
 
+{{endif}}
 
 {{# dessous gabarit des pages normales, sauf titre H2  #}}
 

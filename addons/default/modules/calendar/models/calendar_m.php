@@ -65,6 +65,7 @@ class Calendar_m extends MY_Model {
 		$data['month_name'] = $months[$data['month_no']] ;
 		$data['year'] = date("Y") ;
 		$data['today'] = date("Y-m-d") ;    
+		$data['today_number'] = date("Ymd") ;    
 		$data['today_no'] = date("w") ;     
 		$data['today_day'] = date("j") ;    
 		$data['today_no_iso'] = date("N") ;    
@@ -95,17 +96,26 @@ class Calendar_m extends MY_Model {
 		$data['week_finish_month'] = $months[date('n', $end_date)];
 		$data['week_finish_month_no'] = date('n', $end_date); 
                 // first step/day for days of week
-                $data['week_dates_iso'][1]['date'] = date('Y-m-d', $dtstamp) ;
-                $data['week_dates_iso'][1]['day'] = date('j', $dtstamp); 
-                $data['week_dates_iso'][1]['dayname'] = $isodays[1] ;
-                $data['week_dates_iso'][1]['dayshortname'] = $isodaysshort[1] ; 
+//                $data['week_dates_iso'][1]['year'] = date('Y', $dtstamp) ;
+//                $data['week_dates_iso'][1]['month'] = date('m', $dtstamp) ;
+//                $data['week_dates_iso'][1]['day'] = date('j', $dtstamp); 
+//                $data['week_dates_iso'][1]['date'] = date('Y-m-d', $dtstamp) ;
+//                $data['week_dates_iso'][1]['dayname'] = $isodays[1] ;
+//                $data['week_dates_iso'][1]['dayshortname'] = $isodaysshort[1] ; 
                 // LOOP calcluate dates for each subsequent day of week
-                for ($i = 2; $i <= 7; $i++) {
-                    $dtstamp += 1*24*3600 ;// add a day
-                    $data['week_dates_iso'][$i]['date'] = date('Y-m-d', $dtstamp ) ;
-                    $data['week_dates_iso'][$i]['day'] = date('j', $dtstamp ) ; 
+                for ($i = 1; $i <= 7; $i++) {
+                    $data['week_dates_iso'][$i]['year'] = date('Y', $dtstamp) ;
+                    $data['week_dates_iso'][$i]['month'] = date('m', $dtstamp) ;
+                    $data['week_dates_iso'][$i]['day'] = date('j', $dtstamp); 
+                    $data['week_dates_iso'][$i]['date'] = date('Y-m-d', $dtstamp) ;
+                    $data['week_dates_iso'][$i]['datenumber'] = date('Ymd', $dtstamp) ;
                     $data['week_dates_iso'][$i]['dayname'] = $isodays[$i] ;
-                    $data['week_dates_iso'][$i]['dayshortname'] = $isodaysshort[$i] ;
+                    $data['week_dates_iso'][$i]['dayshortname'] = $isodaysshort[$i] ; 
+                    $dtstamp += 1*24*3600 ;// add a day
+//                    $data['week_dates_iso'][$i]['date'] = date('Y-m-d', $dtstamp ) ;
+//                    $data['week_dates_iso'][$i]['day'] = date('j', $dtstamp ) ; 
+//                    $data['week_dates_iso'][$i]['dayname'] = $isodays[$i] ;
+//                    $data['week_dates_iso'][$i]['dayshortname'] = $isodaysshort[$i] ;
                 }
                 
                 $data['isodays'] = $isodays;

@@ -49,15 +49,12 @@
 			            	<input type="password" id="password" name="password" maxlength="20" class="form-control" />
 			            </div>
 		          	</div>
-
+<!--
 		          	<div class="form-group">
-						
-			            	
 			            <label class="control-label" >
                                         <?php echo form_checkbox('remember', '1', FALSE); ?>
                                         <?php echo lang('user:remember'); ?></label>
-
-		          	</div>
+		          	</div>-->
 
 		          	<div align="center" class="form-actions">
                                     <div>
@@ -66,9 +63,9 @@
                                     <div>
                                         <?php echo anchor('users/reset_pass', lang('user:reset_password_link'), 'class="btn btn-link"'); ?> 
                                     </div>
-                                    <div>
+<!--                                    <div>
                                         <?php echo anchor('register', lang('user:register_btn'), 'class="btn btn-link"'); ?></a> 
-                                    </div>
+                                    </div>-->
 	          		</div>
 
                             </fieldset>

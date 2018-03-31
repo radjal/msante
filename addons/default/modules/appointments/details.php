@@ -2,7 +2,7 @@
 
 class Module_Appointments extends Module {
 
-	public $version = '0.1.20';
+	public $version = '0.1.21';
 
 	public function info()
 	{
@@ -56,15 +56,7 @@ class Module_Appointments extends Module {
                                                             'type' => 'INT',
                                                             'constraint' => '11',
                                                             'default' => 0
-                                                            ),
-//						'name' => array(
-//                                                            'type' => 'VARCHAR',
-//                                                            'constraint' => '100'
-//                                                            ),
-//						'slug' => array(
-//                                                            'type' => 'VARCHAR',
-//                                                            'constraint' => '100'
-//                                                            ),
+                                                            ), 
 						'appointment_status' => array(
                                                             'type' => 'VARCHAR',
                                                             'constraint' => '100',
@@ -109,12 +101,17 @@ class Module_Appointments extends Module {
                                                             'constraint' => '60',
                                                             'default' => '',
                                                             ),								
+						'birth_date' => array(
+                                                            'type' => 'VARCHAR',
+                                                            'constraint' => '12',
+                                                            'default' => '',
+                                                            ),		
 						'gender' => array(
                                                             'type' => 'VARCHAR',
                                                             'constraint' => '10',
                                                             'default' => '',
                                                             ),		
-						'other_person' => array(
+						'for_user' => array(
                                                             'type' => 'VARCHAR',
                                                             'constraint' => '3',
                                                             'default' => 'no'
@@ -127,23 +124,32 @@ class Module_Appointments extends Module {
                                                 'phone' => array(
                                                             'type' => 'VARCHAR',
                                                             'constraint' => '20',
-                                                            'default' => '',
+                                                             'default' => null,                                                     
+                                                            'null' => TRUE
                                                             ),
 					 	 'mobile' => array(
                                                              'type' => 'VARCHAR',
                                                              'constraint' => '20',
-                                                             'default' => '',
+                                                             'default' => null,                                                     
+                                                            'null' => TRUE
                                                              ),
 						 'email' => array(
                                                              'type' => 'VARCHAR',
                                                              'constraint' => '80',
-                                                             'default' => '',
+                                                             'default' => null,                                                     
+                                                            'null' => TRUE
                                                              ), 
 						'address' => array(
                                                             'type' => 'VARCHAR',
                                                             'constraint' => '250',
-                                                            'default' => '',
+                                                             'default' => null,                                                     
+                                                            'null' => TRUE
                                                             ), 
+						'district' => array(
+                                                            'type' => 'VARCHAR',
+                                                            'constraint' => '120',
+                                                            'default' => '',
+                                                            ),
 						'town' => array(
                                                             'type' => 'VARCHAR',
                                                             'constraint' => '120',
@@ -153,16 +159,24 @@ class Module_Appointments extends Module {
                                                             'type' => 'VARCHAR',
                                                             'constraint' => '100',
                                                             'default' => '',
-                                                            ), 
+                                                            ),  
+						'insurance' => array(
+                                                            'type' => 'VARCHAR',
+                                                            'constraint' => '120',
+                                                             'default' => null,                                                     
+                                                            'null' => TRUE
+                                                            ),
 						'payment_type' => array(
                                                             'type' => 'VARCHAR',
                                                             'constraint' => '100',
-                                                            'default' => '',
+                                                             'default' => null,                                                     
+                                                            'null' => TRUE
                                                             ),
 						'payment_status' => array(
                                                             'type' => 'VARCHAR',
                                                             'constraint' => '100',
-                                                            'default' => '',
+                                                             'default' => null,                                                     
+                                                            'null' => TRUE
                                                             ),
 						'total_pretax' => array(
                                                             'type' => 'VARCHAR',
@@ -174,6 +188,10 @@ class Module_Appointments extends Module {
                                                             'constraint' => '11',
                                                             'default' => 0,
                                                             ),	
+						'log' => array(
+                                                            'type' => 'TEXT',
+                                                            'null' => TRUE
+                                                            ),
                                                         'ip' => array(
                                                              'type' => 'VARCHAR',
                                                              'constraint' => '255',
@@ -186,12 +204,12 @@ class Module_Appointments extends Module {
                                                              ),
 						'created_on' => array(
                                                             'type'       => 'datetime',
-                                                            'default'    => '1970-01-01 00:00:01',
+                                                            'default'    => '1970-01-01 00:00:00',
                                                             'null' => TRUE
                                                             ),
 						'updated_on' => array(
                                                             'type'       => 'datetime',
-                                                            'default'    => '1970-01-01 00:00:01',
+                                                            'default'    => '1970-01-01 00:00:00',
                                                             'null' => TRUE
                                                             ),
 						);
@@ -214,12 +232,12 @@ class Module_Appointments extends Module {
                                                                  ), 
 						'created_on' => array(
                                                                 'type'       => 'datetime',
-                                                                'default'    => '1970-01-01 00:00:01',
+                                                                'default'    => '1970-01-01 00:00:00',
                                                                 'null' => TRUE
                                                                 ),
 						'updated_on' => array(
                                                                 'type'       => 'datetime',
-                                                                'default'    => '1970-01-01 00:00:01',
+                                                                'default'    => '1970-01-01 00:00:00',
                                                                 'null' => TRUE
                                                                 ),
 						);
@@ -236,31 +254,31 @@ class Module_Appointments extends Module {
                                             // 'is_required' => 1,
                                             // 'is_gui' => 1,
                                             // 'module' => 'appointments'
-                                // ), */
-                                array(
-                                            'slug' => 'off_period',
-                                            'title' => 'Période de fermeture',
-                                            'description' => 'Plage de date pour une période de fermeture des livraison Format: MM-JJ|MM-JJ *NOT WORKING*',
-                                            '`default`' => '12-24|12-25',
-                                            '`value`' => '',
-                                            'type' => 'text',
-                                            '`options`' => '',
-                                            'is_required' => 0,
-                                            'is_gui' => 1,
-                                            'module' => 'appointments'
-                                ),
-                                array(
-                                            'slug' => 'min_appointment_amount',
-                                            'title' => 'Montant minimum',
-                                            'description' => 'Montant minimum pour accepter un achat',
-                                            '`default`' => '0',
-                                            '`value`' => '',
-                                            'type' => 'text',
-                                            '`options`' => '',
-                                            'is_required' => 0,
-                                            'is_gui' => 1,
-                                            'module' => 'appointments'
-                                ) 
+                                // ), */ 
+//                                array(
+//                                            'slug' => 'off_period',
+//                                            'title' => 'Période de fermeture',
+//                                            'description' => 'Plage de date pour une période de fermeture des livraison Format: MM-JJ|MM-JJ *NOT WORKING*',
+//                                            '`default`' => '12-24|12-25',
+//                                            '`value`' => '',
+//                                            'type' => 'text',
+//                                            '`options`' => '',
+//                                            'is_required' => 0,
+//                                            'is_gui' => 1,
+//                                            'module' => 'appointments'
+//                                ),
+//                                array(
+//                                            'slug' => 'min_appointment_amount',
+//                                            'title' => 'Montant minimum',
+//                                            'description' => 'Montant minimum pour accepter un achat',
+//                                            '`default`' => '0',
+//                                            '`value`' => '',
+//                                            'type' => 'text',
+//                                            '`options`' => '',
+//                                            'is_required' => 0,
+//                                            'is_gui' => 1,
+//                                            'module' => 'appointments'
+//                                ) 
                 );
 
                 // email templates
@@ -421,13 +439,13 @@ class Module_Appointments extends Module {
                         }
                 }
                 
-                //upload dir
-		if( is_dir($this->upload_path.'appointments') OR @mkdir($this->upload_path.'appointments',0777,TRUE))
-		{
-			return TRUE;
-		}
+//                //upload dir
+//		if( is_dir($this->upload_path.'appointments') OR @mkdir($this->upload_path.'appointments',0777,TRUE))
+//		{
+//			return TRUE;
+//		}
                 
-                return false;
+                return true;
 	}
 
 	public function uninstall()

@@ -1,0 +1,28 @@
+id	created	updated	created_by	ordering_count	speciality	parent_cat
+1	10/3/2018 01:54:40		1	1	Médecins généralistes	
+2	10/3/2018 01:54:47	14/3/2018 22:49:06	1	2	Sage femme	5
+3	10/3/2018 01:54:53		1	3	ORL	
+4	10/3/2018 01:54:59		1	4	Cardiologue	
+5	10/3/2018 01:55:05		1	5	Spécialistes femme	
+6	10/3/2018 01:55:12		1	6	Dentiste	
+7	10/3/2018 01:55:17		1	7	Radiologue	
+8	10/3/2018 01:55:22		1	8	Autres médecins	
+9	10/3/2018 01:55:27		1	9	Etablissements de santé	
+10	15/3/2018 00:11:43		1	10	Chirurgien dentiste	6
+11	15/3/2018 00:11:58		1	11	Pédiatre	8
+12	15/3/2018 00:12:15		1	12	Gynécologue obstétrique ou médical	
+13	15/3/2018 00:12:24		1	13	Ostéopathe	
+14	15/3/2018 00:12:34		1	14	Pédicure – Podologue	
+15	15/3/2018 00:31:48		1	15	Sage – femme	5
+16	15/3/2018 00:31:56		1	16	Allergologue	3
+17	15/3/2018 00:32:02		1	17	Urologue	
+18	15/3/2018 00:32:09		1	18	Rhumatologue	
+19	15/3/2018 00:32:15		1	19	Endocrinologue	
+20	15/3/2018 00:32:26		1	20	Stomatologue	
+21	15/3/2018 00:32:33		1	21	Orthopédiste	
+22	15/3/2018 00:32:40		1	22	Diététicien	
+23	15/3/2018 00:32:46		1	23	Psychologue	
+24	15/3/2018 00:33:02		1	24	Psychiatre	
+25	15/3/2018 00:33:19		1	25	Neurologue	
+26	15/3/2018 00:33:30		1	26	Gastro-entérologue et hépatologue	
+27	15/3/2018 02:53:55		1	27	Médecin du sport	

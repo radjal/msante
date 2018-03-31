@@ -24,7 +24,7 @@
                                         <?php echo $this->html_m->table_header('doctor_id') ?> 
                                         <?php echo $this->html_m->table_header('first_name') ?> 
                                         <?php echo $this->html_m->table_header('last_name') ?> 
-                                        <?php echo $this->html_m->table_header('other_person') ?> 
+                                        <?php echo $this->html_m->table_header('for_user') ?> 
                                         <?php echo $this->html_m->table_header('address') ?> 
                                         <?php echo $this->html_m->table_header('area_name') ?> 
                                         <?php echo $this->html_m->table_header('town') ?> 
@@ -65,7 +65,7 @@
                                             -->
                                             <a href="/admin/appointments?searchBtn=Search&appointment_date=<?php echo $appointment->appointment_date; ?>">
                                                     <?php // echo  $appointment->appointment_date ?> 
-                                                    <?php  echo $this->appointments_m->str_to_day($appointment->appointment_date); ?>
+                                                    <?php  echo $this->appointments_m->datestr_to_day($appointment->appointment_date); ?>
                                             </a>
                                         </td> 
 					<td><?php echo  $appointment->appointment_time ; ?></td> 
@@ -90,7 +90,7 @@
                                             </a>
                                         </td> 
                                         <td>
-                                            <a href="/admin/appointments?searchBtn=Search&other_person=<?php echo $appointment->other_person ?>"><?php echo $appointment->other_person ?>
+                                            <a href="/admin/appointments?searchBtn=Search&for_user=<?php echo $appointment->for_user ?>"><?php echo $appointment->for_user ?>
                                             </a>
                                         </td> 
                                         <td><?php echo $appointment->address; ?></td>
@@ -135,7 +135,8 @@
                     <td class="actions">
 						<?php 
 						// echo anchor('appointments', lang('appointments:view'), 'class="button" target="_blank"');
-						echo anchor('admin/appointments/edit/'.$appointment->id, lang('appointments:edit'), 'class="button"');
+						
+                                                echo anchor('admin/appointments/edit/'.$appointment->id, lang('appointments:edit'), 'class="button"');
 						// echo anchor('admin/appointments/delete/'.$appointment->id, 	lang('appointments:delete'), array('class'=>'button')); 
                                                 ?>
 					</td>

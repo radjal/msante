@@ -43,7 +43,7 @@ if($disabled)  $disabled='disabled';
                             </li>		
 
                             <li class="<?php echo alternator('', 'even'); ?>">
-                                        <?php echo $this->html_m->form_input('other_person', $appointment->other_person, $disabled ); ?> 
+                                        <?php echo $this->html_m->form_input('for_user', $appointment->for_user, $disabled ); ?> 
                             </li>		
                             
                             <li class="<?php echo alternator('', 'even'); ?>">

@@ -53,7 +53,7 @@ class Appointments_m extends MY_Model
                 if(!empty($search['appointment_date'])) $this->db->like('default_appointments_list.appointment_date', $search['appointment_date'], 'after');
                 if(!empty($search['user_id'])) $this->db->like('default_appointments_list.user_id', $search['user_id'], 'after'); 
                 if(!empty($search['doctor_id'])) $this->db->like('default_appointments_list.doctor_id', $search['doctor_id'], 'after'); 
-                if(!empty($search['other_person'])) $this->db->where('default_appointments_list.other_person', $search['other_person']); 
+                if(!empty($search['for_user'])) $this->db->where('default_appointments_list.for_user', $search['for_user']); 
                 if(!empty($search['futur_past']) && $search['futur_past']=='futur' ) $this->db->where('default_appointments_list.appointment_date >=', date('Ymd', time())); 
                 if(!empty($search['futur_past']) && $search['futur_past']=='past' ) $this->db->where('default_appointments_list.appointment_date <=', date('Ymd', time())); 
         } 	
@@ -210,7 +210,9 @@ class Appointments_m extends MY_Model
             $appointment['appointment_time'] = $this->input->post('appointment_time');
 //            $appointment['log'] = $this->input->post('log');
             $appointment['payment_type'] = !empty($this->input->post('payment_type')) ? $this->input->post('payment_type') : '';
-            $appointment['payment_status'] = '';
+            $appointment['payment_status'] = ''; 
+            //doctor id
+            $appointment['doctor_id'] = !empty($this->input->post('doctor_id')) ? $this->input->post('doctor_id') : false ;
 			
 			// defaults adapt to pyro user custom fields 
 //                        $message        =  ($profile->info_acces != null AND empty($this->input->post('message')) )  ? $profile->info_acces : '';
@@ -229,7 +231,7 @@ class Appointments_m extends MY_Model
 			$area_name 	= $profile->area_name != null 	? $profile->area_name : ''; 		 
 			$insurance 	= $profile->insurance != null 	? $profile->insurance : ''; 		 
 //			$knows_doctor 	= $profile->knows_doctor != null 	? $profile->knows_doctor : ''; 		 
-//			$other_person 	= $profile->other_person != null 	? $profile->other_person : ''; 		 
+//			$for_user 	= $profile->for_user != null 	? $profile->for_user : ''; 		 
 			
 			// override with POST values 
 			$appointment['birth_date'] = empty($this->input->post('birth_date')) 	? $birth_date 	: $this->input->post('birth_date');
@@ -246,7 +248,7 @@ class Appointments_m extends MY_Model
 			$appointment['area_name'] = empty($this->input->post('area_name'))                      ? $area_name 	: $this->input->post('area_name') ;
 			$appointment['insurance'] = empty($this->input->post('insurance'))                      ? $insurance 	: $this->input->post('insurance') ;  
 			$appointment['knows_doctor'] = empty($this->input->post('knows_doctor'))                ? 'no'	: $this->input->post('knows_doctor') ;  
-			$appointment['other_person'] = empty($this->input->post('other_person'))                ? 'no' 	: $this->input->post('other_person') ;  
+			$appointment['for_user'] = empty($this->input->post('for_user'))                ? 'no' 	: $this->input->post('for_user') ;  
 					
 //                    $appointment['message'] = $this->input->post('message')."\n$message";
             
@@ -370,7 +372,7 @@ class Appointments_m extends MY_Model
          * @param str $datestr
          * @return str day short name
          */
-        public function str_to_day($datestr, $format='short') 
+        public function datestr_to_day($datestr, $format='short') 
         {
             if(is_object($datestr)) $datestr = get_object_vars ($datestr);
             
@@ -409,7 +411,7 @@ class Appointments_m extends MY_Model
             return $html;
         }
         
-        public function str_to_month($datestr) 
+        public function datestr_to_month($datestr, $addyear=true) 
         {
             if(is_object($datestr)) $datestr = get_object_vars ($datestr);
             
@@ -459,11 +461,16 @@ class Appointments_m extends MY_Model
                     break;
             }
             $html .= ' ';
-            $html .= date_format ($date,"Y");
+            $html .= $addyear ? date_format ($date,"Y") : '';
             return $html;
         }
         
-        
+        public function timestr_format($time)
+        {
+            $h = substr($time, 0,2);
+            $m = substr($time, 2);
+            return "$h:$m";
+        }
         
         
 //        /** add useful HTML to products array 

@@ -1,176 +1,5 @@
-/* mobile */
-.mobile #appointment-details input[type="radio"] {
-    margin-left: 20px;  
-    display: inline-flex; 
-    width:60px;
-    height:60px;
-}
-.mobile form label {
-    /* font-size: 40px; */
-}
-.mobile #appointment-cart table tr td ul li {
-    font-size: 36px;
-}
-.mobile #appointment-menu h3 a {
-    font-size: 24px;
-} 
-.mobile #appointment-cart table tbody tr td, 
-.mobile #appointment-cart table thead tr th {
-    font-size: 28px;
-}
-/* normal */
-#appointment-menu { 
-}
-#appointment-menu h3 a { 
-}
-#appointment-menu h3 a:hover {
-    text-decoration: underline;
-}
-#appointment-menu h3 {
-        display: inline;
-        margin: 0px 8px;
-        text-shadow: none;
-}
-.appointments-data td {
-    padding: 2px 6px;
-}
-#content-wrapper form.appointments-search {
-	
-    max-width: 804px;
-    margin: auto;
-}
-#content table tbody th, #content table tbody tr td {
-    padding: 4px 2px 8px 2px;
-    font-size: 16px;
-    /* margin: 2px; */
-}
-#content  div table tbody tr td a {
-    line-height: 2;
-    -webkit-appearance: none;
-    margin: 2px 0;
-    padding: 6px;
-    bappointment: none;
-    -webkit-bappointment-radius: 4px;
-    -moz-bappointment-radius: 4px;
-    bappointment-radius: 4px;
-    background-color: #f06723;
-    color: #fff;
-    bappointment: 1px #c74200 solid;
-}
-div.appointments-container, #appointment-form {max-width: 804px;margin: auto;}
-div.appointments {
-	    float: left;
-    margin: 10px;
-    width: 170px;
-    overflow: hidden;
-    padding: 10px;
-    background-color: white;
-    text-align: center;
-    font-size: 16px;
-    bappointment: #6B542A 1px solid;
-    -webkit-bappointment-radius: 4px;
-    -moz-bappointment-radius: 4px;
-    bappointment-radius: 4px;
-    height: 220px;
-}
-div.appointments input {
-	width: 60px;
-    margin: 4px 50px;
-}
-input.modified {
-background-color: #f4ffd2 !important;
-}
-div.cart.product {
-    width:100%;
-    clear:both;
-}
-#appointment-sections-menu {
-    
-    padding: 0;
-    margin: 0;
-}
-#appointment-sections-menu > li {
+#appointment-details .input {
     display: inline-block;
-    padding: 5px 10px;
-    font-size: 20px;
-}
-div.cart.product span.name {
-    float:left;
-}
-form label, span.input-label {
-    /* font-size: 18px; */
-    display: block;
-}
-#relays-list {
-    
-clear: both;
-}
-#jscart-relays {
-    clear: both;
-    margin-bottom: 20px;
-}
-div.cart.product input {
-    float:right;
-}
-#appointment-details > ul > li > label, #appointment-details > ul > li > div.input {
-    /* font-size: 20px; */
-}
-#appointment_button {
-    clear: both;
-}
-div.appointments-container table tbody tr td:nth-child(1) a:hover, #appointment-cart td a:hover,
-div.appointments-container table tbody tr td:nth-child(1) a:visited, #appointment-cart td a:visited,
-div.appointments-container table tbody tr td:nth-child(1) a:focus, #appointment-cart td a:focus,
-div.appointments-container table tbody tr td:nth-child(1) a:active, #appointment-cart td a:active { 
-    text-decoration: none;
-}
-div.appointments-container table tbody tr td:nth-child(1) a, #appointment-cart td a {
-    font-weight: bold;
-    margin: 0;
-    font-size: 16px;
-    padding: 0px 8px 4px 8px;
-    -webkit-appearance: none;
-    -moz-bappointment-radius: 4px;
-    -webkit-bappointment-radius: 4px;
-    bappointment-radius: 4px;
-    -moz-background-clip: padding;
-    -webkit-background-clip: padding;
-    background-clip: padding-box;
-    background: #dddddd;
-    background-image: -khtml-gradient(linear, left top, left bottom, from(#ffffff), to(#dddddd));
-    background-image: -moz-linear-gradient(#ffffff, #dddddd);
-    background-image: -ms-linear-gradient(#ffffff, #dddddd);
-    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #ffffff), color-stop(100%, #dddddd));
-    background-image: -webkit-linear-gradient(#ffffff, #dddddd);
-    background-image: -o-linear-gradient(#ffffff, #dddddd);
-    background-image: linear-gradient(#ffffff, #dddddd);
-    bappointment: 1px solid;
-    bappointment-color: #dddddd #bbbbbb #999999;
-    font-weight: bold;
-    /* color: #670714; */
-    float: none;
-    vertical-align: text-bottom;
-    text-align: center;
-}
-#appointment-cart table {
-    width: 100%;
-}
-#appointment-cart table tr td ul {}
-#appointment-cart table tr td ul {
-    float: right;
-}  
-#appointment-cart table tr td ul li {
-    display: inline;
-    font-size: 36px;
-    margin-right: 16px;
-} 
-.appointment h4 {
-    /* font-size: 22px; */
-    bappointment-top: solid 1px #f06723;
-    font-weight: bold;
-    margin-top: 16px;
-    clear: both;
-    padding: 10px 0;
 }
 #appointment-button-wrapper {
     clear: both;
@@ -183,18 +12,6 @@ div.appointments-container table tbody tr td:nth-child(1) a, #appointment-cart t
     width: 100%;
 } 
 
-#appointment-cart table tbody tr td, #appointment-cart table thead tr th {vertical-align: middle;padding: 4px 0px 8px 0px;font-size: 23px;text-align: left;line-height: 1;}
-#appointment-cart input.appointment_product {
-    
-bappointment: #f06723 1px dotted;
-    
-/* margin-top: 4px; */
-    
-width: 50px;
-    
-background-color: white;
-}
-
 #appointment-form ul li {
     
     list-style: none;
@@ -204,112 +21,27 @@ background-color: white;
 display: inline-flex; 
 }
 #appointment-details div textarea{
-    height: 60px;
-    /* background-color: white; */
-    /* color: #48000a; */
 }
 #appointment-extra {
-    font-size: small;
 }
 /*datepicker*/
-#delivery-times {}
-#delivery-times li {
-    font-size: small;
-}
-#delivery-times ol {
- margin:0;
-}
 #appointment-customised-datepicker input.tofill {
-    background-color: #ffefef;
 }
 #appointment-customised-datepicker label {
-    font-size: 18px;
 }
-/*relays*/
-#relays-list ol {
-    margin:0;
-    padding: 0;
-}
-#relays-list > ol > li:nth-child(1) h4 {
-    bappointment:0;
-}
-li.relay:hover {
-    background-color: #e8f3c9;
-}
-li.relay {
-    padding: 10px;
-}
-li.relay p {
-    line-height: 18px;
-}
-li.relay a {
-   /* display: inherit; */
-}
-.selected_relay {
-    background-color: #f2ffd7;
-    padding: 20px;
-}
-/*comments*/
-#content-wrapper #comments{
-    margin-top:20px;
-}
-#content-wrapper #comment{
-    min-height: 30px;
-    height: 30px;
-}
+
 #content-wrapper .search-field {
-    
-width: 140px;
-    
-display: inline-block;
-    
-margin-right: 10px;
-    
-padding-right: 10px;
 }
 /* print */
 @media only print
 {
-    div.appointments-container table tbody tr td:nth-child(1) > a {
-        display: none;
-    }
 }    
 /* responsive */
 @media only screen and (min-width: 825px)
 {
-    #appointment-details ul li {
-        width: 28%;
-        float: left;
-        margin: 2%;
-        /* clear: right; */
-        list-style: none;
-    }
 }    
 @media only screen and (min-width: 1025px)
-{
-    
-        #appointment-details input[type="radio"] {
-         margin-left: 20px;  
-        display: list-item; 
-        }
-        #appointment-details ul li {
-                width:31%;
-                float:left;
-                margin:1%;
-                /* list-style: none; */
+{ 
+        #appointment-details input[type="radio"] { 
         } 
-        #appointment-details > ul > li:nth-child(3) {
-            float: right;
-            
-        }
-        #appointment-details > ul > li:nth-child(4) {
-            width: 50%;
-            position: relative;
-            clear: both;
-        }
-        #appointment-patient {}
-        #appointment-delivery  {
-            clear: both;
-        }
-        #appointment-cart  {}  
 }

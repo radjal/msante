@@ -1,0 +1,17 @@
+{
+    "name": "MSanté patients",
+    "short_name": "MSanté",
+    "description": "MSanté patients, service de prise de rendez-vous",
+    "icons": [
+        {
+            "src": "./img/favicon144px.png",
+            "sizes": "144x144",
+            "type": "image/png",
+            "density": 1.0
+        }
+    ],
+    "theme_color": "#88c6de",
+    "background_color": "#dbe1e6",
+    "display": "standalone",
+    "start_url": "/?utm_source=web_app_manifest"
+}

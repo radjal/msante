@@ -28,16 +28,18 @@ class Doctor extends Public_Controller
      * @access	public
      * @return	void
      */
-    public function index($search=false, $category=false)
+    public function index($week=false)
     {        
+        $category = $this->input->post('c'); 
+        $search = $this->input->post('s'); 
+        
         $params = array(
             'stream' => 'doctors',
             'namespace' => 'doctor',
             'paginate' => 'yes'
         );
         
-        $category = $this->input->get('c'); 
-        $search = $this->input->get('s');
+        //joining table through ACTIVE RECORD
         $this->row_m->sql['join'][] = 'LEFT JOIN '.$this->db->protect_identifiers('doctor_categories', true).' ON '.$this->db->protect_identifiers('doctor_categories.id', true).' = '.$this->db->protect_identifiers('doctor_doctors.doctor_cat', true);
         $this->row_m->sql['join'][] = 'LEFT JOIN '.$this->db->protect_identifiers('doctor_organisations', true).' ON '.$this->db->protect_identifiers('doctor_organisations.id', true).' = '.$this->db->protect_identifiers('doctor_doctors.groupe', true);
 
@@ -78,7 +80,7 @@ class Doctor extends Public_Controller
         $this->load->model('calendar/calendar_m');
         // day periods calculation
         $day_periods = $this->calendar_m->periods_make_day();   
-        $cal_week=  $this->calendar_m->calculate_week(); 
+        $cal_week = $this->calendar_m->calculate_week($week); 
         //LOOP doctors 
         $weekArr = explode(',', 'lundi,mardi,mercredi,jeudi,vendredi,samedi,dimanche'); 
         $jours_ouverts= implode(',',$weekArr);  
@@ -230,12 +232,16 @@ class Doctor extends Public_Controller
         } 
         
         // Build the page
-            $this->template->title(lang('doctor:doctor'))
+            $this->template->title(lang('doctor:doctor') . ' - View')
 //                ->set('jsdata', $data)
                 ->set('cal_week', $cal_week)
                 ->build($template, $doctor);
     }
 
+    public function week($week_no) 
+    {
+        $this->index($week_no);
+    }
 }
 
 /* End of file doctor.php */

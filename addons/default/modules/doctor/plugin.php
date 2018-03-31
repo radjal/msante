@@ -72,11 +72,11 @@ class Plugin_Doctor extends Plugin
          */
         function search_box() 
         {
-            $search = $this->input->get('s');
-            $cat = $this->input->get('c'); 
+            $search = $this->input->post('s');
+            $cat = $this->input->post('c'); 
             
             $html = '<div id="doctor-search" class="">';
-                $html .= '<form method="get" action="'.  site_url().'doctor">' ;
+                $html .= '<form method="post" action="'.  site_url().'doctor">' ;
                     $html .= '<div class="form-group searchbox-query">';
                         $html .= '<div class="input-group">';
                             $html .= '<span class="input-group-addon"><a class="" onclick="cleanDocSearch()"><i class="glyphicon glyphicon-remove-circle"></i></a></span>';  

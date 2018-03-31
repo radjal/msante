@@ -9,6 +9,13 @@
         
     {{endif}}
 </div>
+                <center class="h5">
+                    Semaine {{ cal_week:week }} 
+                    <!--<a class="btn btn-default next-week" href="{{ url:site }}calendar/week/{{ cal_week:next_week_no }}/{{url:segments segment="4"}}">--> 
+                    <a class="btn btn-default next-week" href="{{ url:site }}doctor/week/{{ cal_week:next_week_no }}"> 
+                        <i class="glyphicon glyphicon-calendar"></i> semaine suivante<i class="glyphicon glyphicon-chevron-right"></i>
+                    </a>
+                </center>
 <div id="doctors-list">
 	<!--<h3>{{ helper:lang line="doctor:doctors" }}</h3>-->
 	<div class="h4 panel-body text-center" >
@@ -124,6 +131,7 @@
     <!--                            <p>
                             <strong>Prochaine disponibilités</strong> pour la semaine <?= $cal_week['week']; ?>  
                         </p>   -->
+                        
                         <div class="weekdays-nano center-block">
                             <?php $this->load->view('nano-calendar', $doc) ?> 
                         </div>

@@ -22,8 +22,8 @@
 
 // front-end
 $route['appointments(/:num)?']			= 'appointments/index$1';
-$route['appointments/paypal(/:num)?']			= 'appointments/paypal/index$1';
-$route['appointments/commandes(/:num)?']			= 'appointments/listing$1';
+//$route['appointments/paypal(/:num)?']			= 'appointments/paypal/index$1';
+//$route['appointments/commandes(/:num)?']			= 'appointments/listing$1';
 
 // admin
 $route['appointments/admin/list(/:any)?'] = 'admin_list$1';

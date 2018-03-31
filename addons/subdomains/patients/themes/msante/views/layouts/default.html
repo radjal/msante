@@ -2,6 +2,13 @@
 <html>
   <head>
         {{ theme:partial name="patients-meta" }}
+        {{if custom:subdomain_value and page:is_home }} 
+        <!-- no segment subdomain patients.layout --> 
+            <!-- home/css -->
+            {{ theme:partial name="home/css" }} 
+            <!-- home/js -->
+            {{ theme:partial name="home/js" }}  
+        {{endif}}
   </head> 
   {{#
   // note that to avoid logging the message << Plugin method "options" does not exist on class "Plugin_Theme". >>
@@ -16,19 +23,15 @@
 <div id="container" class="container"> 
     <div class="content">  
             {{ session:messages success="main alert alert-success alert-dismissable" notice="main alert alert-warning alert-dismissable" error="main alert alert-danger alert-dismissable" }}
-            {{if custom:subdomain_value and {url:segments segment="1"} =='' }} 
-                    {{if false}}
-                        <!-- home/js -->
-                        {{ theme:partial name="home/js" }}  
-                        <!-- home/css -->
-                        {{ theme:partial name="home/css" }} 
+            {{if custom:subdomain_value and page:is_home }} 
+                <!-- no segment subdomain patients.layout -->  
                         <!-- home/body --> 
-                        {{ theme:partial name="home/body" }}   
-                    {{endif}}
+                        {{ theme:partial name="home/body" }}    
             {{else}}
-                {{ theme:partial name="patients-breadcrumbs"}}  
-                {{ template:body }} 
+                <!-- has segment subdomain patients.layout --> 
             {{endif}}
+            {{ theme:partial name="patients-breadcrumbs"}}  
+            {{ template:body }} 
     </div> 
 </div>   
 

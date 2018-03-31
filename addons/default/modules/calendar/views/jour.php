@@ -1,7 +1,8 @@
-<?php 
-$this->load->view('jour-doctor');
+<?php   
+if($doctor_id>0) $this->load->view('jour-doctor') ;
 //morning or afternoon
-$show=$this->input->get('show');
+$show = !empty($this->uri->segment(5)) ? $this->uri->segment(5) : false; 
+//$show=$this->input->get('show');
 $show_am = strtolower($show)=='am' ? true : false ;
 $show_pm = strtolower($show)=='pm' ?  true : false ;
 //style display attribute
@@ -16,6 +17,11 @@ $show_pm_attr =   !$show_am && $show_pm ? 'block' : 'none' ;
     {{# helper:date format="m Y" timestamp=jourdate #}} 
     <!--  {{ jour }} {{journo}}  {{jourdate}} {{data:month_name}} {{data:year}}--> 
 </center>
+{{if datenumero <= data:today_number }}
+<h3 class="alert alert-danger text-center">
+    Cette date est passée
+</h3>
+{{else}}
 <div id="weekday-wrapper" class="jour ">
     <div id="weekday"> 
 
@@ -25,10 +31,10 @@ $show_pm_attr =   !$show_am && $show_pm ? 'block' : 'none' ;
 
         <center class="h3">
             <button id="btn-am" class="btn btn-default <?= $show_am ? 'active' : '' ?>" onclick="periodShow('am')" type="button">
-                <i class="glyphicon glyphicon-filter"></i> Matin
+                Matin
             </button>
             <button id="btn-pm"class="btn btn-default <?= $show_pm ? 'active' : '' ?>" onclick="periodShow('pm')" type="button">
-                <i class="glyphicon glyphicon-filter"></i> Après midi
+                Après midi
             </button>
         </center>
 
@@ -58,7 +64,7 @@ $show_pm_attr =   !$show_am && $show_pm ? 'block' : 'none' ;
                                 }
                                 if(isset($periods['appointment']) && count($periods['appointment'])>0 )
                                 {   
-                                    $class .= ' has_appt';
+                                    $class .= ' has_appt disabled';
                                     $appts_total += count($periods['appointment']);
                                     $html .= $this->calendar_m->html_caldots($periods['appointment']) ; 
                                 } 
@@ -66,10 +72,10 @@ $show_pm_attr =   !$show_am && $show_pm ? 'block' : 'none' ;
                                 if($periods['break'] !== 'true' && !$break_passed) 
                                 { 
                                     $html_pre_break .=   '<div class="col-xs-4 cols-sm-1" >'
-                                                    . '<button class="break-pre btn btn-default '.$class.'" onclick="setTime('.$periods['dt'].')">'.$html.'</button>'
+                                                    . '<button class="break-pre btn btn-default '.$class.'" onclick="setTime('.$periods['dt'].');$(\'.calendar-jour button\').removeClass(\'active\');$(this).addClass(\'active\');">'.$html.'</button>'
                                             . '</div>';   
                                 } else if($periods['break'] !== 'true' && $break_passed) {
-                                    $html_post_break .=  '<div class="col-xs-4 cols-sm-1" ><button class="break-post btn btn-default '.$class.'" onclick="setTime('.$periods['dt'].')">'.$html.'</button></div>' ; 
+                                    $html_post_break .=  '<div class="col-xs-4 cols-sm-1" ><button class="break-post btn btn-default '.$class.'" onclick="setTime('.$periods['dt'].');$(\'.calendar-jour button\').removeClass(\'active\');$(this).addClass(\'active\');">'.$html.'</button></div>' ; 
                                 }
                                 //final render 
                                 //----------
@@ -90,3 +96,5 @@ $show_pm_attr =   !$show_am && $show_pm ? 'block' : 'none' ;
   </div> 
  
 <?php $this->load->view('jour-form') ?> 
+
+{{endif}}

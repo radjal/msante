@@ -84,7 +84,7 @@ class Module_Doctor extends Module
  
         // Create image folder
         $this->load->library('files/files');
-        $imgfolder = Files::create_folder(0, 'Doctors module');
+        $imgfolder = Files::create_folder(0, 'Doctor images');
         
         // Add some fields
         if(1)
@@ -92,13 +92,22 @@ class Module_Doctor extends Module
                     $fields = array(
                         //doctors
                         array(
+                            'name' => 'Practicien validé',
+                            'slug' => 'validated',
+                            'namespace' => 'doctor',
+                            'type' => 'text',
+                            'extra' => array('max_length' => 3), //yes|no
+                            'assign' => 'doctors',
+                            'required' => true 
+                        ), 
+                        array(
                             'name' => 'Nom du practicien',
                             'slug' => 'name',
                             'namespace' => 'doctor',
                             'type' => 'text',
                             'extra' => array('max_length' => 200),
                             'assign' => 'doctors',
-                            'required' => false 
+                            'required' => true 
                         ), 
                         array(
                             'name' => 'Jours ouverts',
@@ -111,49 +120,104 @@ class Module_Doctor extends Module
                                         4 : jeudi
                                         5 : vendredi
                                         6 : samedi
-                                        0 : dimanche", 
+                                        7 : dimanche", 
                                         'choice_type' => 'checkboxes', 
                                         'default_value' => ''),
                             'assign' => 'doctors',
                             'required' => false,
                             'unique' => false
                         ),
+//                        array(
+//                            'name' => 'Heures d\'ouverture',
+//                            'slug' => 'hours',
+//                            'namespace' => 'doctor',
+//                            'type' => 'text',
+//                            'extra' => array('max_length' => 200),
+//                            'assign' => 'doctors',
+//                            'required' => false 
+//                        ),
                         array(
-                            'name' => 'Heures d\'ouverture',
-                            'slug' => 'hours',
+                            'name' => 'Paramètres semaine',
+                            'slug' => 'week_settings',
                             'namespace' => 'doctor',
                             'type' => 'text',
+                            'extra' => array('max_length' => 10),// encapsed object of settings for each day of the week, use JSON or PHP 
+                            'assign' => 'doctors',
+                            'required' => false 
+                        ),
+                        array(
+                            'name' => 'Début de vacance',
+                            'slug' => 'vacation_start',
+                            'namespace' => 'doctor',
+                            'type' => 'text',
+                            'extra' => array('max_length' => 10),// yyyymmdd
+                            'assign' => 'doctors',
+                            'required' => false 
+                        ),
+                        array(
+                            'name' => 'Fin de vacance',
+                            'slug' => 'vacation_end',
+                            'namespace' => 'doctor',
+                            'type' => 'text',
+                            'extra' => array('max_length' => 10),// yyyymmdd
+                            'assign' => 'doctors',
+                            'required' => false 
+                        ), 
+                        array(
+                            'name' => 'Téléphone',
+                            'slug' => 'telephone',
+                            'namespace' => 'doctor',
+                            'type' => 'text',
+                            'assign' => 'doctors',
+                            'extra' => array('max_length' => 20),
+                            'required' => false
+                        ),
+                        array(
+                            'name' => 'Mobile',
+                            'slug' => 'mobile',
+                            'namespace' => 'doctor',
+                            'type' => 'text',
+                            'assign' => 'doctors',
+                            'extra' => array('max_length' => 20),
+                            'required' => false
+                        ),
+                        array(
+                            'name' => 'Email',
+                            'slug' => 'email',
+                            'namespace' => 'doctor',
+                            'type' => 'text',
+                            'assign' => 'doctors',
+                            'extra' => array('max_length' => 160),
+                            'required' => false
+                        ),
+                        array(
+                            'name' => 'Adresse',
+                            'slug' => 'address',
+                            'namespace' => 'doctor',
+                            'type' => 'text',
+                            'assign' => 'doctors',
                             'extra' => array('max_length' => 200),
-                            'assign' => 'doctors',
-                            'required' => false 
+                            'required' => false
                         ),
                         array(
-                            'name' => 'Ouverture',
-                            'slug' => 'opens',
+                            'name' => 'Quartier',
+                            'slug' => 'area_name',
                             'namespace' => 'doctor',
                             'type' => 'text',
-                            'extra' => array('max_length' => 10),
                             'assign' => 'doctors',
-                            'required' => false 
+                            'extra' => array('max_length' => 200),
+                            'required' => false
                         ),
                         array(
-                            'name' => 'Fermeture',
-                            'slug' => 'closes',
+                            'name' => 'Ville',
+                            'slug' => 'town',
                             'namespace' => 'doctor',
                             'type' => 'text',
-                            'extra' => array('max_length' => 10),
                             'assign' => 'doctors',
-                            'required' => false 
+                            'extra' => array('max_length' => 200),
+                            'required' => false
                         ),
-                        array(
-                            'name' => 'RDV Max Jour(30")',
-                            'slug' => 'max_per_day',
-                            'namespace' => 'doctor',
-                            'type' => 'text',
-                            'extra' => array('max_length' => 2),
-                            'assign' => 'doctors',
-                            'required' => false 
-                        ),
+                        //extras
                         array(
                             'name' => 'Description',
                             'slug' => 'description',
@@ -163,52 +227,40 @@ class Module_Doctor extends Module
                             'required' => false
                         ),
                         array(
-                            'name' => 'Téléphone',
-                            'slug' => 'telephone',
+                            'name' => 'Informations d\'accès',
+                            'slug' => 'access',
                             'namespace' => 'doctor',
                             'type' => 'text',
                             'assign' => 'doctors',
+                            'extra' => array('max_length' => 200),
                             'required' => false
                         ),
                         array(
-                            'name' => 'Mobile',
-                            'slug' => 'mobile',
+                            'name' => 'Langues parlées',
+                            'slug' => 'languages',
                             'namespace' => 'doctor',
                             'type' => 'text',
                             'assign' => 'doctors',
+                            'extra' => array('max_length' => 200),
                             'required' => false
                         ),
                         array(
-                            'name' => 'Email',
-                            'slug' => 'email',
+                            'name' => 'Formation',
+                            'slug' => 'diploma',
                             'namespace' => 'doctor',
                             'type' => 'text',
                             'assign' => 'doctors',
+                            'extra' => array('max_length' => 200),
                             'required' => false
                         ),
                         array(
-                            'name' => 'Adresse',
-                            'slug' => 'address',
+                            'name' => 'Tarifs et mutuelle',
+                            'slug' => 'fees',
                             'namespace' => 'doctor',
                             'type' => 'text',
                             'assign' => 'doctors',
-                            'required' => true
-                        ),
-                        array(
-                            'name' => 'Quartier',
-                            'slug' => 'area_name',
-                            'namespace' => 'doctor',
-                            'type' => 'text',
-                            'assign' => 'doctors',
-                            'required' => true
-                        ),
-                        array(
-                            'name' => 'Ville',
-                            'slug' => 'town',
-                            'namespace' => 'doctor',
-                            'type' => 'text',
-                            'assign' => 'doctors',
-                            'required' => true
+                            'extra' => array('max_length' => 200),
+                            'required' => false
                         ),
                         array(
                             'name' => 'Image docteur',
@@ -216,7 +268,7 @@ class Module_Doctor extends Module
                             'namespace' => 'doctor',
                             'type' => 'image',
                              'extra' => array('folder' => $imgfolder['data']['id'], 'required' => FALSE), // use id of folder created with core files modules
-                            'assign' => 'doctors',
+                            'assign' => 'doctors', 
                             'required' => false
                         ),
                         //category link
@@ -239,15 +291,15 @@ class Module_Doctor extends Module
                             'required' => true,
                             'unique' => true
                         ),
-//                        array(
-//                            'name' => 'Domain id',
-//                            'slug' => 'domain_id',
-//                            'namespace' => 'doctor',
-//                            'type' => 'text',
-//                            'assign' => 'categories',
-//                            'required' => false,
-//                            'hidden' => true
-//                        ),
+                        array(
+                            'name' => 'Image catégorie',
+                            'slug' => 'doc_cat_image',
+                            'namespace' => 'doctor',
+                            'type' => 'image',
+                             'extra' => array('folder' => $imgfolder['data']['id'], 'required' => FALSE), // use id of folder created with core files modules
+                            'assign' => 'categories', 
+                            'required' => false
+                        ), 
                         array(
                             'name' => 'Catégorie parente',
                             'slug' => 'parent_cat',
@@ -291,30 +343,110 @@ class Module_Doctor extends Module
         //update
         $this->streams->fields->add_fields($fields);
         //admin views
-        $this->streams->streams->update_stream('doctors', 'doctor', array(
-            'view_options' => array(
-//                'id',
-                'days',
-                'description',
-                'groupe',
-                'doctor_cat'
-            )
-        )); 
-        $this->streams->streams->update_stream('categories', 'doctor', array(
-            'view_options' => array(
-//                'id',
-                'parent_cat',
-                'speciality',
-            )
-        ));
-        $this->streams->streams->update_stream('organisations', 'doctor', array(
-            'view_options' => array(
-//                'id',
-                'organisation', 
-                'subset', 
-            )
-        ));
+        if(1){
+            $this->streams->streams->update_stream('doctors', 'doctor', array(
+                'view_options' => array(
+    //                'id',
+                    'days',
+                    'description',
+                    'groupe',
+                    'doctor_cat'
+                )
+            )); 
+            $this->streams->streams->update_stream('categories', 'doctor', array(
+                'view_options' => array(
+    //                'id',
+                    'parent_cat',
+                    'speciality',
+                )
+            ));
+            $this->streams->streams->update_stream('organisations', 'doctor', array(
+                'view_options' => array(
+    //                'id',
+                    'organisation', 
+                    'subset', 
+                )
+            )); 
+            
+        }
+        //module settings
+        if(1){ 
+        $doctor_settings = array(
+                        array(
+                                    'slug' => 'days_open',
+                                    'title' => 'Jours ouverts',
+                                    'description' => 'Les jours d\'ouverture (Non implementé)',
+                                    'default' => '1',
+                                    'value' => '1,2,3,4,5',
+                                    'type' => 'checkbox',
+                                    '`options`' => '1=Lundi|2=Mardi|3=Mercredi|4=Jeudi|5=Vendredi|6=Samedi|7=Dimanche',
+                                    'is_required' => 1,
+                                    'is_gui' => 1,
+                                    'module' => 'doctor',
+                                    'order' => 660,
+                        ),
+                        array(
+                                    'slug' => 'opens',
+                                    'title' => 'Ouverture',
+                                    'description' => 'L\'heure d\'ouverture (Non implementé)',
+                                    'type' => 'text',
+                                    'default' => '0900',
+                                    'value' => '',
+                                    'options' => '',
+                                    'is_required' => 1,
+                                    'is_gui' => 1,
+                                    'module' => 'doctor',
+                                    'order' => 662,
+                        ),
+                        array(
+                                    'slug' => 'closes',
+                                    'title' => 'Fermeture',
+                                    'description' => 'L\'heure de fermeture. (Non implementé)',
+                                    'type' => 'text',
+                                    'default' => '1700',
+                                    'value' => '',
+                                    'options' => '',
+                                    'is_required' => 1,
+                                    'is_gui' => 1,
+                                    'module' => 'doctor',
+                                    'order' => 662,
+                        ),
+                        array(
+                                    'slug' => 'break_start',
+                                    'title' => 'Début de la pause',
+                                    'description' => 'L\'heure de début de la pause midi. (Non implementé)',
+                                    'type' => 'text',
+                                    'default' => '1200',
+                                    'value' => '',
+                                    'options' => '',
+                                    'is_required' => 1,
+                                    'is_gui' => 1,
+                                    'module' => 'doctor',
+                                    'order' => 662,
+                        ),
+                        array(
+                                    'slug' => 'break_stop',
+                                    'title' => 'Fin de la pause',
+                                    'description' => 'L\'heure de fin de la pause midi. (Non implementé)',
+                                    'type' => 'text',
+                                    'default' => '1400',
+                                    'value' => '',
+                                    'options' => '',
+                                    'is_required' => 1,
+                                    'is_gui' => 1,
+                                    'module' => 'doctor',
+                                    'order' => 662,
+                        ),
 
+        );
+        }
+        foreach ($doctor_settings as $setting)
+        {
+                if ( ! $this->db->insert('settings', $setting))
+                {
+                        return false;
+                }
+        }
         return true;
     }
 
@@ -330,7 +462,8 @@ class Module_Doctor extends Module
 
         // For this teardown we are using the simple remove_namespace
         // utility in the Streams API Utilties driver.
-        $this->streams->utilities->remove_namespace('doctor');
+        $this->streams->utilities->remove_namespace('doctor'); 
+        $this->db->delete('settings', array('module' => 'appointments')); 
 
         return true;
     }

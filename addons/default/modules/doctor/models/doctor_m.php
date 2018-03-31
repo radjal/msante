@@ -11,7 +11,7 @@ class Doctor_m extends MY_Model {
         
         public function get_doctor($doc_id=false)
         {
-            if($doc_id===false) $return;
+            if($doc_id == false) $return ;
             $res = $this->db->where('id', $doc_id)
                             ->get('doctor_doctors')
                             ->result_array();  

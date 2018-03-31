@@ -66,7 +66,7 @@ class Admin extends Admin_Controller
         );
         
         // customizing headers
-        $extra['columns'] = array('id', 'doctor_cat', 'groupe', 'name', 'days', 'opens', 'closes', 'address', 'area_name', 'town',);
+        $extra['columns'] = array('id', 'image', 'name', 'days', 'address', 'area_name', 'town',);
         
         $this->streams->cp->entries_table('doctors', 'doctor', 20, null, true, $extra);
     }

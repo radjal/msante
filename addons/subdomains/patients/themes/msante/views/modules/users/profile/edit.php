@@ -112,7 +112,8 @@
                             <div style="margin-top: 5%" class="form-actions">
 
 
-                            <?php echo form_submit('btnSubmit', lang('profile_save_btn'), 'class="btn btn-primary"'); ?>
+                            <?php // echo form_submit('btnSubmit', lang('profile_save_btn'), 'class="btn btn-primary"'); ?>
+                            <?php echo form_submit('btnSubmit', 'Enregistrer mon profil', 'class="btn btn-primary"'); ?>
                             </div>
                     </fieldset>
                     </div>

@@ -1,7 +1,8 @@
 <div id="appointment-extra">  DOCTOR
     		<ul>
 			<li class="<?php echo alternator('', 'even'); ?>">
-                            <?php echo $doctor['name']  ?> 
+                            <?php 
+                            echo $doctor['name']  ?> 
 			</li>
 			<li class="<?php echo alternator('', 'even'); ?>">
                             <?php echo $doctor['address']  ?> 

@@ -1,7 +1,7 @@
 <div id="message-sante">
     	{{ variables:message_sante }}
 </div> 
-<?php $this->load->view('doctor') ?> 
+<?php if($doctor_id>0) $this->load->view('doctor') ?> 
 <div class="post calendarsemaine">
         <div class="message_global">{{ data:msg_global }}</div>
 
