@@ -59,18 +59,7 @@ function doctorsMap()
                 title: xname
             }); 
         });
-    }
-    /* center and zoom */
-    // map - instance of google Map v3
-    // markers - array of Markers
-    /*
-    var bounds = google.maps.reduce(function(bounds, marker) {
-        return bounds.extend(marker.getPosition());
-    }, new google.maps.LatLngBounds());
-
-    map.setCenter(bounds.getCenter());
-    map.fitBounds(bounds);
-*/
+    } 
 }
 /**
  *  gets Google API JS and runs doctorMap on complete
@@ -155,6 +144,7 @@ function myPosition(position) {
      console.log('clean');
      $('.searchbox-query').removeClass('has-success'); 
      $('#doctor-search input[name=c]').val('').removeClass('set');
+     $('.titre-auto').hide();
     /*UX*/
 
     $('#categories').show();
@@ -166,8 +156,7 @@ function myPosition(position) {
      $('#doctor-search input[name=s]').val('').removeClass('set');
     /*UX*/ 
 //    $('.titre-auto').hide() ;
- }
-
+ } 
 
 $( document ).ready(function() 
 {    
@@ -183,6 +172,118 @@ $( document ).ready(function()
         $('.searchbox-query input, .searchbox-area input').on('focus', function(){ this.select(); });
         /* jquery autocomplete */
         $( function() {
+          var towns = [
+                        "Boffa",
+                        "Gaoual",
+                        "Boffa-Centre",
+                        "Colia",
+                        "Douprou",
+                        "Koba-Tatema",
+                        "Lisso",
+                        "Mankountan",
+                        "Tamita",
+                        "Tougnifili",
+                        "Boké-Centre",
+                        "Bintimodiya",
+                        "Dabiss",
+                        "Port Kamsar",
+                        "Kanfarandé",
+                        "Kolaboui",
+                        "Malapouyah",
+                        "Sangarédi",
+                        "Sansalé",
+                        "Tanéné",
+                        "Fria",
+                        "Gaoual centre",
+                        "Koumbia",
+                        "Kakoni",
+                        "Touba",
+                        "Foulamory",
+                        "Wendou M'Bour",
+                        "Kounsitel",
+                        "Malanta",
+                        "Koundara",
+                        "Conakry-centre",
+                        "Dixinn",
+                        "Kaloum",
+                        "Matam",
+                        "Ratoma",
+                        "Dabola-centre",
+                        "Dogomet",
+                        "Bissikrima",
+                        "Banko",
+                        "Konindou",
+                        "Kankama",
+                        "Arfamoussaya",
+                        "Ndéma",
+                        "Dinguiraye-Centre",
+                        "Banora",
+                        "Diatiféré",
+                        "Gagnakali",
+                        "Kalinko",
+                        "Lansanya",
+                        "Sélouma",
+                        "Dialakoro",
+                        "Faranah-centre",
+                        "Kissidougou-Centre",
+                        "Albadaria, Banama",
+                        "Bardou, Beindou",
+                        "Fermessadou-Pombo",
+                        "Firawa",
+                        "Gbangbadou",
+                        "Kondiadou",
+                        "Manfran",
+                        "Sangardo",
+                        "Yendé-Millimou",
+                        "Yombiro",
+                        "Kankan-centre",
+                        "Kérouané",
+                        "Kouroussa",
+                        "Mandiana-Centre",
+                        "Balandougouba",
+                        "Dialakoro",
+                        "Faralako",
+                        "Kantoumania",
+                        "Kiniéran",
+                        "Koundian",
+                        "Koundianakoro",
+                        "Morodou",
+                        "Niantania",
+                        "Saladou",
+                        "Sansando",
+                        "Siguiri-Centre",
+                        "Bankon",
+                        "Doko",
+                        "Franwalia",
+                        "Kiniébakoura",
+                        "Kintinian",
+                        "Maléa",
+                        "Naboun",
+                        "Niagassola",
+                        "Niandankoro",
+                        "Norassoba",
+                        "Siguirini",
+                        "Coyah",
+                        "Dubréka",
+                        "Forécariah",
+                        "Kindia",
+                        "Télimélé",
+                        "Koubia",
+                        "Labé",
+                        "Lélouma",
+                        "Mali",
+                        "Tougué",
+                        "Dalaba",
+                        "Mamou",
+                        "Pita",
+                        "Beyla",
+                        "Gueckedou",
+                        "Lola",
+                        "Macenta",
+                        "Nzérékoré",
+                        "Yomou",
+                  ""
+          ];
           var medicSpecialities = [
                   "Dentiste",
                   "Généraliste",
@@ -212,8 +313,12 @@ $( document ).ready(function()
                   "Gastro-entérologue et hépatologue"
           ];
           $( ".searchbox-query input" ).autocomplete({
-            source: medicSpecialities
+            source: medicSpecialities 
           });
+          $( ".searchbox-area input" ).autocomplete({
+            source: towns
+          });
+         
         } ); 
     //add functionality to specialities
     $('.ico-grp .specialite').each(function() {

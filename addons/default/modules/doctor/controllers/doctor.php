@@ -30,8 +30,8 @@ class Doctor extends Public_Controller
      */
     public function index($week=false)
     {        
-        $category = $this->input->post('c'); 
-        $search = $this->input->post('s'); 
+        $category = addslashes($this->input->post('c')); 
+        $search = addslashes($this->input->post('s')); 
         
         $params = array(
             'stream' => 'doctors',
@@ -42,7 +42,7 @@ class Doctor extends Public_Controller
         //joining table through ACTIVE RECORD
         $this->row_m->sql['join'][] = 'LEFT JOIN '.$this->db->protect_identifiers('doctor_categories', true).' ON '.$this->db->protect_identifiers('doctor_categories.id', true).' = '.$this->db->protect_identifiers('doctor_doctors.doctor_cat', true);
         $this->row_m->sql['join'][] = 'LEFT JOIN '.$this->db->protect_identifiers('doctor_organisations', true).' ON '.$this->db->protect_identifiers('doctor_organisations.id', true).' = '.$this->db->protect_identifiers('doctor_doctors.groupe', true);
-
+        //query params 
         if($search and $category)   
         { 
             $params['where'] = "default_doctor_doctors.name LIKE '%$search%' OR default_doctor_categories.speciality LIKE '%$category%' AND ( default_doctor_doctors.town LIKE '%$search%' OR default_doctor_doctors.area_name LIKE '$search%')" ;
@@ -54,12 +54,14 @@ class Doctor extends Public_Controller
         else if($search and !$category) 
         {
             $params['where'] = "default_doctor_doctors.name LIKE '%$search%' OR default_doctor_doctors.town LIKE '%$search%' OR default_doctor_doctors.area_name LIKE '$search%'" ;
-        }
-//        else if(!$search and !$category) 
+        } 
+//        if( isset($params['where']) )
 //        {
-//            $params['where'] = "default_doctor_doctors.name LIKE '%$search%'" ;
+//            $params['where'] = $params['where']." AND default_doctor_doctors.validated = 'yes'" ;
+//        } else 
+//        {
+//            $params['where'] = "default_doctor_doctors.validated = 'yes'"; 
 //        }
-        
         $data = new stdClass();
         $data->doctors = $this->streams->entries->get_entries($params);
 
@@ -67,13 +69,15 @@ class Doctor extends Public_Controller
         //open days as string for template usage 
         foreach ($data->doctors['entries'] as $key => $value) 
         {
-            $str='';
-            foreach ($data->doctors['entries'][$key]['days'] as $arr) {
-                $str .= $arr["value"] . ",";
-            }
-            $str = trim($str, ',');//removes the final comma 
-            $data->doctors['entries'][$key]['daysopenstr']=$str; 
+//            $str='';
+//            foreach ($data->doctors['entries'][$key]['days'] as $arr) {
+//                $str .= $arr["value"] . ",";
+//            }
+//            $str = trim($str, ',');//removes the final comma 
+//            $data->doctors['entries'][$key]['daysopenstr']=$str; 
+                $data->doctors['entries'][$key]['daysopenstr'] = $this->doctor_m->days_to_str($data->doctors['entries'][$key]['days']) ; 
         } 
+        
         
         /* calendar */
         $this->load->model('appointments/appointments_m');
@@ -130,9 +134,9 @@ class Doctor extends Public_Controller
         // Build the page
             $this->template->title(lang('doctor:doctors'))
 //                ->set('jsdata', $data)
-                ->set('search', $search)
+                ->set('search', stripslashes($search))
                 ->set('doc_count', $dcount)
-                ->set('category', $category)
+                ->set('category', stripslashes($category))
                 ->set('cal_week', $cal_week)
                 ->build($template, $data);
     }
@@ -168,13 +172,14 @@ class Doctor extends Public_Controller
         $doctor = $data['entries'][0];
         
         //open days as string for template usage   
-        $str='';
-        foreach ($doctor['days'] as $day ) 
-        { 
-                $str .= $day["value"] . ","; 
-        }
-        $str = trim($str, ',');//removes the final comma 
-        $doctor['daysopenstr']=$str; //FINISH
+//        $str='';
+//        foreach ($doctor['days'] as $day ) 
+//        { 
+//                $str .= $day["value"] . ","; 
+//        }
+//        $str = trim($str, ',');//removes the final comma 
+//        $doctor['daysopenstr']=$str; //FINISH 
+        $doctor['daysopenstr'] = $this->doctor_m->days_to_str($doctor['days']) ; 
         
         //calendar
         
@@ -236,6 +241,66 @@ class Doctor extends Public_Controller
 //                ->set('jsdata', $data)
                 ->set('cal_week', $cal_week)
                 ->build($template, $doctor);
+    }
+	
+     /**
+     * view doctor info only no calendar 
+     *
+     * @access	public
+     * @return	void
+     */
+    public function info($id)
+    {
+        
+        $this->load->model('doctor_m');
+        $params = array(
+            'stream' => 'doctors',
+            'namespace' => 'doctor',
+            'paginate' => 'no'
+        );
+         
+        $this->row_m->sql['join'][] = 'LEFT JOIN '.$this->db->protect_identifiers('doctor_categories', true).' ON '.$this->db->protect_identifiers('doctor_categories.id', true).' = '.$this->db->protect_identifiers('doctor_doctors.doctor_cat', true);
+        $this->row_m->sql['join'][] = 'LEFT JOIN '.$this->db->protect_identifiers('doctor_organisations', true).' ON '.$this->db->protect_identifiers('doctor_organisations.id', true).' = '.$this->db->protect_identifiers('doctor_doctors.groupe', true);
+ 
+        $params['where'] = "default_doctor_doctors.id = '$id' " ;
+  
+        $data = new stdClass();
+        $data = $this->streams->entries->get_entries($params); 
+        $doctor = $data['entries'][0];
+        
+        //open days as string for template usage   
+        $str='';
+        foreach ($doctor['days'] as $day ) 
+        { 
+                $str .= $day["value"] . ","; 
+        }
+        $str = trim($str, ',');//removes the final comma 
+        $doctor['daysopenstr']=$str; //FINISH
+          
+        // AJAX and XHR
+        if($this->input->is_ajax_request() AND $this->template->set_layout(false))
+        {
+//            $adata = $data->doctor;
+////            foreach ($adata['entries'] as $key => $value) 
+////            {
+////                $adata['entries'][$key]['js_name'] = json_encode($adata['entries'][$key]['name']) ;
+////                $adata['entries'][$key]['js_town'] = json_encode($adata['entries'][$key]['town']) ;
+////                $adata['entries'][$key]['js_description'] = json_encode($adata['entries'][$key]['description']) ;
+////                $adata['entries'][$key]['js_address'] = json_encode($adata['entries'][$key]['address']) ;
+////                $adata['entries'][$key]['js_area_name'] = json_encode($adata['entries'][$key]['area_name']) ;
+////////                $adata['entries'][$key]['js_hours'] = json_encode($adata['entries'][$key]['hours']) ;
+////////                $adata['entries'][$key]['doctor_zone']['js_doctor_zone_title'] = json_encode($adata['entries'][$key]['doctor_zone']['doctor_zone_title']) ;
+////            }
+////            $data = json_encode($data);
+//            $template = 'ajax';
+//            $data->doctor = $adata;
+        } 
+        
+        // Build the page
+            $this->template->title(lang('doctor:doctor'), ' - Info')
+//                ->set('jsdata', $data)
+//                ->set('cal_week', $cal_week)
+                ->build('info', $doctor);
     }
 
     public function week($week_no) 

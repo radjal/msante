@@ -82,7 +82,8 @@ class Calendar extends Public_Controller
         $day_periods = $this->calendar_m->periods_make_day(30);
         $today_iso = $data['today_no_iso'];
 //        $dn=1;
-        $datestr = str_replace('-', '', $data['week_dates_iso'][$today_iso]['date']); 
+        $datestr = str_replace('-', '',$jourdate); 
+//        $datestr = str_replace('-', '', $data['week_dates_iso'][$today_iso]['date']); 
 //        $doctor_id=false;
         $appointments = $this->appointments_m->get_for_date($datestr, $doctor_id);  
 //                        $appointments[$dn.'_periods'] = $day_periods; 

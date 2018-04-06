@@ -11,7 +11,7 @@
 .appt-time a {
     float: right;
     font-size: small;
-    font-weight: normal;
+    color: #468847;
 }
 .msgBox {
     margin-top: 20px;

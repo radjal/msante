@@ -62,9 +62,9 @@ echo '';                                       ?>
 					<td>{{short_dayname}} {{month}} </td>
 					<td>{{time_formatted}}</td>
 					<td>{{for_user}}</td>
-					<td>{{ first_name }}</td>
-					<td>{{ last_name }}</td>
-					<td>{{ doc_name }} {{if doc_speciality}} &bullet; {{doc_speciality}}{{endif}}</td>
+					<td>{{first_name}}</td>
+					<td>{{last_name}}</td>
+					<td>{{doc_name}} {{if doc_speciality}} &bullet; {{doc_speciality}}{{endif}}</td>
 <!--					<td>{{ total_pretax }} €</td>
 					<td>{{ total_final }} €</td>-->
 <!--					<td>
@@ -92,8 +92,10 @@ echo '';                                       ?>
 				</tr>
 				{{ /appointments }}
 			</table>
+                    <p class="alert alert-info"> <i class="close">×</i>
                     {{ if count == 1 }} {{ count }} enregistrement{{ endif }}
                     {{ if count > 1 }} {{ count }} enregistrements{{ endif }}
+                    </p>
 		</div>
 	
 		{{ pagination:links }}

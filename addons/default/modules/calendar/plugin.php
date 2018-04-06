@@ -41,7 +41,6 @@ class Plugin_Calendar extends Plugin
 		return $this->calendar_m->getfile('css/calendar.css', $encode);
 	}
         
-    
 	function calendarlist()
 	{      
 			$html = '';

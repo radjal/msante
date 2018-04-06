@@ -11,8 +11,8 @@ legend {
     color: #eaeaea;
 }
 /*links*/
-a, .btn-link {
-}
+a, .btn-link {color: #5b5b5b;}
+a:hover, .btn-link:hover {color: #333333;}
 a:hover, a:focus {
 }
 a.list-group-item.active, a.list-group-item.active:hover, a.list-group-item.active:focus {

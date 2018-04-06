@@ -4,8 +4,8 @@
    echo form_open_multipart('appointments/set' , 'class="crud"'); 
    echo'';
    ?>
-            <center class="appt-time alert alert-success h3">
-                <a onclick="$('#container-appt, #weekday-wrapper').slideToggle()"><i class="glyphicon glyphicon-remove"></i></a> 
+            <center class="appt-time alert alert-success h3"> 
+                <a onclick="$('#container-appt, #weekday-wrapper').slideToggle()"><i class="glyphicon glyphicon-edit"></i></a> 
                 <i class="glyphicon glyphicon-time"></i>
                     à <span>{{appointment_time}}</span> 
                     <input class="" name="appointment_time" id="appointment_time" type="hidden"  value="{{ appointment_time }}" />  
@@ -24,7 +24,7 @@
                                     <label for="for_user">Le RDV est pour vous? Oui/non (parent ou proche)</label> 
                                     <div class="for_user_ui" > 
                                         <a onclick="setIsForMe(this)" data-value="yes" class="btn btn-primary btn-sm ">pour vous</a>
-                                        <a onclick="setIsForMe(this)" data-value="no"  class="btn btn-primary btn-sm ">pour un proche</a> 
+                                        <a onclick="setIsForMe(this)" data-value="no" class="btn btn-primary btn-sm ">pour un proche</a> 
                                         <input class="" name="for_user" id="for_user" type="hidden"  value="{{ for_user }}" />  
                                     </div> 
                             </div>  
@@ -60,6 +60,7 @@
                                     <div class="input">
                                             <input type="text" class="form-control" name="first_name" value="{{ first_name }}"  autocomplete="given-name">
                                     </div> 
+                                    <?= $this->current_user->gender ?>
                                     <div class="field-mainden_name" style="display:"<?= isset($this->current_user->gender) and strtolower($this->current_user->gender) == 'homme' ? 'none' :'block' ?>>
                                         <label for="maiden_name">Nom de jeune fille</label>
                                         <div class="input">
@@ -113,7 +114,7 @@
                             </div>   
 
                             <div class="buttons" id="appt-button-wrapper">
-                                    <button name="appointmentSend" value="Prendre RDV" type="submit" class="btn btn-success">Prendre RDV</button>
+                                    <button name="appointmentSend" value="Prendre RDV" type="submit" class="loader btn btn-success">Prendre RDV</button>
                             </div>
                         </div>
                 {{ /user:profile }}

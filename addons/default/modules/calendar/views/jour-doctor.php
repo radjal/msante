@@ -51,12 +51,8 @@
             </div> 
             
         </div>
-               
-    <div class="row">
-    </div>
-    
-
-    <p>                    
+              
+    <!--<p>-->                    
 <!--
         <strong>Téléphone:</strong>{{telephone}}<br/>
         <strong>Mobile:</strong>{{mobile}}<br/>
@@ -70,7 +66,7 @@
             <br/> 
         <strong>Heures d'ouverture:</strong>
             opens - closes -->
-    </p>
+    <!--</p>-->
     <!--<p>{{description}}</p>-->
     
     <div style="clear: both;" class="clearfix"></div> 

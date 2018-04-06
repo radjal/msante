@@ -39,7 +39,7 @@ class Admin extends Admin_Controller
      *
      * @return	void
      */
-    public function index()
+    public function index_streams()
     {
         // The extra array is where most of our
         // customization options go.
@@ -65,8 +65,24 @@ class Admin extends Admin_Controller
             )
         );
         
+        
+        /** 
+	 * Extra parameters to pass in $extra array: 
+	 * title	- Title of the page header (if using view override)
+	 *			$extra['title'] = 'Streams Sample'; 
+	 * buttons	- an array of buttons (if using view override)
+	 *			$extra['buttons'] = array(
+	 *				'label' 	=> 'Delete',
+	 *				'url'		=> 'admin/streams_sample/delete/-entry_id-',
+	 *				'confirm'	= true
+	 *			);
+	 * columns  - an array of field slugs to display. This overrides view options.
+	 * 			$extra['columns'] = array('field_one', 'field_two'); 
+ 	 * sorting  - bool. Whether or not to turn on the drag/drop sorting of entries. This defaults
+ 	 * 			to the sorting option of the stream. 
+         */
         // customizing headers
-        $extra['columns'] = array('id', 'image', 'name', 'days', 'address', 'area_name', 'town',);
+        $extra['columns'] = array('id', 'image', 'name', 'days', 'area_name', 'town',);
         
         $this->streams->cp->entries_table('doctors', 'doctor', 20, null, true, $extra);
     }
@@ -80,23 +96,37 @@ class Admin extends Admin_Controller
      *
      * @return  void
      */
-    public function index_alt()
+    public function index()
     {
         // Get our entries. We are simply specifying
         // the stream/namespace, and then setting the pagination up.
         $params = array(
             'stream' => 'doctors',
             'namespace' => 'doctor',
-            'paginate' => 'yes',
-            'limit' => 4,
-            'pag_segment' => 4
-        );
-        $data['doctors'] = $this->streams->entries->get_entries($params);
+            'paginate' => 'no',
+            'limit' => 10,
+            'pag_segment' => 3
+        ); 
+        //search 
+        $town = $this->input->post('f_town');
+        $name = $this->input->post('f_name');
+        if(!empty($town)) $params['where'] = "default_doctor_doctors.town LIKE '%$town%'" ;
+        if(!empty($name)) $params['where'] = "default_doctor_doctors.name LIKE '%$name%'" ;
+        //get entries
+        $data = $this->streams->entries->get_entries($params);
+
+        $this->load->model('doctor/doctor_m');
+        //open days as string for template usage 
+        foreach ($data['entries'] as $key => $value) 
+        {   
+                $data['entries'][$key]['daysopenstr'] = $this->doctor_m->days_to_str($data['entries'][$key]['days']) ; 
+        } 
 
         // Build the page. See views/admin/index.php
         // for the view code.
         $this->template
                     ->title($this->module_details['name'])
+                    ->set('doctors', $data['entries'])
                     ->build('admin/index', $data);
     }
 
@@ -123,9 +153,7 @@ class Admin extends Admin_Controller
     }
     
     /**
-     * Edit an entry
-     *
-     * We're using the entry_form function
+     * Edit an entry using the entry_form function
      * to generate the edit form. We're passing the
      * id of the entry, which will allow entry_form to
      * repopulate the data from the database.
@@ -143,13 +171,28 @@ class Admin extends Admin_Controller
             'title' => 'lang:doctor:edit'
         );
 
-        $skips = array('dom_id');
-         $this->streams->cp->entry_form('doctors', 'doctor', 'edit', $id, true, $extra, $skips);
-//        $this->streams->cp->entry_form('doctors', 'doctor', 'edit', $id, true, $extra);
+        $skips = array(); // array('name'); //fields to skip
+        $tabs = false; // array('A', 'B'); 
+        $hidden = array('latitude', 'longitude'); 
         
-        // Build the page 
+        /** * Extra parameters to pass in $extra array: 
+         * email_notifications 	- see docs for more explanation
+	 * return				- URL to return to after submission, defaults to current URL.
+	 * success_message		- Flash message to show after successful submission, defaults to generic successful entry submission message
+	 * failure_message		- Flash message to show after failed submission, defaults to generic failed entry submission message
+	 * required				- String to show as required - this defaults to the standard * for the PyroCMS CP
+	 * title				- Title of the form header (if using view override)
+	 * no_fields_message    - Custom message when there are no fields.
+         * 
+         * entry_form($stream_slug, $namespace_slug, $mode = 'new', $entry_id = null, $view_override = false, $extra = array(), $skips = array(), $tabs = false, $hidden = array(), $defaults = array())
+         */         
+        //option 1
+         $this->streams->cp->entry_form('doctors', 'doctor', 'edit', $id, true, $extra, $skips, $tabs ); // original auto form
+//          //option 2
+//            $this->streams->cp->entry_form('doctors', 'doctor', 'edit', $id, false, $extra); // custom 
+//        // Build the page, only if using custom view
 //        $this->template
-//                    ->title($this->module_details['name'])
+//                    ->title($this->module_details['name'], 'Edit')
 //                    ->build('admin/form' );
         
     }

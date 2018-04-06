@@ -9,7 +9,7 @@
  */
 class Plugin_Custom extends Plugin
 {
-	public $version = '1.0.2';
+	public $version = '1.1.0';
 
 	public $name = array(
 		'en'	=> 'Custom'

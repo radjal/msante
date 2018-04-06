@@ -51,10 +51,10 @@ for($d=1;$d<=7;$d++):
             <div class="calendar_titre"><?= $calendar_titre ?></div>
             <div class="btn-group-vertical">
                     <a href="{{url:site}}calendar/<?= $cal_week['week_dates_iso'][$d]['dayname'].'/'.$cal_week['week'].'/'.$id ?>/am" 
-                       class="break-pre btn <?= "$btnClass $disabled $btn_class_pre" ?>">Matin <?=  $appts_total>=$prds_count ? "plein " : ''; ?></a>
+                       class="loader break-pre btn <?= "$btnClass $disabled $btn_class_pre" ?>">Matin <?=  $appts_total>=$prds_count ? "plein " : ''; ?></a>
 
                     <a href="{{url:site}}calendar/<?= $cal_week['week_dates_iso'][$d]['dayname'].'/'.$cal_week['week'].'/'.$id ?>/pm" 
-                       class="break-post btn <?= "$btnClass $disabled $btn_class_post" ?>">Après midi <?=  $appts_total>=$prds_count ? "plein " : ''; ?></a>
+                       class="loader break-post btn <?= "$btnClass $disabled $btn_class_post" ?>">Après midi <?=  $appts_total>=$prds_count ? "plein " : ''; ?></a>
             </div>
     </div>  
 <?php endfor; //end days loop ?> 

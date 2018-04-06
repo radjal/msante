@@ -94,6 +94,7 @@ class Appointments extends Public_Controller
             $this->set($segment1);
 //            $this->listing($segment1); 
         }
+        
 	/**
 	 * appointment form crud
 	 */
@@ -139,7 +140,7 @@ class Appointments extends Public_Controller
                                 redirect('appointments');
                         }
 
-                        if(isset($_POST['_token'])) // for retro compatibility /@todo check if being used
+                        if(isset($_POST['_token'])) // for retro compatibility @todo check if being used
                         {
                                 if($this->token_m->check_token($this->input->post('_token'), true ) === false) {
                                     // stop
@@ -162,7 +163,7 @@ class Appointments extends Public_Controller
                                         $this->_send_email('appointments-admin', $noid, $appointment, $this->current_user);
                                         $this->_send_email('appointments-patient', $noid, $appointment, $this->current_user, null, $this->current_user->email);
 //                                        $this->_send_email('appointments-doctor', $noid, $appointment, $this->current_user, null, $this->current_user->email);
-                                        redirect("appointments/listing");
+                                        redirect("appointments/success/$noid");
                                 } else {
                                     $this->session->set_flashdata('error', lang('appointments:error'));
                                 }
@@ -221,7 +222,7 @@ class Appointments extends Public_Controller
             if($appointment->user_id != $user->id)
             {
                 $this->session->set_flashdata('error', lang('appointments:error').' not same user');
-                redirect('appointments/listing');
+                redirect();
             }
             
             $profile_data = $this->profile_m->get_profile();
@@ -276,6 +277,34 @@ class Appointments extends Public_Controller
                         ->set('appointment', $appointment) 
 			->build('appointment');
         }
+
+	/**
+	 * success page
+	 */
+        public function success($oid=null) 
+        {   
+            $this->template 
+                    ->append_js('module::appointment.js');  
+            $msg='';   
+            /* get appointment */
+            $appointment = $this->appointments_m->get($oid);   
+            /* get doctor info */
+            $this->load->model('doctor/doctor_m');
+            $doctor = $this->doctor_m->get_doctor($appointment->doctor_id);
+            //output formatting
+            $appointment->formatted_date = $this->appointments_m->datestr_to_day($appointment->appointment_date)
+                                    .' '. $this->appointments_m->datestr_to_month($appointment->appointment_date) ;
+            $appointment->formatted_time = $this->appointments_m->timestr_format($appointment->appointment_time) ;
+            
+            $this->template
+			->title($this->module_details['name'], 'Success')
+			->set('id', $oid) 
+			->set('message', $msg) 
+			->set('doc_id', $appointment->doctor_id)
+			->set('doctor', $doctor)
+                        ->set('appointment', $appointment) 
+			->build('success');
+        }
         
         /** confirm and delete an appointment
          * 
@@ -292,9 +321,6 @@ class Appointments extends Public_Controller
             $appointment->time_formatted = $this->appointments_m->timestr_format($appointment->appointment_time);
             $appointment->date_formatted = $this->appointments_m->datestr_to_day($appointment->appointment_date);
             $appointment->month = $this->appointments_m->datestr_to_month($appointment->appointment_date);
-            /* get doctor info */
-//            $this->load->model('doctor/doctor_m');
-//            $doctor = $this->doctor_m->get_doctor($appointment->doctor_id);
             
             if(isset($_POST['appointmentDelete'])) 
             {
@@ -310,27 +336,23 @@ class Appointments extends Public_Controller
                     $this->session->set_flashdata('error', lang('appointments:no_delete_if_status'));
 //                    redirect('appointments/listing');
                 }
-                redirect('rendez-vous');
+                redirect('rendez-vous'); // done redirect
             }            
+            
+            /* get doctor info */
+            $this->load->model('doctor/doctor_m');
+            $doctor = $this->doctor_m->get_doctor($appointment->doctor_id);
+            // some formatting for date and time 
+            
             
             
             
             $this->template
 			->title($this->module_details['name'], ' delete appointment')
-//			->set('doctor', $doctor)  
+			->set('doctor', $doctor)  
 			->set('doctor_id', $appointment->doctor_id)  
 			->build('delete',$appointment);
         }
-        
-        /**
-         * erase cookie
-         */
-//        public function cancel_appointment() 
-//        {       
-//                $this->session->set_flashdata('success', lang('appointments:cart_cancelled'));
-////                $appointment = $this->appointments_m->delete_cookie_cart();
-////                redirect();
-//        }
         
         /**
          * list appointments for user 
@@ -364,10 +386,12 @@ class Appointments extends Public_Controller
 		$items = $this->appointments_m->limit($limit)
                         ->join('doctor_doctors', 'appointments_list.doctor_id = doctor_doctors.id')
                         ->join('doctor_categories', 'doctor_doctors.doctor_cat = doctor_categories.id', 'left')
+                        ->join('doctor_organisations', 'doctor_doctors.groupe = doctor_organisations.id', 'left')
 			->offset($offset)
                         ->select('appointments_list.*')
-                        ->select('doctor_doctors.id AS doc_id,  doctor_doctors.name AS doc_name,  doctor_doctors.image AS doc_img')
-                        ->select('doctor_categories.speciality AS doc_speciality')
+                        ->select('doctor_doctors.id AS doc_id, doctor_doctors.name AS doc_name, doctor_doctors.image AS doc_img, doctor_doctors.address AS doc_adr, doctor_doctors.town AS doc_town, doctor_doctors.area_name AS doc_area')
+                        ->select('doctor_categories.speciality AS doc_speciality, ')
+                        ->select('doctor_organisations.organisation AS doc_org, doctor_organisations.subset AS doc_org_subset')
                         ->where("appointments_list.user_id = ".$this->current_user->id)
                         ->order_by($sort, $sortdir)
 			->get_all();
@@ -552,4 +576,15 @@ class Appointments extends Public_Controller
 		return ;
 		
 	}
+        
+        /**
+         * erase cookie
+         */
+//        public function cancel_appointment() 
+//        {       
+//                $this->session->set_flashdata('success', lang('appointments:cart_cancelled'));
+////                $appointment = $this->appointments_m->delete_cookie_cart();
+////                redirect();
+//        }
+        
 }

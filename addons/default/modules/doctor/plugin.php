@@ -131,6 +131,7 @@ class Plugin_Doctor extends Plugin
 
 
 		$data = $this->db->limit($limit)
+                                    ->where("doctor_doctors.validated ",'yes')
                                     ->get('doctor_doctors')
                                     ->result_array();
 
@@ -178,6 +179,19 @@ class Plugin_Doctor extends Plugin
                                     ->result_array(); 
 
                 return $data;
+	}
+                 
+        /**
+	 * returns category image of speciality in case of no doctor image
+         * 
+	 * {{ doctor:speciality_image speciality="dentiste" }} 
+	 *
+	 * @return	str image filename
+	 */
+	function speciality_img()
+	{   
+                $speciality = $this->attribute('speciality');
+                return $this->doctor_m->speciality_img($speciality);
 	}
  
 }

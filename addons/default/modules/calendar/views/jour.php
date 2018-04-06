@@ -85,9 +85,11 @@ $show_pm_attr =   !$show_am && $show_pm ? 'block' : 'none' ;
                         echo "<div class=\"period-am row center-block\" style=\"display:$show_am_attr;\" ><center class=\"h5\">Matin</center>$html_pre_break</div>" ; 
                         echo "<div class=\"period-pm row center-block\" style=\"display:$show_pm_attr;\" ><center class=\"h5\">Après midi</center>$html_post_break</div>" ;
                         $appts_post_break = $appts_total - $appts_pre_break ;
+                        echo '<!-- ';
                         echo $appts_pre_break>0 ? "$appts_pre_break RDV avant la pause <br/>" : '' ;
                         echo $appts_post_break>0 ? "$appts_post_break RDV après la pause <br/>" : '' ;
                         echo $appts_total >0 ? "$appts_total RDV au total" : '' ; 
+                        echo ' --> ';
             ?> 
 
         </div>

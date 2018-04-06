@@ -38,7 +38,7 @@ $btnClass .= $appts_total >= $prds_count ? " full" : ''
         <div class=""> 
                 <a 
                 href="{{url:site}}doctor/view/<?= $id.'/'.$cal_week['week'].'/' ?>" 
-                class="btn btn-xs <?=  $disabled ?> <?=  $btnClass ?>">
+                class="loader btn btn-xs <?=  $disabled ?> <?=  $btnClass ?>">
                            <?= $calendar_titre ?>
                 </a>
   

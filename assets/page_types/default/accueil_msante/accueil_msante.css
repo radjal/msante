@@ -1,10 +1,5 @@
-.ico-grp {
-    margin: auto;
-    padding: 0;
-    padding-left: 0.6%;
-    max-width: 348px;
-    width: 100%;
-    /* background: blue; */
+.ico-grp { 
+    max-width: 314px;
 }
 .specialite {
 display: inline-block;

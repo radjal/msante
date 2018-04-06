@@ -2,7 +2,7 @@
 
 class Module_Doctor extends Module
 {
-    public $version = '0.1.10';
+    public $version = '0.1.24';
 
     public function info()
     {
@@ -67,16 +67,14 @@ class Module_Doctor extends Module
      */
     public function install()
     {
-        //db forge drop
-//        $this->dbforge->drop_table('doctors');
-//        $this->dbforge->drop_table('doctors_categories');
-//        $this->dbforge->drop_table('doctors_organisations');
         $this->db->delete('settings', array('module' => 'doctor'));
         // We're using the streams API to
         // do data setup.
         $this->load->driver('Streams'); 
         //just in case, remove streams first
-        $this->streams->utilities->remove_namespace('doctor'); 
+        $this->streams->utilities->remove_namespace('doctor');  
+        //db forge drop for favs table as e are not using streams for that one
+        $this->dbforge->drop_table('doctors_favorites');
         // Add doctors streams
         if ( ! $this->streams->streams->add_stream('lang:doctor:doctors', 'doctors', 'doctor', 'doctor_', null)) return false;
         if ( ! $categories_stream_id = $this->streams->streams->add_stream('lang:doctor:categories', 'categories', 'doctor', 'doctor_', null)) return false;
@@ -86,7 +84,7 @@ class Module_Doctor extends Module
         $this->load->library('files/files');
         $imgfolder = Files::create_folder(0, 'Doctor images');
         
-        // Add some fields
+        // doctor fields for streams
         if(1)
         {
                     $fields = array(
@@ -95,8 +93,12 @@ class Module_Doctor extends Module
                             'name' => 'Practicien validé',
                             'slug' => 'validated',
                             'namespace' => 'doctor',
-                            'type' => 'text',
-                            'extra' => array('max_length' => 3), //yes|no
+//                            'type' => 'text',
+                            'type' => 'choice',
+                            'extra' => array('choice_data' => "yes : lang:global:yes
+                                        no : lang:global:no", 
+                                        'choice_type' => 'radio', 
+                                        'default_value' => 'no'),
                             'assign' => 'doctors',
                             'required' => true 
                         ), 
@@ -108,6 +110,15 @@ class Module_Doctor extends Module
                             'extra' => array('max_length' => 200),
                             'assign' => 'doctors',
                             'required' => true 
+                        ), 
+                        array(
+                            'name' => 'RNGPS',
+                            'slug' => 'rngps',
+                            'namespace' => 'doctor',
+                            'type' => 'text',
+                            'extra' => array('max_length' => 11),
+                            'assign' => 'doctors',
+                            'required' => false 
                         ), 
                         array(
                             'name' => 'Jours ouverts',
@@ -122,9 +133,9 @@ class Module_Doctor extends Module
                                         6 : samedi
                                         7 : dimanche", 
                                         'choice_type' => 'checkboxes', 
-                                        'default_value' => ''),
+                                        'default_value' => "1\n\r2\n\r3\n\r4\n\r5"),
                             'assign' => 'doctors',
-                            'required' => false,
+                            'required' => true,
                             'unique' => false
                         ),
 //                        array(
@@ -163,6 +174,26 @@ class Module_Doctor extends Module
                             'assign' => 'doctors',
                             'required' => false 
                         ), 
+                        array(
+                            'name' => 'Civilité',
+                            'slug' => 'gender',
+                            'namespace' => 'doctor',
+                            'type' => 'choice',
+                            'extra' => array('choice_data' => "Homme\n\rFemme", 
+                                        'choice_type' => 'radio', 
+                                        'default_value' => ''),
+                            'assign' => 'doctors',
+                            'required' => false 
+                        ), 
+//                        array(
+//                            'name' => 'Civilité',
+//                            'slug' => 'gender',
+//                            'namespace' => 'doctor',
+//                            'type' => 'text',
+//                            'extra' => array('max_length' => 10),// homme|femme
+//                            'assign' => 'doctors',
+//                            'required' => false 
+//                        ), 
                         array(
                             'name' => 'Téléphone',
                             'slug' => 'telephone',
@@ -209,6 +240,15 @@ class Module_Doctor extends Module
                             'required' => false
                         ),
                         array(
+                            'name' => 'Commune',
+                            'slug' => 'district',
+                            'namespace' => 'doctor',
+                            'type' => 'text',
+                            'assign' => 'doctors',
+                            'extra' => array('max_length' => 200),
+                            'required' => false
+                        ),
+                        array(
                             'name' => 'Ville',
                             'slug' => 'town',
                             'namespace' => 'doctor',
@@ -230,7 +270,7 @@ class Module_Doctor extends Module
                             'name' => 'Informations d\'accès',
                             'slug' => 'access',
                             'namespace' => 'doctor',
-                            'type' => 'text',
+                            'type' => 'textarea',
                             'assign' => 'doctors',
                             'extra' => array('max_length' => 200),
                             'required' => false
@@ -239,7 +279,7 @@ class Module_Doctor extends Module
                             'name' => 'Langues parlées',
                             'slug' => 'languages',
                             'namespace' => 'doctor',
-                            'type' => 'text',
+                            'type' => 'textarea',
                             'assign' => 'doctors',
                             'extra' => array('max_length' => 200),
                             'required' => false
@@ -248,7 +288,7 @@ class Module_Doctor extends Module
                             'name' => 'Formation',
                             'slug' => 'diploma',
                             'namespace' => 'doctor',
-                            'type' => 'text',
+                            'type' => 'textarea',
                             'assign' => 'doctors',
                             'extra' => array('max_length' => 200),
                             'required' => false
@@ -257,9 +297,71 @@ class Module_Doctor extends Module
                             'name' => 'Tarifs et mutuelle',
                             'slug' => 'fees',
                             'namespace' => 'doctor',
-                            'type' => 'text',
+                            'type' => 'textarea',
                             'assign' => 'doctors',
                             'extra' => array('max_length' => 200),
+                            'required' => false
+                        ),
+                        array(
+                            'name' => 'Moyens de paiement',
+                            'slug' => 'payment',
+                            'namespace' => 'doctor',
+                            'type' => 'textarea',
+                            'assign' => 'doctors',
+                            'extra' => array('max_length' => 200),
+                            'required' => false
+                        ),
+//                        array(
+//                            'name' => 'Mutuelle',
+//                            'slug' => 'insurance',
+//                            'namespace' => 'doctor',
+//                            'type' => 'text',
+//                            'assign' => 'doctors',
+//                            'extra' => array('max_length' => 3),
+//                            'required' => false
+//                        ),
+                        array(
+                            'name' => 'Mutuelle',
+                            'slug' => 'insurance',
+                            'namespace' => 'doctor',
+                            'type' => 'choice',
+                            'extra' => array('choice_data' => "yes : lang:global:yes
+                                        no : lang:global:no", 
+                                        'choice_type' => 'radio', 
+                                        'default_value' => 'no'),
+                            'assign' => 'doctors',
+                            'required' => false,
+                            'unique' => false
+                        ),
+                        array(
+                            'name' => 'Visites à domicile',
+                            'slug' => 'homecall',
+                            'namespace' => 'doctor',
+                            'type' => 'choice',
+                            'extra' => array('choice_data' => "yes : lang:global:yes
+                                        no : lang:global:no", 
+                                        'choice_type' => 'radio', 
+                                        'default_value' => 'no'),
+                            'assign' => 'doctors',
+                            'extra' => array('max_length' => 3),
+                            'required' => false
+                        ),
+                        array(
+                            'name' => 'Latitude',
+                            'slug' => 'latitude',
+                            'namespace' => 'doctor',
+                            'type' => 'text',
+                            'assign' => 'doctors',
+                            'extra' => array('max_length' => 3), 
+                            'required' => false
+                        ),
+                        array(
+                            'name' => 'Longitude',
+                            'slug' => 'longitude',
+                            'namespace' => 'doctor',
+                            'type' => 'text',
+                            'assign' => 'doctors',
+                            'extra' => array('max_length' => 3),
                             'required' => false
                         ),
                         array(
@@ -339,8 +441,7 @@ class Module_Doctor extends Module
                         ),            
                     );
         }
-
-        //update
+        //update streams
         $this->streams->fields->add_fields($fields);
         //admin views
         if(1){
@@ -447,6 +548,43 @@ class Module_Doctor extends Module
                         return false;
                 }
         }
+        //add favs table outside of streams 
+        if(1) 
+        {
+            
+		$favorites_table = array(
+                                                'id' => array(
+                                                                'type' => 'INT',
+                                                                'constraint' => '11',
+                                                                'auto_increment' => TRUE,
+                                                                'primary' => true,
+                                                                ),
+                                                'doctor_id' => array(
+                                                                'type' => 'INT',
+                                                                'constraint' => '11',
+                                                                ),
+                                                'user_id' => array(
+                                                                'type' => 'INT',
+                                                                'constraint' => '11',
+                                                                ),
+						'created_on' => array(
+                                                                'type'       => 'datetime',
+                                                                'default'    => '1970-01-01 00:00:00',
+                                                                'null' => TRUE
+                                                                ),
+						'updated_on' => array(
+                                                                'type'       => 'datetime',
+                                                                'default'    => '1970-01-01 00:00:00',
+                                                                'null' => TRUE
+                                                                ),
+						);
+
+        }
+        // can install multiple tables 
+        if ( ! $this->install_tables( array('doctors_favorites' => $favorites_table ) ) )
+        {
+			return  false;
+        }
         return true;
     }
 
@@ -464,6 +602,7 @@ class Module_Doctor extends Module
         // utility in the Streams API Utilties driver.
         $this->streams->utilities->remove_namespace('doctor'); 
         $this->db->delete('settings', array('module' => 'appointments')); 
+        $this->dbforge->drop_table('doctors_favorites');
 
         return true;
     }
@@ -471,7 +610,7 @@ class Module_Doctor extends Module
     public function upgrade($old_version)
     {
         $this->load->driver('Streams');
-        
+         
         if(version_compare($this->version, '0.0.01', '<=') ) 
         {   //DB forge method
                 $table = array(

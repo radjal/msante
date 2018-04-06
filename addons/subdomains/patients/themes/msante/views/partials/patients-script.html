@@ -1,36 +1,16 @@
 {{# file is included in layout so LEX tags are available and js vars have global scope #}}
 <script>
     var theme = {};
-    theme.loadimg = '<div style="text-align:center;width:100%"><img src="{{url:site}}addons/default/themes/bs3/img/loading.gif" /></div>';
+    //theme.loadimg = '<img src="{{url:site}}addons/default/themes/msante/img/loading.gif" />';
+    theme.loadimg = '<img src="{{url:site}}addons/default/themes/msante/img/loading.svg" class="loadimg" style="height:6px;" />';
+    theme.loaddiv = '<div style="text-align:center;width:100%;padding-top:60px">'+theme.loadimg+'</div>';
     
-    function quickLogin(event) 
-    {
-        if(typeof(event)!=='undefined') event.preventDefault(); 
-        ajaxModal('users/login', "$('#login > div').removeClass('col-lg-4 col-lg-offset-4')") ; 
+    function navigateBack()
+    {   
+        //if(typeof(theme.loaddiv) !== 'undefined') $('#container').html(theme.loaddiv);
+        //if(typeof(theme.loadimg) !== 'undefined') $('#back-btn a').html(theme.loadimg);
+        window.history.back();
     }
-    
-    function quickRegister(event) 
-    {
-        if(typeof(event)!=='undefined') event.preventDefault(); 
-        ajaxModal('users/register', "$('.modal-body > div').removeClass('col-lg-4 col-lg-offset-4')") ;
-    }
-    
-    function ajaxModal(path, callback ) 
-    {
-        if(typeof(path)===undefined) return false;
-            $("#myModal").modal('show');
-            var load = typeof(theme)!=='undefined' ? theme.loadimg : 'LOADING...';
-            $("#myModal .modal-body").html( load );
-            $.ajax({
-                      url: path,
-                      cache: false
-                    })
-                      .done(function( html ) {
-                            $( "#myModal .modal-body" ).html( html );
-                            if(typeof(callback)!=='undefined') eval(callback);
-                      }); 
-    }
-
 
     function setcookieeula() 
     {
@@ -38,33 +18,6 @@
             $( "#cookie-accept" ).attr( "style", "display:none" );
     } 
 
-    function isMobileDevice()
-    {
-                    var ua = navigator.userAgent;
-                    var checker = {
-                      iphone: ua.match(/(iPhone|iPod|iPad)/),
-                      blackberry: ua.match(/BlackBerry/),
-                      android: ua.match(/Android/)
-                    };
-                    var ismobile = false;
-                    if (checker.android){
-                                    ismobile = true;
-                                    $('.android-only').show();
-                    }
-                    else if (checker.iphone){
-                                    ismobile = true;
-                                    $('.idevice-only').show();
-                    }
-                    else if (checker.blackberry){
-                                    ismobile = true;
-                                    $('.berry-only').show();
-                    }
-                    else {
-                                    $('.unknown-device').show();
-                    }
-
-                    return ismobile;
-    }
     /***************************************** pg load  *****************************************/
     $( document ).ready(function() {
             /*cookie accept*/
@@ -72,37 +25,32 @@
             {
                     $( "#cookie-accept" ).attr( "style", "display:block" );
             }
-            /*contact form*/
-                    $('#contact input[name="contact-submit"]').on('click', function() {
-                                $( this ).fadeOut();
-                                $( '#contact div.row' ).slideUp();
-
-                    });  
-
-            /*ui tooltips*/
-                    $('[data-toggle="tooltip"]').tooltip(); 
-
-            /*popovers*/
-                    $('[data-toggle="popover"]').popover(); 
-
-            /*init clipboard*/
-/*                     var clipboard = new Clipboard('.clip-btn');
-                    clipboard.on('success', function(e) {
-                            var target = $(e.trigger).attr("data-clipboard-target");
-                            $(target).fadeOut('fast').fadeIn('fast');
-                            e.trigger.blur();
-                            e.clearSelection();
-                    }); 
-*/
+            
+            /*loading icon on links*/
+            $('a.loader, button.loader, input.loader').each(function() {
+              $( this ).on('click', function _clk_load(event){
+                        //if(typeof(event)!=='undefined') event.preventDefault();
+                        if($( this )[0].href !== window.location.href) {
+                            console.log('_clk_load');
+                               var cont = $( this ).html();
+                               if( $(this).hasClass('load-replace') ) {
+                                    $( this ).html( theme.loadimg ).addClass('disabled'); 
+                               } else { 
+                                    $( this ).html( theme.loadimg + cont ).addClass('disabled'); 
+                               }
+                        }							
+              });
+            }); 
+				
             /*ajax menu*/
-			$('li.ajax a').each(function() {
-			  $( this ).on('click', function _clk_ajx(event){
-						if(typeof(event)!=='undefined') event.preventDefault();
-						if($( this )[0].href !== window.location.href) {
-							ajaxModal($( this )[0].href, "$('.modal-body input[type=text], .modal-body textarea').addClass('form-control');$('.modal-body input[type=submit]').addClass('btn btn-primary')");
-						}							
-			  });
-			});
+/*            $('a.ajax').each(function() {
+              $( this ).on('click', function _clk_ajx(event){
+                        if(typeof(event)!=='undefined') event.preventDefault();
+                        if($( this )[0].href !== window.location.href) {
+                                ajaxModal($( this )[0].href, "$('.modal-body input[type=text], .modal-body textarea').addClass('form-control');$('.modal-body input[type=submit]').addClass('btn btn-primary')");
+                        }							
+              });
+            }); */
 				
             /*close btns*/
             /*$('.i.close').css('visibility', 'visible');*/

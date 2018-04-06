@@ -69,7 +69,7 @@ $config['theme'] = null;
 |
 */
 
-// hack for subdomain theming
+// hack for subdomain theming radja
 $config['theme_locations'] = array(
     APPPATH.'themes/',
 	SHARED_ADDONPATH . 'themes/'

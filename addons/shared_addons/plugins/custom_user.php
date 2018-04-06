@@ -9,7 +9,7 @@
  */
 class Plugin_Custom_User extends Plugin
 {
-	public $version = '1.0.0';
+	public $version = '1.0.1';
 
 	public $name = array(
 		'en'	=> 'Custom User '
@@ -53,13 +53,12 @@ class Plugin_Custom_User extends Plugin
 	}
 
 	/**
-	 * update user profile field
+	 * update user profile field with correspondinf POST name/value
 	 *
 	 * Usage:
 	 * {{ custom_user:update_user_profile field="fieldname" }}
 	 *
-	 * @param string $fieldname     The field to update
-	 * @return boolean
+	 * @param string $fieldname     The field to update 
 	 */
 	function update_user_profile()
 	{
@@ -91,6 +90,54 @@ class Plugin_Custom_User extends Plugin
             $this->load->helper('url'); // refresh page
             $location = base_url().uri_string();
             redirect($location, 'refresh');
+	}
+        
+
+	/** TO FINISH
+	 * outputs html code for form entries, uses profile fields name as space separated string
+	 *
+	 * Usage:
+	 * {{ custom_user:print_profile_field fields="fieldname1 fieldname2 ..." }}
+	 *
+	 * @param string $fieldname     The field to return form element for 
+	 */
+	function print_profile_field()
+	{   
+            
+            $fields = $this->attribute('fields');
+            $fields = explode(' ', $fields);
+            if(count($fields)<=0) return false;
+            $this->load->model('users/profile_m');  
+            $profile = $this->profile_m->get_profile(); 
+            // Get our secure post
+            $secure_post = $this->input->post();
+            foreach ($secure_post as &$post) {
+                $post = escape_tags($post);
+            }
+            $this->load->driver('Streams');
+            // streams insert_entry data in the model.
+            $assignments = $this->streams->streams->get_assignments('profiles', 'users');
+		$profile_stream_id = $this->streams_m->get_stream_id_from_slug('profiles', 'users');
+//		$profile = $this->fields->run_field_events($this->streams_m->get_stream_fields($profile_stream_id), $profile);
+            $html = '';
+                    foreach($assignments as $field)
+                    {
+                        $input = $field['input']; 
+                        $field_name = $field['field_name']; 
+                        $required = $field['required']; 
+                        $instructions = $field['instructions']; 
+                    
+                    
+                        $html .= ' <div class="control-group">
+                            <label class="control-label" for="' .$input. '">' .$field_name. ' ' .$required. '*required* <span>*</span></label>
+                                <div class="controls">' ;
+                        $html .= '<div class="controls">*input*
+                                <p class="help-block"><p class="instructions">*' .$instructions. '*</p></p>';
+                        $html .= '</div>' ;  
+                    }
+                     
+            return $html;
+            
 	}
         
         

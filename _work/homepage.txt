@@ -1,0 +1,30 @@
+{{ dev:empty_cache }}
+{{if !custom:subdomain_value }} 
+<!-- is root domain  -->  
+	{{if page:is_home and user:not_logged_in}}
+		<!-- home --> 
+					<!-- not logged in --> 
+					<form action="users/login" class="" method="post">
+						<ul class="col-xs-6 col-xs-offset-3 list-unstyled">
+							<li class="email">
+								<label for="email" class="">Identifiant</label>
+								<input type="text" id="email" name="email" maxlength="120" class="form-control">
+							</li>
+							<li class="pword">
+								<label for="password">Mot de passe</label>
+								<input type="password" id="password" name="password" maxlength="20" class="form-control">
+							</li>
+							<li class="form-buttons btn">
+								<input type="submit" value="Se connecter" name="btnLogin" class="btn btn-primary"> 
+							</li> 
+						</ul> 
+					</form> 
+	{{else}}
+	<!-- is not home  --> 
+
+	{{endif}}
+		
+{{else}} 
+<!-- is not root domain --> 
+
+{{endif}}

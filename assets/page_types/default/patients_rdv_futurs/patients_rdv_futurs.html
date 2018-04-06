@@ -1,0 +1,67 @@
+{{ dev:empty_cache }} 
+{{if user:logged_in }} 
+    {{if !{appointments:my_appointments_count futur_past="futur" for_user="[[ if page:slug == 'mes-rdv-a-venir' ]]yes[[ elseif page:slug == 'rdv-a-venir-de-mes-proches'  ]]no[[ endif ]]" for_name=[[custom:get_value name="s"]]} }}
+        <p class="alert alert-warning"> 
+            Pas de RDV à venir
+        </p> 
+    {{else}}
+        <p class="alert alert-info"> <i class="close">×</i>
+            {{ appointments:my_appointments_count futur_past="futur" for_user="[[ if page:slug == 'mes-rdv-a-venir' ]]yes[[ elseif page:slug == 'rdv-a-venir-de-mes-proches'  ]]no[[ endif ]]"  for_name=[[custom:get_value name="s"]] }} 
+            enregistrements
+        </p> 
+        
+        {{ appointments:my_appointments futur_past="futur" for_user="[[ if page:slug == 'mes-rdv-a-venir' ]]yes[[ elseif page:slug == 'rdv-a-venir-de-mes-proches'  ]]no[[ endif ]]"  for_name=[[custom:get_value name="s"]] }} 
+        <div class="panel panel-default panel-success">
+                        <div class="panel-heading"> 
+                                <h4>
+                                        Le
+                                         {{date_day_str}}  {{date_month_str}}  
+                                        à  {{time_formatted}} 
+                                </h4>
+
+                                 <!--
+                                 [{{appointment_time}}   - 
+                                 doc {{doctor_id}} user {{user_id}}]
+                                  -->
+                        </div>
+                        <div class="panel-body">    
+                            <a href="{{url:site}}doctor/info/{{doc_id}}">
+                            <!-- img -->
+                                 {{ if filename }}
+                                        <img src="{{url:site}}files/large/{{filename}}" height="80" style="float:left;margin-right:20px;" class="img-circle" />
+                                    {{ elseif doc_speciality  }}  
+                                                <img src="{{ url:site }}files/large/{{ doctor:speciality_img speciality=doc_speciality  }}" 
+                                                     height="80" style="float:left;margin-right:20px;"
+                                                     class="img-circle" />
+
+                                    {{ else }} 
+                                    {{# default image #}}
+                                        <img src="{{ url:site }}files/large/8b37a2a2cbf9537714125a8f8476e63a.jpg" height="80" style="float:left;margin-right:20px;" class="img-circle" />
+                                    {{ endif }}
+                            <!-- img end  --> 
+                            </a>
+                            <p>
+                                {{doc_name}} {{if doc_speciality}}&bullet; {{doc_speciality}}{{endif}}
+                                 <br /> 
+                                {{doc_address}} {{doc_area}} {{doc_town}} 
+                            </p>		
+
+                            <p class="for_user_ico">
+                            {{if for_user == "no" }}
+                                RDV pour: {{first_name}} {{last_name}}
+                            {{else}}
+                                <i class="glyphicon glyphicon-user"></i>
+                            {{endif}}
+                            </p>
+                            <div class="clearfix"></div>
+
+                            <center class=""> 
+                                    <a class="btn btn-danger loader" href="{{url:site}}appointments/delete/{{id}}">Annuler ce RDV</a>			 
+                            </center> 		 
+                        </div>
+        </div> 
+        {{ /appointments:my_appointments }} 
+    {{endif}}
+{{else}}
+    {{ url:redirect to="users/login" }}
+{{endif}}

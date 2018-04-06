@@ -39,14 +39,16 @@
 	        		<div class="form-group">
 						<label for="email"><?php echo lang('global:email') ?></label>
 			            <div class="controls">
-			            	<?php echo form_input('email', $this->input->post('email') ? $this->input->post('email') : '', 'class="form-control"')?>
+			            	<?php echo form_input('email', $this->input->post('email') ? $this->input->post('email') : '', 'class="form-control" autocomplete="username" onfocus="this.select()"')?>
 			            </div>
 		          	</div>
 
 	        		<div class="form-group">
 						<label class="control-label" for="password"><?php echo lang('global:password') ?></label>
 			            <div class="controls">
-			            	<input type="password" id="password" name="password" maxlength="20" class="form-control" />
+                                        <input type="password" id="password" name="password" maxlength="20" class="form-control"
+                                               autocomplete="current-password"
+                                               onfocus="this.select()" />
 			            </div>
 		          	</div>
 <!--
@@ -63,9 +65,11 @@
                                     <div>
                                         <?php echo anchor('users/reset_pass', lang('user:reset_password_link'), 'class="btn btn-link"'); ?> 
                                     </div>
-<!--                                    <div>
+                                    <!--                                    
+                                    <div>
                                         <?php echo anchor('register', lang('user:register_btn'), 'class="btn btn-link"'); ?></a> 
-                                    </div>-->
+                                    </div>
+                                    -->
 	          		</div>
 
                             </fieldset>

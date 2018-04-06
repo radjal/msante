@@ -1,160 +1,16 @@
 {{ dev:empty_cache }} 
  
 {{if !{url:segments segment="2"} }}
-	<h3>Rendez vous</h3>
+	<!-- <h3>Rendez vous</h3>  -->
 	<ul class="list-group">
-		<li class="list-group-item active"><a href="{{url:site}}rdv/futurs">RDV à venir</a></li>
-		<li class="list-group-item"><a href="{{url:site}}rdv/futurs?other=no">Mes RDV à venir</a></li>
-		<li class="list-group-item"><a href="{{url:site}}rdv/futurs?other=yes">RDV à venir de mes proches</a></li>
+		<li class="list-group-item active"><a href="{{url:site}}{{url:uri_string}}/rdv-a-venir" class="loader btn">RDV à venir</a></li>
+		<li class="list-group-item"><a href="{{url:site}}{{url:uri_string}}/mes-rdv-a-venir" class="loader btn">Mes RDV à venir</a></li>
+		<li class="list-group-item"><a href="{{url:site}}{{url:uri_string}}/proches-a-venir" class="loader btn">RDV à venir de mes proches</a></li>
 	</ul>
 	<ul class="list-group">
-		<li class="list-group-item active"><a href="{{url:site}}rdv/passes">RDV passés</a></li>
-		<li class="list-group-item"><a href="{{url:site}}rdv/passes?other=no">Mes RDV passés</a></li>
-		<li class="list-group-item"><a href="{{url:site}}rdv/passes?other=yes">RDV passés de mes proches</a></li>
+		<li class="list-group-item active"><a href="{{url:site}}{{url:uri_string}}/rdv-passes" class="loader btn">RDV passés</a></li>
+		<li class="list-group-item"><a href="{{url:site}}{{url:uri_string}}/mes-rdv-passes" class="loader btn">Mes RDV passés</a></li>
+		<li class="list-group-item"><a href="{{url:site}}{{url:uri_string}}/proches-passes" class="loader btn">RDV passés de mes proches</a></li>
 	</ul>
-	
-{{elseif {url:segments segment="2"} == 'futurs'}} 
-	<h3>
-		{{if {custom:get_value name="other"} == 'yes' }}
-			Rendez vous à venir pour mes proches
-		{{elseif {custom:get_value name="other"} == 'no'}}
-			Mes rendez-vous à venir
-		{{else}}
-			Rendez-vous à venir
-		{{endif}} 
-	</h3>
-{{# appointments:my_appointments futur_past="past|futur" other_person="yes|no" #}} 
-{{# panel-success or panel-default #}}
-
-{{ appointments:my_appointments futur_past="futur" other_person={custom:get_value name="other"} }} 
-		<div class="panel panel-default panel-success">
-				<div class="panel-heading"> 
-					<h4>
-						Le
-						 {{date_day_str}}  {{date_month_str}}  
-						à
-					</h4>
-					 [{{appointment_time}}   - 
-					 doc {{doctor_id}} user {{user_id}}]
-				</div>
-				<div class="panel-body">   
-				
-                                                {{ if filename }}
-                                                        <img src="{{url:site}}files/large/{{filename}}" height="80" style="float:left;margin-right:20px;"/>
-                                                {{ elseif doc_speciality  }} 
-                                                        {{ if doc_speciality == "Médecins généralistes" }} 
-                                                                        <img src="{{ url:site }}files/large/e6ef08347e274fc655f20c172baad122.jpg" height="80" style="float:left;margin-right:20px;"/> 
-                                                        {{ elseif doc_speciality == "Ophtalmologue" }}
-                                                                        <img src="{{ url:site }}files/large/da81bbdd7f739e786f674638e29ba433.jpg" height="80" style="float:left;margin-right:20px;"/> 
-                                                        {{ elseif doc_speciality == "ORL" }}
-                                                                        <img src="{{ url:site }}files/large/29edb0b1c84e0ed4df17c82fe658d9d5.jpg" height="80" style="float:left;margin-right:20px;"/> 
-                                                        {{ elseif doc_speciality == "Cardiologue" }}
-                                                                        <img src="{{ url:site }}files/large/f40501b53bd7d3e0f62c5086ea1ecc2b.jpg" height="80" style="float:left;margin-right:20px;"/> 
-                                                        {{ elseif doc_speciality == "Spécialistes femme" }}
-                                                                        <img src="{{ url:site }}files/large/41f6ec9ed1a988081b7e137dee039c0d.jpg" height="80" style="float:left;margin-right:20px;"/> 
-                                                        {{ elseif doc_speciality == "Dentiste" }}
-                                                                        <img src="{{ url:site }}files/large/1717f2a8194f53253de0df0c7f5f998c.jpg" height="80" style="float:left;margin-right:20px;"/> 
-                                                        {{ elseif doc_speciality == "Radiologue" }}
-                                                                        <img src="{{ url:site }}files/large/c9c12e653b087854ac27bf50eac5a6cc.jpg" height="80" style="float:left;margin-right:20px;"/> 
-                                                        {{ elseif doc_speciality == "Autres médecins" }}
-                                                                        <img src="{{ url:site }}files/large/e6ef08347e274fc655f20c172baad122.jpg" height="80" style="float:left;margin-right:20px;"/> 
-                                                        {{ elseif doc_speciality == "Etablissements de santé" }}
-                                                                        <img src="{{ url:site }}files/large/056d27356ff595697ce2352501d71633.jpg" height="80" style="float:left;margin-right:20px;"/>  
-                                                        {{ else }} 
-                                                                        <img src="{{ url:site }}files/large/8b37a2a2cbf9537714125a8f8476e63a.jpg" height="80" style="float:left;margin-right:20px;"/>
-                                                        {{ endif }} 
-                                                {{ else }} 
-                                                {{# default image #}}
-                                                        <img src="{{ url:site }}files/large/8b37a2a2cbf9537714125a8f8476e63a.jpg" height="80" style="float:left;margin-right:20px;"/>
-                                                {{ endif }}
-									
-						{{doc_name}} {{if doc_speciality}}&bullet; {{doc_speciality}}{{endif}}
-						 <br /> 
-						{{doc_address}} {{doc_area}} {{doc_town}} <br /> 
-						 <br /> 
-						{{gender}}  
-						 {{first_name}}  
-						 {{last_name}}   
-						 <br /> 
-					Le
-					 {{appointment_date}}  
-					à
-					 {{appointment_time}}
-					 
-					<div class="center-block"> 
-						<a class="btn btn-danger " href="{{url:site}}appointments/delete/{{id}}">Annuler ce RDV</a>			 
-					</div> 		 		 
-				</div>
-		</div> 
-{{ /appointments:my_appointments }} 
-
-{{elseif {url:segments segment="2"} == 'passes'}}  
-{{# appointments:my_appointments futur_past="past|futur" other_person="yes|no" #}} 
-{{# panel-success or panel-default #}}
-
-{{ appointments:my_appointments futur_past="futur" other_person={custom:get_value name="other"} }} 
-
-		<div class="panel panel-default">
-				<div class="panel-heading"> 
-					<h4>
-						Le
-						 {{date_day_str}}  {{date_month_str}}  
-						à
-					</h4>
-					 [{{appointment_time}}   - 
-					 doc {{doctor_id}} user {{user_id}}]
-				</div>
-				<div class="panel-body">   
-				
-									{{ if filename }}
-										<img src="{{url:site}}files/large/{{filename}}" height="80" style="float:left;margin-right:20px;"/>
-									{{ elseif doc_speciality  }} 
-										{{ if doc_speciality == "Médecins généralistes" }} 
-												<img src="{{ url:site }}files/large/e6ef08347e274fc655f20c172baad122.jpg" height="80" style="float:left;margin-right:20px;"/> 
-										{{ elseif doc_speciality == "Ophtalmologue" }}
-												<img src="{{ url:site }}files/large/da81bbdd7f739e786f674638e29ba433.jpg" height="80" style="float:left;margin-right:20px;"/> 
-										{{ elseif doc_speciality == "ORL" }}
-												<img src="{{ url:site }}files/large/29edb0b1c84e0ed4df17c82fe658d9d5.jpg" height="80" style="float:left;margin-right:20px;"/> 
-										{{ elseif doc_speciality == "Cardiologue" }}
-												<img src="{{ url:site }}files/large/f40501b53bd7d3e0f62c5086ea1ecc2b.jpg" height="80" style="float:left;margin-right:20px;"/> 
-										{{ elseif doc_speciality == "Spécialistes femme" }}
-												<img src="{{ url:site }}files/large/41f6ec9ed1a988081b7e137dee039c0d.jpg" height="80" style="float:left;margin-right:20px;"/> 
-										{{ elseif doc_speciality == "Dentiste" }}
-												<img src="{{ url:site }}files/large/1717f2a8194f53253de0df0c7f5f998c.jpg" height="80" style="float:left;margin-right:20px;"/> 
-										{{ elseif doc_speciality == "Radiologue" }}
-												<img src="{{ url:site }}files/large/c9c12e653b087854ac27bf50eac5a6cc.jpg" height="80" style="float:left;margin-right:20px;"/> 
-										{{ elseif doc_speciality == "Autres médecins" }}
-												<img src="{{ url:site }}files/large/e6ef08347e274fc655f20c172baad122.jpg" height="80" style="float:left;margin-right:20px;"/> 
-										{{ elseif doc_speciality == "Etablissements de santé" }}
-												<img src="{{ url:site }}files/large/056d27356ff595697ce2352501d71633.jpg" height="80" style="float:left;margin-right:20px;"/>  
-										{{ else }} 
-												<img src="{{ url:site }}files/large/8b37a2a2cbf9537714125a8f8476e63a.jpg" height="80" style="float:left;margin-right:20px;"/>
-										{{ endif }} 
-									{{ else }} 
-									{{# default image #}}
-										<img src="{{ url:site }}files/large/8b37a2a2cbf9537714125a8f8476e63a.jpg" height="80" style="float:left;margin-right:20px;"/>
-									{{ endif }}
-									
-						{{doc_name}} {{if doc_speciality}}&bullet; {{doc_speciality}}{{endif}}
-						 <br /> 
-						{{doc_address}} {{doc_area}} {{doc_town}} <br /> 
-						 <br /> 
-						{{gender}}  
-						 {{first_name}}  
-						 {{last_name}}   
-						 <br /> 
-					Le
-					 {{appointment_date}}  
-					à
-					 {{appointment_time}}
-							 
-					<div class="center-block"> 
-						<a class="btn btn-info "  href="{{url:site}}doctor/view/{{doctor_id}}">Reprendre ce RDV</a>			 
-					</div> 		 	 	 		 
-				</div>
-		</div> 
- 
-{{ /appointments:my_appointments }} 
-	
-	
+	 
 {{endif}}

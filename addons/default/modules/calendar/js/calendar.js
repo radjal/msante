@@ -32,6 +32,8 @@ function setTime(time)
 /* user flow */
 function setIsForMe(obj) /* step 1 */
 {
+    $('#appt-patient').html(userForm);
+     
     $('#appt-patient').removeClass('hidden');
     var value = $(obj).attr('data-value').toLowerCase(); 
     console.log(value); 
@@ -58,7 +60,7 @@ function setIsForMe(obj) /* step 1 */
     
     $('#appt-info').slideDown(); 
     $('input#for_user').val(value);
-    $('.for_user_ui a').addClass('disabled');
+//    $('.for_user_ui a').addClass('disabled');
 } 
 function setGender(obj) /* step 2 */
 { 
@@ -76,7 +78,8 @@ function setGender(obj) /* step 2 */
     $('#appt-gender a').removeClass('active btn-success'); 
     $(obj).addClass('active btn-success'); 
 } 
-
+var userForm;
 $( document ).ready(function() 
 {     
+    userForm = $('#appt-patient').html();
 });

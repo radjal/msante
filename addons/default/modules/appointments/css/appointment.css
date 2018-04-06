@@ -11,7 +11,6 @@
 #appointment-patient input, #appointment-delivery input {
     width: 100%;
 } 
-
 #appointment-form ul li {
     
     list-style: none;
@@ -29,8 +28,12 @@ display: inline-flex;
 }
 #appointment-customised-datepicker label {
 }
-
+/* search */
 #content-wrapper .search-field {
+}
+/* rendez vous page */
+div.content li.active a {
+    color: white;
 }
 /* print */
 @media only print

@@ -33,6 +33,8 @@ a.break-post, a.break-pre {
 .weekdays-nano a {
     margin-bottom: 15px;
     width: 100%;
+    height: 28px;
+    line-height: 22px;
 }
 .weekdays>div {
     margin-bottom: 20px;

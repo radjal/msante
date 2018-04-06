@@ -1,3 +1,6 @@
+<?php 
+echo '';
+?>
 DOCTOR FORM
 <section class="title">
 	<!-- We'll use $this->method to switch between doctor.create & doctor.edit -->
