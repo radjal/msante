@@ -2,7 +2,7 @@
 
 /**
  * PyroStreams Choice Field Type
- *
+ * modified by Radja 
  * @package		PyroStreams
  * @author		PyroCMS Dev Team
  * @copyright	Copyright (c) 2011 - 2013, PyroCMS
@@ -13,9 +13,9 @@ class Field_choice
 	
 	public $db_col_type				= 'varchar';
 
-	public $version					= '1.1.0';
+	public $version					= '1.1.1';
 
-	public $author					= array('name'=>'Parse19', 'url'=>'http://parse19.com');
+	public $author					= array('name'=>'Radja', 'url'=>'http://radja.fr');
 
 	public $custom_parameters		= array(
 										'choice_data',
@@ -180,7 +180,8 @@ class Field_choice
 	 * @return 	string
 	 */
 	private function format_choice($line)
-	{
+	{ 
+            if(strlen($line)<=0) return $line; // hack to avoir error message, radja
 		if ($line{0} == '^')
 		{
 			return substr($line, 1);

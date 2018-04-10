@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : msantenenndb.mysql.db
--- Généré le :  jeu. 05 avr. 2018 à 14:41
+-- Généré le :  sam. 07 avr. 2018 à 00:40
 -- Version du serveur :  5.6.34-log
 -- Version de PHP :  7.0.27
 
@@ -161,7 +161,38 @@ CREATE TABLE `default_appointments_list` (
 INSERT INTO `default_appointments_list` (`id`, `user_id`, `doctor_id`, `appointment_status`, `appointment_date`, `appointment_time`, `message`, `maiden_name`, `first_name`, `last_name`, `birth_date`, `gender`, `for_user`, `knows_doctor`, `phone`, `mobile`, `email`, `address`, `district`, `town`, `area_name`, `insurance`, `payment_type`, `payment_status`, `total_pretax`, `total_final`, `log`, `ip`, `user_agent`, `created_on`, `updated_on`) VALUES
 (1, 17, 15, '', 20180410, 1000, NULL, '', 'Radja', 'Lomas', '21/08/1979', '', 'yes', 'non', '678957826', '678957826', 'r.lomas@spelldesign.fr', '', 'commune de belleville', 'Bondoufle', 'quartier des acacias', 'oui', '', '', '0', '0', NULL, '92.170.179.46', 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36', '2018-04-05 14:28:23', NULL),
 (2, 17, 12, '', 20180408, 1030, NULL, '', 'Radja', 'Lomas', '21/08/1979', '', 'yes', 'oui', '678957826', '678957826', 'r.lomas@spelldesign.fr', '', 'commune de belleville', 'Bondoufle', 'quartier des acacias', 'oui', '', '', '0', '0', NULL, '92.170.179.46', 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36', '2018-04-05 14:36:55', NULL),
-(3, 17, 3, '', 20180406, 1000, NULL, 'desailes', 'sandra', 'Roches', '01/01/1986', '', 'no', 'non', '678957826', '0678957826', 'r.lomas@spelldesign.fr', '', 'commune du port', 'paris', 'quartier des dunes', 'non', '', '', '0', '0', NULL, '92.170.179.46', 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36', '2018-04-05 14:37:58', NULL);
+(3, 17, 3, '', 20180406, 1000, NULL, 'desailes', 'sandra', 'Roches', '01/01/1986', '', 'no', 'non', '678957826', '0678957826', 'r.lomas@spelldesign.fr', '', 'commune du port', 'paris', 'quartier des dunes', 'non', '', '', '0', '0', NULL, '92.170.179.46', 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36', '2018-04-05 14:37:58', NULL),
+(4, 12, 15, 'cancelled_by_patient', 20180423, 1030, NULL, '', 'Barry', 'Almamy', '10/10/50', '', 'yes', '1', '625464119', '625464119', 'abarry78250@gmail.com', '', 'Ratoma', 'Conakry', 'Hamdallaye', '1', '', '', '0', '0', NULL, '80.12.38.177', 'Mozilla/5.0 (Linux; Android 8.0.0; G8141 Build/47.1.A.12.119) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.109 Mobile Safari/537.36', '2018-04-05 14:58:03', '2018-04-05 14:59:52'),
+(5, 12, 15, '', 20180409, 1430, NULL, '', 'Barry', 'Almamy', '10/10/50', '', 'yes', 'oui', '625464119', '625464119', 'abarry78250@gmail.com', '', 'Ratoma ', 'Conakry', 'Hammady ', 'oui', '', '', '0', '0', NULL, '80.12.38.177', 'Mozilla/5.0 (Linux; Android 8.0.0; G8141 Build/47.1.A.12.119) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.109 Mobile Safari/537.36', '2018-04-05 15:27:02', NULL),
+(6, 17, 14, '', 20180417, 1430, NULL, '', 'Radja', 'Lomas', '21/08/1979', '', 'yes', 'no', '678957826', '678957826', 'r.lomas@spelldesign.fr', '', 'commune de belleville', 'Bondoufle', 'quartier des acacias', '', '', '', '0', '0', NULL, '92.170.179.46', 'Mozilla/5.0 (Linux; Android 4.4.2; GT-I9195 Build/KOT49H) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.109 Mobile Safari/537.36', '2018-04-06 13:00:54', NULL),
+(7, 17, 16, '', 20180416, 1000, NULL, '', 'Radja', 'Lomas', '21/08/1979', '', 'yes', 'no', '678957826', '678957826', 'r.lomas@spelldesign.fr', '', 'commune de belleville', 'Bondoufle', 'quartier des acacias', '', '', '', '0', '0', NULL, '92.170.179.46', 'Mozilla/5.0 (Linux; Android 4.4.2; GT-I9195 Build/KOT49H) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.109 Mobile Safari/537.36', '2018-04-06 13:35:51', NULL),
+(8, 17, 14, '', 20180412, 1030, NULL, '', 'Radja', 'Lomas', '21/08/1979', '', 'yes', 'no', '678957826', '678957826', 'r.lomas@spelldesign.fr', '', 'commune de belleville', 'Bondoufle', 'quartier des acacias', '', '', '', '0', '0', NULL, '92.170.179.46', 'Mozilla/5.0 (Linux; Android 4.4.2; GT-I9195 Build/KOT49H) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.109 Mobile Safari/537.36', '2018-04-06 13:43:52', NULL),
+(9, 17, 14, '', 20180416, 1030, NULL, '', 'Radja', 'Lomas', '21/08/1979', '', 'yes', 'no', '678957826', '678957826', 'r.lomas@spelldesign.fr', '', 'commune de belleville', 'Bondoufle', 'quartier des acacias', '', '', '', '0', '0', NULL, '92.170.179.46', 'Mozilla/5.0 (Linux; Android 4.4.2; GT-I9195 Build/KOT49H) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.109 Mobile Safari/537.36', '2018-04-06 13:46:02', NULL),
+(10, 17, 14, '', 20180416, 1100, NULL, '', 'Radja', 'Lomas', '21/08/1979', '', 'yes', 'no', '678957826', '678957826', 'r.lomas@spelldesign.fr', '', 'commune de belleville', 'Bondoufle', 'quartier des acacias', '', '', '', '0', '0', NULL, '92.170.179.46', 'Mozilla/5.0 (Linux; Android 4.4.2; GT-I9195 Build/KOT49H) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.109 Mobile Safari/537.36', '2018-04-06 13:46:20', NULL),
+(11, 17, 14, '', 20180412, 1100, NULL, '', 'Radja', 'Lomas', '21/08/1979', '', 'yes', 'no', '678957826', '678957826', 'r.lomas@spelldesign.fr', '', 'commune de belleville', 'Bondoufle', 'quartier des acacias', '', '', '', '0', '0', NULL, '92.170.179.46', 'Mozilla/5.0 (Linux; Android 4.4.2; GT-I9195 Build/KOT49H) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.109 Mobile Safari/537.36', '2018-04-06 13:48:52', NULL),
+(12, 12, 15, '', 20180410, 1030, NULL, '', 'Barry', 'Almamy', '10/10/50', '', 'yes', 'oui', '625464119', '625464119', 'abarry78250@gmail.com', '', 'ratoma', 'conakry', '', 'oui', '', '', '0', '0', NULL, '185.89.129.106', 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36', '2018-04-06 15:10:53', NULL),
+(13, 17, 16, '', 20180416, 1500, NULL, '', 'Radja', 'Lomas', '21/08/1979', '', 'yes', 'no', '678957826', '678957826', 'r.lomas@spelldesign.fr', '', 'commune de belleville', 'Bondoufle', 'quartier des acacias', '', '', '', '0', '0', NULL, '92.170.179.46', 'Mozilla/5.0 (iPhone; CPU iPhone OS 11_0 like Mac OS X) AppleWebKit/604.1.38 (KHTML, like Gecko) Version/11.0 Mobile/15A372 Safari/604.1', '2018-04-06 15:11:21', NULL),
+(14, 12, 15, '', 20180410, 1130, NULL, '', 'Barry', 'Almamy', '10/10/50', '', 'yes', 'oui', '625464119', '625464119', 'abarry78250@gmail.com', '', 'Matam', 'Conakry ', '', 'oui', '', '', '0', '0', NULL, '80.12.39.139', 'Mozilla/5.0 (Linux; Android 8.0.0; G8141 Build/47.1.A.12.145) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.109 Mobile Safari/537.36', '2018-04-06 16:06:08', NULL),
+(15, 12, 15, '', 20180409, 1500, NULL, '', 'Barry', 'Almamy', '10/10/50', '', 'yes', 'oui', '625464119', '625464119', 'abarry78250@gmail.com', '', 'Matam', 'Conakry ', '', 'oui', '', '', '0', '0', NULL, '80.12.39.139', 'Mozilla/5.0 (Linux; Android 8.0.0; G8141 Build/47.1.A.12.145) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.109 Mobile Safari/537.36', '2018-04-06 18:09:54', NULL),
+(16, 17, 3, '', 20180410, 1030, NULL, '', 'Sophie', 'Paumelle', '2018-04-06', 'homme', 'no', 'no', '678957826', '631618811', 'r.lomas@spelldesign.fr', '', 'commune de belleville', 'Soisy sur Seine', 'quartier des acacias', '', '', '', '0', '0', NULL, '92.170.179.46', 'Mozilla/5.0 (Linux; Android 4.4.2; GT-I9195 Build/KOT49H) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.109 Mobile Safari/537.36', '2018-04-06 21:14:35', NULL),
+(17, 17, 3, '', 20180410, 1030, NULL, '', 'Sophie', 'Paumelle', '2005-04-06', 'homme', 'no', 'no', '678957826', '631618811', 'r.lomas@spelldesign.fr', '', 'Commune de la liberté', 'Soisy sur Seine', 'quartier des acacias', '', '', '', '0', '0', NULL, '92.170.179.46', 'Mozilla/5.0 (Linux; Android 4.4.2; GT-I9195 Build/KOT49H) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.109 Mobile Safari/537.36', '2018-04-06 21:15:25', NULL),
+(18, 17, 12, '', 20180408, 1100, NULL, '', 'Radja', 'Lomas', '1979-08-21', 'homme', 'yes', 'no', '678957826', '678957826', 'r.lomas@spelldesign.fr', '', 'commune de belleville', 'Bondoufle', 'quartier des acacias', '', '', '', '0', '0', NULL, '92.170.179.46', 'Mozilla/5.0 (Linux; Android 4.4.2; GT-I9195 Build/KOT49H) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.109 Mobile Safari/537.36', '2018-04-06 21:22:29', NULL),
+(19, 17, 12, '', 20180408, 1130, NULL, '', 'Radja', 'Lomas', '1979-08-21', 'homme', 'yes', 'no', '678957826', '678957826', 'r.lomas@spelldesign.fr', '', 'commune de belleville', 'Bondoufle', 'quartier des acacias', '', '', '', '0', '0', NULL, '92.170.179.46', 'Mozilla/5.0 (Linux; Android 4.4.2; GT-I9195 Build/KOT49H) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.109 Mobile Safari/537.36', '2018-04-06 21:23:01', NULL),
+(20, 17, 12, '', 20180408, 1000, NULL, '', 'Radja', 'Lomas', '1979-08-21', 'homme', 'yes', 'no', '678957826', '678957826', 'r.lomas@spelldesign.fr', '', 'commune de belleville', 'Bondoufle', 'quartier des acacias', '', '', '', '0', '0', NULL, '92.170.179.46', 'Mozilla/5.0 (Linux; Android 4.4.2; GT-I9195 Build/KOT49H) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.109 Mobile Safari/537.36', '2018-04-06 21:23:13', NULL),
+(21, 17, 12, '', 20180408, 1430, NULL, '', 'Radja', 'Lomas', '1979-08-21', 'homme', 'yes', 'no', '678957826', '678957826', 'r.lomas@spelldesign.fr', '', 'commune de belleville', 'Bondoufle', 'quartier des acacias', '', '', '', '0', '0', NULL, '92.170.179.46', 'Mozilla/5.0 (Linux; Android 4.4.2; GT-I9195 Build/KOT49H) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.109 Mobile Safari/537.36', '2018-04-06 21:23:52', NULL),
+(22, 17, 12, '', 20180408, 1500, NULL, '', 'Radja', 'Lomas', '1979-08-21', 'homme', 'yes', 'no', '678957826', '678957826', 'r.lomas@spelldesign.fr', '', 'commune de belleville', 'Bondoufle', 'quartier des acacias', '', '', '', '0', '0', NULL, '92.170.179.46', 'Mozilla/5.0 (Linux; Android 4.4.2; GT-I9195 Build/KOT49H) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.109 Mobile Safari/537.36', '2018-04-06 21:24:01', NULL),
+(23, 17, 12, '', 20180408, 1530, NULL, '', 'Radja', 'Lomas', '1979-08-21', 'homme', 'yes', 'no', '678957826', '678957826', 'r.lomas@spelldesign.fr', '', 'commune de belleville', 'Bondoufle', 'quartier des acacias', '', '', '', '0', '0', NULL, '92.170.179.46', 'Mozilla/5.0 (Linux; Android 4.4.2; GT-I9195 Build/KOT49H) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.109 Mobile Safari/537.36', '2018-04-06 21:24:14', NULL),
+(24, 17, 12, '', 20180408, 1600, NULL, '', 'Radja', 'Lomas', '1979-08-21', 'homme', 'yes', 'no', '678957826', '678957826', 'r.lomas@spelldesign.fr', '', 'commune de belleville', 'Bondoufle', 'quartier des acacias', '', '', '', '0', '0', NULL, '92.170.179.46', 'Mozilla/5.0 (Linux; Android 4.4.2; GT-I9195 Build/KOT49H) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.109 Mobile Safari/537.36', '2018-04-06 21:24:25', NULL),
+(25, 17, 12, '', 20180408, 1630, NULL, '', 'Radja', 'Lomas', '1979-08-21', 'homme', 'yes', 'no', '678957826', '678957826', 'r.lomas@spelldesign.fr', '', 'commune de belleville', 'Bondoufle', 'quartier des acacias', '', '', '', '0', '0', NULL, '92.170.179.46', 'Mozilla/5.0 (Linux; Android 4.4.2; GT-I9195 Build/KOT49H) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.109 Mobile Safari/537.36', '2018-04-06 21:24:38', NULL),
+(26, 17, 12, '', 20180408, 1700, NULL, '', 'Radja', 'Lomas', '1979-08-21', 'homme', 'yes', 'no', '678957826', '678957826', 'r.lomas@spelldesign.fr', '', 'commune de belleville', 'Bondoufle', 'quartier des acacias', '', '', '', '0', '0', NULL, '92.170.179.46', 'Mozilla/5.0 (Linux; Android 4.4.2; GT-I9195 Build/KOT49H) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.109 Mobile Safari/537.36', '2018-04-06 21:24:44', NULL),
+(27, 17, 12, '', 20180408, 1700, NULL, '', 'Radja', 'Lomas', '1979-08-21', 'homme', 'yes', 'no', '678957826', '678957826', 'r.lomas@spelldesign.fr', '', 'commune de belleville', 'Bondoufle', 'quartier des acacias', '', '', '', '0', '0', NULL, '92.170.179.46', 'Mozilla/5.0 (Linux; Android 4.4.2; GT-I9195 Build/KOT49H) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.109 Mobile Safari/537.36', '2018-04-06 21:24:52', NULL),
+(28, 17, 12, '', 20180408, 1700, NULL, '', 'Radja', 'Lomas', '1979-08-21', 'homme', 'yes', 'no', '678957826', '678957826', 'r.lomas@spelldesign.fr', '', 'commune de belleville', 'Bondoufle', 'quartier des acacias', '', '', '', '0', '0', NULL, '92.170.179.46', 'Mozilla/5.0 (Linux; Android 4.4.2; GT-I9195 Build/KOT49H) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.109 Mobile Safari/537.36', '2018-04-06 21:25:09', NULL),
+(29, 17, 10, '', 20180408, 1030, NULL, '', 'Radja', 'Lomas', '1979-08-21', 'homme', 'yes', 'no', '678957826', '678957826', 'r.lomas@spelldesign.fr', '', 'commune de belleville', 'Bondoufle', 'quartier des acacias', '', '', '', '0', '0', NULL, '92.170.179.46', 'Mozilla/5.0 (Linux; Android 4.4.2; GT-I9195 Build/KOT49H) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.109 Mobile Safari/537.36', '2018-04-06 21:40:42', NULL),
+(30, 17, 14, '', 20180409, 1430, NULL, '', 'Eliane', 'Roches', '1991-12-09', 'homme', 'no', 'no', '678957826', '0678957826', 'r.lomas@spelldesign.fr', '', 'Commune de la liberté', 'Le Châtelet-en-Brie', 'quartier des acacias', '', '', '', '0', '0', NULL, '92.170.179.46', 'Mozilla/5.0 (Linux; Android 4.4.2; GT-I9195 Build/KOT49H) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.109 Mobile Safari/537.36', '2018-04-06 23:05:59', NULL),
+(31, 17, 12, '', 20180420, 1030, NULL, '', 'Eliane', 'Roches', '1980-01-20', 'homme', 'no', 'no', '678957826', '', 'r.lomas@spelldesign.fr', '', 'commune de paris', 'Le Châtelet-en-Brie', 'quartier des acacias', '', '', '', '0', '0', NULL, '92.170.179.46', 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36', '2018-04-06 23:08:47', NULL),
+(32, 11, 14, '', 20180409, 1500, NULL, '', 'Boubacar ', 'Bah', '2017-11-09', '', 'no', 'oui', '665431196', '69666552', 'almamy.barry@laposte.net', '', 'Kaloum', 'Conakry ', '', 'oui', '', '', '0', '0', NULL, '78.213.60.211', 'Mozilla/5.0 (Linux; Android 8.0.0; G8141 Build/47.1.A.12.145) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.109 Mobile Safari/537.36', '2018-04-06 23:14:04', NULL),
+(33, 11, 16, '', 20180410, 1530, NULL, 'Bah', 'Aminata', 'Diallo', '2015-01-15', '', 'no', 'oui', '665431196', '965321795', 'almamy.barry@laposte.net', '', 'Dixinn', 'Conakry', '', 'oui', '', '', '0', '0', NULL, '78.213.60.211', 'Mozilla/5.0 (Linux; Android 8.0.0; G8141 Build/47.1.A.12.145) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.109 Mobile Safari/537.36', '2018-04-06 23:19:58', NULL),
+(34, 17, 13, '', 20180418, 1030, NULL, '', 'Radja', 'Lomas', '1979-08-21', 'homme', 'yes', 'no', '678957826', '678957826', 'r.lomas@spelldesign.fr', '', 'commune de belleville', 'Bondoufle', 'quartier des acacias', '', '', '', '0', '0', NULL, '92.170.179.46', 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36', '2018-04-06 23:54:14', NULL);
 
 -- --------------------------------------------------------
 
@@ -232,47 +263,6 @@ CREATE TABLE `default_ci_sessions` (
 --
 
 INSERT INTO `default_ci_sessions` (`session_id`, `ip_address`, `user_agent`, `last_activity`, `user_data`) VALUES
-('31eaf14b3d06408a1798221ed29c2a5a', '94.242.171.87', 'Mozilla/5.0 (Windows NT 6.0; rv:34.0) Gecko/20100101 Firefox/34.0', 1522319686, 'a:1:{s:14:\"admin_redirect\";s:5:\"admin\";}'),
-('4f09490b292f2ea621b918124f12a7a0', '137.226.113.26', 'Mozilla/5.0 zgrab/0.x (compatible; Researchscan/t12sns; +http://researchscan.comsys.rwth-aachen.de)', 1522319653, ''),
-('bcb0cd2bea6ec52e0db7509bd1ebf220', '94.242.171.87', 'Mozilla/5.0 (Windows NT 6.0; rv:34.0) Gecko/20100101 Firefox/34.0', 1522319649, ''),
-('95a0e0f4a5a1d208094429b7a8eac62e', '78.213.60.211', 'Mozilla/5.0 (Linux; Android 8.0.0; G8141 Build/47.1.A.12.119) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.10', 1522347629, ''),
-('43fca11f58ec23449c96d2df62c2fb3b', '78.213.60.211', 'Mozilla/5.0 (Linux; Android 8.0.0; G8141 Build/47.1.A.12.119) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.10', 1522347665, ''),
-('4bd846a98b6b42954c2edc8878108cf5', '94.242.171.87', 'Mozilla/5.0 (Windows NT 6.0; rv:34.0) Gecko/20100101 Firefox/34.0', 1522319534, ''),
-('38efa1aa9da565259d005deb2429adaa', '92.170.179.46', 'Mozilla/5.0 (Linux; Android 4.4.2; GT-I9195 Build/KOT49H) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.109 Mo', 1522341724, 'a:6:{s:5:\"email\";s:14:\"radjal@free.fr\";s:2:\"id\";s:1:\"1\";s:7:\"user_id\";s:1:\"1\";s:8:\"group_id\";s:1:\"1\";s:5:\"group\";s:5:\"admin\";s:17:\"flash:new:success\";s:43:\"25 Élément(s) supprimé du dossier page_m\";}'),
-('1eeb084caf4a190fccde45e894311e85', '94.242.171.87', 'Mozilla/5.0 (Windows NT 6.0; rv:34.0) Gecko/20100101 Firefox/34.0', 1522318782, ''),
-('1cca0f6d9558475df51990cb2ac50e9e', '92.170.179.46', 'Mozilla/5.0 (Linux; Android 4.4.2; GT-I9195 Build/KOT49H) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.109 Mo', 1522319425, 'a:5:{s:5:\"email\";s:14:\"radjal@free.fr\";s:2:\"id\";s:1:\"1\";s:7:\"user_id\";s:1:\"1\";s:8:\"group_id\";s:1:\"1\";s:5:\"group\";s:5:\"admin\";}'),
-('e24f2719981b1276ef7c1f71df584705', '92.170.179.46', 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36', 1522319287, 'a:1:{s:14:\"admin_redirect\";s:17:\"admin/maintenance\";}'),
-('f1608b6535c6bf5b93e64f4434380e23', '197.149.220.160', 'Mozilla/5.0 (iPhone; CPU iPhone OS 10_1 like Mac OS X) AppleWebKit/602.2.14 (KHTML, like Gecko) Version/10.0 Mobile/14B7', 1522340669, ''),
-('165fe2f343958b8a8eabe1f0dc080f55', '197.149.220.160', 'Mozilla/5.0 (iPhone; CPU iPhone OS 10_1 like Mac OS X) AppleWebKit/602.2.14 (KHTML, like Gecko) Version/10.0 Mobile/14B7', 1522317757, ''),
-('c7b0f325a7387f0a23c2ae0148b29442', '197.149.220.160', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_1) AppleWebKit/601.2.4 (KHTML, like Gecko) Version/9.0.1 Safari/601.2.4 fac', 1522317742, ''),
-('07d31aee2790c6b5b06b190a1e1766cc', '92.170.179.46', 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36', 1522319613, 'a:6:{s:8:\"username\";s:5:\"admin\";s:5:\"email\";s:14:\"radjal@free.fr\";s:2:\"id\";s:1:\"1\";s:7:\"user_id\";s:1:\"1\";s:8:\"group_id\";s:1:\"1\";s:5:\"group\";s:5:\"admin\";}'),
-('55f042a733bceb3e2117e9c294fc3a10', '66.249.81.246', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko; Google Web Preview) Chrome/41.0.2272.118 Safari/5', 1522314399, ''),
-('c965a8c9a845cb21327bc5ba73d99836', '137.226.113.26', 'Mozilla/5.0 zgrab/0.x (compatible; Researchscan/t13rl; +http://researchscan.comsys.rwth-aachen.de)', 1522316651, ''),
-('989091bd7609979a5557ba9387c24521', '66.249.81.244', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko; Google Web Preview) Chrome/41.0.2272.118 Safari/5', 1522314397, ''),
-('84dec84ba37cfad8c688474a621621d6', '66.249.81.242', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko; Google Web Preview) Chrome/41.0.2272.118 Safari/5', 1522314393, ''),
-('2ed3eb0075bbf621af0f167dbf6942e6', '66.249.93.31', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.75 Safari/537.36 Google Favicon', 1522314394, ''),
-('66729a857d9d4512590be6c0baa0328a', '80.12.43.144', 'Mozilla/5.0 (Linux; Android 8.0.0; G8141 Build/47.1.A.12.119) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.10', 1522336260, ''),
-('d71c9c12920b92075e589cf3ad472175', '66.249.93.55', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.75 Safari/537.36 Google Favicon', 1522314391, ''),
-('dce1e3db465dfae4e854ed78b52b2bf5', '80.12.43.144', 'Mozilla/5.0 (Linux; Android 8.0.0; G8141 Build/47.1.A.12.119) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.10', 1522313314, ''),
-('fdf9eada09d2e5f61a1244459ba17cc7', '66.249.93.58', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.75 Safari/537.36 Google Favicon', 1522310948, ''),
-('bd6e6082c23d4dfdff2ad6181e809617', '66.249.93.62', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.75 Safari/537.36 Google Favicon', 1522310946, ''),
-('3574ea4c1d4f3de9e3d1937bf3e9ec55', '66.249.93.60', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.75 Safari/537.36 Google Favicon', 1522310947, ''),
-('e51e9ca211215bf437d10640ec676f2b', '66.249.93.26', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.75 Safari/537.36 Google Favicon', 1522310942, ''),
-('1fb84cdd1e1d7cc0d6c851d3ca02abf6', '178.154.200.14', 'Mozilla/5.0 (compatible; YandexBot/3.0; +http://yandex.com/bots)', 1522309361, ''),
-('a8aae1d838f001bdc81870e8a7f6fc7a', '66.249.93.47', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.75 Safari/537.36 Google Favicon', 1522310942, ''),
-('fccbe9c031c342984bd79d8552cae7df', '92.184.104.191', 'Mozilla/5.0 (Linux; Android 8.0.0; G8141 Build/47.1.A.12.119) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.10', 1522308753, ''),
-('722fd405ace96d6b8f26e22c654310ac', '80.12.39.144', 'Mozilla/5.0 (iPhone; CPU iPhone OS 9_3_5 like Mac OS X) AppleWebKit/601.1.46 (KHTML, like Gecko) Version/9.0 Mobile/13G3', 1522304151, ''),
-('bd4769d97f917d540a1062f7fe93accd', '92.184.104.191', 'Mozilla/5.0 (Linux; Android 8.0.0; G8141 Build/47.1.A.12.119) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.10', 1522306902, 'a:5:{s:5:\"email\";s:21:\"abarry78250@gmail.com\";s:2:\"id\";s:2:\"12\";s:7:\"user_id\";s:2:\"12\";s:8:\"group_id\";s:1:\"1\";s:5:\"group\";s:5:\"admin\";}'),
-('e72a24d183648657809373f0175276f0', '92.170.179.46', 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36', 1522347115, ''),
-('3b70dd87a60b2e40c6109af59d385d86', '131.253.27.14', 'Mozilla/5.0 (iPhone; CPU iPhone OS 7_0 like Mac OS X) AppleWebKit/537.51.1 (KHTML, like Gecko) Version/7.0 Mobile/11A465', 1522344478, ''),
-('2e68ea48890a6d5fe68501f576310e62', '78.213.60.211', 'Mozilla/5.0 (Linux; Android 8.0.0; G8141 Build/47.1.A.12.119) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.10', 1522347305, ''),
-('3898ad2b0ff8c04f28446fd734b41a21', '66.249.66.219', 'Googlebot-Image/1.0', 1522343181, ''),
-('85e43d7ca2cf5f3b467b7643cdf2ed44', '157.55.39.165', 'Mozilla/5.0 (iPhone; CPU iPhone OS 7_0 like Mac OS X) AppleWebKit/537.51.1 (KHTML, like Gecko) Version/7.0 Mobile/11A465', 1522344473, ''),
-('cd241af0b116de72f3b7195842f7bd1a', '66.249.66.221', 'Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)', 1522343064, ''),
-('e6d649608b811397b78c3be1cb9e95b4', '66.249.66.221', 'Googlebot-Image/1.0', 1522343175, ''),
-('395ba2d10ee38189e0982979cce0d148', '66.249.66.219', 'Googlebot-Image/1.0', 1522343181, ''),
-('3c579f8e772b93854e9ec00576f81541', '178.154.171.42', 'Mozilla/5.0 (compatible; YandexBot/3.0; +http://yandex.com/bots)', 1522354907, ''),
-('175e3c826ec4d5b62ae8f817d4f3fe00', '87.250.224.74', 'Mozilla/5.0 (compatible; YandexBot/3.0; +http://yandex.com/bots)', 1522354914, ''),
 ('18923acdd0e1477e26e06fa953d7fbac', '180.76.15.161', 'Mozilla/5.0 (compatible; Baiduspider/2.0; +http://www.baidu.com/search/spider.html)', 1522435117, ''),
 ('081b41eb610616c41932ff95e00e18f3', '180.76.15.32', 'Mozilla/5.0 (compatible; Baiduspider/2.0; +http://www.baidu.com/search/spider.html)', 1522435119, ''),
 ('3f1c5f5ac16e1e5cd3d5978e50d58737', '178.154.171.35', 'Mozilla/5.0 (compatible; YandexBot/3.0; +http://yandex.com/bots)', 1522412952, ''),
@@ -305,6 +295,8 @@ INSERT INTO `default_ci_sessions` (`session_id`, `ip_address`, `user_agent`, `la
 ('3dd93d03c083b89d84fdcd9924e3d8b2', '66.249.66.219', 'Googlebot-Image/1.0', 1522605631, ''),
 ('58e38dea560386f90b8c29d6fa576ea8', '66.249.66.219', 'Googlebot-Image/1.0', 1522605629, ''),
 ('381927e23fb47ed7e4c08d15ab96324b', '66.249.66.219', 'Googlebot-Image/1.0', 1522605630, ''),
+('8962fdd78d6737ab65961ef7925d574d', '66.249.66.219', 'Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)', 1522978618, ''),
+('684747c792b32c9065d1b1a54b1a4c23', '151.80.34.185', 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36', 1522977572, ''),
 ('99e24f4534ff2a64ce3447768e537fd2', '66.249.66.221', 'Mozilla/5.0 (Linux; Android 6.0.1; Nexus 5X Build/MMB29P) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2272.96 Mob', 1522883837, ''),
 ('d20020ce6fd5d35baab8a2aa7305bd15', '141.8.183.10', 'Mozilla/5.0 (compatible; YandexBot/3.0; +http://yandex.com/bots)', 1522882097, ''),
 ('49e53044a468427e9e20182b863aceb4', '66.249.66.223', 'Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)', 1522883836, ''),
@@ -329,19 +321,69 @@ INSERT INTO `default_ci_sessions` (`session_id`, `ip_address`, `user_agent`, `la
 ('4a4253d3fc29e22331be130c027a21f5', '66.249.66.223', 'Googlebot-Image/1.0', 1522832103, ''),
 ('5b4d02b2de4accbe50b626b68571a5cc', '66.249.66.223', 'Googlebot-Image/1.0', 1522832103, ''),
 ('b3639e455867c73d6c9344624a7ee000', '66.249.66.219', 'Googlebot-Image/1.0', 1522832103, ''),
+('b8e8571ec0a03b5ff07b202adeead0a5', '78.213.60.211', 'Dalvik/2.1.0 (Linux; U; Android 6.0.1; D6603 Build/23.5.A.1.291)', 1522955395, ''),
 ('a4b8777476ca8f23f3cfc3f41f02878a', '66.249.66.223', 'Googlebot-Image/1.0', 1522832102, ''),
 ('c2ab10526bbb81d53b343422d375cea9', '66.249.66.221', 'Googlebot-Image/1.0', 1522832102, ''),
 ('f889386b144f5bcf383aecf0de4da6cc', '66.249.66.221', 'Mozilla/5.0 (Linux; Android 6.0.1; Nexus 5X Build/MMB29P) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2272.96 Mob', 1522831872, ''),
-('ba4b594e5e56ca1d85898584b102559e', '92.170.179.46', 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36', 1522341856, ''),
-('b1e2880837ecdfb98cc985afe47e8e1e', '80.12.38.177', 'Mozilla/5.0 (Linux; Android 8.0.0; G8141 Build/47.1.A.12.119) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.10', 1522924769, ''),
-('41864a587e492d0c5c094e1ea3c73dd2', '92.170.179.46', 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36', 1522924465, 'a:6:{s:8:\"username\";s:11:\"radja.lomas\";s:5:\"email\";s:22:\"r.lomas@spelldesign.fr\";s:2:\"id\";s:2:\"17\";s:7:\"user_id\";s:2:\"17\";s:8:\"group_id\";s:1:\"2\";s:5:\"group\";s:4:\"user\";}'),
+('e0a267645532fe580824bde2262c63d8', '66.249.93.58', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.75 Safari/537.36 Google Favicon', 1522967593, ''),
+('f75f628017e1c9ebb9d7e0c5e134d288', '92.170.179.46', 'Mozilla/5.0 (Linux; Android 4.4.2; GT-I9195 Build/KOT49H) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.109 Mo', 1523032088, 'a:6:{s:8:\"username\";s:5:\"admin\";s:5:\"email\";s:14:\"radjal@free.fr\";s:2:\"id\";s:1:\"1\";s:7:\"user_id\";s:1:\"1\";s:8:\"group_id\";s:1:\"1\";s:5:\"group\";s:5:\"admin\";}'),
+('ddd9fcef4d07dad65a7f9e69f505ced6', '78.213.60.211', 'Dalvik/2.1.0 (Linux; U; Android 6.0.1; D6603 Build/23.5.A.1.291)', 1522955427, 'a:1:{s:11:\"redirect_to\";s:10:\"users/edit\";}'),
+('07897a0c105ab36e93f8fc3a7186338f', '148.62.14.156', 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/534.24 (KHTML, like Gecko) Chrome/11.0.696.71 Safari/534.24', 1522957210, ''),
+('e56346ceb7986b32feb4557a328ac4b9', '148.62.14.156', 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/534.24 (KHTML, like Gecko) Chrome/11.0.696.71 Safari/534.24', 1522957211, ''),
+('fa5d4642907c0860928e99fb1fdfe19e', '141.8.183.10', 'Mozilla/5.0 (compatible; YandexBot/3.0; +http://yandex.com/bots)', 1522964074, ''),
+('c119ee2e6de94c64bdcc640acfb3a100', '180.76.15.5', 'Mozilla/5.0 (compatible; Baiduspider/2.0; +http://www.baidu.com/search/spider.html)', 1522966231, ''),
+('ef40ee07472f24578e65ec11a6c49c02', '78.213.60.211', 'Dalvik/2.1.0 (Linux; U; Android 6.0.1; D6603 Build/23.5.A.1.291)', 1522955426, ''),
+('27f51765df2a66a0cc595e603202720b', '78.213.60.211', 'Dalvik/2.1.0 (Linux; U; Android 6.0.1; D6603 Build/23.5.A.1.291)', 1522955265, ''),
+('2cff28c9b327ab8addac3d40de974caa', '78.213.60.211', 'Dalvik/2.1.0 (Linux; U; Android 6.0.1; D6603 Build/23.5.A.1.291)', 1522955265, ''),
+('69a417d1bfbcf9b88d7e97d74415c3dc', '78.213.60.211', 'Dalvik/2.1.0 (Linux; U; Android 6.0.1; D6603 Build/23.5.A.1.291)', 1522955297, ''),
+('c6aef26d3b9d0156bbf63d3bae51bf7d', '78.213.60.211', 'Dalvik/2.1.0 (Linux; U; Android 6.0.1; D6603 Build/23.5.A.1.291)', 1522955338, ''),
+('b90aa031acd48c01793787e5d742774a', '78.213.60.211', 'Dalvik/2.1.0 (Linux; U; Android 6.0.1; D6603 Build/23.5.A.1.291)', 1522955338, ''),
+('f79ed07ebe9fcefb463b6cb5bf1e9d65', '78.213.60.211', 'Dalvik/2.1.0 (Linux; U; Android 6.0.1; D6603 Build/23.5.A.1.291)', 1522955386, ''),
+('2d42b6b332daf9c018e9d618954f0cb2', '78.213.60.211', 'Dalvik/2.1.0 (Linux; U; Android 6.0.1; D6603 Build/23.5.A.1.291)', 1522955390, ''),
+('7d87815841d2156f91f661d659742014', '78.213.60.211', 'Dalvik/2.1.0 (Linux; U; Android 6.0.1; D6603 Build/23.5.A.1.291)', 1522955390, ''),
+('546c95fee3c538ff8a6d22c76bc293ad', '78.213.60.211', 'Mozilla/5.0 (Linux; Android 8.0.0; G8141 Build/47.1.A.12.119) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.10', 1522948450, ''),
+('5182500d70d85fd79ecece5231b2f871', '148.62.14.156', 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/534.24 (KHTML, like Gecko) Chrome/11.0.696.71 Safari/534.24', 1522951211, ''),
+('8d30a6a93a2d189756790d5f3859f8eb', '148.62.14.156', 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/534.24 (KHTML, like Gecko) Chrome/11.0.696.71 Safari/534.24', 1522951211, ''),
+('c0c9a18eab59fc68f1053880cfa72f5d', '78.213.60.211', 'Mozilla/5.0 (Linux; Android 6.0.1; D6603 Build/23.5.A.1.291) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.109', 1522955570, 'a:6:{s:8:\"username\";s:12:\"barry.almamy\";s:5:\"email\";s:21:\"abarry78250@gmail.com\";s:2:\"id\";s:2:\"12\";s:7:\"user_id\";s:2:\"12\";s:8:\"group_id\";s:1:\"1\";s:5:\"group\";s:5:\"admin\";}'),
+('10d7f87681ec1ba26d442b1f70cae7b2', '78.213.60.211', 'Dalvik/2.1.0 (Linux; U; Android 6.0.1; D6603 Build/23.5.A.1.291)', 1522952671, ''),
+('4a4f72c585f6ea2dc9ecdc249c4b9747', '78.213.60.211', 'Dalvik/2.1.0 (Linux; U; Android 6.0.1; D6603 Build/23.5.A.1.291)', 1522952671, ''),
+('efe23608054b2a672a6b186b09c387e6', '78.213.60.211', 'Dalvik/2.1.0 (Linux; U; Android 6.0.1; D6603 Build/23.5.A.1.291)', 1522952671, ''),
+('d1b3b20b6da8de997d4a2a29dd908820', '78.213.60.211', 'Dalvik/2.1.0 (Linux; U; Android 6.0.1; D6603 Build/23.5.A.1.291)', 1522952671, ''),
+('790d5034bea61e6d73633565d07e2b5d', '78.213.60.211', 'Dalvik/2.1.0 (Linux; U; Android 6.0.1; D6603 Build/23.5.A.1.291)', 1522952746, ''),
+('409e45a7e8cd5e207c04d212a2c9fbe0', '78.213.60.211', 'Dalvik/2.1.0 (Linux; U; Android 6.0.1; D6603 Build/23.5.A.1.291)', 1522952838, ''),
+('ee3e039241fa6cb4dc2a2c0f9ed5ed51', '78.213.60.211', 'Dalvik/2.1.0 (Linux; U; Android 6.0.1; D6603 Build/23.5.A.1.291)', 1522952842, ''),
+('79bbb36889832030ff308a062ed390d1', '78.213.60.211', 'Dalvik/2.1.0 (Linux; U; Android 6.0.1; D6603 Build/23.5.A.1.291)', 1522952844, ''),
+('1076956cba8c923155ea32efe76fdd9c', '78.213.60.211', 'Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36', 1522956969, ''),
+('77662c99151c6d455178ca9747fddb8e', '78.213.60.211', 'Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36', 1522957006, ''),
+('62b642a126e17c6544de46a2d8f3d304', '78.213.60.211', 'Dalvik/2.1.0 (Linux; U; Android 6.0.1; D6603 Build/23.5.A.1.291)', 1522955264, ''),
+('c25cfd042525d771f8d13dc45b9f3bf0', '78.213.60.211', 'Dalvik/2.1.0 (Linux; U; Android 6.0.1; D6603 Build/23.5.A.1.291)', 1522955265, ''),
+('9ad21fe8bfee395e633ff1868fb817fa', '59.57.37.8', 'Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.75 Safari/537.36', 1522946795, ''),
+('a6c207e3ef2b3d157ddb556267465771', '80.12.38.177', 'Dalvik/2.1.0 (Linux; U; Android 8.0.0; G8141 Build/47.1.A.12.119)', 1522927760, ''),
+('6be09ad19f9402eac8b3ccc9fc5bc96e', '80.12.38.177', 'Dalvik/2.1.0 (Linux; U; Android 8.0.0; G8141 Build/47.1.A.12.119)', 1522927762, ''),
+('631cbadc80558a7f5ae9133365a0cd57', '80.12.38.177', 'Dalvik/2.1.0 (Linux; U; Android 8.0.0; G8141 Build/47.1.A.12.119)', 1522927762, ''),
+('388e0393ef80fd98cafa3d921d6e2f67', '185.89.129.106', 'Mozilla/5.0 (Windows NT 6.1; WOW64; Trident/7.0; rv:11.0) like Gecko', 1522927878, ''),
+('c6dd23fc9683bc7243fd97998f192bcc', '80.12.38.177', 'Mozilla/5.0 (Linux; Android 8.0.0; G8141 Build/47.1.A.12.119) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.10', 1522948395, 'a:7:{s:8:\"username\";s:12:\"barry.almamy\";s:5:\"email\";s:21:\"abarry78250@gmail.com\";s:2:\"id\";s:2:\"12\";s:7:\"user_id\";s:2:\"12\";s:8:\"group_id\";s:1:\"1\";s:5:\"group\";s:5:\"admin\";s:17:\"flash:old:success\";s:21:\"Vous êtes connecté.\";}'),
+('099cc1d8c5eeda15dba012b5be3d82b1', '180.76.15.33', 'Mozilla/5.0 (compatible; Baiduspider/2.0; +http://www.baidu.com/search/spider.html)', 1522935309, ''),
+('e2d78f31e8b6305398b6b61f052654d9', '66.249.93.26', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.75 Safari/537.36 Google Favicon', 1522935674, ''),
+('a810dc4f2dfb6d5371f3452a5b2fb4f8', '180.76.15.144', 'Mozilla/5.0 (compatible; Baiduspider/2.0; +http://www.baidu.com/search/spider.html)', 1522937308, ''),
+('6d6e5d8b62a0a9c374d6cd46c47e97a2', '180.76.15.19', 'Mozilla/5.0 (compatible; Baiduspider/2.0; +http://www.baidu.com/search/spider.html)', 1522937310, ''),
+('2755eb12d05f0c2e6afe49e6315533aa', '151.80.34.185', 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36', 1522939022, ''),
+('e0fb7e0081ed8f724863ce1e7663e634', '92.170.179.46', 'Mozilla/5.0 (Linux; Android 4.4.2; GT-I9195 Build/KOT49H) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.109 Mo', 1523045432, 'a:6:{s:8:\"username\";s:11:\"radja.lomas\";s:5:\"email\";s:22:\"r.lomas@spelldesign.fr\";s:2:\"id\";s:2:\"17\";s:7:\"user_id\";s:2:\"17\";s:8:\"group_id\";s:1:\"2\";s:5:\"group\";s:4:\"user\";}'),
+('eaa22d8773d87c89cc0a5b7770ed8e63', '51.255.95.161', 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36', 1522945456, ''),
+('fa3efa0a04835a31c53a5d9d357237fb', '78.213.60.211', 'Dalvik/2.1.0 (Linux; U; Android 6.0.1; D6603 Build/23.5.A.1.291)', 1522955394, ''),
+('96d14bfa52ac70feb4dd9388b69fa3f7', '80.12.38.177', 'Dalvik/2.1.0 (Linux; U; Android 8.0.0; G8141 Build/47.1.A.12.119)', 1522927760, ''),
+('5cdf9e462fc334e7309a5d1a7e5ad4ee', '80.12.38.177', 'Mozilla/5.0 (Linux; Android 8.0.0; G8141 Build/47.1.A.12.119) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.10', 1522927709, ''),
+('fcbe76c9f21113fd71de16a21ad2ccd8', '80.12.38.177', 'Mozilla/5.0 (Linux; Android 8.0.0; G8141 Build/47.1.A.12.119) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.10', 1522927760, ''),
+('e4ab5d7a0a5df1d1e31dcbea47c5b75b', '185.89.129.106', 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36', 1522928296, 'a:6:{s:8:\"username\";s:12:\"barry.almamy\";s:5:\"email\";s:21:\"abarry78250@gmail.com\";s:2:\"id\";s:2:\"12\";s:7:\"user_id\";s:2:\"12\";s:8:\"group_id\";s:1:\"1\";s:5:\"group\";s:5:\"admin\";}'),
+('8e757dd616ecad8c09330bec268d1341', '92.170.179.46', 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36', 1523044320, 'a:6:{s:8:\"username\";s:11:\"radja.lomas\";s:5:\"email\";s:22:\"r.lomas@spelldesign.fr\";s:2:\"id\";s:2:\"17\";s:7:\"user_id\";s:2:\"17\";s:8:\"group_id\";s:1:\"2\";s:5:\"group\";s:4:\"user\";}'),
+('81eb566788abfb34cfeb3084aea8c09e', '80.12.38.177', 'Mozilla/5.0 (Linux; Android 8.0.0; G8141 Build/47.1.A.12.119) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.10', 1522927748, ''),
 ('b26068d92372cc029d0eb478ee5c7022', '92.184.97.69', 'Mozilla/5.0 (Linux; Android 8.0.0; G8141 Build/47.1.A.12.119) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.10', 1522909024, 'a:7:{s:8:\"username\";s:12:\"barry.almamy\";s:5:\"email\";s:21:\"abarry78250@gmail.com\";s:2:\"id\";s:2:\"12\";s:7:\"user_id\";s:2:\"12\";s:8:\"group_id\";s:1:\"1\";s:5:\"group\";s:5:\"admin\";s:17:\"flash:old:success\";s:21:\"Vous êtes connecté.\";}'),
 ('b675bf6fcca8e32de6f9054368eb1119', '51.255.95.161', 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36', 1522917248, ''),
 ('77f1d9f33dbba4feeed128c85e70034b', '141.8.142.24', 'Mozilla/5.0 (compatible; YandexBot/3.0; +http://yandex.com/bots)', 1522920187, ''),
 ('077106ca9c97605644c2f5b3513d7458', '80.12.38.177', 'Dalvik/2.1.0 (Linux; U; Android 8.0.0; G8141 Build/47.1.A.12.119)', 1522923732, ''),
 ('5fff5eec01da26266e7163193efc5ba3', '92.170.179.46', 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36', 1522923264, ''),
 ('3a9f2f64ddff6a1ffc5207909c7cd414', '92.170.179.46', 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36', 1522923319, ''),
-('ad5a77039215b13258b177358d046885', '92.170.179.46', 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36', 1522924451, 'a:7:{s:8:\"username\";s:5:\"admin\";s:5:\"email\";s:14:\"radjal@free.fr\";s:2:\"id\";s:1:\"1\";s:7:\"user_id\";s:1:\"1\";s:8:\"group_id\";s:1:\"1\";s:5:\"group\";s:5:\"admin\";s:17:\"flash:old:success\";s:48:\"La page \"Mes RDV à venir\" a été enregistrée.\";}'),
+('0a4463b9524b31dd177f2af5113c07c9', '92.170.179.46', 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36', 1523046946, 'a:6:{s:8:\"username\";s:5:\"admin\";s:5:\"email\";s:14:\"radjal@free.fr\";s:2:\"id\";s:1:\"1\";s:7:\"user_id\";s:1:\"1\";s:8:\"group_id\";s:1:\"1\";s:5:\"group\";s:5:\"admin\";}'),
 ('aaeaab4532d13d7c26c18eb3420097e3', '66.249.93.26', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.75 Safari/537.36 Google Favicon', 1522905428, ''),
 ('3123c7f0a79a56c09b01f99ade24afd5', '66.249.93.60', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.75 Safari/537.36 Google Favicon', 1522905428, ''),
 ('fe429da0d56a12dc9d7bd4c8ed15c8a5', '66.249.93.22', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.75 Safari/537.36 Google Favicon', 1522905427, ''),
@@ -360,71 +402,39 @@ INSERT INTO `default_ci_sessions` (`session_id`, `ip_address`, `user_agent`, `la
 ('3777104982e751b3d46bb0b010910066', '66.249.66.221', 'Googlebot-Image/1.0', 1522884026, ''),
 ('3a9453229d582a04c165afaeed36d365', '66.249.66.219', 'Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)', 1522883890, ''),
 ('7f5a22931a4b510a97edde73eaa26ad3', '66.249.66.219', 'Mozilla/5.0 (Linux; Android 6.0.1; Nexus 5X Build/MMB29P) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2272.96 Mob', 1522883890, ''),
-('16416479f0ed4d0b004087abcc3cdde4', '95.108.181.50', 'Mozilla/5.0 (compatible; YandexBot/3.0; +http://yandex.com/bots)', 1522281021, ''),
-('31d1cd2078406db25e6c543f906479c3', '92.170.179.46', 'Mozilla/5.0 (iPad; CPU OS 9_3_5 like Mac OS X) AppleWebKit/601.1 (KHTML, like Gecko) CriOS/61.0.3163.73 Mobile/13G36 Saf', 1522368750, 'a:6:{s:8:\"username\";s:5:\"admin\";s:5:\"email\";s:14:\"radjal@free.fr\";s:2:\"id\";s:1:\"1\";s:7:\"user_id\";s:1:\"1\";s:8:\"group_id\";s:1:\"1\";s:5:\"group\";s:5:\"admin\";}'),
-('7adc011a8829f278feccdbe48f1925e7', '92.170.179.46', 'Mozilla/5.0 (iPad; CPU OS 9_3_5 like Mac OS X) AppleWebKit/601.1 (KHTML, like Gecko) CriOS/61.0.3163.73 Mobile/13G36 Saf', 1522282774, ''),
-('76b77f5c3537ddd9a21fe06cd5a87929', '92.170.179.46', 'Mozilla/5.0 (iPad; CPU OS 9_3_5 like Mac OS X) AppleWebKit/601.1 (KHTML, like Gecko) CriOS/61.0.3163.73 Mobile/13G36 Saf', 1522282818, ''),
-('56f52ea6bdd3d17d9a5133a0f75d6b2e', '92.170.179.46', 'Mozilla/5.0 (iPad; CPU OS 9_3_5 like Mac OS X) AppleWebKit/601.1 (KHTML, like Gecko) CriOS/61.0.3163.73 Mobile/13G36 Saf', 1522282818, ''),
-('7fafede2d024f919d87fac2aee49f3e3', '92.170.179.46', 'Mozilla/5.0 (iPad; CPU OS 9_3_5 like Mac OS X) AppleWebKit/601.1 (KHTML, like Gecko) CriOS/61.0.3163.73 Mobile/13G36 Saf', 1522282827, ''),
-('8be8336d3ba186be73054d71179319c8', '178.154.200.46', 'Mozilla/5.0 (compatible; YandexBot/3.0; +http://yandex.com/bots)', 1522285625, ''),
-('519c65a1d8fe5f785f1fbab0dacf0a9e', '66.249.66.221', 'Googlebot-Image/1.0', 1522302915, ''),
-('5060bc5a02d706a7843b5264908b4b65', '137.226.113.23', 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:50.0) Gecko/20100101 Firefox/50.0', 1522320347, ''),
-('888cff5b75370c427c2ac11a9ba0e3cf', '92.170.179.46', 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36', 1522322161, ''),
-('4903b07bac517ffcef3dcbc32c854efd', '62.183.84.34', 'Mozilla/5.0 (Windows NT 6.0; rv:34.0) Gecko/20100101 Firefox/34.0', 1522320523, ''),
-('3d95246b158769c9a402b515556b4bad', '176.31.224.216', 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36', 1522320552, ''),
-('558b289538dd58821c696cee16644534', '66.249.93.58', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.75 Safari/537.36 Google Favicon', 1522320605, ''),
-('c89d4bdcae1a8a3e9dfc09882d17556b', '92.170.179.46', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36', 1522321936, ''),
-('a50a802a5b19ff36f273c57562e5a9b2', '62.183.84.34', 'Mozilla/5.0 (Windows NT 6.0; rv:34.0) Gecko/20100101 Firefox/34.0', 1522320821, ''),
-('c2ab74cfa155038981e78c065e15aa8d', '66.249.93.23', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.75 Safari/537.36 Google Favicon', 1522320867, ''),
-('c518ca07606be16a50becfcd79a95f20', '62.183.84.34', 'Mozilla/5.0 (Windows NT 6.0; rv:34.0) Gecko/20100101 Firefox/34.0', 1522320869, ''),
-('93ddeae011b099272900752aa0d2e2c7', '66.249.93.45', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.75 Safari/537.36 Google Favicon', 1522320871, ''),
-('fa50f3002a60e6909ca39f25e6489e91', '62.183.84.34', 'Mozilla/5.0 (Windows NT 6.0; rv:34.0) Gecko/20100101 Firefox/34.0', 1522320899, 'a:1:{s:14:\"admin_redirect\";s:5:\"admin\";}'),
-('4b53db5309955609c968d21141228a97', '185.89.129.106', 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36', 1522320903, ''),
-('6fed146bfbf9880f997a2a652fd8978b', '185.89.129.106', 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36', 1522324242, ''),
-('72aeba5ff93a4b4389210805c881d5c7', '92.170.179.46', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36', 1522320922, ''),
-('8ca0d5b5a296197b280cb6b192d8b053', '185.68.118.183', 'Mozilla/5.0 (Windows NT 6.0; rv:34.0) Gecko/20100101 Firefox/34.0', 1522321044, ''),
-('c9973a30d3cf7ce53932f8980f1c166e', '151.80.34.185', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36', 1522321096, ''),
-('40e823b9243aeb2783d89b17c6e57a65', '185.68.118.183', 'Mozilla/5.0 (Windows NT 6.0; rv:34.0) Gecko/20100101 Firefox/34.0', 1522321525, ''),
-('c676dace50afcab6cbcfba085e408a99', '92.170.179.46', 'Mozilla/5.0 (Linux; Android 4.4.2; GT-I9195 Build/KOT49H) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.109 Mo', 1522324532, 'a:6:{s:8:\"username\";s:11:\"radja.lomas\";s:5:\"email\";s:22:\"r.lomas@spelldesign.fr\";s:2:\"id\";s:2:\"17\";s:7:\"user_id\";s:2:\"17\";s:8:\"group_id\";s:1:\"2\";s:5:\"group\";s:4:\"user\";}'),
-('93ac746b939d092e179e654b6a6c6df5', '185.68.118.183', 'Mozilla/5.0 (Windows NT 6.0; rv:34.0) Gecko/20100101 Firefox/34.0', 1522321644, ''),
-('8832a11ecb5992fc1ce420cf2cf56d18', '92.170.179.46', 'Mozilla/5.0 (Linux; Android 4.4.2; GT-I9195 Build/KOT49H) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.109 Mo', 1522321699, ''),
-('2b85af80ffa95a3baa02bf8936449edf', '185.68.118.183', 'Mozilla/5.0 (Windows NT 6.0; rv:34.0) Gecko/20100101 Firefox/34.0', 1522321700, 'a:1:{s:14:\"admin_redirect\";s:5:\"admin\";}'),
-('745de2dbdfccc3fdee1dadef6ddc10d2', '82.151.123.200', 'Mozilla/5.0 (Windows NT 6.0; rv:34.0) Gecko/20100101 Firefox/34.0', 1522321843, ''),
-('8f4114d21acefc2f2a2230e91196a6b9', '92.170.179.46', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36', 1522324370, 'a:6:{s:8:\"username\";s:5:\"admin\";s:5:\"email\";s:14:\"radjal@free.fr\";s:2:\"id\";s:1:\"1\";s:7:\"user_id\";s:1:\"1\";s:8:\"group_id\";s:1:\"1\";s:5:\"group\";s:5:\"admin\";}'),
-('4f650fb4d34ac1cda9f15f5503dbdd8c', '92.170.179.46', 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36', 1522323338, 'a:6:{s:8:\"username\";s:11:\"radja.lomas\";s:5:\"email\";s:22:\"r.lomas@spelldesign.fr\";s:2:\"id\";s:2:\"17\";s:7:\"user_id\";s:2:\"17\";s:8:\"group_id\";s:1:\"2\";s:5:\"group\";s:4:\"user\";}'),
-('8c0fd0b6c648a3d5df79318c9df871ee', '82.151.123.200', 'Mozilla/5.0 (Windows NT 6.0; rv:34.0) Gecko/20100101 Firefox/34.0', 1522322629, ''),
-('520008868cc22c9534a69d1a9033a718', '82.151.123.200', 'Mozilla/5.0 (Windows NT 6.0; rv:34.0) Gecko/20100101 Firefox/34.0', 1522322776, ''),
-('37d36a0a31753cda4d325ba70be148e3', '82.151.123.200', 'Mozilla/5.0 (Windows NT 6.0; rv:34.0) Gecko/20100101 Firefox/34.0', 1522322878, 'a:1:{s:14:\"admin_redirect\";s:5:\"admin\";}'),
-('f72a704d91dbb30d620a71bfe1ce8b98', '89.179.197.100', 'Mozilla/5.0 (Windows NT 6.0; rv:34.0) Gecko/20100101 Firefox/34.0', 1522323070, ''),
-('8cae848321257e6aa640a59e3570f4d7', '89.179.197.100', 'Mozilla/5.0 (Windows NT 6.0; rv:34.0) Gecko/20100101 Firefox/34.0', 1522323736, ''),
-('4ebcb44c5c0252e08ad120b3b1d6777a', '89.179.197.100', 'Mozilla/5.0 (Windows NT 6.0; rv:34.0) Gecko/20100101 Firefox/34.0', 1522323824, ''),
-('77be7026ba08a345066f9d45af3f6955', '89.179.197.100', 'Mozilla/5.0 (Windows NT 6.0; rv:34.0) Gecko/20100101 Firefox/34.0', 1522323854, 'a:1:{s:14:\"admin_redirect\";s:5:\"admin\";}'),
-('af9849c5e4b78fcbe358180e962ba5d0', '185.89.129.106', 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36', 1522330232, ''),
-('0850237c71bab318af506d85e07ec11a', '80.12.43.144', 'Dalvik/2.1.0 (Linux; U; Android 8.0.0; G8141 Build/47.1.A.12.119)', 1522334241, ''),
-('6e8eec939928c9d0ee42368eb5c6b82d', '41.242.89.132', 'Mozilla/5.0 (Linux; Android 7.0; VTR-L09 Build/HUAWEIVTR-L09) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/64.0.3282.13', 1522337362, ''),
-('0e7810bcf49559d4bdb530021377008b', '92.170.179.46', 'Mozilla/5.0 (Linux; Android 4.4.2; GT-I9195 Build/KOT49H) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.109 Mo', 1522357728, 'a:5:{s:5:\"email\";s:14:\"radjal@free.fr\";s:2:\"id\";s:1:\"1\";s:7:\"user_id\";s:1:\"1\";s:8:\"group_id\";s:1:\"1\";s:5:\"group\";s:5:\"admin\";}'),
-('25270259b93ce82d44d5fd49ccbce0cd', '66.249.93.62', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.75 Safari/537.36 Google Favicon', 1522341834, ''),
-('e5f2de3416ab45228132322f47429016', '66.249.93.22', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.75 Safari/537.36 Google Favicon', 1522341834, ''),
-('301bc1296adf1ee081d41660471f7483', '92.184.105.65', 'Mozilla/5.0 (Linux; Android 8.0.0; G8141 Build/47.1.A.12.119) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.10', 1522344743, ''),
-('88d8bfdde6e0e8e8c97d6af3ba2f46cf', '92.184.105.65', 'Mozilla/5.0 (Linux; Android 8.0.0; G8141 Build/47.1.A.12.119) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.10', 1522342268, ''),
-('4f2239600d4ddf95bbc606f42ce40967', '92.184.105.65', 'Mozilla/5.0 (Linux; Android 8.0.0; G8141 Build/47.1.A.12.119) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.10', 1522342373, ''),
-('b69eeaf66dfb54b1082d68bf9ae2f0eb', '66.249.66.221', 'Mozilla/5.0 (Linux; Android 6.0.1; Nexus 5X Build/MMB29P) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2272.96 Mob', 1522343063, ''),
-('bc6ba43a46e287257eeeb56cc93783a9', '184.154.74.66', 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.146 Safari/537.36', 1522348088, ''),
-('c09f3092d7cafeebbb86e4fcb3ed4798', '184.154.74.66', 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.146 Safari/537.36', 1522348090, ''),
-('428c0ba3455ffc4e5c740a8915db3e9a', '66.249.66.223', 'Googlebot-Image/1.0', 1522353032, ''),
-('c327c4894e25ee5e6139243eaa96ba46', '138.122.111.52', 'Mozilla/5.0 (Windows NT 6.1; WOW64; Trident/7.0; rv:11.0) like Gecko', 1522355707, ''),
-('5d07ce507167105226e4225a9e883740', '92.170.179.46', 'Mozilla/5.0 (Linux; Android 4.4.2; GT-I9195 Build/KOT49H) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.109 Mo', 1522357973, ''),
-('6182541ad91784cbd3e9ad92110adf17', '92.170.179.46', 'Mozilla/5.0 (Linux; Android 4.4.2; GT-I9195 Build/KOT49H) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.109 Mo', 1522357997, ''),
-('409eba40b112689d7736087ecee76391', '92.170.179.46', 'Mozilla/5.0 (Linux; Android 4.4.2; GT-I9195 Build/KOT49H) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.109 Mo', 1522358125, ''),
-('822248f32dd52e5d9a86cf75c10cfe53', '92.170.179.46', 'Mozilla/5.0 (Linux; Android 4.4.2; GT-I9195 Build/KOT49H) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.109 Mo', 1522358125, ''),
-('5f0bc5f6a1356b7b907003311e084e74', '92.170.179.46', 'Mozilla/5.0 (Linux; Android 4.4.2; GT-I9195 Build/KOT49H) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.109 Mo', 1522358773, 'a:1:{s:17:\"flash:new:success\";s:29:\"Vous avez été déconnecté.\";}'),
-('b594461770acad2698c91481dc23e2fb', '92.170.179.46', 'Mozilla/5.0 (Linux; Android 4.4.2; GT-I9195 Build/KOT49H) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.109 Mo', 1522359081, 'a:6:{s:8:\"username\";s:5:\"admin\";s:5:\"email\";s:14:\"radjal@free.fr\";s:2:\"id\";s:1:\"1\";s:7:\"user_id\";s:1:\"1\";s:8:\"group_id\";s:1:\"1\";s:5:\"group\";s:5:\"admin\";}'),
-('78f1c649fd1a2d9f5e37c66b2efb4bfe', '92.170.179.46', 'Mozilla/5.0 (Linux; Android 4.4.2; GT-I9195 Build/KOT49H) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.109 Mo', 1522358805, ''),
-('088f946dc6674923d92158996945747e', '92.170.179.46', 'Mozilla/5.0 (Linux; Android 4.4.2; GT-I9195 Build/KOT49H) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.109 Mo', 1522358901, ''),
-('8994465e481226775d300ed8a80f6595', '92.170.179.46', 'Mozilla/5.0 (Linux; Android 4.4.2; GT-I9195 Build/KOT49H) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.109 Mo', 1522362492, ''),
-('aaaa5bf9c97232b6d0f55a24a9c7cceb', '92.170.179.46', 'Mozilla/5.0 (Linux; Android 4.4.2; GT-I9195 Build/KOT49H) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.109 Mo', 1522362488, 'a:7:{s:8:\"username\";s:5:\"admin\";s:5:\"email\";s:14:\"radjal@free.fr\";s:2:\"id\";s:1:\"1\";s:7:\"user_id\";s:1:\"1\";s:8:\"group_id\";s:1:\"1\";s:5:\"group\";s:5:\"admin\";s:15:\"flash:old:error\";s:6:\"Erreur\";}'),
-('1281a645a812f828a7503ccb94c03b1f', '92.170.179.46', 'Mozilla/5.0 (Linux; Android 4.4.2; GT-I9195 Build/KOT49H) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.109 Mo', 1522362492, ''),
-('0c4e5b436dc301eee8ae8cd4e10d4869', '92.170.179.46', 'Mozilla/5.0 (Linux; Android 4.4.2; GT-I9195 Build/KOT49H) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.109 Mo', 1522362614, ''),
+('5ae14451702670da9c9babfc7d44525f', '176.31.224.216', 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36', 1523046836, ''),
+('7faee666405a28bcd3d4ae25123ae0e9', '131.253.25.179', 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/534+ (KHTML, like Gecko) BingPreview/1.0b', 1523044647, ''),
+('380d5a4edfe88ffc2931fff763ee2bf3', '40.77.167.49', 'Mozilla/5.0 (compatible; bingbot/2.0; +http://www.bing.com/bingbot.htm)', 1523044641, ''),
+('9837577d37fb0a95e9a5c4c5cbfa82f4', '186.223.126.148', 'Mozilla/5.0 (Windows NT 6.1; WOW64; Trident/7.0; rv:11.0) like Gecko', 1523041188, ''),
+('b5297477328b81b7855a112db8f2066c', '40.77.167.49', 'Mozilla/5.0 (compatible; bingbot/2.0; +http://www.bing.com/bingbot.htm)', 1523044631, ''),
+('461e48c9f2860556980ed4c338bab3b8', '78.213.60.211', 'Mozilla/5.0 (Linux; Android 8.0.0; G8141 Build/47.1.A.12.145) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.10', 1523042398, 'a:6:{s:8:\"username\";s:12:\"almamy.barry\";s:5:\"email\";s:24:\"almamy.barry@laposte.net\";s:2:\"id\";s:2:\"11\";s:7:\"user_id\";s:2:\"11\";s:8:\"group_id\";s:1:\"2\";s:5:\"group\";s:4:\"user\";}'),
+('d6cc7c060215a1e20a21a8c3271a0eed', '78.213.60.211', 'Mozilla/5.0 (Linux; Android 8.0.0; G8141 Build/47.1.A.12.145) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.10', 1523040304, 'a:6:{s:8:\"username\";s:12:\"almamy.barry\";s:5:\"email\";s:24:\"almamy.barry@laposte.net\";s:2:\"id\";s:2:\"11\";s:7:\"user_id\";s:2:\"11\";s:8:\"group_id\";s:1:\"2\";s:5:\"group\";s:4:\"user\";}'),
+('2d234db42199889f8e010373b49632f5', '51.255.95.161', 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36', 1523037093, ''),
+('a275b923f46175180912a23f829938fc', '92.170.179.46', 'Mozilla/5.0 (Linux; Android 4.4.2; GT-I9195 Build/KOT49H) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.109 Mo', 1523035526, 'a:6:{s:8:\"username\";s:6:\"devops\";s:5:\"email\";s:18:\"devops@nowhere.com\";s:2:\"id\";s:1:\"5\";s:7:\"user_id\";s:1:\"5\";s:8:\"group_id\";s:1:\"1\";s:5:\"group\";s:5:\"admin\";}'),
+('d393cff68e8fc75ea75789f02d8d144b', '78.213.60.211', 'Mozilla/5.0 (Linux; Android 6.0.1; D6603 Build/23.5.A.1.291) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.109', 1523037621, 'a:6:{s:8:\"username\";s:12:\"barry.almamy\";s:5:\"email\";s:21:\"abarry78250@gmail.com\";s:2:\"id\";s:2:\"12\";s:7:\"user_id\";s:2:\"12\";s:8:\"group_id\";s:1:\"1\";s:5:\"group\";s:5:\"admin\";}'),
+('d535bc74c2965d126a3876e6dddcace1', '66.249.93.60', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.75 Safari/537.36 Google Favicon', 1523029137, ''),
+('6be5b1617bc9bc671a0667e777ad3bc3', '151.80.34.185', 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36', 1523019616, ''),
+('f00394e55a25701588664e6c9a44701f', '54.218.84.25', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/603.3.8 (KHTML, like Gecko)', 1523019299, ''),
+('a5736337655b822da01b5ab1581337d4', '54.218.84.25', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/603.3.8 (KHTML, like Gecko)', 1523019300, ''),
+('078355c8313e254e9adfe3490d450562', '78.213.60.211', 'Mozilla/5.0 (Linux; Android 6.0.1; D6603 Build/23.5.A.1.291) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.109', 1523019748, ''),
+('7a21fd3ca6faacb24e042272fcf7618d', '54.183.165.74', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.3', 1523015657, ''),
+('1d14ad7afeeb924951654ec14f45063c', '54.183.165.74', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.3', 1523015657, ''),
+('14a79de3a45be8c5b57064ff07ded5f8', '185.89.129.106', 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36', 1523014368, ''),
+('a77dfbb6c39f88b34b316060aa6e22a3', '185.89.129.106', 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36', 1523022880, 'a:6:{s:8:\"username\";s:12:\"almamy.barry\";s:5:\"email\";s:24:\"almamy.barry@laposte.net\";s:2:\"id\";s:2:\"11\";s:7:\"user_id\";s:2:\"11\";s:8:\"group_id\";s:1:\"2\";s:5:\"group\";s:4:\"user\";}'),
+('851acf805c53fa62794a767d600a11bb', '185.89.129.106', 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36', 1523014486, ''),
+('df5737904f046e2374d9db3881484419', '92.170.179.46', 'Mozilla/5.0 (iPhone; CPU iPhone OS 11_0 like Mac OS X) AppleWebKit/604.1.38 (KHTML, like Gecko) Version/11.0 Mobile/15A3', 1523015115, 'a:6:{s:8:\"username\";s:11:\"radja.lomas\";s:5:\"email\";s:22:\"r.lomas@spelldesign.fr\";s:2:\"id\";s:2:\"17\";s:7:\"user_id\";s:2:\"17\";s:8:\"group_id\";s:1:\"2\";s:5:\"group\";s:4:\"user\";}'),
+('9cb609cc85c2bfb3b76716176d4a78a0', '92.170.179.46', 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36', 1523009831, 'a:6:{s:8:\"username\";s:11:\"radja.lomas\";s:5:\"email\";s:22:\"r.lomas@spelldesign.fr\";s:2:\"id\";s:2:\"17\";s:7:\"user_id\";s:2:\"17\";s:8:\"group_id\";s:1:\"2\";s:5:\"group\";s:4:\"user\";}'),
+('fab1b71fbfd3eeb1c1b3763c39014fdc', '80.12.39.139', 'Dalvik/2.1.0 (Linux; U; Android 8.0.0; G8141 Build/47.1.A.12.145)', 1523005618, ''),
+('84562046b9f92c8e86aed8c026cfec49', '80.12.39.139', 'Mozilla/5.0 (Linux; Android 8.0.0; G8141 Build/47.1.A.12.145) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.10', 1523037108, 'a:6:{s:8:\"username\";s:12:\"almamy.barry\";s:5:\"email\";s:24:\"almamy.barry@laposte.net\";s:2:\"id\";s:2:\"11\";s:7:\"user_id\";s:2:\"11\";s:8:\"group_id\";s:1:\"2\";s:5:\"group\";s:4:\"user\";}'),
+('e17e29f06ab7114501f418b10de038e2', '80.12.39.139', 'Mozilla/5.0 (Linux; Android 8.0.0; G8141 Build/47.1.A.12.145) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.10', 1523005617, 'a:7:{s:8:\"username\";s:12:\"barry.almamy\";s:5:\"email\";s:21:\"abarry78250@gmail.com\";s:2:\"id\";s:2:\"12\";s:7:\"user_id\";s:2:\"12\";s:8:\"group_id\";s:1:\"1\";s:5:\"group\";s:5:\"admin\";s:17:\"flash:old:success\";s:21:\"Vous êtes connecté.\";}'),
+('5dbbf1c7b0602d324204fad966da8969', '80.12.39.139', 'Dalvik/2.1.0 (Linux; U; Android 8.0.0; G8141 Build/47.1.A.12.145)', 1523005617, ''),
+('75f9a3d14ab6eeb12d294ae5b2c00607', '80.12.39.139', 'Dalvik/2.1.0 (Linux; U; Android 8.0.0; G8141 Build/47.1.A.12.145)', 1523005617, ''),
+('41e5530c7e043a13d847304adb049a03', '80.12.39.139', 'Dalvik/2.1.0 (Linux; U; Android 8.0.0; G8141 Build/47.1.A.12.145)', 1523005618, ''),
+('6cc9152df28bae5eb44115423016c66b', '66.249.93.45', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.75 Safari/537.36 Google Favicon', 1523000169, ''),
+('cb4d6576a82f410841e51b51d7529b55', '66.249.93.58', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.75 Safari/537.36 Google Favicon', 1523000169, ''),
+('b612b051e59add2985cc0f2a5e57888b', '37.9.113.102', 'Mozilla/5.0 (compatible; YandexBot/3.0; +http://yandex.com/bots)', 1523003171, ''),
+('422d14fb159ba5b4cfad29f0a3512088', '66.249.93.60', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.75 Safari/537.36 Google Favicon', 1523000169, ''),
+('c2e8b5f9bd7593d76a88c12c50219cde', '66.249.93.23', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.75 Safari/537.36 Google Favicon', 1523000169, ''),
 ('700f23fdf6414f37fe3d57bdfffc7552', '92.170.179.46', 'Mozilla/5.0 (Linux; Android 4.4.2; GT-I9195 Build/KOT49H) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.109 Mo', 1522439157, 'a:6:{s:8:\"username\";s:5:\"admin\";s:5:\"email\";s:14:\"radjal@free.fr\";s:2:\"id\";s:1:\"1\";s:7:\"user_id\";s:1:\"1\";s:8:\"group_id\";s:1:\"1\";s:5:\"group\";s:5:\"admin\";}'),
 ('d1dcb33d30ea7d363ed751d699345576', '81.230.137.192', 'Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0)', 1522408989, ''),
 ('1ad47d0307ac45fc938581f22bedec66', '91.200.12.193', 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.152 Safari/537.36', 1522379418, ''),
@@ -499,8 +509,7 @@ INSERT INTO `default_ci_sessions` (`session_id`, `ip_address`, `user_agent`, `la
 ('f0678be553adc01a7c5af0a2423912e6', '78.213.60.211', 'Dalvik/2.1.0 (Linux; U; Android 8.0.0; G8141 Build/47.1.A.12.119)', 1522589700, ''),
 ('95cb8f9cbed7b61e20b2c39224bb8a21', '78.213.60.211', 'Dalvik/2.1.0 (Linux; U; Android 8.0.0; G8141 Build/47.1.A.12.119)', 1522589701, ''),
 ('9497f9633bde0b3999f97f8e82a66d67', '80.215.12.246', 'Mozilla/5.0 (Linux; Android 4.4.2; GT-I9195 Build/KOT49H) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.109 Mo', 1522590768, ''),
-('c4308ae869a211bd02b7d6ca047708d1', '158.69.25.178', 'Mozilla/5.0 (compatible; DomainSONOCrawler/0.1; +http://domainsono.com)', 1522595617, '');
-INSERT INTO `default_ci_sessions` (`session_id`, `ip_address`, `user_agent`, `last_activity`, `user_data`) VALUES
+('c4308ae869a211bd02b7d6ca047708d1', '158.69.25.178', 'Mozilla/5.0 (compatible; DomainSONOCrawler/0.1; +http://domainsono.com)', 1522595617, ''),
 ('db76b7f77176f6df09a6719504ce00e1', '158.69.25.178', 'Mozilla/5.0 (compatible; DomainSONOCrawler/0.1; +http://domainsono.com)', 1522595701, ''),
 ('fdf9867844ff42c0bd8c862f1ccd7352', '66.249.66.221', 'Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)', 1522605388, ''),
 ('ca771b7c819870901ea3bdbaec80681d', '66.249.66.221', 'Mozilla/5.0 (Linux; Android 6.0.1; Nexus 5X Build/MMB29P) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2272.96 Mob', 1522605388, ''),
@@ -520,7 +529,8 @@ INSERT INTO `default_ci_sessions` (`session_id`, `ip_address`, `user_agent`, `la
 ('3f55d08c1da206de83beca48d0a32f7e', '66.249.93.47', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.75 Safari/537.36 Google Favicon', 1522684149, ''),
 ('2103527dbf0cab2f55a74b2c4b9811ea', '66.249.93.58', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.75 Safari/537.36 Google Favicon', 1522684149, ''),
 ('91bef1644bcd86bb6afc3fdb3dfac16a', '66.249.93.45', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.75 Safari/537.36 Google Favicon', 1522684149, ''),
-('f8c13c4061302a7bfbe58ae35ea0a98f', '66.249.93.24', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.75 Safari/537.36 Google Favicon', 1522684150, ''),
+('f8c13c4061302a7bfbe58ae35ea0a98f', '66.249.93.24', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.75 Safari/537.36 Google Favicon', 1522684150, '');
+INSERT INTO `default_ci_sessions` (`session_id`, `ip_address`, `user_agent`, `last_activity`, `user_data`) VALUES
 ('328125398c0e02eedabbf4ea4c4da00a', '197.149.221.202', 'Mozilla/5.0 (Linux; Android 7.0; SAMSUNG SM-G925F Build/NRD90M) AppleWebKit/537.36 (KHTML, like Gecko) SamsungBrowser/6.', 1522686423, ''),
 ('88cd30532a5231133af91423b28c4091', '180.76.15.30', 'Mozilla/5.0 (compatible; Baiduspider/2.0; +http://www.baidu.com/search/spider.html)', 1522687715, ''),
 ('c6a06adc19101faee9ce8574fd0fb8c9', '54.190.50.41', 'Mozilla/5.0 (X11; Linux i686 on x86_64; rv:53.0) Gecko/20100101 Firefox/53.0', 1522707954, ''),
@@ -634,43 +644,61 @@ INSERT INTO `default_data_fields` (`id`, `field_name`, `field_slug`, `field_name
 (4, 'lang:user:last_name_label', 'last_name', 'users', 'text', 0x613a323a7b733a31303a226d61785f6c656e677468223b693a35303b733a31333a2264656661756c745f76616c7565223b4e3b7d, NULL, 'no'),
 (20, 'Ville', 'town', 'users', 'text', 0x613a323a7b733a31303a226d61785f6c656e677468223b733a303a22223b733a31333a2264656661756c745f76616c7565223b733a303a22223b7d, NULL, 'no'),
 (19, 'Informations personelles', 'personal_info', 'users', 'textarea', 0x613a333a7b733a31323a2264656661756c745f74657874223b733a303a22223b733a31303a22616c6c6f775f74616773223b733a313a226e223b733a31323a22636f6e74656e745f74797065223b733a343a2274657874223b7d, NULL, 'no'),
-(8, 'lang:profile_dob', 'birth_date', 'users', 'text', 0x613a323a7b733a31303a226d61785f6c656e677468223b733a323a223134223b733a31333a2264656661756c745f76616c7565223b733a303a22223b7d, NULL, 'no'),
-(23, 'Civilité', 'gender', 'users', 'choice', 0x613a353a7b733a31313a2263686f6963655f64617461223b733a32303a2268203a20486f6d6d650d0a66203a2046656d6d65223b733a31313a2263686f6963655f74797065223b733a353a22726164696f223b733a31333a2264656661756c745f76616c7565223b733a303a22223b733a31313a226d696e5f63686f69636573223b733a303a22223b733a31313a226d61785f63686f69636573223b733a303a22223b7d, NULL, 'no'),
+(8, 'lang:profile_dob', 'birth_date', 'users', 'date', 0x613a323a7b733a31303a226d61785f6c656e677468223b733a303a22223b733a31333a2264656661756c745f76616c7565223b733a303a22223b7d, NULL, 'no'),
+(23, 'Civilité', 'gender', 'users', 'choice', 0x613a353a7b733a31313a2263686f6963655f64617461223b733a32373a22686f6d6d65203a20486f6d6d650a66656d6d65203a2046656d6d65223b733a31313a2263686f6963655f74797065223b733a353a22726164696f223b733a31333a2264656661756c745f76616c7565223b733a303a22223b733a31313a226d696e5f63686f69636573223b733a303a22223b733a31313a226d61785f63686f69636573223b733a303a22223b7d, NULL, 'no'),
 (10, 'lang:profile_phone', 'phone', 'users', 'text', 0x613a323a7b733a31303a226d61785f6c656e677468223b733a323a223230223b733a31333a2264656661756c745f76616c7565223b733a303a22223b7d, NULL, 'no'),
 (11, 'lang:profile_mobile', 'mobile', 'users', 'text', 0x613a323a7b733a31303a226d61785f6c656e677468223b733a323a223230223b733a31333a2264656661756c745f76616c7565223b733a303a22223b7d, NULL, 'no'),
 (12, 'lang:profile_address_line1', 'address_line1', 'users', 'text', 0x613a323a7b733a31303a226d61785f6c656e677468223b733a303a22223b733a31333a2264656661756c745f76616c7565223b733a303a22223b7d, NULL, 'no'),
 (13, 'lang:profile_address_line2', 'address_line2', 'users', 'text', 0x613a323a7b733a31303a226d61785f6c656e677468223b733a303a22223b733a31333a2264656661756c745f76616c7565223b733a303a22223b7d, NULL, 'no'),
 (21, 'Quartier', 'area_name', 'users', 'text', 0x613a323a7b733a31303a226d61785f6c656e677468223b733a303a22223b733a31333a2264656661756c745f76616c7565223b733a303a22223b7d, NULL, 'no'),
 (15, 'lang:profile_address_postcode', 'postcode', 'users', 'text', 0x613a323a7b733a31303a226d61785f6c656e677468223b693a32303b733a31333a2264656661756c745f76616c7565223b4e3b7d, NULL, 'no'),
-(22, 'Mutuelle', 'insurance', 'users', 'text', 0x613a323a7b733a31303a226d61785f6c656e677468223b733a303a22223b733a31333a2264656661756c745f76616c7565223b733a303a22223b7d, NULL, 'no'),
-(24, 'Médecin habituel', 'doctor_id', 'users', 'text', 0x613a323a7b733a31303a226d61785f6c656e677468223b4e3b733a31333a2264656661756c745f76616c7565223b4e3b7d, NULL, 'no'),
+(571, 'phone check token', 'phone_check_token', 'users', 'text', 0x613a323a7b733a31303a226d61785f6c656e677468223b733a303a22223b733a31333a2264656661756c745f76616c7565223b733a303a22223b7d, NULL, 'no'),
+(22, 'Mutuelle', 'insurance', 'users', 'choice', 0x613a353a7b733a31313a2263686f6963655f64617461223b733a31393a226f7569203a204f75690a6e6f6e203a204e6f6e223b733a31313a2263686f6963655f74797065223b733a353a22726164696f223b733a31333a2264656661756c745f76616c7565223b733a303a22223b733a31313a226d696e5f63686f69636573223b733a303a22223b733a31313a226d61785f63686f69636573223b733a303a22223b7d, NULL, 'no'),
+(24, 'Médecin habituel', 'usual_doctor_id', 'users', 'integer', 0x613a323a7b733a31303a226d61785f6c656e677468223b733a303a22223b733a31333a2264656661756c745f76616c7565223b733a313a2230223b7d, NULL, 'no'),
 (25, 'pre html', 'pre_html', 'pages', 'textarea', 0x613a333a7b733a31323a2264656661756c745f74657874223b733a303a22223b733a31303a22616c6c6f775f74616773223b733a313a2279223b733a31323a22636f6e74656e745f74797065223b733a343a2268746d6c223b7d, NULL, 'no'),
 (26, 'post html', 'post_html', 'pages', 'textarea', 0x613a333a7b733a31323a2264656661756c745f74657874223b733a303a22223b733a31303a22616c6c6f775f74616773223b733a313a2279223b733a31323a22636f6e74656e745f74797065223b733a343a2268746d6c223b7d, NULL, 'no'),
 (506, 'Bureau', 'desk_no', 'users', 'text', 0x613a323a7b733a31303a226d61785f6c656e677468223b733a303a22223b733a31333a2264656661756c745f76616c7565223b733a303a22223b7d, NULL, 'no'),
-(567, 'Etablissement', 'subset', 'doctor', 'text', 0x613a323a7b733a31303a226d61785f6c656e677468223b4e3b733a31333a2264656661756c745f76616c7565223b4e3b7d, NULL, 'no'),
-(505, 'Phone valid', 'phone_valid', 'users', 'text', 0x613a323a7b733a31303a226d61785f6c656e677468223b733a313a2233223b733a31333a2264656661756c745f76616c7565223b733a323a226e6f223b7d, NULL, 'no'),
-(566, 'Structure', 'organisation', 'doctor', 'relationship', 0x613a323a7b733a31333a2263686f6f73655f73747265616d223b693a38373b733a383a226c696e6b5f757269223b4e3b7d, NULL, 'no'),
-(565, 'Organisme ou groupe', 'groupe', 'doctor', 'relationship', 0x613a323a7b733a31333a2263686f6f73655f73747265616d223b693a38373b733a383a226c696e6b5f757269223b4e3b7d, NULL, 'no'),
-(564, 'Catégorie parente', 'parent_cat', 'doctor', 'relationship', 0x613a323a7b733a31333a2263686f6f73655f73747265616d223b693a38363b733a383a226c696e6b5f757269223b4e3b7d, NULL, 'no'),
-(562, 'Catégorie', 'doctor_cat', 'doctor', 'relationship', 0x613a323a7b733a31333a2263686f6f73655f73747265616d223b693a38363b733a383a226c696e6b5f757269223b4e3b7d, NULL, 'no'),
-(563, 'Spécialité médicale', 'speciality', 'doctor', 'text', 0x613a323a7b733a31303a226d61785f6c656e677468223b4e3b733a31333a2264656661756c745f76616c7565223b4e3b7d, NULL, 'no'),
-(561, 'Image docteur', 'image', 'doctor', 'image', 0x613a353a7b733a363a22666f6c646572223b693a33333b733a31323a22726573697a655f7769647468223b4e3b733a31333a22726573697a655f686569676874223b4e3b733a31303a226b6565705f726174696f223b4e3b733a31333a22616c6c6f7765645f7479706573223b4e3b7d, NULL, 'no'),
-(560, 'Ville', 'town', 'doctor', 'text', 0x613a323a7b733a31303a226d61785f6c656e677468223b4e3b733a31333a2264656661756c745f76616c7565223b4e3b7d, NULL, 'no'),
-(559, 'Quartier', 'area_name', 'doctor', 'text', 0x613a323a7b733a31303a226d61785f6c656e677468223b4e3b733a31333a2264656661756c745f76616c7565223b4e3b7d, NULL, 'no'),
-(558, 'Adresse', 'address', 'doctor', 'text', 0x613a323a7b733a31303a226d61785f6c656e677468223b4e3b733a31333a2264656661756c745f76616c7565223b4e3b7d, NULL, 'no'),
-(557, 'Email', 'email', 'doctor', 'text', 0x613a323a7b733a31303a226d61785f6c656e677468223b4e3b733a31333a2264656661756c745f76616c7565223b4e3b7d, NULL, 'no'),
-(556, 'Mobile', 'mobile', 'doctor', 'text', 0x613a323a7b733a31303a226d61785f6c656e677468223b4e3b733a31333a2264656661756c745f76616c7565223b4e3b7d, NULL, 'no'),
-(555, 'Téléphone', 'telephone', 'doctor', 'text', 0x613a323a7b733a31303a226d61785f6c656e677468223b4e3b733a31333a2264656661756c745f76616c7565223b4e3b7d, NULL, 'no'),
-(553, 'RDV Max Jour(30\")', 'max_per_day', 'doctor', 'text', 0x613a323a7b733a31303a226d61785f6c656e677468223b693a323b733a31333a2264656661756c745f76616c7565223b4e3b7d, NULL, 'no'),
-(554, 'Description', 'description', 'doctor', 'textarea', 0x613a333a7b733a31323a2264656661756c745f74657874223b4e3b733a31303a22616c6c6f775f74616773223b4e3b733a31323a22636f6e74656e745f74797065223b4e3b7d, NULL, 'no'),
-(551, 'Ouverture', 'opens', 'doctor', 'text', 0x613a323a7b733a31303a226d61785f6c656e677468223b693a31303b733a31333a2264656661756c745f76616c7565223b4e3b7d, NULL, 'no'),
-(552, 'Fermeture', 'closes', 'doctor', 'text', 0x613a323a7b733a31303a226d61785f6c656e677468223b693a31303b733a31333a2264656661756c745f76616c7565223b4e3b7d, NULL, 'no'),
-(550, 'Heures d\'ouverture', 'hours', 'doctor', 'text', 0x613a323a7b733a31303a226d61785f6c656e677468223b693a3230303b733a31333a2264656661756c745f76616c7565223b4e3b7d, NULL, 'no'),
-(549, 'Jours ouverts', 'days', 'doctor', 'choice', 0x613a353a7b733a31313a2263686f6963655f64617461223b733a3332353a2231203a206c756e64690d0a2020202020202020202020202020202020202020202020202020202020202020202020202020202032203a206d617264690d0a2020202020202020202020202020202020202020202020202020202020202020202020202020202033203a206d657263726564690d0a2020202020202020202020202020202020202020202020202020202020202020202020202020202034203a206a657564690d0a2020202020202020202020202020202020202020202020202020202020202020202020202020202035203a2076656e64726564690d0a2020202020202020202020202020202020202020202020202020202020202020202020202020202036203a2073616d6564690d0a2020202020202020202020202020202020202020202020202020202020202020202020202020202030203a2064696d616e636865223b733a31313a2263686f6963655f74797065223b733a31303a22636865636b626f786573223b733a31333a2264656661756c745f76616c7565223b733a303a22223b733a31313a226d696e5f63686f69636573223b4e3b733a31313a226d61785f63686f69636573223b4e3b7d, NULL, 'no'),
-(548, 'Nom du practicien', 'name', 'doctor', 'text', 0x613a323a7b733a31303a226d61785f6c656e677468223b693a3230303b733a31333a2264656661756c745f76616c7565223b4e3b7d, NULL, 'no'),
+(663, 'Spécialité médicale', 'speciality', 'doctor', 'text', 0x613a323a7b733a31303a226d61785f6c656e677468223b4e3b733a31333a2264656661756c745f76616c7565223b4e3b7d, NULL, 'no'),
+(505, 'Phone valid', 'phone_valid', 'users', 'choice', 0x613a353a7b733a31313a2263686f6963655f64617461223b733a31383a22796573203a204f75690a6e6f203a204e6f6e223b733a31313a2263686f6963655f74797065223b733a353a22726164696f223b733a31333a2264656661756c745f76616c7565223b733a323a226e6f223b733a31313a226d696e5f63686f69636573223b733a303a22223b733a31313a226d61785f63686f69636573223b733a303a22223b7d, NULL, 'no'),
+(662, 'Catégorie', 'doctor_cat', 'doctor', 'relationship', 0x613a323a7b733a31333a2263686f6f73655f73747265616d223b693a39353b733a383a226c696e6b5f757269223b4e3b7d, NULL, 'no'),
+(661, 'Image docteur', 'image', 'doctor', 'image', 0x613a353a7b733a363a22666f6c646572223b693a33363b733a31323a22726573697a655f7769647468223b4e3b733a31333a22726573697a655f686569676874223b4e3b733a31303a226b6565705f726174696f223b4e3b733a31333a22616c6c6f7765645f7479706573223b4e3b7d, NULL, 'no'),
+(658, 'Visites à domicile', 'homecall', 'doctor', 'choice', 0x613a353a7b733a31313a2263686f6963655f64617461223b4e3b733a31313a2263686f6963655f74797065223b4e3b733a31333a2264656661756c745f76616c7565223b4e3b733a31313a226d696e5f63686f69636573223b4e3b733a31313a226d61785f63686f69636573223b4e3b7d, NULL, 'no'),
+(660, 'Longitude', 'longitude', 'doctor', 'text', 0x613a323a7b733a31303a226d61785f6c656e677468223b693a333b733a31333a2264656661756c745f76616c7565223b4e3b7d, NULL, 'no'),
+(659, 'Latitude', 'latitude', 'doctor', 'text', 0x613a323a7b733a31303a226d61785f6c656e677468223b693a333b733a31333a2264656661756c745f76616c7565223b4e3b7d, NULL, 'no'),
+(657, 'Mutuelle', 'insurance', 'doctor', 'choice', 0x613a353a7b733a31313a2263686f6963655f64617461223b733a38313a22796573203a206c616e673a676c6f62616c3a7965730a202020202020202020202020202020202020202020202020202020202020202020202020202020206e6f203a206c616e673a676c6f62616c3a6e6f223b733a31313a2263686f6963655f74797065223b733a353a22726164696f223b733a31333a2264656661756c745f76616c7565223b733a323a226e6f223b733a31313a226d696e5f63686f69636573223b4e3b733a31313a226d61785f63686f69636573223b4e3b7d, NULL, 'no'),
+(656, 'Moyens de paiement', 'payment', 'doctor', 'textarea', 0x613a333a7b733a31323a2264656661756c745f74657874223b4e3b733a31303a22616c6c6f775f74616773223b4e3b733a31323a22636f6e74656e745f74797065223b4e3b7d, NULL, 'no'),
+(655, 'Tarifs et mutuelle', 'fees', 'doctor', 'textarea', 0x613a333a7b733a31323a2264656661756c745f74657874223b4e3b733a31303a22616c6c6f775f74616773223b4e3b733a31323a22636f6e74656e745f74797065223b4e3b7d, NULL, 'no'),
+(648, 'Quartier', 'area_name', 'doctor', 'text', 0x613a323a7b733a31303a226d61785f6c656e677468223b693a3230303b733a31333a2264656661756c745f76616c7565223b4e3b7d, NULL, 'no'),
+(649, 'Commune', 'district', 'doctor', 'text', 0x613a323a7b733a31303a226d61785f6c656e677468223b693a3230303b733a31333a2264656661756c745f76616c7565223b4e3b7d, NULL, 'no'),
+(650, 'Ville', 'town', 'doctor', 'text', 0x613a323a7b733a31303a226d61785f6c656e677468223b693a3230303b733a31333a2264656661756c745f76616c7565223b4e3b7d, NULL, 'no'),
+(651, 'Description', 'description', 'doctor', 'textarea', 0x613a333a7b733a31323a2264656661756c745f74657874223b4e3b733a31303a22616c6c6f775f74616773223b4e3b733a31323a22636f6e74656e745f74797065223b4e3b7d, NULL, 'no'),
+(652, 'Informations d\'accès', 'access', 'doctor', 'textarea', 0x613a333a7b733a31323a2264656661756c745f74657874223b4e3b733a31303a22616c6c6f775f74616773223b4e3b733a31323a22636f6e74656e745f74797065223b4e3b7d, NULL, 'no'),
+(653, 'Langues parlées', 'languages', 'doctor', 'textarea', 0x613a333a7b733a31323a2264656661756c745f74657874223b4e3b733a31303a22616c6c6f775f74616773223b4e3b733a31323a22636f6e74656e745f74797065223b4e3b7d, NULL, 'no'),
+(654, 'Formation', 'diploma', 'doctor', 'textarea', 0x613a333a7b733a31323a2264656661756c745f74657874223b4e3b733a31303a22616c6c6f775f74616773223b4e3b733a31323a22636f6e74656e745f74797065223b4e3b7d, NULL, 'no'),
 (507, 'Etage', 'floor', 'users', 'text', 0x613a323a7b733a31303a226d61785f6c656e677468223b733a303a22223b733a31333a2264656661756c745f76616c7565223b733a303a22223b7d, NULL, 'no'),
 (568, 'Commune', 'district', 'users', 'text', 0x613a323a7b733a31303a226d61785f6c656e677468223b733a303a22223b733a31333a2264656661756c745f76616c7565223b733a303a22223b7d, NULL, 'no'),
-(569, 'Nom de jeune fille', 'maiden_name', 'users', 'text', 0x613a323a7b733a31303a226d61785f6c656e677468223b4e3b733a31333a2264656661756c745f76616c7565223b4e3b7d, NULL, 'no');
+(569, 'Nom de jeune fille', 'maiden_name', 'users', 'text', 0x613a323a7b733a31303a226d61785f6c656e677468223b4e3b733a31333a2264656661756c745f76616c7565223b4e3b7d, NULL, 'no'),
+(647, 'Adresse', 'address', 'doctor', 'text', 0x613a323a7b733a31303a226d61785f6c656e677468223b693a3230303b733a31333a2264656661756c745f76616c7565223b4e3b7d, NULL, 'no'),
+(646, 'Email', 'email', 'doctor', 'text', 0x613a323a7b733a31303a226d61785f6c656e677468223b693a3136303b733a31333a2264656661756c745f76616c7565223b4e3b7d, NULL, 'no'),
+(645, 'Mobile', 'mobile', 'doctor', 'text', 0x613a323a7b733a31303a226d61785f6c656e677468223b693a32303b733a31333a2264656661756c745f76616c7565223b4e3b7d, NULL, 'no'),
+(644, 'Téléphone', 'telephone', 'doctor', 'text', 0x613a323a7b733a31303a226d61785f6c656e677468223b693a32303b733a31333a2264656661756c745f76616c7565223b4e3b7d, NULL, 'no'),
+(643, 'Civilité', 'gender', 'doctor', 'choice', 0x613a353a7b733a31313a2263686f6963655f64617461223b733a31323a22486f6d6d650a0d46656d6d65223b733a31313a2263686f6963655f74797065223b733a353a22726164696f223b733a31333a2264656661756c745f76616c7565223b733a303a22223b733a31313a226d696e5f63686f69636573223b4e3b733a31313a226d61785f63686f69636573223b4e3b7d, NULL, 'no'),
+(642, 'Fin de vacance', 'vacation_end', 'doctor', 'text', 0x613a323a7b733a31303a226d61785f6c656e677468223b693a31303b733a31333a2264656661756c745f76616c7565223b4e3b7d, NULL, 'no'),
+(640, 'Paramètres semaine', 'week_settings', 'doctor', 'text', 0x613a323a7b733a31303a226d61785f6c656e677468223b693a31303b733a31333a2264656661756c745f76616c7565223b4e3b7d, NULL, 'no'),
+(641, 'Début de vacance', 'vacation_start', 'doctor', 'text', 0x613a323a7b733a31303a226d61785f6c656e677468223b693a31303b733a31333a2264656661756c745f76616c7565223b4e3b7d, NULL, 'no'),
+(639, 'Jours ouverts', 'days', 'doctor', 'choice', 0x613a353a7b733a31313a2263686f6963655f64617461223b733a3331393a2231203a206c756e64690a2020202020202020202020202020202020202020202020202020202020202020202020202020202032203a206d617264690a2020202020202020202020202020202020202020202020202020202020202020202020202020202033203a206d657263726564690a2020202020202020202020202020202020202020202020202020202020202020202020202020202034203a206a657564690a2020202020202020202020202020202020202020202020202020202020202020202020202020202035203a2076656e64726564690a2020202020202020202020202020202020202020202020202020202020202020202020202020202036203a2073616d6564690a2020202020202020202020202020202020202020202020202020202020202020202020202020202037203a2064696d616e636865223b733a31313a2263686f6963655f74797065223b733a31303a22636865636b626f786573223b733a31333a2264656661756c745f76616c7565223b733a31333a22310a0d320a0d330a0d340a0d35223b733a31313a226d696e5f63686f69636573223b4e3b733a31313a226d61785f63686f69636573223b4e3b7d, NULL, 'no'),
+(637, 'Nom du practicien', 'name', 'doctor', 'text', 0x613a323a7b733a31303a226d61785f6c656e677468223b693a3230303b733a31333a2264656661756c745f76616c7565223b4e3b7d, NULL, 'no'),
+(638, 'RNGPS', 'rngps', 'doctor', 'text', 0x613a323a7b733a31303a226d61785f6c656e677468223b693a31313b733a31333a2264656661756c745f76616c7565223b4e3b7d, NULL, 'no'),
+(636, 'Practicien validé', 'validated', 'doctor', 'choice', 0x613a353a7b733a31313a2263686f6963655f64617461223b733a38313a22796573203a206c616e673a676c6f62616c3a7965730a202020202020202020202020202020202020202020202020202020202020202020202020202020206e6f203a206c616e673a676c6f62616c3a6e6f223b733a31313a2263686f6963655f74797065223b733a353a22726164696f223b733a31333a2264656661756c745f76616c7565223b733a323a226e6f223b733a31313a226d696e5f63686f69636573223b4e3b733a31313a226d61785f63686f69636573223b4e3b7d, NULL, 'no'),
+(664, 'Image catégorie', 'doc_cat_image', 'doctor', 'image', 0x613a353a7b733a363a22666f6c646572223b693a33363b733a31323a22726573697a655f7769647468223b4e3b733a31333a22726573697a655f686569676874223b4e3b733a31303a226b6565705f726174696f223b4e3b733a31333a22616c6c6f7765645f7479706573223b4e3b7d, NULL, 'no'),
+(665, 'Catégorie parente', 'parent_cat', 'doctor', 'relationship', 0x613a323a7b733a31333a2263686f6f73655f73747265616d223b693a39353b733a383a226c696e6b5f757269223b4e3b7d, NULL, 'no'),
+(666, 'Organisme ou groupe', 'groupe', 'doctor', 'relationship', 0x613a323a7b733a31333a2263686f6f73655f73747265616d223b693a39363b733a383a226c696e6b5f757269223b4e3b7d, NULL, 'no'),
+(667, 'Structure', 'organisation', 'doctor', 'relationship', 0x613a323a7b733a31333a2263686f6f73655f73747265616d223b693a39363b733a383a226c696e6b5f757269223b4e3b7d, NULL, 'no'),
+(668, 'Etablissement', 'subset', 'doctor', 'text', 0x613a323a7b733a31303a226d61785f6c656e677468223b4e3b733a31333a2264656661756c745f76616c7565223b4e3b7d, NULL, 'no'),
+(669, 'pro settings', 'settings_pro', 'users', 'choice', 0x613a353a7b733a31313a2263686f6963655f64617461223b733a37343a226170706f696e74656d656e7473203a205244560a666c616773203a20416c65727465730a6d65737361676573203a204d657373616765730a6c697374696e67203a2050617469656e7473223b733a31313a2263686f6963655f74797065223b733a31303a22636865636b626f786573223b733a31333a2264656661756c745f76616c7565223b733a31333a226170706f696e74656d656e7473223b733a31313a226d696e5f63686f69636573223b733a303a22223b733a31313a226d61785f63686f69636573223b733a303a22223b7d, NULL, 'no'),
+(670, 'abonnement pro', 'subscription_pro', 'users', 'choice', 0x613a353a7b733a31313a2263686f6963655f64617461223b733a303a22223b733a31313a2263686f6963655f74797065223b733a353a22726164696f223b733a31333a2264656661756c745f76616c7565223b733a323a226e6f223b733a31313a226d696e5f63686f69636573223b733a303a22223b733a31313a226d61785f63686f69636573223b733a303a22223b7d, NULL, 'no'),
+(671, 'abonnnement patients', 'subscription_patients', 'users', 'choice', 0x613a353a7b733a31313a2263686f6963655f64617461223b733a31383a22796573203a204f75690a6e6f203a204e6f6e223b733a31313a2263686f6963655f74797065223b733a353a22726164696f223b733a31333a2264656661756c745f76616c7565223b733a323a226e6f223b733a31313a226d696e5f63686f69636573223b733a303a22223b733a31313a226d61785f63686f69636573223b733a303a22223b7d, NULL, 'no'),
+(672, 'doctor id', 'doctor_id', 'users', 'integer', 0x613a323a7b733a31303a226d61785f6c656e677468223b733a303a22223b733a31333a2264656661756c745f76616c7565223b733a313a2230223b7d, NULL, 'no');
 
 -- --------------------------------------------------------
 
@@ -699,7 +727,7 @@ INSERT INTO `default_data_field_assignments` (`id`, `sort_order`, `stream_id`, `
 (2, 2, 2, 2, 'no', 'no', NULL, NULL),
 (3, 1, 3, 3, 'yes', 'no', NULL, NULL),
 (4, 1, 3, 4, 'yes', 'no', NULL, NULL),
-(19, 16, 3, 19, 'no', 'no', 'Vos informations médicales', NULL),
+(19, 15, 3, 19, 'no', 'no', 'Vos informations médicales', NULL),
 (8, 2, 3, 8, 'yes', 'no', 'Date de naissance.', NULL),
 (23, 1, 3, 23, 'no', 'no', 'Vous êtes un homme ou une femme?', NULL),
 (10, 4, 3, 10, 'no', 'no', 'Votre numéro de téléphone fixe', NULL),
@@ -707,37 +735,55 @@ INSERT INTO `default_data_field_assignments` (`id`, `sort_order`, `stream_id`, `
 (12, 6, 3, 12, 'no', 'no', 'Adresse ligne 1', NULL),
 (13, 7, 3, 13, 'no', 'no', 'Adresse ligne 2', NULL),
 (20, 10, 3, 20, 'no', 'no', 'Votre ville ou village de résidence', NULL),
-(15, 17, 3, 15, 'no', 'no', NULL, NULL),
+(15, 16, 3, 15, 'no', 'no', NULL, NULL),
+(568, 18, 3, 571, 'no', 'no', '', NULL),
 (21, 8, 3, 21, 'no', 'no', 'Votre quartier de résidence si applicable', NULL),
 (22, 11, 3, 22, 'no', 'no', 'Votre mutuelle d\'assurance', NULL),
-(24, 15, 3, 24, 'no', 'no', 'Si vous connaissez le numéro identifiant de votre médecin, vous pouvez le renseigner ici.', NULL),
+(24, 14, 3, 24, 'no', 'no', 'Si vous connaissez le numéro identifiant de votre médecin, vous pouvez le renseigner ici.', NULL),
 (25, 1, 2, 25, 'no', 'no', '', NULL),
 (26, 2, 2, 26, 'no', 'no', '', NULL),
-(502, 14, 3, 505, 'no', 'no', '', NULL),
-(564, 2, 87, 567, 'yes', 'yes', NULL, NULL),
-(545, 1, 85, 548, 'no', 'no', NULL, NULL),
-(546, 2, 85, 549, 'no', 'no', NULL, NULL),
-(547, 2, 85, 550, 'no', 'no', NULL, NULL),
-(548, 2, 85, 551, 'no', 'no', NULL, NULL),
-(549, 3, 85, 552, 'no', 'no', NULL, NULL),
-(550, 4, 85, 553, 'no', 'no', NULL, NULL),
-(551, 5, 85, 554, 'no', 'no', NULL, NULL),
-(552, 6, 85, 555, 'no', 'no', NULL, NULL),
-(553, 7, 85, 556, 'no', 'no', NULL, NULL),
-(554, 8, 85, 557, 'no', 'no', NULL, NULL),
-(555, 9, 85, 558, 'yes', 'no', NULL, NULL),
-(556, 10, 85, 559, 'yes', 'no', NULL, NULL),
-(557, 11, 85, 560, 'yes', 'no', NULL, NULL),
-(558, 12, 85, 561, 'no', 'no', NULL, NULL),
-(559, 13, 85, 562, 'no', 'no', NULL, NULL),
-(560, 1, 86, 563, 'yes', 'yes', NULL, NULL),
-(561, 2, 86, 564, 'no', 'no', NULL, NULL),
-(562, 14, 85, 565, 'no', 'no', NULL, NULL),
-(563, 1, 87, 566, 'no', 'no', NULL, NULL),
+(502, 17, 3, 505, 'no', 'no', '', NULL),
+(663, 28, 94, 666, 'no', 'no', NULL, NULL),
+(662, 3, 95, 665, 'no', 'no', NULL, NULL),
+(661, 2, 95, 664, 'no', 'no', NULL, NULL),
+(660, 1, 95, 663, 'yes', 'yes', NULL, NULL),
+(659, 27, 94, 662, 'no', 'no', NULL, NULL),
+(658, 26, 94, 661, 'no', 'no', NULL, NULL),
+(657, 25, 94, 660, 'no', 'no', NULL, NULL),
+(656, 24, 94, 659, 'no', 'no', NULL, NULL),
+(655, 23, 94, 658, 'no', 'no', NULL, NULL),
+(654, 22, 94, 657, 'no', 'no', NULL, NULL),
+(653, 21, 94, 656, 'no', 'no', NULL, NULL),
+(652, 20, 94, 655, 'no', 'no', NULL, NULL),
+(651, 19, 94, 654, 'no', 'no', NULL, NULL),
+(650, 18, 94, 653, 'no', 'no', NULL, NULL),
+(649, 17, 94, 652, 'no', 'no', NULL, NULL),
+(648, 16, 94, 651, 'no', 'no', NULL, NULL),
+(647, 15, 94, 650, 'no', 'no', NULL, NULL),
+(646, 14, 94, 649, 'no', 'no', NULL, NULL),
 (503, 12, 3, 506, 'no', 'no', 'Numéro de bureau ou instructitons d\'accès', NULL),
 (504, 13, 3, 507, 'no', 'no', '', NULL),
 (565, 9, 3, 568, 'no', 'no', '', NULL),
-(566, 3, 3, 569, 'no', 'no', '', NULL);
+(566, 3, 3, 569, 'no', 'no', '', NULL),
+(645, 13, 94, 648, 'no', 'no', NULL, NULL),
+(644, 12, 94, 647, 'no', 'no', NULL, NULL),
+(643, 11, 94, 646, 'no', 'no', NULL, NULL),
+(642, 10, 94, 645, 'no', 'no', NULL, NULL),
+(641, 9, 94, 644, 'no', 'no', NULL, NULL),
+(640, 8, 94, 643, 'no', 'no', NULL, NULL),
+(639, 7, 94, 642, 'no', 'no', NULL, NULL),
+(638, 6, 94, 641, 'no', 'no', NULL, NULL),
+(634, 2, 94, 637, 'yes', 'no', NULL, NULL),
+(637, 5, 94, 640, 'no', 'no', NULL, NULL),
+(636, 4, 94, 639, 'yes', 'no', NULL, NULL),
+(635, 3, 94, 638, 'no', 'no', NULL, NULL),
+(633, 1, 94, 636, 'yes', 'no', NULL, NULL),
+(664, 1, 96, 667, 'no', 'no', NULL, NULL),
+(665, 2, 96, 668, 'yes', 'yes', NULL, NULL),
+(666, 19, 3, 669, 'no', 'no', 'Settings configuration for professional interface home', NULL),
+(667, 20, 3, 670, 'no', 'no', 'yes : Oui\nno : Non', NULL),
+(668, 21, 3, 671, 'no', 'no', '', NULL),
+(669, 22, 3, 672, 'no', 'no', '', NULL);
 
 -- --------------------------------------------------------
 
@@ -769,9 +815,9 @@ INSERT INTO `default_data_streams` (`id`, `stream_name`, `stream_slug`, `stream_
 (1, 'lang:blog:blog_title', 'blog', 'blogs', NULL, NULL, 0x613a323a7b693a303b733a323a226964223b693a313b733a373a2263726561746564223b7d, NULL, 'title', NULL, 'no', NULL),
 (2, 'Default', 'def_page_fields', 'pages', NULL, 'A simple page type with a WYSIWYG editor that will get you started adding content.', 0x613a323a7b693a303b733a323a226964223b693a313b733a373a2263726561746564223b7d, NULL, 'title', NULL, 'no', NULL),
 (3, 'lang:user_profile_fields_label', 'profiles', 'users', NULL, 'Profiles for users module', 0x613a313a7b693a303b733a31323a22646973706c61795f6e616d65223b7d, 'display_name', 'title', NULL, 'no', NULL),
-(85, 'lang:doctor:doctors', 'doctors', 'doctor', 'doctor_', NULL, 0x613a343a7b693a303b733a343a2264617973223b693a313b733a31313a226465736372697074696f6e223b693a323b733a363a2267726f757065223b693a333b733a31303a22646f63746f725f636174223b7d, NULL, 'title', NULL, 'no', NULL),
-(86, 'lang:doctor:categories', 'categories', 'doctor', 'doctor_', NULL, 0x613a323a7b693a303b733a31303a22706172656e745f636174223b693a313b733a31303a227370656369616c697479223b7d, 'speciality', 'title', NULL, 'no', NULL),
-(87, 'lang:doctor:organisations', 'organisations', 'doctor', 'doctor_', NULL, 0x613a323a7b693a303b733a31323a226f7267616e69736174696f6e223b693a313b733a363a22737562736574223b7d, 'subset', 'title', NULL, 'no', NULL);
+(95, 'lang:doctor:categories', 'categories', 'doctor', 'doctor_', NULL, 0x613a323a7b693a303b733a31303a22706172656e745f636174223b693a313b733a31303a227370656369616c697479223b7d, 'speciality', 'title', NULL, 'no', NULL),
+(96, 'lang:doctor:organisations', 'organisations', 'doctor', 'doctor_', NULL, 0x613a323a7b693a303b733a31323a226f7267616e69736174696f6e223b693a313b733a363a22737562736574223b7d, 'subset', 'title', NULL, 'no', NULL),
+(94, 'lang:doctor:doctors', 'doctors', 'doctor', 'doctor_', NULL, 0x613a343a7b693a303b733a343a2264617973223b693a313b733a31313a226465736372697074696f6e223b693a323b733a363a2267726f757065223b693a333b733a31303a22646f63746f725f636174223b7d, NULL, 'title', NULL, 'no', NULL);
 
 -- --------------------------------------------------------
 
@@ -814,9 +860,26 @@ INSERT INTO `default_def_page_fields` (`id`, `created`, `updated`, `created_by`,
 (33, '2018-04-05 14:23:34', NULL, 1, 12, NULL, NULL, NULL),
 (34, '2018-04-05 14:23:46', NULL, 1, 13, NULL, NULL, NULL),
 (35, '2018-04-05 14:29:31', '2018-04-05 14:29:57', 1, 14, NULL, '\n{{ appointments:my_appointments futur_past=\"futur\" other_person=\"[[ if page:slug == \'mes-rdv-a-venir\' ]]non[[ elseif page:slug == \'rdv-a-venir-de-mes-proches\'  ]]oui[[ endif ]]\"  }} \n<div class=\"panel panel-default panel-success\">\n		<div class=\"panel-heading\"> \n			<h4>\n				Le\n				 {{date_day_str}}  {{date_month_str}}  \n				à  {{time_formatted}} \n			</h4>\n                    \n                         <!--\n			 [{{appointment_time}}   - \n			 doc {{doctor_id}} user {{user_id}}]\n                          -->\n		</div>\n		<div class=\"panel-body\">    \n                    <!-- img -->\n			 {{ if filename }}\n                                <img src=\"{{url:site}}files/large/{{filename}}\" height=\"80\" style=\"float:left;margin-right:20px;\" class=\"img-circle\" />\n                            {{ elseif doc_speciality  }}  \n                                        <img src=\"{{ url:site }}files/large/{{ doctor:speciality_img speciality=doc_speciality  }}\" \n                                             height=\"80\" style=\"float:left;margin-right:20px;\"\n                                             class=\"img-circle\" />\n                         \n                            {{ else }} \n                            {{# default image #}}\n                                <img src=\"{{ url:site }}files/large/8b37a2a2cbf9537714125a8f8476e63a.jpg\" height=\"80\" style=\"float:left;margin-right:20px;\" class=\"img-circle\" />\n                            {{ endif }}\n                    <!-- img end  -->\n							\n				{{doc_name}} {{if doc_speciality}}&bullet; {{doc_speciality}}{{endif}}\n				 <br /> \n				{{doc_address}} {{doc_area}} {{doc_town}} <br /> \n				 <br /> \n				{{gender}}  \n				 {{first_name}}  \n				 {{last_name}}    \n                         <!--\n			Le\n			 {{appointment_date}}  \n			à\n			 {{appointment_time}}\n			  -->\n			<center class=\"\"> \n				<a class=\"btn btn-danger \" href=\"{{url:site}}appointments/delete/{{id}}\">Annuler ce RDV</a>			 \n			</center> 		 \n		</div>\n</div> \n{{ /appointments:my_appointments }}', ''),
+(36, '2018-04-05 18:29:44', NULL, 1, 15, NULL, NULL, NULL),
+(37, '2018-04-05 18:30:07', NULL, 1, 16, NULL, NULL, NULL),
 (27, '2018-04-05 14:18:11', '2018-04-05 14:28:54', 1, 6, NULL, '', ''),
 (25, '2018-03-27 19:26:58', '2018-03-29 14:37:42', 1, 4, NULL, '<p id=\"msg\" class=\"text-center\"></p>\n<div id=\"position\" class=\"form-group text-center col-sm-6 col-sm-offset-3\">\n	<label for=\"position\">Position GPS</label>\n	<div class=\"input\">\n		<input class=\"form-control\" name=\"position\" type=\"text\" onfocus=\"this.select()\" />\n	</div>\n	<button onclick=\"geoGetPosition()\" class=\"btn btn-default\"><i class=\"glyphicon glyphicon-map-marker\"></i> Position\n	</button> \n</div> \n', ''),
 (26, '2018-03-29 15:23:10', '2018-03-29 15:23:16', 1, 5, NULL, '', '');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `default_doctors_favorites`
+--
+
+DROP TABLE IF EXISTS `default_doctors_favorites`;
+CREATE TABLE `default_doctors_favorites` (
+  `id` int(11) NOT NULL,
+  `doctor_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `created_on` datetime DEFAULT '1970-01-01 00:00:00',
+  `updated_on` datetime DEFAULT '1970-01-01 00:00:00'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -832,6 +895,7 @@ CREATE TABLE `default_doctor_categories` (
   `created_by` int(11) DEFAULT NULL,
   `ordering_count` int(11) DEFAULT NULL,
   `speciality` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `doc_cat_image` char(15) COLLATE utf8_unicode_ci DEFAULT NULL,
   `parent_cat` int(11) DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -839,34 +903,33 @@ CREATE TABLE `default_doctor_categories` (
 -- Déchargement des données de la table `default_doctor_categories`
 --
 
-INSERT INTO `default_doctor_categories` (`id`, `created`, `updated`, `created_by`, `ordering_count`, `speciality`, `parent_cat`) VALUES
-(1, '2018-03-10 01:54:40', NULL, 1, 1, 'Médecins généralistes', NULL),
-(2, '2018-03-10 01:54:47', '2018-03-14 22:49:06', 1, 2, 'Sage femme', 5),
-(3, '2018-03-10 01:54:53', NULL, 1, 3, 'ORL', NULL),
-(4, '2018-03-10 01:54:59', NULL, 1, 4, 'Cardiologue', NULL),
-(5, '2018-03-10 01:55:05', NULL, 1, 5, 'Spécialistes femme', NULL),
-(6, '2018-03-10 01:55:12', NULL, 1, 6, 'Dentiste', NULL),
-(7, '2018-03-10 01:55:17', NULL, 1, 7, 'Radiologue', NULL),
-(8, '2018-03-10 01:55:22', NULL, 1, 8, 'Autres médecins', NULL),
-(9, '2018-03-10 01:55:27', NULL, 1, 9, 'Etablissements de santé', NULL),
-(10, '2018-03-15 00:11:43', NULL, 1, 10, 'Chirurgien dentiste', 6),
-(11, '2018-03-15 00:11:58', NULL, 1, 11, 'Pédiatre', 8),
-(12, '2018-03-15 00:12:15', NULL, 1, 12, 'Gynécologue obstétrique ou médical', NULL),
-(13, '2018-03-15 00:12:24', NULL, 1, 13, 'Ostéopathe', NULL),
-(14, '2018-03-15 00:12:34', NULL, 1, 14, 'Pédicure – Podologue', NULL),
-(15, '2018-03-15 00:31:48', NULL, 1, 15, 'Sage – femme', 5),
-(16, '2018-03-15 00:31:56', NULL, 1, 16, 'Allergologue', 3),
-(17, '2018-03-15 00:32:02', NULL, 1, 17, 'Urologue', NULL),
-(18, '2018-03-15 00:32:09', NULL, 1, 18, 'Rhumatologue', NULL),
-(19, '2018-03-15 00:32:15', NULL, 1, 19, 'Endocrinologue', NULL),
-(20, '2018-03-15 00:32:26', NULL, 1, 20, 'Stomatologue', NULL),
-(21, '2018-03-15 00:32:33', NULL, 1, 21, 'Orthopédiste', NULL),
-(22, '2018-03-15 00:32:40', NULL, 1, 22, 'Diététicien', NULL),
-(23, '2018-03-15 00:32:46', NULL, 1, 23, 'Psychologue', NULL),
-(24, '2018-03-15 00:33:02', NULL, 1, 24, 'Psychiatre', NULL),
-(25, '2018-03-15 00:33:19', NULL, 1, 25, 'Neurologue', NULL),
-(26, '2018-03-15 00:33:30', NULL, 1, 26, 'Gastro-entérologue et hépatologue', NULL),
-(27, '2018-03-15 02:53:55', NULL, 1, 27, 'Médecin du sport', NULL);
+INSERT INTO `default_doctor_categories` (`id`, `created`, `updated`, `created_by`, `ordering_count`, `speciality`, `doc_cat_image`, `parent_cat`) VALUES
+(2, '2018-03-10 01:54:47', '2018-03-14 22:49:06', 1, 2, 'Sage femme', NULL, 5),
+(3, '2018-03-10 01:54:53', NULL, 1, 3, 'ORL', NULL, NULL),
+(4, '2018-03-10 01:54:59', NULL, 1, 4, 'Cardiologue', NULL, NULL),
+(5, '2018-03-10 01:55:05', NULL, 1, 5, 'Spécialistes femme', NULL, NULL),
+(6, '2018-03-10 01:55:12', NULL, 1, 6, 'Dentiste', NULL, NULL),
+(7, '2018-03-10 01:55:17', NULL, 1, 7, 'Radiologue', NULL, NULL),
+(8, '2018-03-10 01:55:22', NULL, 1, 8, 'Autres médecins', NULL, NULL),
+(9, '2018-03-10 01:55:27', NULL, 1, 9, 'Etablissements de santé', NULL, NULL),
+(10, '2018-03-15 00:11:43', NULL, 1, 10, 'Chirurgien dentiste', NULL, 6),
+(11, '2018-03-15 00:11:58', NULL, 1, 11, 'Pédiatre', NULL, 8),
+(12, '2018-03-15 00:12:15', NULL, 1, 12, 'Gynécologue obstétrique ou médical', NULL, NULL),
+(13, '2018-03-15 00:12:24', NULL, 1, 13, 'Ostéopathe', NULL, NULL),
+(14, '2018-03-15 00:12:34', NULL, 1, 14, 'Pédicure – Podologue', NULL, NULL),
+(15, '2018-03-15 00:31:48', NULL, 1, 15, 'Sage – femme', NULL, 5),
+(16, '2018-03-15 00:31:56', NULL, 1, 16, 'Allergologue', NULL, 3),
+(17, '2018-03-15 00:32:02', NULL, 1, 17, 'Urologue', NULL, NULL),
+(18, '2018-03-15 00:32:09', NULL, 1, 18, 'Rhumatologue', NULL, NULL),
+(19, '2018-03-15 00:32:15', NULL, 1, 19, 'Endocrinologue', NULL, NULL),
+(20, '2018-03-15 00:32:26', NULL, 1, 20, 'Stomatologue', NULL, NULL),
+(21, '2018-03-15 00:32:33', NULL, 1, 21, 'Orthopédiste', NULL, NULL),
+(22, '2018-03-15 00:32:40', NULL, 1, 22, 'Diététicien', NULL, NULL),
+(23, '2018-03-15 00:32:46', NULL, 1, 23, 'Psychologue', NULL, NULL),
+(24, '2018-03-15 00:33:02', NULL, 1, 24, 'Psychiatre', NULL, NULL),
+(25, '2018-03-15 00:33:19', NULL, 1, 25, 'Neurologue', NULL, NULL),
+(26, '2018-03-15 00:33:30', NULL, 1, 26, 'Gastro-entérologue et hépatologue', NULL, NULL),
+(27, '2018-03-15 02:53:55', NULL, 1, 27, 'Médecin du sport', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -881,19 +944,31 @@ CREATE TABLE `default_doctor_doctors` (
   `updated` datetime DEFAULT NULL,
   `created_by` int(11) DEFAULT NULL,
   `ordering_count` int(11) DEFAULT NULL,
+  `validated` varchar(255) COLLATE utf8_unicode_ci DEFAULT 'no',
   `name` varchar(200) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `rngps` varchar(11) COLLATE utf8_unicode_ci DEFAULT NULL,
   `days` text COLLATE utf8_unicode_ci,
-  `hours` varchar(200) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `opens` varchar(10) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `closes` varchar(10) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `max_per_day` varchar(2) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `week_settings` varchar(10) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `vacation_start` varchar(10) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `vacation_end` varchar(10) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `gender` varchar(10) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `telephone` varchar(20) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `mobile` varchar(20) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `email` varchar(160) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `address` varchar(200) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `area_name` varchar(200) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `district` varchar(200) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `town` varchar(200) COLLATE utf8_unicode_ci DEFAULT NULL,
   `description` longtext COLLATE utf8_unicode_ci,
-  `telephone` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `mobile` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `email` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `address` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `area_name` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `town` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `access` longtext COLLATE utf8_unicode_ci,
+  `languages` longtext COLLATE utf8_unicode_ci,
+  `diploma` longtext COLLATE utf8_unicode_ci,
+  `fees` longtext COLLATE utf8_unicode_ci,
+  `payment` longtext COLLATE utf8_unicode_ci,
+  `insurance` text COLLATE utf8_unicode_ci,
+  `homecall` text COLLATE utf8_unicode_ci,
+  `latitude` varchar(3) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `longitude` varchar(3) COLLATE utf8_unicode_ci DEFAULT NULL,
   `image` char(15) COLLATE utf8_unicode_ci DEFAULT NULL,
   `doctor_cat` int(11) DEFAULT NULL,
   `groupe` int(11) DEFAULT NULL
@@ -903,22 +978,23 @@ CREATE TABLE `default_doctor_doctors` (
 -- Déchargement des données de la table `default_doctor_doctors`
 --
 
-INSERT INTO `default_doctor_doctors` (`id`, `created`, `updated`, `created_by`, `ordering_count`, `name`, `days`, `hours`, `opens`, `closes`, `max_per_day`, `description`, `telephone`, `mobile`, `email`, `address`, `area_name`, `town`, `image`, `doctor_cat`, `groupe`) VALUES
-(1, '2018-03-14 22:48:11', NULL, 1, 1, 'Radja Lomas', '0', NULL, '0800', '1600', NULL, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque lorem neque, cursus nec blandit vel, blandit eu libero. Phasellus orci felis, congue non tortor ut, sollicitudin fermentum metus', '0678957826', '0678957826', 'r.lomas@spelldesign.fr', '17 rue Gutenberg', '77820', 'Bondoufle', 'dummy', 1, 4),
-(2, '2018-03-14 23:29:25', NULL, 1, 2, 'Lomas', '1\n2\n3\n4\n0', NULL, '0800', '1800', NULL, 'Nullam ullamcorper semper turpis, nec suscipit risus fermentum a. Pellentesque nec vulputate augue, ultricies malesuada purus. Nullam et nibh et sapien finibus blandit. In id libero nec orci elementum sodales eu nec massa. Duis et pellentesque eros, non tempus mi. Fusce convallis vel nibh vitae porttitor.', '0678957826', '0678957826', 'email@nowhere.com', '4 allée Jacques Ibert', '189610', 'Saint Michel sur Orge', 'dummy', 3, 1),
-(3, '2018-03-15 01:33:59', NULL, 1, 3, 'Bretin Jean', '1\n2\n3\n4\n5', NULL, '0900', '1800', NULL, 'Nam sit amet semper purus. Maecenas massa ante, ultrices vulputate venenatis sit amet, consequat a mi. Nam gravida ex et hendrerit lacinia.', '0678957826', '0678957826', 'email@nowhere.com', '10 Rue du Plessier', '77820', 'Le Châtelet-en-Brie', 'dummy', 1, NULL),
-(4, '2018-03-15 01:34:44', NULL, 1, 4, 'Dodin Frédéric', '0', NULL, '0800', '1930', NULL, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque lorem neque, cursus nec blandit vel, blandit eu libero. Phasellus orci felis, congue non tortor ut, sollicitudin fermentum metus', '0678957826', '0678957826', 'email@nowhere.com', '16 Allée de la Clairière,', '77820', 'Le Châtelet-en-Brie', 'dummy', 1, NULL),
-(5, '2018-03-15 01:35:33', '2018-03-15 01:36:54', 1, 5, 'Quilain Marie', '0', NULL, '0900', '1930', NULL, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque lorem neque, cursus nec blandit vel, blandit eu libero. Phasellus orci felis, congue non tortor ut, sollicitudin fermentum metus', '0678957826', '0678957826', 'email@nowhere.com', '16 Allée de la Clairière,', '77820', 'Le Châtelet-en-Brie', 'dummy', 1, NULL),
-(6, '2018-03-15 01:36:35', NULL, 1, 6, 'SCM des Docteurs Gest et Raad', '0', NULL, '0830', '1930', NULL, 'Nam sit amet semper purus. Maecenas massa ante, ultrices vulputate venenatis sit amet, consequat a mi. Nam gravida ex et hendrerit lacinia.', '0678957826', '0678957826', 'email@nowhere.com', '13 Quai Maréchal Foch', '77000', 'Melun', 'dummy', 4, NULL),
-(7, '2018-03-15 01:37:36', NULL, 1, 7, 'Docteur Salim Meliani', '0', NULL, '0830', '1800', NULL, 'Nullam ullamcorper semper turpis, nec suscipit risus fermentum a. Pellentesque nec vulputate augue, ultricies malesuada purus. Nullam et nibh et sapien finibus blandit. In id libero nec orci elementum sodales eu nec massa. Duis et pellentesque eros, non tempus mi. Fusce convallis vel nibh vitae porttitor.', '0678957826', '0678957826', 'email@nowhere.com', '1 Rue des Sapins', '77210', 'Avon', 'dummy', 24, NULL),
-(8, '2018-03-15 01:38:53', NULL, 1, 8, 'Docteur Allanche Laurent - Chirurgien ORL', '0', NULL, '0830', '1930', NULL, 'Nam sit amet semper purus. Maecenas massa ante, ultrices vulputate venenatis sit amet, consequat a mi. Nam gravida ex et hendrerit lacinia.', '0678957826', '0678957826', 'email@nowhere.com', '54 Boulevard Aristide Briand', '77000', 'Melun', 'dummy', 3, NULL),
-(9, '2018-03-15 02:57:18', NULL, 1, 9, 'Docteur Guillaume Paris - Médecin du sport', '2\n3\n4', NULL, '0830', '2000', NULL, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque lorem neque, cursus nec blandit vel, blandit eu libero. Phasellus orci felis, congue non tortor ut, sollicitudin fermentum metus', '0678957826', '0678957826', 'email@nowhere.com', '2A Avenue de Ségur', '75007', 'Paris', 'dummy', 27, NULL),
-(10, '2018-03-15 02:58:15', NULL, 1, 10, 'CENTRE DE CONSULTATIONS MÉDICALES 24H/24 À PARIS', '1\n2\n3\n4\n5\n6\n0', NULL, '0000', '2359', NULL, 'Nullam ullamcorper semper turpis, nec suscipit risus fermentum a. Pellentesque nec vulputate augue, ultricies malesuada purus. Nullam et nibh et sapien finibus blandit. In id libero nec orci elementum sodales eu nec massa. Duis et pellentesque eros, non tempus mi. Fusce convallis vel nibh vitae porttitor.', '0678957826', '0678957826', 'email@nowhere.com', '2 Rue d\'Alexandrie', '75002', 'Paris', 'dummy', 1, NULL),
-(11, '2018-03-15 02:58:44', NULL, 1, 11, 'Dr GHERRAK Sandrine - Généraliste Paris 5', '0', NULL, '0900', '1800', NULL, 'Nam sit amet semper purus. Maecenas massa ante, ultrices vulputate venenatis sit amet, consequat a mi. Nam gravida ex et hendrerit lacinia.', '0678957826', '0678957826', 'email@nowhere.com', '7 Rue Berthollet', '75005', 'Paris', 'dummy', 1, NULL),
-(12, '2018-03-15 02:59:46', NULL, 1, 12, 'Docteur Olivier Kadoch - Gynécologue', '0', NULL, '0900', '1800', NULL, 'Nam sit amet semper purus. Maecenas massa ante, ultrices vulputate venenatis sit amet, consequat a mi. Nam gravida ex et hendrerit lacinia.', '0678957826', '0678957826', 'email@nowhere.com', '107 Avenue Victor Hugo', '75016', 'Paris', 'dummy', 12, NULL),
-(13, '2018-03-15 03:01:24', '2018-03-28 21:10:13', 1, 13, 'Dr Ari Elhyani Dentiste Paris', '2', NULL, '0900', '1930', NULL, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque lorem neque, cursus nec blandit vel, blandit eu libero. Phasellus orci felis, congue non tortor ut, sollicitudin fermentum metus', '0678957826', '0678957826', 'email@nowhere.com', '11 Avenue de l\'Opéra', '75001', 'Paris', 'dummy', 6, NULL),
-(14, '2018-03-15 03:02:27', '2018-03-30 23:50:35', 1, 14, 'Dr Fabien Mauro', '1\n2\n3\n4', NULL, '09:00', '20:00', NULL, 'Nam sit amet semper purus. Maecenas massa ante, ultrices vulputate venenatis sit amet, consequat a mi. Nam gravida ex et hendrerit lacinia.', '0678957826', '0678957826', 'email@nowhere.com', '18 Rue de Turbigo', '75002', 'Paris', '699df7530ec4c93', 6, 1),
-(15, '2018-03-31 00:00:17', '2018-03-31 00:06:06', 12, 15, 'LAMAH Simon Pière', '1\n2', '8:30', '12;30', '17:30', '15', 'Le  Cabinet est situé à Donka', '664256124', NULL, NULL, 'Route de Nézérékoré', 'Nézérékoré', 'Nézérékoré', '55b8dff41b6c29b', 1, 2);
+INSERT INTO `default_doctor_doctors` (`id`, `created`, `updated`, `created_by`, `ordering_count`, `validated`, `name`, `rngps`, `days`, `week_settings`, `vacation_start`, `vacation_end`, `gender`, `telephone`, `mobile`, `email`, `address`, `area_name`, `district`, `town`, `description`, `access`, `languages`, `diploma`, `fees`, `payment`, `insurance`, `homecall`, `latitude`, `longitude`, `image`, `doctor_cat`, `groupe`) VALUES
+(1, '2018-03-14 22:48:11', NULL, 1, 1, 'no', 'Radja Lomas', NULL, NULL, NULL, NULL, NULL, NULL, '0678957826', '0678957826', 'r.lomas@spelldesign.fr', '17 rue Gutenberg', '77820', NULL, 'Bondoufle', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque lorem neque, cursus nec blandit vel, blandit eu libero. Phasellus orci felis, congue non tortor ut, sollicitudin fermentum metus', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'dummy', 1, 4),
+(2, '2018-03-14 23:29:25', NULL, 1, 2, 'no', 'Lomas', NULL, NULL, NULL, NULL, NULL, NULL, '0678957826', '0678957826', 'email@nowhere.com', '4 allée Jacques Ibert', '189610', NULL, 'Saint Michel sur Orge', 'Nullam ullamcorper semper turpis, nec suscipit risus fermentum a. Pellentesque nec vulputate augue, ultricies malesuada purus. Nullam et nibh et sapien finibus blandit. In id libero nec orci elementum sodales eu nec massa. Duis et pellentesque eros, non tempus mi. Fusce convallis vel nibh vitae porttitor.', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'dummy', 3, 1),
+(3, '2018-03-15 01:33:59', '2018-04-06 14:59:43', 1, 3, 'yes', 'Bretin Jean', NULL, '1\n2\n3\n4\n5', NULL, NULL, NULL, NULL, '0678957826', '0678957826', 'email@nowhere.com', '10 Rue du Plessier', '77820', NULL, 'Le Châtelet-en-Brie', 'Nam sit amet semper purus. Maecenas massa ante, ultrices vulputate venenatis sit amet, consequat a mi. Nam gravida ex et hendrerit lacinia.', '', '', '', '', '', NULL, '', NULL, NULL, 'dummy', NULL, NULL),
+(4, '2018-03-15 01:34:44', NULL, 1, 4, 'no', 'Dodin Frédéric', NULL, NULL, NULL, NULL, NULL, NULL, '0678957826', '0678957826', 'email@nowhere.com', '16 Allée de la Clairière,', '77820', NULL, 'Le Châtelet-en-Brie', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque lorem neque, cursus nec blandit vel, blandit eu libero. Phasellus orci felis, congue non tortor ut, sollicitudin fermentum metus', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'dummy', 1, NULL),
+(5, '2018-03-15 01:35:33', '2018-03-15 01:36:54', 1, 5, 'no', 'Quilain Marie', NULL, NULL, NULL, NULL, NULL, NULL, '0678957826', '0678957826', 'email@nowhere.com', '16 Allée de la Clairière,', '77820', NULL, 'Le Châtelet-en-Brie', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque lorem neque, cursus nec blandit vel, blandit eu libero. Phasellus orci felis, congue non tortor ut, sollicitudin fermentum metus', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'dummy', 1, NULL),
+(6, '2018-03-15 01:36:35', NULL, 1, 6, 'no', 'SCM des Docteurs Gest et Raad', NULL, NULL, NULL, NULL, NULL, NULL, '0678957826', '0678957826', 'email@nowhere.com', '13 Quai Maréchal Foch', '77000', NULL, 'Melun', 'Nam sit amet semper purus. Maecenas massa ante, ultrices vulputate venenatis sit amet, consequat a mi. Nam gravida ex et hendrerit lacinia.', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'dummy', 4, NULL),
+(7, '2018-03-15 01:37:36', NULL, 1, 7, 'no', 'Docteur Salim Meliani', NULL, NULL, NULL, NULL, NULL, NULL, '0678957826', '0678957826', 'email@nowhere.com', '1 Rue des Sapins', '77210', NULL, 'Avon', 'Nullam ullamcorper semper turpis, nec suscipit risus fermentum a. Pellentesque nec vulputate augue, ultricies malesuada purus. Nullam et nibh et sapien finibus blandit. In id libero nec orci elementum sodales eu nec massa. Duis et pellentesque eros, non tempus mi. Fusce convallis vel nibh vitae porttitor.', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'dummy', 24, NULL),
+(8, '2018-03-15 01:38:53', NULL, 1, 8, 'no', 'Docteur Allanche Laurent - Chirurgien ORL', NULL, NULL, NULL, NULL, NULL, NULL, '0678957826', '0678957826', 'email@nowhere.com', '54 Boulevard Aristide Briand', '77000', NULL, 'Melun', 'Nam sit amet semper purus. Maecenas massa ante, ultrices vulputate venenatis sit amet, consequat a mi. Nam gravida ex et hendrerit lacinia.', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'dummy', 3, NULL),
+(9, '2018-03-15 02:57:18', NULL, 1, 9, 'no', 'Docteur Guillaume Paris - Médecin du sport', NULL, NULL, NULL, NULL, NULL, NULL, '0678957826', '0678957826', 'email@nowhere.com', '2A Avenue de Ségur', '75007', NULL, 'Paris', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque lorem neque, cursus nec blandit vel, blandit eu libero. Phasellus orci felis, congue non tortor ut, sollicitudin fermentum metus', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'dummy', 27, NULL),
+(10, '2018-03-15 02:58:15', '2018-04-06 15:08:52', 1, 10, 'no', 'CENTRE DE CONSULTATIONS MÉDICALES 24H/24 À PARIS', NULL, '1\n2\n3\n4\n5\n6\n7', NULL, NULL, NULL, NULL, '0678957826', '0678957826', 'email@nowhere.com', '2 Rue d\'Alexandrie', '75002', NULL, 'Paris', 'Nullam ullamcorper semper turpis, nec suscipit risus fermentum a. Pellentesque nec vulputate augue, ultricies malesuada purus. Nullam et nibh et sapien finibus blandit. In id libero nec orci elementum sodales eu nec massa. Duis et pellentesque eros, non tempus mi. Fusce convallis vel nibh vitae porttitor.', '', '', '', '', '', NULL, '', NULL, NULL, 'dummy', NULL, NULL),
+(11, '2018-03-15 02:58:44', NULL, 1, 11, 'no', 'Dr GHERRAK Sandrine - Généraliste Paris 5', NULL, NULL, NULL, NULL, NULL, NULL, '0678957826', '0678957826', 'email@nowhere.com', '7 Rue Berthollet', '75005', NULL, 'Paris', 'Nam sit amet semper purus. Maecenas massa ante, ultrices vulputate venenatis sit amet, consequat a mi. Nam gravida ex et hendrerit lacinia.', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'dummy', 1, NULL),
+(12, '2018-03-15 02:59:46', '2018-04-06 21:19:26', 1, 12, 'no', 'Docteur Olivier Kadoch - Gynécologue', NULL, '3\n4\n5\n6\n7', NULL, NULL, NULL, NULL, '0678957826', '0678957826', 'email@nowhere.com', '107 Avenue Victor Hugo', '75016', NULL, 'Paris', 'Nam sit amet semper purus. Maecenas massa ante, ultrices vulputate venenatis sit amet, consequat a mi. Nam gravida ex et hendrerit lacinia.', '', '', '', '', '', NULL, '', NULL, NULL, 'dummy', 12, NULL),
+(13, '2018-03-15 03:01:24', '2018-04-06 23:53:57', 1, 13, 'no', 'Dr Ari Elhyani Dentiste Paris', NULL, '3\n4\n5\n6', NULL, NULL, NULL, NULL, '0678957826', '0678957826', 'email@nowhere.com', '11 Avenue de l\'Opéra', '75001', NULL, 'Paris', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque lorem neque, cursus nec blandit vel, blandit eu libero. Phasellus orci felis, congue non tortor ut, sollicitudin fermentum metus', '', '', '', '', '', NULL, '', NULL, NULL, 'dummy', 6, NULL),
+(14, '2018-03-15 03:02:27', '2018-04-06 05:21:44', 1, 14, 'yes', 'Dr Fabien Mauro', NULL, '1\n2\n3\n4\n5', NULL, NULL, NULL, NULL, '0678957826', '0678957826', 'email@nowhere.com', '18 Rue de Turbigo', '75002', NULL, 'Paris', 'Nam sit amet semper purus. Maecenas massa ante, ultrices vulputate venenatis sit amet, consequat a mi. Nam gravida ex et hendrerit lacinia.', '', '', '', '', '', NULL, '', NULL, NULL, '699df7530ec4c93', 6, NULL),
+(15, '2018-03-31 00:00:17', '2018-04-05 21:55:09', 12, 15, 'yes', 'LAMAH Simon Pière', '0000000', '1\n2\n3\n4\n5', NULL, NULL, NULL, NULL, '664256124', NULL, NULL, 'Route de Nézérékoré', 'Nézérékoré', NULL, 'Nézérékoré', 'Le  Cabinet est situé à Donka', '', '', '', '', '', 'no', '', NULL, NULL, '55b8dff41b6c29b', NULL, NULL),
+(16, '2018-04-06 02:42:09', '2018-04-06 02:47:31', 1, 16, 'yes', 'test', '0000', '1\n2\n3\n4\n5', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', '', '', '', '', '', 'no', '', NULL, NULL, 'dummy', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -935,19 +1011,7 @@ CREATE TABLE `default_doctor_organisations` (
   `ordering_count` int(11) DEFAULT NULL,
   `organisation` int(11) DEFAULT NULL,
   `subset` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
---
--- Déchargement des données de la table `default_doctor_organisations`
---
-
-INSERT INTO `default_doctor_organisations` (`id`, `created`, `updated`, `created_by`, `ordering_count`, `organisation`, `subset`) VALUES
-(1, '2018-03-14 14:47:35', '2018-03-15 00:14:47', 1, 1, 1, 'Privée'),
-(2, '2018-03-14 14:49:59', '2018-03-14 17:43:03', 1, 2, 2, 'Publique'),
-(4, '2018-03-14 15:04:27', '2018-03-14 17:37:51', 1, 3, 1, 'Clinique privée'),
-(5, '2018-03-14 15:04:47', '2018-03-14 17:44:08', 1, 4, 1, 'Soins à domicile'),
-(6, '2018-03-14 15:05:03', '2018-03-14 17:43:23', 1, 5, 2, 'Hopital '),
-(7, '2018-03-14 15:05:15', '2018-03-14 17:43:38', 1, 6, 2, 'Dispensaire');
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -1060,7 +1124,10 @@ INSERT INTO `default_file_folders` (`id`, `parent_id`, `slug`, `name`, `location
 (1, 0, 'icones', 'icones', 'local', '', 1520626147, 1520626147, 0),
 (2, 0, 'logos', 'logos', 'local', '', 1520636515, 1520636515, 0),
 (33, 0, 'doctors-module', 'Doctors module', 'local', '', 1521461442, 1521461442, 0),
-(30, 0, 'divers', 'Divers', 'local', '', 1521127321, 1521127321, 0);
+(30, 0, 'divers', 'Divers', 'local', '', 1521127321, 1521127321, 0),
+(34, 0, 'doctor-images', 'Doctor images', 'local', '', 1522938953, 1522938953, 0),
+(35, 0, 'doctor-images-1', 'Doctor images-1', 'local', '', 1522945439, 1522945439, 0),
+(36, 0, 'doctor-images-2', 'Doctor images-2', 'local', '', 1522977511, 1522977511, 0);
 
 -- --------------------------------------------------------
 
@@ -1181,14 +1248,14 @@ INSERT INTO `default_modules` (`id`, `name`, `slug`, `version`, `type`, `descrip
 INSERT INTO `default_modules` (`id`, `name`, `slug`, `version`, `type`, `description`, `skip_xss`, `is_frontend`, `is_backend`, `menu`, `enabled`, `installed`, `is_core`, `updated_on`) VALUES
 (20, 'a:23:{s:2:\"en\";s:7:\"Widgets\";s:2:\"br\";s:7:\"Widgets\";s:2:\"pt\";s:7:\"Widgets\";s:2:\"cs\";s:7:\"Widgety\";s:2:\"da\";s:7:\"Widgets\";s:2:\"de\";s:7:\"Widgets\";s:2:\"el\";s:7:\"Widgets\";s:2:\"es\";s:7:\"Widgets\";s:2:\"fa\";s:13:\"ویجت ها\";s:2:\"fi\";s:9:\"Vimpaimet\";s:2:\"fr\";s:7:\"Widgets\";s:2:\"id\";s:6:\"Widget\";s:2:\"it\";s:7:\"Widgets\";s:2:\"lt\";s:11:\"Papildiniai\";s:2:\"nl\";s:7:\"Widgets\";s:2:\"ru\";s:14:\"Виджеты\";s:2:\"sl\";s:9:\"Vtičniki\";s:2:\"tw\";s:9:\"小組件\";s:2:\"cn\";s:9:\"小组件\";s:2:\"hu\";s:9:\"Widget-ek\";s:2:\"th\";s:21:\"วิดเจ็ต\";s:2:\"se\";s:8:\"Widgetar\";s:2:\"ar\";s:14:\"الودجتس\";}', 'widgets', '1.2.0', NULL, 'a:23:{s:2:\"en\";s:69:\"Manage small sections of self-contained logic in blocks or \"Widgets\".\";s:2:\"ar\";s:132:\"إدارة أقسام صغيرة من البرمجيات في مساحات الموقع أو ما يُسمّى بالـ\"ودجتس\".\";s:2:\"br\";s:77:\"Gerenciar pequenas seções de conteúdos em bloco conhecidos como \"Widgets\".\";s:2:\"pt\";s:74:\"Gerir pequenas secções de conteúdos em bloco conhecidos como \"Widgets\".\";s:2:\"cs\";s:56:\"Spravujte malé funkční části webu neboli \"Widgety\".\";s:2:\"da\";s:74:\"Håndter små sektioner af selv-opretholdt logik i blokke eller \"Widgets\".\";s:2:\"de\";s:62:\"Verwaltet kleine, eigentständige Bereiche, genannt \"Widgets\".\";s:2:\"el\";s:149:\"Διαχείριση μικρών τμημάτων αυτόνομης προγραμματιστικής λογικής σε πεδία ή \"Widgets\".\";s:2:\"es\";s:75:\"Manejar pequeñas secciones de lógica autocontenida en bloques o \"Widgets\"\";s:2:\"fa\";s:76:\"مدیریت قسمت های کوچکی از سایت به طور مستقل\";s:2:\"fi\";s:81:\"Hallitse pieniä osioita, jotka sisältävät erillisiä lohkoja tai \"Vimpaimia\".\";s:2:\"fr\";s:41:\"Gérer des mini application ou \"Widgets\".\";s:2:\"id\";s:101:\"Mengatur bagian-bagian kecil dari blok-blok yang memuat sesuatu atau dikenal dengan istilah \"Widget\".\";s:2:\"it\";s:70:\"Gestisci piccole sezioni di logica a se stante in blocchi o \"Widgets\".\";s:2:\"lt\";s:43:\"Nedidelių, savarankiškų blokų valdymas.\";s:2:\"nl\";s:75:\"Beheer kleine onderdelen die zelfstandige logica bevatten, ofwel \"Widgets\".\";s:2:\"ru\";s:91:\"Управление небольшими, самостоятельными блоками.\";s:2:\"sl\";s:61:\"Urejanje manjših delov blokov strani ti. Vtičniki (Widgets)\";s:2:\"tw\";s:103:\"可將小段的程式碼透過小組件來管理。即所謂 \"Widgets\"，或稱為小工具、部件。\";s:2:\"cn\";s:103:\"可将小段的程式码透过小组件来管理。即所谓 \"Widgets\"，或称为小工具、部件。\";s:2:\"hu\";s:56:\"Önálló kis logikai tömbök vagy widget-ek kezelése.\";s:2:\"th\";s:152:\"จัดการส่วนเล็ก ๆ ในรูปแบบของตัวเองในบล็อกหรือวิดเจ็ต\";s:2:\"se\";s:83:\"Hantera små sektioner med egen logik och innehåll på olika delar av webbplatsen.\";}', 1, 0, 1, 'content', 1, 1, 1, 1522326845),
 (21, 'a:10:{s:2:\"en\";s:7:\"WYSIWYG\";s:2:\"br\";s:7:\"WYSIWYG\";s:2:\"fa\";s:7:\"WYSIWYG\";s:2:\"fr\";s:7:\"WYSIWYG\";s:2:\"pt\";s:7:\"WYSIWYG\";s:2:\"se\";s:15:\"HTML-redigerare\";s:2:\"tw\";s:7:\"WYSIWYG\";s:2:\"cn\";s:7:\"WYSIWYG\";s:2:\"ar\";s:27:\"المحرر الرسومي\";s:2:\"it\";s:7:\"WYSIWYG\";}', 'wysiwyg', '1.0.0', NULL, 'a:11:{s:2:\"en\";s:60:\"Provides the WYSIWYG editor for PyroCMS powered by CKEditor.\";s:2:\"br\";s:64:\"Provém o editor WYSIWYG para o PyroCMS fornecido pelo CKEditor.\";s:2:\"fa\";s:73:\"ویرایشگر WYSIWYG که توسطCKEditor ارائه شده است. \";s:2:\"fr\";s:63:\"Fournit un éditeur WYSIWYG pour PyroCMS propulsé par CKEditor\";s:2:\"pt\";s:61:\"Fornece o editor WYSIWYG para o PyroCMS, powered by CKEditor.\";s:2:\"el\";s:113:\"Παρέχει τον επεξεργαστή WYSIWYG για το PyroCMS, χρησιμοποιεί το CKEDitor.\";s:2:\"se\";s:37:\"Redigeringsmodul för HTML, CKEditor.\";s:2:\"tw\";s:83:\"提供 PyroCMS 所見即所得（WYSIWYG）編輯器，由 CKEditor 技術提供。\";s:2:\"cn\";s:83:\"提供 PyroCMS 所见即所得（WYSIWYG）编辑器，由 CKEditor 技术提供。\";s:2:\"ar\";s:76:\"توفر المُحرّر الرسومي لـPyroCMS من خلال CKEditor.\";s:2:\"it\";s:57:\"Fornisce l\'editor WYSIWYG per PtroCMS creato con CKEditor\";}', 0, 0, 0, '0', 1, 1, 1, 1522326845),
-(69, 'a:2:{s:2:\"en\";s:7:\"Doctors\";s:2:\"fr\";s:8:\"Docteurs\";}', 'doctor', '0.1.10', NULL, 'a:2:{s:2:\"en\";s:12:\"Doctors list\";s:2:\"fr\";s:18:\"Liste des Docteurs\";}', 0, 1, 1, 'content', 1, 1, 0, 1522931193),
+(84, 'a:2:{s:2:\"en\";s:7:\"Doctors\";s:2:\"fr\";s:8:\"Docteurs\";}', 'doctor', '0.1.24', NULL, 'a:2:{s:2:\"en\";s:12:\"Doctors list\";s:2:\"fr\";s:18:\"Liste des Docteurs\";}', 0, 1, 1, 'content', 1, 1, 0, 1523039749),
 (24, 'a:2:{s:2:\"en\";s:20:\"Calendars(Commandes)\";s:2:\"fr\";s:11:\"Rendez vous\";}', 'calendars', '0.1.0', NULL, 'a:2:{s:2:\"en\";s:16:\"Calendars module\";s:2:\"fr\";s:21:\"Module de rendez vous\";}', 0, 1, 1, 'content', 1, 1, 0, 1520995285),
-(25, 'a:2:{s:2:\"en\";s:17:\"Orders(Commandes)\";s:2:\"fr\";s:9:\"Commandes\";}', 'orders', '0.73.08', NULL, 'a:2:{s:2:\"en\";s:13:\"Orders module\";s:2:\"fr\";s:19:\"Module de commandes\";}', 0, 1, 1, 'content', 0, 0, 0, 1522931193),
-(79, 'a:1:{s:2:\"en\";s:12:\"Token module\";}', 'token', '0.5.01', NULL, 'a:1:{s:2:\"en\";s:16:\"Token management\";}', 0, 1, 1, 'content', 1, 1, 0, 1522931193),
-(81, 'a:2:{s:2:\"en\";s:23:\"Appointments(Commandes)\";s:2:\"fr\";s:11:\"Rendez vous\";}', 'appointments', '0.1.21', NULL, 'a:2:{s:2:\"en\";s:19:\"Appointments module\";s:2:\"fr\";s:21:\"Module de rendez vous\";}', 0, 1, 1, 'content', 1, 1, 0, 1522931202),
+(25, 'a:2:{s:2:\"en\";s:17:\"Orders(Commandes)\";s:2:\"fr\";s:9:\"Commandes\";}', 'orders', '0.73.08', NULL, 'a:2:{s:2:\"en\";s:13:\"Orders module\";s:2:\"fr\";s:19:\"Module de commandes\";}', 0, 1, 1, 'content', 0, 0, 0, 1523039749),
+(79, 'a:1:{s:2:\"en\";s:12:\"Token module\";}', 'token', '0.5.01', NULL, 'a:1:{s:2:\"en\";s:16:\"Token management\";}', 0, 1, 1, 'content', 1, 1, 0, 1523039749),
+(81, 'a:2:{s:2:\"en\";s:23:\"Appointments(Commandes)\";s:2:\"fr\";s:11:\"Rendez vous\";}', 'appointments', '0.1.21', NULL, 'a:2:{s:2:\"en\";s:19:\"Appointments module\";s:2:\"fr\";s:21:\"Module de rendez vous\";}', 0, 1, 1, 'content', 1, 1, 0, 1523039749),
 (53, 'a:1:{s:2:\"fr\";s:9:\"Semainier\";}', 'carte', '0.98', NULL, 'a:1:{s:2:\"fr\";s:28:\"Module de calendrier semaine\";}', 0, 1, 1, 'content', 0, 0, 0, 1521079824),
 (70, 'a:1:{s:2:\"fr\";s:9:\"Semainier\";}', 'calendar', '0.1.01', NULL, 'a:1:{s:2:\"fr\";s:18:\"Calendrier semaine\";}', 0, 1, 1, 'content', 1, 1, 0, 1522326845),
-(35, 'a:2:{s:2:\"en\";s:8:\"Products\";s:2:\"fr\";s:8:\"Produits\";}', 'products', '0.61.01', NULL, 'a:2:{s:2:\"en\";s:16:\"Products module.\";s:2:\"fr\";s:8:\"Produits\";}', 0, 1, 1, 'content', 0, 0, 0, 1522931193),
+(35, 'a:2:{s:2:\"en\";s:8:\"Products\";s:2:\"fr\";s:8:\"Produits\";}', 'products', '0.61.01', NULL, 'a:2:{s:2:\"en\";s:16:\"Products module.\";s:2:\"fr\";s:8:\"Produits\";}', 0, 1, 1, 'content', 0, 0, 0, 1523039749),
 (59, 'a:2:{s:2:\"en\";s:6:\"Relays\";s:2:\"fr\";s:13:\"Points Relais\";}', 'relay', '1.0.5', NULL, 'a:2:{s:2:\"en\";s:11:\"Relays list\";s:2:\"fr\";s:23:\"Liste des Points Relais\";}', 0, 1, 1, 'content', 0, 0, 0, 1522326845);
 
 -- --------------------------------------------------------
@@ -1389,16 +1456,18 @@ INSERT INTO `default_pages` (`id`, `slug`, `class`, `title`, `uri`, `parent_id`,
 (3, 'search', '', 'Search', 'search', 0, '1', '3', NULL, NULL, NULL, '', NULL, NULL, NULL, 0, 0, 'live', 1495107568, 0, '', 0, 1, 2),
 (4, 'results', '', 'Results', 'search/results', 3, '1', '4', NULL, NULL, NULL, '', NULL, NULL, NULL, 0, 0, 'live', 1495107568, 0, '', 0, 0, 0),
 (5, '404', '', 'Page missing', '404', 0, '1', '5', NULL, NULL, NULL, '', NULL, NULL, NULL, 0, 0, 'live', 1495107568, 0, '', 0, 1, 3),
+(37, 'proches-passes', '', 'Proches passés', 'rendez-vous/proches-passes', 28, '8', '37', '', '', '', '', 0, 0, '', 0, 0, 'live', 1522938607, 0, '0', 0, 1, 6),
 (13, 'bootstrap', '', 'bootstrap', 'bootstrap', 0, '1', '13', '', '', '', '', 0, 0, '', 0, 0, 'live', 1520637740, 1520640249, '0', 0, 1, 7),
 (14, 'accueil-old', '', 'Accueil', 'accueil-old', 0, '3', '14', '.ico-grp {\n    margin: auto;\n    padding: 0;\n    padding-left: 0.6%;\n    max-width: 348px;\n    width: 100%;\n    /* background: blue; */\n}\n.specialite {\ndisplay: inline-block;\n    margin: 0%;\n    width: 100px;\n    text-align: center;\n    /* max-width: 33%; */\n    min-width: 85px;\n    height: 100px;\n    padding: 3%;\n    /* background: red; */\n}\ndiv.specialite:hover {\n    font-weight : bold;\n}\n#doctor-search {\n    margin: auto;\n    text-align: center;\n    max-width: 400px;\n} \n.set {\n    background-color: #dff0d8;\n    font-weight: bold;\n    color: #3c763d;\n}\ndiv.specialite p {\n    text-overflow: ellipsis;\n    text-align: center; \n    width: 100%;\n    height: 38px;\n    overflow: hidden;\n    font-size: small;\n}', '/* public vars */\nvar doctors = []; \nvar mApi = { \n    mapsUrl: \"https://maps.googleapis.com/maps/api/js?key=\",\n    key:\"AIzaSyDkUU_ti16t_PBfJ8o2-p_AciVkD8Q_2uo\",\n    geocodeUrl:\"https://maps.googleapis.com/maps/api/geocode/json?sensor=false&address=\",\n//    centLat:48.62,\n//    centLon:2.44, \n    zoom:10\n}; \n/* doctor module functions */\n/** builds locations map of doctors\n *  gets data from HTML5 data attributes in doctor\'s list\n * @returns {undefined}\n */\nfunction doctorsMap() \n{\n//    console.log(\'doctorsMap\');\n//    console.log(doctors);\n    if(typeof doctors === \'undefined\') return;\n    \n    \n    var map;\n    \n    //var elevator;\n    var myOptions = {\n        zoom: mApi.zoom,\n        center: new google.maps.LatLng(mApi.centLat ,mApi.centLon )\n        /*,\n        mapTypeId: \'terrain\'*/\n    };\n    \n    map = new google.maps.Map($(\"#map_canvas\")[0], myOptions); \n \n    for (var x = 0; x < doctors.length; x++) \n    {  \n//        var xadr;\n//        var xname; \n        console.log(\'loop:\'+x);\n        xadr = doctors[x].address;\n        xname = doctors[x].name;\n        /* geocode */\n        $.getJSON(mApi.geocodeUrl+xadr, null, function (data) \n        { \n            /* exit if has no values */\n            if(typeof(data) === \'undefined\') return;\n//            console.log(\'data:\'+data);\n            console.log(\'name:\'+data.results[0].formatted_address);\n            var p = data.results[0].geometry.location;\n//            console.log(\'location:\'+p);\n            var latlng = new google.maps.LatLng(p.lat, p.lng);\n            console.log(\'loop \'+x+\' lat long:\'+latlng);\n            new google.maps.Marker({\n                position: latlng,\n                map: map,\n                title: xname\n            }); \n        });\n    }\n    /* center and zoom */\n    // map - instance of google Map v3\n    // markers - array of Markers\n    /*\n    var bounds = google.maps.reduce(function(bounds, marker) {\n        return bounds.extend(marker.getPosition());\n    }, new google.maps.LatLngBounds());\n\n    map.setCenter(bounds.getCenter());\n    map.fitBounds(bounds);\n*/\n}\n/**\n *  gets Google API JS and runs doctorMap on complete\n * @returns {undefined}\n */\nfunction loadMap() \n{\n    if($(\"#map_canvas\").length == 0) $(\'#doctors-list\').prepend(\'<div id=\"map_canvas\"></div>\');\n    /* correct height for small screens */\n//    if($( window ).height() < 400)\n//    {\n//        $(\'#map_canvas\').css(\'heigth\', 240);\n//    } \n//    console.log(\'loadMap: \'+mApi.mapsUrl + mApi.key);\n    //geocode first address for map center\n            /* geocode */\n            xadr = $(\'.doctor\').attr(\'data-id\');\n        $.getJSON(mApi.geocodeUrl+xadr, null, function (data) \n        { \n            /* exit if has no values */\n            if(typeof(data) === \'undefined\') return;\n            console.log(\'data:\'+data);\n            console.log(\'name:\'+data.results[0].formatted_address);\n            var p = data.results[0].geometry.location;\n            console.log(\'location:\'+p);\n            var latlng = new google.maps.LatLng(p.lat, p.lng);\n            console.log(\'loop \'+x+\' lat long:\'+latlng); \n        });\n    \n    //\n    $.getScript(mApi.mapsUrl + mApi.key, doctorsMap);\n    $(\'#doctors-map-btn\').hide();\n    $(\'#doctors-map-btn\').after(\'<div id=\"map_canvas\"></div>\');\n    $(\'#map_canvas\').html(pg_load);\n}\n/** based on function from\n * https://stackoverflow.com/questions/6797569/get-city-name-using-geolocation\n * answered Apr 29 \'16 at 4:12 Mikhail\n * ********************************************************************************/ \nvar returned_address =\'\'; \nfunction geoGetTown() {\n    navigator.geolocation.getCurrentPosition(geoSuccess, geoError);\n} \nfunction geoSuccess(position) {\n    //console.log(position.coords.latitude)\n    //console.log(position.coords.longitude)\n\n    var geocoder = \'https://maps.googleapis.com/maps/api/geocode/json?latlng=\' + position.coords.latitude + \'%2C\' + position.coords.longitude + \'&language=en&key=\' + mApi.key;\n\n    $.getJSON(geocoder).done(function(location) \n    {\n//        console.log(location); \n        returned_address=location.results[0].address_components[2].long_name;\n        $(\'#doctor-search input[name=s]\').val(returned_address); \n        $(\'.searchbox-area\').addClass(\'has-success\'); \n        $(\'.searchbox-area input\').addClass(\'set\'); \n    });\n} \nfunction geoError(err) {\n    console.log(err);\n    alert(\"positioning error\");\n} \n/********************************************************************************/  \n {{if false }}\nfunction myPosition(position) {\n    var infopos = \"Position déterminée :\\n\";\n    infopos += \"Latitude : \"+position.coords.latitude +\"\\n\";\n    infopos += \"Longitude: \"+position.coords.longitude+\"\\n\";\n    infopos += \"Altitude : \"+position.coords.altitude +\"\\n\";\n    return infopos;\n}\n{{endif}}\n{{# load doctor module JS #}}\n{{# doctor:js #}}\n\n/** empties search box\n * \n * @returns {undefined}\n */\n function cleanDocSearch()\n {\n     console.log(\'clean\');\n     $(\'.searchbox-query\').removeClass(\'has-success\'); \n     $(\'#doctor-search input[name=c]\').val(\'\').removeClass(\'set\');\n    /*UX*/\n    \n    $(\'#categories\').show();\n }\n function cleanAreaSearch()\n {\n     console.log(\'clean\');\n     $(\'.searchbox-area\').removeClass(\'has-success\'); \n     $(\'#doctor-search input[name=s]\').val(\'\').removeClass(\'set\');\n    /*UX*/ \n//    $(\'.titre-auto\').hide() ;\n }\n \n \n$( document ).ready(function() \n{    \n        /*geo btn */\n        /* remove geo btn if no localisation */\n//        if(navigator.geolocation !== true) \n//        {\n//            $(\'.searchbox-locate .input-group-addon a\').addClass(\'disabled\');\n//        } else {\n            $(\'.searchbox-locate a\').removeClass(\'disabled\'); \n//        }  \n        /* UIX select all */\n        $(\'.searchbox-query input, .searchbox-area input\').on(\'focus\', function(){ this.select(); });\n        /* jquery autocomplete */\n        $( function() {\n          var medicSpecialities = [\n                  \"Dentiste\",\n                  \"Généraliste\",\n                  \"Chirurgien dentiste\",\n                  \"Médecin généraliste\",\n                  \"Pédiatre\",\n                  \"Gynécologue obstétrique ou médical\",\n                  \"Ophtalmologue\",\n                  \"Dermatologue\",\n                  \"Ostéopathe\",\n                  \"Kinésithérapeute\",\n                  \"Pédicure – Podologue\",\n                  \"Sage – femme\",\n                  \"ORL\",\n                  \"Allergologue\",\n                  \"Urologue\",\n                  \"Rhumatologue\",\n                  \"Endocrinologue\",\n                  \"Stomatologue\",\n                  \"Orthopédiste\",\n                  \"Diététicien\",\n                  \"Psychologue\",\n                  \"Neurologue\",\n                  \"Psychiatre\",\n                  \"Radiologue\",\n                  \"Cardiologue\",\n                  \"Gastro-entérologue et hépatologue\"\n          ];\n          $( \".searchbox-query input\" ).autocomplete({\n            source: medicSpecialities\n          });\n        } ); \n    //add functionality to specialities\n    $(\'.ico-grp .specialite\').each(function() {\n        $( this ).on(\'click\', function _selectType(event) \n        {\n            if(typeof(event)!==\'undefined\') event.preventDefault();\n            var cat = $(this).attr(\"data-cat\"); \n            var type = $(this).attr(\"data-type\"); \n            $(\'.searchbox-query\').addClass(\'has-success\');\n            $(\'#doctor-search input[name=c]\').val(cat).addClass(\'set\');\n            /*UX*/\n            $(\'#categories\').hide();\n            $(\'.titre-auto\').show().text(\'Choisir votre \'+cat.toLowerCase());\n            \n//            $(\'.titre-\'+type).slideDown();\n            console.log(type);\n            \n            \n//            /* https://www.taniarascia.com/smooth-scroll-to-id-with-jquery/ */\n//            $(\'html, body\').animate({\n//                    scrollTop: $(\'div.searchbox-query\').offset().top\n//            }, 500, \'linear\');\n        });\n    });\n\n});', '', '', 0, 0, '', 0, 0, 'live', 1520641201, 1522347106, '2', 1, 1, 0),
 (27, 'tests', '', 'Tests', 'tests', 0, '1', '27', '', '', '', '', 0, 0, '', 0, 0, 'live', 1522923491, 1522924134, '0', 0, 1, 6),
 (15, 'test-plugin-list-doctors', '', 'test plugin list doctors', 'tests/test-plugin-list-doctors', 27, '1', '15', '', '', '', '', 0, 0, '', 0, 0, 'live', 1521475440, 1521478872, '0', 0, 1, 1),
 (16, 'test-plugin-show-doctor', '', 'test plugin show doctor', 'tests/test-plugin-show-doctor', 27, '1', '16', '', '', '', '', 0, 0, '', 0, 0, 'live', 1521478197, 1521478847, '0', 0, 0, 0),
-(34, 'rdv-passes-de-mes-proches', '', 'RDV passés de mes proches', 'rendez-vous/rdv-passes-de-mes-proches', 28, '6', '34', '', '', '', '', 0, 0, '', 0, 0, 'live', 1522923826, 0, '0', 0, 1, 5),
+(34, 'rdv-passes-de-mes-proches', '', 'RDV passés de mes proches', 'rendez-vous/rdv-passes-de-mes-proches', 28, '6', '34', '', '', '', '', 0, 0, '', 0, 0, 'live', 1522923826, 0, '0', 0, 1, 7),
 (35, 'test-appointments', '', 'test appointments', 'tests/test-appointments', 27, '1', '35', '', '', '', '', 0, 0, '', 0, 0, 'live', 1522924171, 1522924197, '0', 0, 1, 2),
-(33, 'mes-rdv-passes', '', 'Mes RDV passés', 'rendez-vous/mes-rdv-passes', 28, '6', '33', '', '', '', '', 0, 0, '', 0, 0, 'live', 1522923814, 0, '0', 0, 1, 4),
-(32, 'rdv-passes', '', 'RDV passés', 'rendez-vous/rdv-passes', 28, '6', '32', '', '', '', '', 0, 0, '', 0, 0, 'live', 1522923693, 0, '0', 0, 1, 3),
-(31, 'rdv-a-venir-de-mes-proches', '', 'RDV à venir de mes proches', 'rendez-vous/rdv-a-venir-de-mes-proches', 28, '5', '31', '', '', '', '', 0, 0, '', 0, 0, 'live', 1522923681, 0, '0', 0, 1, 2),
+(36, 'proches-a-venir', '', 'Proches à venir', 'rendez-vous/proches-a-venir', 28, '7', '36', '', '', '', '', 0, 0, '', 0, 0, 'live', 1522938584, 0, '0', 0, 1, 2),
+(33, 'mes-rdv-passes', '', 'Mes RDV passés', 'rendez-vous/mes-rdv-passes', 28, '6', '33', '', '', '', '', 0, 0, '', 0, 0, 'live', 1522923814, 0, '0', 0, 1, 5),
+(32, 'rdv-passes', '', 'RDV passés', 'rendez-vous/rdv-passes', 28, '6', '32', '', '', '', '', 0, 0, '', 0, 0, 'live', 1522923693, 0, '0', 0, 1, 4),
+(31, 'rdv-a-venir-de-mes-proches', '', 'RDV à venir de mes proches', 'rendez-vous/rdv-a-venir-de-mes-proches', 28, '5', '31', '', '', '', '', 0, 0, '', 0, 0, 'live', 1522923681, 0, '0', 0, 1, 3),
 (30, 'mes-rdv-a-venir', '', 'Mes RDV à venir', 'rendez-vous/mes-rdv-a-venir', 28, '5', '30', '', '', '', '', 0, 0, '', 0, 0, 'live', 1522923669, 1522924538, '0', 0, 1, 1),
 (29, 'rdv-a-venir', '', 'RDV à venir', 'rendez-vous/rdv-a-venir', 28, '5', '29', '', '', '', '', 0, 0, '', 0, 0, 'live', 1522923654, 0, '0', 0, 1, 0),
 (28, 'rendez-vous', '', 'Rendez Vous', 'rendez-vous', 0, '4', '28', '', '', '', '', 0, 0, '', 0, 0, 'live', 1522923635, 0, '0', 0, 1, 8),
@@ -1438,9 +1507,15 @@ CREATE TABLE `default_page_types` (
 INSERT INTO `default_page_types` (`id`, `slug`, `title`, `description`, `stream_id`, `meta_title`, `meta_keywords`, `meta_description`, `body`, `css`, `js`, `theme_layout`, `updated_on`, `save_as_files`, `content_label`, `title_label`) VALUES
 (1, 'default', 'Default', 'A simple page type with a WYSIWYG editor that will get you started adding content.', 2, '', NULL, '', '<h2>{{ page:title }}</h2> \r\n\r\n{{ pre_html }}\r\n{{ body }}\r\n{{ post_html }}', '', '', 'default.html', 1520641230, 'n', '', ''),
 (3, 'accueil_msante', 'Accueil MSanté', 'Page d’accueil MSanté', 2, '', NULL, '', '{{ dev:empty_cache }}\n<!-- accueil msante page type -->\n{{if !custom:subdomain_value and page:is_home }} \n<div id=\"categories\"> \n    <div class=\"text-center h3 titre-rdv\"> \n        Prenez rendez vous avec votre professionnel de sant&eacute; \n    </div> \n</div>\n\n\n<div class=\"h3 text-center titre-auto\">   \n</div>\n{{# doctor:search_box #}} \n<div id=\"doctor-search\" class=\"\">\n                <!-- doctor search -->\n            <!--\n    <form method=\"get\" action=\"{{url:site}}doctor\">\n        <div class=\"form-group searchbox-query\">\n            <div class=\"input-group\">\n                <span class=\"input-group-addon\">\n                    <a class=\"\" onclick=\"cleanDocSearch()\">\n                        <i class=\"glyphicon glyphicon-remove-circle\"></i>\n                    </a>\n                </span>\n                <input type=\"text\" name=\"c\" value=\"\" placeholder=\"Domaine ou spécialité médicale\" class=\"form-control ui-autocomplete-input\" autocomplete=\"off\">\n            </div> \n        </div> \n        <div class=\"form-group searchbox-locate\"> \n                <div class=\"input-group center-block\">\n                    <a class=\"btn btn-success disabled\" onclick=\"geoGetTown()\">\n                        <i class=\"glyphicon glyphicon-map-marker\"></i> Autour de vous\n                    </a>\n                </div> \n            </div>\n        <div class=\"form-group searchbox-area\"> \n            <div class=\"input-group\">\n                <span class=\"input-group-addon\">\n                    <a class=\"\" onclick=\"cleanAreaSearch()\">\n                        <i class=\"glyphicon glyphicon-remove-circle\"></i>\n                    </a>\n                </span>\n                <input type=\"text\" name=\"s\" value=\"\" placeholder=\"Ville, quartier ou CP\" class=\"form-control\">                  \n            </div>\n        </div> \n        <div class=\"form-group searchbox-btn\"> \n                <button name=\"submitBtn\" type=\"submit\" class=\"btn btn-primary\">\n                        <i class=\"glyphicon glyphicon-search\"></i> Rechercher\n                </button> \n        </div>\n    </form>\n            -->\n</div>\n\n{{endif}}\n\n{{# dessous gabarit des pages normales, sauf titre H2  #}}\n\n{{ pre_html }}\n{{ body }}\n{{ post_html }}', '.ico-grp { \n    max-width: 314px;\n}\n.specialite {\ndisplay: inline-block;\n    margin: 0%;\n    width: 100px;\n    text-align: center;\n    /* max-width: 33%; */\n    min-width: 85px;\n    height: 100px;\n    padding: 3%;\n    /* background: red; */\n}\ndiv.specialite:hover {\n    font-weight : bold;\n}\n#doctor-search {\n    margin: auto;\n    text-align: center;\n    max-width: 400px;\n} \n.set {\n    background-color: #dff0d8;\n    font-weight: bold;\n    color: #3c763d;\n}\ndiv.specialite p {\n    text-overflow: ellipsis;\n    text-align: center; \n    width: 100%;\n    height: 38px;\n    overflow: hidden;\n    font-size: small;\n}', '/* public vars */\nvar doctors = []; \nvar mApi = { \n    mapsUrl: \"https://maps.googleapis.com/maps/api/js?key=\",\n    key:\"AIzaSyDkUU_ti16t_PBfJ8o2-p_AciVkD8Q_2uo\",\n    geocodeUrl:\"https://maps.googleapis.com/maps/api/geocode/json?sensor=false&address=\",\n//    centLat:48.62,\n//    centLon:2.44, \n    zoom:10\n}; \n/* doctor module functions */\n/** builds locations map of doctors\n *  gets data from HTML5 data attributes in doctor\'s list\n * @returns {undefined}\n */\nfunction doctorsMap() \n{\n//    console.log(\'doctorsMap\');\n//    console.log(doctors);\n    if(typeof doctors === \'undefined\') return;\n    \n    \n    var map;\n    \n    //var elevator;\n    var myOptions = {\n        zoom: mApi.zoom,\n        center: new google.maps.LatLng(mApi.centLat ,mApi.centLon )\n        /*,\n        mapTypeId: \'terrain\'*/\n    };\n    \n    map = new google.maps.Map($(\"#map_canvas\")[0], myOptions); \n \n    for (var x = 0; x < doctors.length; x++) \n    {  \n//        var xadr;\n//        var xname; \n        console.log(\'loop:\'+x);\n        xadr = doctors[x].address;\n        xname = doctors[x].name;\n        /* geocode */\n        $.getJSON(mApi.geocodeUrl+xadr, null, function (data) \n        { \n            /* exit if has no values */\n            if(typeof(data) === \'undefined\') return;\n//            console.log(\'data:\'+data);\n            console.log(\'name:\'+data.results[0].formatted_address);\n            var p = data.results[0].geometry.location;\n//            console.log(\'location:\'+p);\n            var latlng = new google.maps.LatLng(p.lat, p.lng);\n            console.log(\'loop \'+x+\' lat long:\'+latlng);\n            new google.maps.Marker({\n                position: latlng,\n                map: map,\n                title: xname\n            }); \n        });\n    }\n    /* center and zoom */\n    // map - instance of google Map v3\n    // markers - array of Markers\n    /*\n    var bounds = google.maps.reduce(function(bounds, marker) {\n        return bounds.extend(marker.getPosition());\n    }, new google.maps.LatLngBounds());\n\n    map.setCenter(bounds.getCenter());\n    map.fitBounds(bounds);\n*/\n}\n/**\n *  gets Google API JS and runs doctorMap on complete\n * @returns {undefined}\n */\nfunction loadMap() \n{\n    if($(\"#map_canvas\").length == 0) $(\'#doctors-list\').prepend(\'<div id=\"map_canvas\"></div>\');\n    /* correct height for small screens */\n//    if($( window ).height() < 400)\n//    {\n//        $(\'#map_canvas\').css(\'heigth\', 240);\n//    } \n//    console.log(\'loadMap: \'+mApi.mapsUrl + mApi.key);\n    //geocode first address for map center\n            /* geocode */\n            xadr = $(\'.doctor\').attr(\'data-id\');\n        $.getJSON(mApi.geocodeUrl+xadr, null, function (data) \n        { \n            /* exit if has no values */\n            if(typeof(data) === \'undefined\') return;\n            console.log(\'data:\'+data);\n            console.log(\'name:\'+data.results[0].formatted_address);\n            var p = data.results[0].geometry.location;\n            console.log(\'location:\'+p);\n            var latlng = new google.maps.LatLng(p.lat, p.lng);\n            console.log(\'loop \'+x+\' lat long:\'+latlng); \n        });\n    \n    //\n    $.getScript(mApi.mapsUrl + mApi.key, doctorsMap);\n    $(\'#doctors-map-btn\').hide();\n    $(\'#doctors-map-btn\').after(\'<div id=\"map_canvas\"></div>\');\n    $(\'#map_canvas\').html(pg_load);\n}\n/** based on function from\n * https://stackoverflow.com/questions/6797569/get-city-name-using-geolocation\n * answered Apr 29 \'16 at 4:12 Mikhail\n * ********************************************************************************/ \nvar returned_address =\'\'; \nfunction geoGetTown() {\n    navigator.geolocation.getCurrentPosition(geoSuccess, geoError);\n} \nfunction geoSuccess(position) {\n    //console.log(position.coords.latitude)\n    //console.log(position.coords.longitude)\n\n    var geocoder = \'https://maps.googleapis.com/maps/api/geocode/json?latlng=\' + position.coords.latitude + \'%2C\' + position.coords.longitude + \'&language=en&key=\' + mApi.key;\n\n    $.getJSON(geocoder).done(function(location) \n    {\n//        console.log(location); \n        returned_address=location.results[0].address_components[2].long_name;\n        $(\'#doctor-search input[name=s]\').val(returned_address); \n        $(\'.searchbox-area\').addClass(\'has-success\'); \n        $(\'.searchbox-area input\').addClass(\'set\'); \n    });\n} \nfunction geoError(err) {\n    console.log(err);\n    alert(\"positioning error\");\n} \n/********************************************************************************/  \n {{if false }}\nfunction myPosition(position) {\n    var infopos = \"Position déterminée :\\n\";\n    infopos += \"Latitude : \"+position.coords.latitude +\"\\n\";\n    infopos += \"Longitude: \"+position.coords.longitude+\"\\n\";\n    infopos += \"Altitude : \"+position.coords.altitude +\"\\n\";\n    return infopos;\n}\n{{endif}}\n{{# load doctor module JS #}}\n{{# doctor:js #}}\n\n/** empties search box\n * \n * @returns {undefined}\n */\n function cleanDocSearch()\n {\n     console.log(\'clean\');\n     $(\'.searchbox-query\').removeClass(\'has-success\'); \n     $(\'#doctor-search input[name=c]\').val(\'\').removeClass(\'set\');\n    /*UX*/\n    \n    $(\'#categories\').show();\n }\n function cleanAreaSearch()\n {\n     console.log(\'clean\');\n     $(\'.searchbox-area\').removeClass(\'has-success\'); \n     $(\'#doctor-search input[name=s]\').val(\'\').removeClass(\'set\');\n    /*UX*/ \n//    $(\'.titre-auto\').hide() ;\n }\n \n \n$( document ).ready(function() \n{    \n        /*geo btn */\n        /* remove geo btn if no localisation */\n//        if(navigator.geolocation !== true) \n//        {\n//            $(\'.searchbox-locate .input-group-addon a\').addClass(\'disabled\');\n//        } else {\n            $(\'.searchbox-locate a\').removeClass(\'disabled\'); \n//        }  \n        /* UIX select all */\n        $(\'.searchbox-query input, .searchbox-area input\').on(\'focus\', function(){ this.select(); });\n        /* jquery autocomplete */\n        $( function() {\n          var medicSpecialities = [\n                  \"Dentiste\",\n                  \"Généraliste\",\n                  \"Chirurgien dentiste\",\n                  \"Médecin généraliste\",\n                  \"Pédiatre\",\n                  \"Gynécologue obstétrique ou médical\",\n                  \"Ophtalmologue\",\n                  \"Dermatologue\",\n                  \"Ostéopathe\",\n                  \"Kinésithérapeute\",\n                  \"Pédicure – Podologue\",\n                  \"Sage – femme\",\n                  \"ORL\",\n                  \"Allergologue\",\n                  \"Urologue\",\n                  \"Rhumatologue\",\n                  \"Endocrinologue\",\n                  \"Stomatologue\",\n                  \"Orthopédiste\",\n                  \"Diététicien\",\n                  \"Psychologue\",\n                  \"Neurologue\",\n                  \"Psychiatre\",\n                  \"Radiologue\",\n                  \"Cardiologue\",\n                  \"Gastro-entérologue et hépatologue\"\n          ];\n          $( \".searchbox-query input\" ).autocomplete({\n            source: medicSpecialities\n          });\n        } ); \n    //add functionality to specialities\n    $(\'.ico-grp .specialite\').each(function() {\n        $( this ).on(\'click\', function _selectType(event) \n        {\n            if(typeof(event)!==\'undefined\') event.preventDefault();\n            var cat = $(this).attr(\"data-cat\"); \n            var type = $(this).attr(\"data-type\"); \n            $(\'.searchbox-query\').addClass(\'has-success\');\n            $(\'#doctor-search input[name=c]\').val(cat).addClass(\'set\');\n            /*UX*/\n            $(\'#categories\').hide();\n            $(\'.titre-auto\').show().text(\'Choisir votre \'+cat.toLowerCase());\n            \n//            $(\'.titre-\'+type).slideDown();\n            console.log(type);\n            \n            \n//            /* https://www.taniarascia.com/smooth-scroll-to-id-with-jquery/ */\n//            $(\'html, body\').animate({\n//                    scrollTop: $(\'div.searchbox-query\').offset().top\n//            }, 500, \'linear\');\n        });\n    });\n\n});\n', 'default.html', 1520641079, 'y', '', ''),
-(5, 'patients_rdv_futurs', 'patients RDV futurs', 'Patients : Liste des RDV futurs', 2, '', NULL, '', '{{ dev:empty_cache }} \n{{if user:logged_in }}\n{{ appointments:my_appointments futur_past=\"futur\" other_person=\"[[ if page:slug == \'mes-rdv-a-venir\' ]]non[[ else if page:slug == \'rdv-a-venir-de-mes-proches\'  ]]oui[[ endif ]]\"  }} \n<div class=\"panel panel-default panel-success\">\n		<div class=\"panel-heading\"> \n			<h4>\n				Le\n				 {{date_day_str}}  {{date_month_str}}  \n				à  {{time_formatted}} \n			</h4>\n                    \n                         <!--\n			 [{{appointment_time}}   - \n			 doc {{doctor_id}} user {{user_id}}]\n                          -->\n		</div>\n		<div class=\"panel-body\">    \n                    <!-- img -->\n			 {{ if filename }}\n                                <img src=\"{{url:site}}files/large/{{filename}}\" height=\"80\" style=\"float:left;margin-right:20px;\" class=\"img-circle\" />\n                            {{ elseif doc_speciality  }}  \n                                        <img src=\"{{ url:site }}files/large/{{ doctor:speciality_img speciality=doc_speciality  }}\" \n                                             height=\"80\" style=\"float:left;margin-right:20px;\"\n                                             class=\"img-circle\" />\n                         \n                            {{ else }} \n                            {{# default image #}}\n                                <img src=\"{{ url:site }}files/large/8b37a2a2cbf9537714125a8f8476e63a.jpg\" height=\"80\" style=\"float:left;margin-right:20px;\" class=\"img-circle\" />\n                            {{ endif }}\n                    <!-- img end  -->\n							\n				{{doc_name}} {{if doc_speciality}}&bullet; {{doc_speciality}}{{endif}}\n				 <br /> \n				{{doc_address}} {{doc_area}} {{doc_town}} <br /> \n				 <br /> \n				{{gender}}  \n				 {{first_name}}  \n				 {{last_name}}    \n                         <!--\n			Le\n			 {{appointment_date}}  \n			à\n			 {{appointment_time}}\n			  -->\n			<center class=\"\"> \n				<a class=\"btn btn-danger \" href=\"{{url:site}}appointments/delete/{{id}}\">Annuler ce RDV</a>			 \n			</center> 		 \n		</div>\n</div> \n{{ /appointments:my_appointments }}\n{{else}}\n    {{ url:redirect to=\"users/login\" }}\n{{endif}}', '', '', 'default.html', 1522924499, 'y', '', ''),
-(6, 'patients_rdv_passes', 'patients RDV passés', 'Patients : Liste des RDV passés', 2, '', NULL, '', '{{ dev:empty_cache }} \n{{if user:logged_in }}\n{{ appointments:my_appointments futur_past=\"past\" other_person=\"[[ if page:slug == \'mes-rdv-passes\' ]]non[[ elseif page:slug == \'rdv-passes-de-mes-proches\'  ]]oui[[ endif ]]\"  }} \n\n<div class=\"panel panel-default \">\n		<div class=\"panel-heading\"> \n			<h4>\n				Le\n				 {{date_day_str}}  {{date_month_str}}  \n				à \n			</h4>\n			 [{{appointment_time}}   - \n			 doc {{doctor_id}} user {{user_id}}]\n		</div>\n		<div class=\"panel-body\">   \n		\n			 {{ if filename }}\n                                <img src=\"{{url:site}}files/large/{{filename}}\" height=\"80\" style=\"float:left;margin-right:20px;\"/>\n                            {{ elseif doc_speciality  }}  \n                                        <img src=\"{{ url:site }}files/large/{{ doctor:speciality_img speciality=doc_speciality  }}\" height=\"80\" style=\"float:left;margin-right:20px;\"/>\n                            {{ else }} \n                            {{# default image #}}\n                                <img src=\"{{ url:site }}files/large/8b37a2a2cbf9537714125a8f8476e63a.jpg\" height=\"80\" style=\"float:left;margin-right:20px;\"/>\n                            {{ endif }}\n							\n				{{doc_name}} {{if doc_speciality}}&bullet; {{doc_speciality}}{{endif}}\n				 <br /> \n				{{doc_address}} {{doc_area}} {{doc_town}} <br /> \n				 <br /> \n				{{gender}}  \n				 {{first_name}}  \n				 {{last_name}}   \n				 <br /> \n			Le\n			 {{appointment_date}}  \n			à\n			 {{appointment_time}}\n			 \n			<center class=\"\"> \n				<a class=\"btn btn-info \"  href=\"{{url:site}}calendar/doctor/{{id}}\">Reprendre ce RDV</a>			 \n			</center> 		 	 \n		</div>\n</div> \n{{ /appointments:my_appointments }}\n{{else}}\n    {{ url:redirect to=\"users/login\" }}\n{{endif}}', '', '', 'default.html', 1522923616, 'y', '', ''),
-(4, 'rendez_vous', 'Rendez vous', 'Affichage des RDV du patient', 2, '', NULL, '', '{{ dev:empty_cache }} \n \n{{if !{url:segments segment=\"2\"} }}\n	<!-- <h3>Rendez vous</h3>  -->\n	<ul class=\"list-group\">\n		<li class=\"list-group-item active\"><a href=\"{{url:site}}{{url:uri_string}}/rdv-a-venir\">RDV à venir</a></li>\n		<li class=\"list-group-item\"><a href=\"{{url:site}}{{url:uri_string}}/mes-rdv-a-venir\">Mes RDV à venir</a></li>\n		<li class=\"list-group-item\"><a href=\"{{url:site}}{{url:uri_string}}/rdv-a-venir-de-mes-proches\">RDV à venir de mes proches</a></li>\n	</ul>\n	<ul class=\"list-group\">\n		<li class=\"list-group-item active\"><a href=\"{{url:site}}{{url:uri_string}}/rdv-passes\">RDV passés</a></li>\n		<li class=\"list-group-item\"><a href=\"{{url:site}}{{url:uri_string}}/mes-rdv-passes\">Mes RDV passés</a></li>\n		<li class=\"list-group-item\"><a href=\"{{url:site}}{{url:uri_string}}/rdv-passes-de-mes-proches\">RDV passés de mes proches</a></li>\n	</ul>\n	\n{{elseif {url:segments segment=\"2\"} == \'futurs\'}} \n	<h3>\n		{{if {custom:get_value name=\"other\"} == \'yes\' }}\n			Rendez vous à venir pour mes proches\n		{{elseif {custom:get_value name=\"other\"} == \'no\'}}\n			Mes rendez-vous à venir\n		{{else}}\n			Rendez-vous à venir\n		{{endif}} \n	</h3>\n{{# appointments:my_appointments futur_past=\"past|futur\" other_person=\"yes|no\" #}} \n{{# panel-success or panel-default #}}\n\n{{ appointments:my_appointments futur_past=\"futur\" other_person={custom:get_value name=\"other\"} }} \n		<div class=\"panel panel-default panel-success\">\n				<div class=\"panel-heading\"> \n					<h4>\n						Le\n						 {{date_day_str}}  {{date_month_str}}  \n						à\n					</h4>\n					 [{{appointment_time}}   - \n					 doc {{doctor_id}} user {{user_id}}]\n				</div>\n				<div class=\"panel-body\">   \n				\n                                                {{ if filename }}\n                                                        <img src=\"{{url:site}}files/large/{{filename}}\" height=\"80\" style=\"float:left;margin-right:20px;\"/>\n                                                {{ elseif doc_speciality  }} \n                                                        {{ if doc_speciality == \"Médecins généralistes\" }} \n                                                                        <img src=\"{{ url:site }}files/large/e6ef08347e274fc655f20c172baad122.jpg\" height=\"80\" style=\"float:left;margin-right:20px;\"/> \n                                                        {{ elseif doc_speciality == \"Ophtalmologue\" }}\n                                                                        <img src=\"{{ url:site }}files/large/da81bbdd7f739e786f674638e29ba433.jpg\" height=\"80\" style=\"float:left;margin-right:20px;\"/> \n                                                        {{ elseif doc_speciality == \"ORL\" }}\n                                                                        <img src=\"{{ url:site }}files/large/29edb0b1c84e0ed4df17c82fe658d9d5.jpg\" height=\"80\" style=\"float:left;margin-right:20px;\"/> \n                                                        {{ elseif doc_speciality == \"Cardiologue\" }}\n                                                                        <img src=\"{{ url:site }}files/large/f40501b53bd7d3e0f62c5086ea1ecc2b.jpg\" height=\"80\" style=\"float:left;margin-right:20px;\"/> \n                                                        {{ elseif doc_speciality == \"Spécialistes femme\" }}\n                                                                        <img src=\"{{ url:site }}files/large/41f6ec9ed1a988081b7e137dee039c0d.jpg\" height=\"80\" style=\"float:left;margin-right:20px;\"/> \n                                                        {{ elseif doc_speciality == \"Dentiste\" }}\n                                                                        <img src=\"{{ url:site }}files/large/1717f2a8194f53253de0df0c7f5f998c.jpg\" height=\"80\" style=\"float:left;margin-right:20px;\"/> \n                                                        {{ elseif doc_speciality == \"Radiologue\" }}\n                                                                        <img src=\"{{ url:site }}files/large/c9c12e653b087854ac27bf50eac5a6cc.jpg\" height=\"80\" style=\"float:left;margin-right:20px;\"/> \n                                                        {{ elseif doc_speciality == \"Autres médecins\" }}\n                                                                        <img src=\"{{ url:site }}files/large/e6ef08347e274fc655f20c172baad122.jpg\" height=\"80\" style=\"float:left;margin-right:20px;\"/> \n                                                        {{ elseif doc_speciality == \"Etablissements de santé\" }}\n                                                                        <img src=\"{{ url:site }}files/large/056d27356ff595697ce2352501d71633.jpg\" height=\"80\" style=\"float:left;margin-right:20px;\"/>  \n                                                        {{ else }} \n                                                                        <img src=\"{{ url:site }}files/large/8b37a2a2cbf9537714125a8f8476e63a.jpg\" height=\"80\" style=\"float:left;margin-right:20px;\"/>\n                                                        {{ endif }} \n                                                {{ else }} \n                                                {{# default image #}}\n                                                        <img src=\"{{ url:site }}files/large/8b37a2a2cbf9537714125a8f8476e63a.jpg\" height=\"80\" style=\"float:left;margin-right:20px;\"/>\n                                                {{ endif }}\n									\n						{{doc_name}} {{if doc_speciality}}&bullet; {{doc_speciality}}{{endif}}\n						 <br /> \n						{{doc_address}} {{doc_area}} {{doc_town}} <br /> \n						 <br /> \n						{{gender}}  \n						 {{first_name}}  \n						 {{last_name}}   \n						 <br /> \n					Le\n					 {{appointment_date}}  \n					à\n					 {{appointment_time}}\n					 \n					<div class=\"center-block\"> \n						<a class=\"btn btn-danger \" href=\"{{url:site}}appointments/delete/{{id}}\">Annuler ce RDV</a>			 \n					</div> 		 		 \n				</div>\n		</div> \n{{ /appointments:my_appointments }} \n\n{{elseif {url:segments segment=\"2\"} == \'passes\'}}  \n{{# appointments:my_appointments futur_past=\"past|futur\" other_person=\"yes|no\" #}} \n{{# panel-success or panel-default #}}\n\n{{ appointments:my_appointments futur_past=\"futur\" other_person={custom:get_value name=\"other\"} }} \n\n		<div class=\"panel panel-default\">\n				<div class=\"panel-heading\"> \n					<h4>\n						Le\n						 {{date_day_str}}  {{date_month_str}}  \n						à\n					</h4>\n					 [{{appointment_time}}   - \n					 doc {{doctor_id}} user {{user_id}}]\n				</div>\n				<div class=\"panel-body\">   \n				\n									{{ if filename }}\n										<img src=\"{{url:site}}files/large/{{filename}}\" height=\"80\" style=\"float:left;margin-right:20px;\"/>\n									{{ elseif doc_speciality  }} \n										{{ if doc_speciality == \"Médecins généralistes\" }} \n												<img src=\"{{ url:site }}files/large/e6ef08347e274fc655f20c172baad122.jpg\" height=\"80\" style=\"float:left;margin-right:20px;\"/> \n										{{ elseif doc_speciality == \"Ophtalmologue\" }}\n												<img src=\"{{ url:site }}files/large/da81bbdd7f739e786f674638e29ba433.jpg\" height=\"80\" style=\"float:left;margin-right:20px;\"/> \n										{{ elseif doc_speciality == \"ORL\" }}\n												<img src=\"{{ url:site }}files/large/29edb0b1c84e0ed4df17c82fe658d9d5.jpg\" height=\"80\" style=\"float:left;margin-right:20px;\"/> \n										{{ elseif doc_speciality == \"Cardiologue\" }}\n												<img src=\"{{ url:site }}files/large/f40501b53bd7d3e0f62c5086ea1ecc2b.jpg\" height=\"80\" style=\"float:left;margin-right:20px;\"/> \n										{{ elseif doc_speciality == \"Spécialistes femme\" }}\n												<img src=\"{{ url:site }}files/large/41f6ec9ed1a988081b7e137dee039c0d.jpg\" height=\"80\" style=\"float:left;margin-right:20px;\"/> \n										{{ elseif doc_speciality == \"Dentiste\" }}\n												<img src=\"{{ url:site }}files/large/1717f2a8194f53253de0df0c7f5f998c.jpg\" height=\"80\" style=\"float:left;margin-right:20px;\"/> \n										{{ elseif doc_speciality == \"Radiologue\" }}\n												<img src=\"{{ url:site }}files/large/c9c12e653b087854ac27bf50eac5a6cc.jpg\" height=\"80\" style=\"float:left;margin-right:20px;\"/> \n										{{ elseif doc_speciality == \"Autres médecins\" }}\n												<img src=\"{{ url:site }}files/large/e6ef08347e274fc655f20c172baad122.jpg\" height=\"80\" style=\"float:left;margin-right:20px;\"/> \n										{{ elseif doc_speciality == \"Etablissements de santé\" }}\n												<img src=\"{{ url:site }}files/large/056d27356ff595697ce2352501d71633.jpg\" height=\"80\" style=\"float:left;margin-right:20px;\"/>  \n										{{ else }} \n												<img src=\"{{ url:site }}files/large/8b37a2a2cbf9537714125a8f8476e63a.jpg\" height=\"80\" style=\"float:left;margin-right:20px;\"/>\n										{{ endif }} \n									{{ else }} \n									{{# default image #}}\n										<img src=\"{{ url:site }}files/large/8b37a2a2cbf9537714125a8f8476e63a.jpg\" height=\"80\" style=\"float:left;margin-right:20px;\"/>\n									{{ endif }}\n									\n						{{doc_name}} {{if doc_speciality}}&bullet; {{doc_speciality}}{{endif}}\n						 <br /> \n						{{doc_address}} {{doc_area}} {{doc_town}} <br /> \n						 <br /> \n						{{gender}}  \n						 {{first_name}}  \n						 {{last_name}}   \n						 <br /> \n					Le\n					 {{appointment_date}}  \n					à\n					 {{appointment_time}}\n							 \n					<div class=\"center-block\"> \n						<a class=\"btn btn-info \"  href=\"{{url:site}}doctor/view/{{doctor_id}}\">Reprendre ce RDV</a>			 \n					</div> 		 	 	 		 \n				</div>\n		</div> \n \n{{ /appointments:my_appointments }} \n	\n	\n{{endif}}\n', 'div.content li.active a {\n    color: white;\n}', '', 'default.html', 1521766621, 'y', '', '');
+(5, 'patients_rdv_futurs', 'patients RDV futurs', 'Patients : Liste des RDV futurs', 2, '', NULL, '', '{{ dev:empty_cache }} \n{{if user:logged_in }} \n    {{if !{appointments:my_appointments_count futur_past=\"futur\" for_user=\"[[ if page:slug == \'mes-rdv-a-venir\' ]]yes[[ elseif page:slug == \'rdv-a-venir-de-mes-proches\'  ]]no[[ endif ]]\" for_name=[[custom:get_value name=\"s\"]]} }}\n        <p class=\"alert alert-warning\"> \n            Pas de RDV à venir\n        </p> \n    {{else}}\n        <p class=\"alert alert-info\"> <i class=\"close\">×</i>\n            {{ appointments:my_appointments_count futur_past=\"futur\" for_user=\"[[ if page:slug == \'mes-rdv-a-venir\' ]]yes[[ elseif page:slug == \'rdv-a-venir-de-mes-proches\'  ]]no[[ endif ]]\"  for_name=[[custom:get_value name=\"s\"]] }} \n            enregistrements\n        </p> \n        \n        {{ appointments:my_appointments futur_past=\"futur\" for_user=\"[[ if page:slug == \'mes-rdv-a-venir\' ]]yes[[ elseif page:slug == \'rdv-a-venir-de-mes-proches\'  ]]no[[ endif ]]\"  for_name=[[custom:get_value name=\"s\"]] }} \n        <div class=\"panel panel-default panel-success\">\n                        <div class=\"panel-heading\"> \n                                <h4>\n                                        Le\n                                         {{date_day_str}}  {{date_month_str}}  \n                                        à  {{time_formatted}} \n                                </h4>\n\n                                 <!--\n                                 [{{appointment_time}}   - \n                                 doc {{doctor_id}} user {{user_id}}]\n                                  -->\n                        </div>\n                        <div class=\"panel-body\">    \n                            <a href=\"{{url:site}}doctor/info/{{doc_id}}\">\n                                    <!-- img -->\n                                         {{if filename}}\n                                                <img src=\"{{url:site}}files/large/{{filename}}\" height=\"80\" style=\"float:left;margin-right:20px;\" class=\"img-circle\" />\n                                            {{elseif doc_speciality}}  \n                                                        <img src=\"{{url:site}}files/large/{{doctor:speciality_img speciality=doc_speciality}}\" \n                                                             height=\"80\" style=\"float:left;margin-right:20px;\"\n                                                             class=\"img-circle\" /> \n                                            {{else}} \n                                            {{# default image #}}\n                                                <img src=\"{{ url:site }}files/large/8b37a2a2cbf9537714125a8f8476e63a.jpg\" height=\"80\" style=\"float:left;margin-right:20px;\" class=\"img-circle\" />\n                                        {{endif}}\n                                    <!-- img end  --> \n                            </a>\n                            <p>\n                                {{doc_name}} {{if doc_speciality}}&bullet; {{doc_speciality}}{{endif}}\n                                 <br /> \n                                {{doc_address}} {{doc_area}} {{doc_town}} \n                            </p>		\n\n                            <p class=\"for_user_ico\">\n                            {{if for_user == \"no\" }}\n                                RDV pour: {{first_name}} {{last_name}}\n                            {{else}}\n                                <i class=\"glyphicon glyphicon-user\"></i>\n                            {{endif}}\n                            </p>\n                            <div class=\"clearfix\"></div>\n\n                            <center class=\"\"> \n                                    <a class=\"btn btn-danger loader\" href=\"{{url:site}}appointments/delete/{{id}}\">Annuler ce RDV</a>			 \n                            </center> 		 \n                        </div>\n        </div> \n        {{ /appointments:my_appointments }} \n    {{endif}}\n{{else}}\n    {{ url:redirect to=\"users/login\" }}\n{{endif}}', '', '', 'default.html', 1523041873, 'y', '', ''),
+(6, 'patients_rdv_passes', 'patients RDV passés', 'Patients : Liste des RDV passés', 2, '', NULL, '', '{{ dev:empty_cache }} \n{{if user:logged_in }}\n    {{if !{appointments:my_appointments_count futur_past=\"past\" for_user=\"[[ if page:slug == \'mes-rdv-passes\' ]]yes[[ elseif page:slug == \'rdv-passes-de-mes-proches\'  ]]no[[ endif ]]\" for_name=[[custom:get_value name=\"s\"]]} }}\n        <p class=\"alert alert-warning\"> \n            Pas de RDV à venir\n        </p> \n    {{else}}\n        <p class=\"alert alert-info\"> <i class=\"close\">×</i>\n            {{ appointments:my_appointments_count futur_past=\"past\" for_user=\"[[ if page:slug == \'mes-rdv-passes\' ]]yes[[ elseif page:slug == \'rdv-passes-de-mes-proches\'  ]]no[[ endif ]]\"  for_name=[[custom:get_value name=\"s\"]] }} \n            enregistrements\n        </p> \n            {{ appointments:my_appointments futur_past=\"past\" for_user=\"[[ if page:slug == \'mes-rdv-passes\' ]]yes[[ elseif page:slug == \'rdv-passes-de-mes-proches\'  ]]no[[ endif ]]\"  for_name={custom:get_value name=\"s\"}  }} \n\n            <div class=\"panel panel-default \">\n                            <div class=\"panel-heading\"> \n                                    <h4>\n                                            Le\n                                             {{date_day_str}}  {{date_month_str}}  \n                                            à  {{time_formatted}} \n                                    </h4>\n\n                                     <!--\n                                     [{{appointment_time}}   - \n                                     doc {{doctor_id}} user {{user_id}}]\n                                      -->\n                            </div>\n\n                            <div class=\"panel-body\">   \n\n                                <a href=\"{{url:site}}doctor/info/{{doc_id}}\"> \n                                    <!-- img -->\n                                         {{if filename}}\n                                                <img src=\"{{url:site}}files/large/{{filename}}\" height=\"80\" style=\"float:left;margin-right:20px;\" class=\"img-circle\" />\n                                            {{elseif doc_speciality}}  \n                                                        <img src=\"{{url:site}}files/large/{{doctor:speciality_img speciality=doc_speciality}}\" \n                                                             height=\"80\" style=\"float:left;margin-right:20px;\"\n                                                             class=\"img-circle\" /> \n                                            {{else}} \n                                            {{# default image #}}\n                                                <img src=\"{{ url:site }}files/large/8b37a2a2cbf9537714125a8f8476e63a.jpg\" height=\"80\" style=\"float:left;margin-right:20px;\" class=\"img-circle\" />\n                                        {{endif}}\n                                    <!-- img end  --> \n                                </a>\n\n                                     <p>\n                                         {{doc_name}} {{if doc_speciality}}&bullet; {{doc_speciality}}{{endif}}\n                                          <br /> \n                                         {{doc_address}} {{doc_area}} {{doc_town}}   \n                                     </p>\n\n                                     <p class=\"for_user_ico\">\n                                     {{if for_user == \"no\" }}\n                                         RDV pour: {{first_name}} {{last_name}}\n                                     {{else}}\n                                         <i class=\"glyphicon glyphicon-user\"></i>\n                                     {{endif}}\n                                     </p>\n                                     <div class=\"clearfix\"></div>\n\n                                    <center class=\"\"> \n                                            <a class=\"btn btn-info loader\"  href=\"{{url:site}}calendar/doctor/{{id}}\">Reprendre ce RDV</a>			 \n                                    </center> 		 	 \n                            </div>\n            </div> \n            {{ /appointments:my_appointments }}\n    {{endif}}\n{{else}}\n    {{ url:redirect to=\"users/login\" }}\n{{endif}}', '', '', 'default.html', 1523012169, 'y', '', ''),
+(7, 'patients_list_proches_futur', 'Patients list proches futur', 'Patients : liste des proches avec un RDV à venir', 2, '', NULL, '', '{{ dev:empty_cache }} \n<!-- liste proches  -->\n<h3>Liste de mes proches</h3> \n{{if !{appointments:other_persons_count futur_past=\"futur\"} }}\n    <p class=\"alert alert-warning\">Il n\'y a pas de proches ayant pris un RDV à venir</p>\n{{else}}\n    <div class=\"btn-group-vertical center-block\"> \n        {{ appointments:other_persons futur_past=\"futur\" }}     \n                    <a class=\"loader btn btn-default\" href=\"{{url:site}}rendez-vous/rdv-a-venir-de-mes-proches/?s={{ first_name }} {{ last_name }}\">\n                        {{ first_name }} {{ last_name }} \n                    </a> \n                <br/>\n         {{ /appointments:other_persons }}\n    </div> \n    <p class=\"text-muted\"> \n        {{ appointments:other_persons_count futur_past=\"futur\" }} resultats \n    </p>  \n{{endif}}\n\n ', '', '', 'default.html', 1522938508, 'y', '', ''),
+(8, 'patients_list_proches_passes', 'Patients list proches passes', 'Patients : liste des proches avec un RDV passé', 2, '', NULL, '', '{{ dev:empty_cache }} \n<!-- liste proches  -->\n<h3>Liste de mes proches</h3>\n{{ appointments:other_persons_count futur_past=\"past\" }} \n{{if !{appointments:other_persons_count futur_past=\"past\"} }}\n    <p class=\"alert alert-warning\">Il n\'y a pas de proches ayant pris un RDV qui soit passés</p>\n{{else}}\n    <div class=\"btn-group-vertical center-block\">\n            {{ appointments:other_persons futur_past=\"past\" }}    \n                        <a class=\"loader btn btn-default\" href=\"{{url:site}}rendez-vous/rdv-passes-de-mes-proches/?s={{ first_name }} {{ last_name }}\">\n                            {{ first_name }} {{ last_name }} \n                        </a> \n             {{ /appointments:other_persons }}\n    </div>   \n    <p class=\"text-muted\"> \n        {{ appointments:other_persons_count futur_past=\"past\" }} resultats \n    </p>  \n{{endif}}\n ', '', '', 'default.html', 1522938540, 'y', '', ''),
+(4, 'rendez_vous', 'Rendez vous', 'Affichage des RDV du patient', 2, '', NULL, '', '{{ dev:empty_cache }} \n \n{{if !{url:segments segment=\"2\"} }}\n	<!-- <h3>Rendez vous</h3>  -->\n	<ul class=\"list-group\">\n		<li class=\"list-group-item active\"><a href=\"{{url:site}}{{url:uri_string}}/rdv-a-venir\" class=\"loader btn\">RDV à venir</a></li>\n		<li class=\"list-group-item\"><a href=\"{{url:site}}{{url:uri_string}}/mes-rdv-a-venir\" class=\"loader btn\">Mes RDV à venir</a></li>\n		<li class=\"list-group-item\"><a href=\"{{url:site}}{{url:uri_string}}/proches-a-venir\" class=\"loader btn\">RDV à venir de mes proches</a></li>\n	</ul>\n	<ul class=\"list-group\">\n		<li class=\"list-group-item active\"><a href=\"{{url:site}}{{url:uri_string}}/rdv-passes\" class=\"loader btn\">RDV passés</a></li>\n		<li class=\"list-group-item\"><a href=\"{{url:site}}{{url:uri_string}}/mes-rdv-passes\" class=\"loader btn\">Mes RDV passés</a></li>\n		<li class=\"list-group-item\"><a href=\"{{url:site}}{{url:uri_string}}/proches-passes\" class=\"loader btn\">RDV passés de mes proches</a></li>\n	</ul>\n	 \n{{endif}}\n', 'div.content li.active a {\n    color: white;\n}', '', 'default.html', 1521766621, 'y', '', ''),
+(9, 'pro__home', 'Pro : home', 'Accueil pour domaine pro', 2, '', NULL, '', '<h2>{{ title }}</h2>', '', '', 'default.html', 1523045558, 'y', '', ''),
+(10, 'pro__inscription_cas_1', 'Pro : inscription cas 1', 'CAS N°1 : Le Praticien dispose d’un numéro RNGPS', 2, '', NULL, '', '<h2>{{ title }}</h2>', '', '', 'default.html', 1523045938, 'y', '', ''),
+(11, 'pro__inscription_cas_2', 'Pro : inscription cas 2', 'CAS N°2 : Le Praticien n’a pas de RNGPS mais est inscrit à l’ONAMEG', 2, '', NULL, '', '<h2>{{ title }}</h2>', '', '', 'default.html', 1523045985, 'y', '', ''),
+(12, 'pro__inscription_cas_3', 'Pro : inscription cas 3', 'CAS N°3 : Le Praticien n’est pas inscrit à l’ONAMEG', 2, '', NULL, '', '<h2>{{ title }}</h2>', '', '', 'default.html', 1523046017, 'y', '', '');
 
 -- --------------------------------------------------------
 
@@ -1514,7 +1589,7 @@ CREATE TABLE `default_profiles` (
   `display_name` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `first_name` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `last_name` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
-  `birth_date` varchar(14) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `birth_date` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `phone` varchar(20) COLLATE utf8_unicode_ci DEFAULT NULL,
   `mobile` varchar(20) COLLATE utf8_unicode_ci DEFAULT NULL,
   `address_line1` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
@@ -1526,29 +1601,34 @@ CREATE TABLE `default_profiles` (
   `area_name` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `insurance` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `gender` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `doctor_id` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `phone_valid` varchar(3) COLLATE utf8_unicode_ci DEFAULT 'no',
+  `usual_doctor_id` int(11) DEFAULT '0',
+  `phone_valid` varchar(255) COLLATE utf8_unicode_ci DEFAULT 'no',
   `desk_no` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `floor` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `district` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `maiden_name` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL
+  `maiden_name` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `phone_check_token` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `settings_pro` varchar(255) COLLATE utf8_unicode_ci DEFAULT 'appointements',
+  `subscription_pro` varchar(255) COLLATE utf8_unicode_ci DEFAULT 'no',
+  `subscription_patients` varchar(255) COLLATE utf8_unicode_ci DEFAULT 'no',
+  `doctor_id` int(11) DEFAULT '0'
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Déchargement des données de la table `default_profiles`
 --
 
-INSERT INTO `default_profiles` (`id`, `created`, `updated`, `created_by`, `ordering_count`, `user_id`, `display_name`, `first_name`, `last_name`, `birth_date`, `phone`, `mobile`, `address_line1`, `address_line2`, `postcode`, `updated_on`, `personal_info`, `town`, `area_name`, `insurance`, `gender`, `doctor_id`, `phone_valid`, `desk_no`, `floor`, `district`, `maiden_name`) VALUES
-(1, NULL, NULL, NULL, NULL, 1, 'Administrateur', 'Radja', 'Lomas', '21/08/1979', NULL, '0678957826', '4 allée Jacques Ibert', NULL, NULL, 1522168817, 'Sourd de l\'oreille droite', 'Saint Michel sur Orge', 'Quartier du la pointe ', 'oui', 'h', NULL, NULL, NULL, NULL, 'Le port', NULL),
-(2, '2018-03-15 00:41:01', NULL, 1, 1, 2, 'Alfred docteur test', 'Alfred', 'Mozart', '0', '678957826', '678957826', '4 allée Jacques Ibert', '91240', '91240', NULL, NULL, 'Saint Michel sur Orge', NULL, NULL, 'h', NULL, 'no', NULL, NULL, NULL, NULL),
-(3, '2018-03-15 00:43:37', NULL, 1, 2, 3, 'Medical Staff', 'Sandra', 'Hitchcok', '0', '678957826', '678957826', '17 rue Gutenberg', NULL, '91070', NULL, NULL, 'Bondoufle', NULL, NULL, 'f', NULL, 'no', NULL, NULL, NULL, NULL),
-(4, '2018-03-15 00:44:48', NULL, 1, 3, 4, 'Techie', 'Radja', 'Lomas', '0', '678957826', '678957826', '17 rue Gutenberg', NULL, '91070', NULL, NULL, 'Bondoufle', NULL, NULL, 'h', NULL, 'no', NULL, NULL, NULL, NULL),
-(5, '2018-03-15 01:25:15', NULL, 1, 4, 5, 'devops', 'devops', 'devops', '0', NULL, '0678957826', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'h', NULL, 'no', NULL, NULL, NULL, NULL),
-(8, '2018-03-25 02:10:01', NULL, NULL, 7, 8, 'bilbo.higgins', 'bilbo', 'higgins', NULL, NULL, '0163486116', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'no', NULL, NULL, NULL, NULL),
-(17, '2018-03-28 21:07:08', NULL, NULL, 13, 17, 'radja.lomas', 'Radja', 'Lomas', '21/08/1979', NULL, '678957826', NULL, NULL, NULL, 1522924086, NULL, 'Bondoufle', 'quartier des acacias', NULL, NULL, NULL, NULL, NULL, NULL, 'commune de belleville', NULL),
-(11, '2018-03-27 15:18:00', NULL, NULL, 10, 11, 'almamy.barry', 'ALMAMY', 'BARRY', '10/10/50', NULL, '665431196', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'no', NULL, NULL, NULL, NULL),
-(12, '2018-03-27 15:31:18', NULL, NULL, 11, 12, 'Abarry', 'Barry', 'Almamy', '10/10/50', NULL, '625464119', NULL, NULL, NULL, 1522924764, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(13, '2018-03-27 16:18:55', NULL, NULL, 12, 13, 'abarry', 'Barry', 'Didier', '10/10/50', NULL, '00224625464119', NULL, NULL, NULL, 1522247925, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `default_profiles` (`id`, `created`, `updated`, `created_by`, `ordering_count`, `user_id`, `display_name`, `first_name`, `last_name`, `birth_date`, `phone`, `mobile`, `address_line1`, `address_line2`, `postcode`, `updated_on`, `personal_info`, `town`, `area_name`, `insurance`, `gender`, `usual_doctor_id`, `phone_valid`, `desk_no`, `floor`, `district`, `maiden_name`, `phone_check_token`, `settings_pro`, `subscription_pro`, `subscription_patients`, `doctor_id`) VALUES
+(1, NULL, NULL, NULL, NULL, 1, 'Administrateur', 'Radja', 'Lomas', '21/08/1979', NULL, '0678957826', '4 allée Jacques Ibert', NULL, NULL, 1523019264, 'Sourd de l&#39;oreille droite', 'Saint Michel sur Orge', 'Quartier du la pointe ', 'oui', 'h', 0, NULL, NULL, NULL, 'Le port', NULL, NULL, 'appointements', 'no', 'no', 0),
+(2, '2018-03-15 00:41:01', NULL, 1, 1, 2, 'Alfred docteur test', 'Alfred', 'Mozart', '0', '678957826', '678957826', '4 allée Jacques Ibert', '91240', '91240', NULL, NULL, 'Saint Michel sur Orge', NULL, NULL, 'h', NULL, 'no', NULL, NULL, NULL, NULL, NULL, NULL, 'no', 'no', 0),
+(3, '2018-03-15 00:43:37', NULL, 1, 2, 3, 'Medical Staff', 'Sandra', 'Hitchcok', '0', '678957826', '678957826', '17 rue Gutenberg', NULL, '91070', NULL, NULL, 'Bondoufle', NULL, NULL, 'f', NULL, 'no', NULL, NULL, NULL, NULL, NULL, NULL, 'no', 'no', 0),
+(4, '2018-03-15 00:44:48', NULL, 1, 3, 4, 'Techie', 'Radja', 'Lomas', '0', '678957826', '678957826', '17 rue Gutenberg', NULL, '91070', NULL, NULL, 'Bondoufle', NULL, NULL, 'h', NULL, 'no', NULL, NULL, NULL, NULL, NULL, NULL, 'no', 'no', 0),
+(5, '2018-03-15 01:25:15', NULL, 1, 4, 5, 'devops', 'devops', 'devops', '2018-04-21', NULL, '0678957826', NULL, NULL, NULL, 1523033590, '', NULL, NULL, 'non', 'homme', 0, 'no', NULL, NULL, NULL, NULL, NULL, 'appointements\nflags\nmessages\nlisting', 'no', 'no', 0),
+(8, '2018-03-25 02:10:01', NULL, NULL, 7, 8, 'bilbo.higgins', 'bilbo', 'higgins', NULL, NULL, '0163486116', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'no', NULL, NULL, NULL, NULL, NULL, NULL, 'no', 'no', 0),
+(17, '2018-03-28 21:07:08', NULL, NULL, 13, 17, 'radja.lomas', 'Radja', 'Lomas', '1979-08-21', NULL, '678957826', NULL, NULL, NULL, 1523035307, '', 'Bondoufle', 'quartier des acacias', NULL, 'homme', NULL, NULL, NULL, NULL, 'commune de belleville', NULL, NULL, '', 'no', 'no', 0),
+(11, '2018-03-27 15:18:00', NULL, NULL, 10, 11, 'almamy.barry', 'ALMAMY', 'BARRY', '10/10/50', NULL, '665431196', NULL, NULL, NULL, 1523013186, '', NULL, NULL, NULL, NULL, NULL, 'no', NULL, NULL, NULL, NULL, NULL, NULL, 'no', 'no', 0),
+(12, '2018-03-27 15:31:18', NULL, NULL, 11, 12, 'Abarry', 'Barry', 'Almamy', '10/10/50', NULL, '625464119', NULL, NULL, NULL, 1522924764, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'no', 'no', 0),
+(13, '2018-03-27 16:18:55', NULL, NULL, 12, 13, 'abarry', 'Barry', 'Didier', '10/10/50', NULL, '00224625464119', NULL, NULL, NULL, 1522247925, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'no', 'no', 0);
 
 -- --------------------------------------------------------
 
@@ -1598,6 +1678,7 @@ INSERT INTO `default_search_index` (`id`, `title`, `description`, `keywords`, `k
 (152, 'Accueil', '', NULL, NULL, 'pages', 'pages:page', 'pages:pages', '14', 'accueil-old', 'admin/pages/edit/14', 'admin/pages/delete/14'),
 (29, 'bootstrap', '', NULL, NULL, 'pages', 'pages:page', 'pages:pages', '13', 'bootstrap', 'admin/pages/edit/13', 'admin/pages/delete/13'),
 (162, 'test appointments', '', NULL, NULL, 'pages', 'pages:page', 'pages:pages', '35', 'tests/test-appointments', 'admin/pages/edit/35', 'admin/pages/delete/35'),
+(164, 'Proches à venir', '', NULL, NULL, 'pages', 'pages:page', 'pages:pages', '36', 'rendez-vous/proches-a-venir', 'admin/pages/edit/36', 'admin/pages/delete/36'),
 (160, 'Tests', '', NULL, NULL, 'pages', 'pages:page', 'pages:pages', '27', 'tests', 'admin/pages/edit/27', 'admin/pages/delete/27'),
 (55, 'test plugin list doctors', '', NULL, NULL, 'pages', 'pages:page', 'pages:pages', '15', 'test-plugin-list-doctors', 'admin/pages/edit/15', 'admin/pages/delete/15'),
 (54, 'test plugin show doctor', '', NULL, NULL, 'pages', 'pages:page', 'pages:pages', '16', 'test-plugin-show-doctor', 'admin/pages/edit/16', 'admin/pages/delete/16'),
@@ -1609,7 +1690,8 @@ INSERT INTO `default_search_index` (`id`, `title`, `description`, `keywords`, `k
 (153, 'Rendez Vous', '', NULL, NULL, 'pages', 'pages:page', 'pages:pages', '28', 'rendez-vous', 'admin/pages/edit/28', 'admin/pages/delete/28'),
 (154, 'RDV à venir', '', NULL, NULL, 'pages', 'pages:page', 'pages:pages', '29', 'rendez-vous/rdv-a-venir', 'admin/pages/edit/29', 'admin/pages/delete/29'),
 (147, 'Géolocalisation', '', NULL, NULL, 'pages', 'pages:page', 'pages:pages', '25', 'geolocalisation', 'admin/pages/edit/25', 'admin/pages/delete/25'),
-(150, 'Accueil root', '', NULL, NULL, 'pages', 'pages:page', 'pages:pages', '26', 'accueil-root', 'admin/pages/edit/26', 'admin/pages/delete/26');
+(150, 'Accueil root', '', NULL, NULL, 'pages', 'pages:page', 'pages:pages', '26', 'accueil-root', 'admin/pages/edit/26', 'admin/pages/delete/26'),
+(165, 'Proches passés', '', NULL, NULL, 'pages', 'pages:page', 'pages:pages', '37', 'rendez-vous/proches-passes', 'admin/pages/edit/37', 'admin/pages/delete/37');
 
 -- --------------------------------------------------------
 
@@ -1692,7 +1774,12 @@ INSERT INTO `default_settings` (`slug`, `title`, `description`, `type`, `default
 ('profile_visibility', 'Profile Visibility', 'Specify who can view user profiles on the public site', 'select', 'public', 'owner', 'public=profile_public|owner=profile_owner|hidden=profile_hidden|member=profile_member', 0, 1, 'users', 960),
 ('ckeditor_config', 'CKEditor Config', 'You can find a list of valid configuration items in <a target=\"_blank\" href=\"http://docs.cksource.com/ckeditor_api/symbols/CKEDITOR.config.html\">CKEditor\'s documentation.</a>', 'textarea', '', '{{# this is a wysiwyg-simple editor customized for the blog module (it allows images to be inserted) #}}\n$(\'textarea#intro.wysiwyg-simple\').ckeditor({\n	toolbar: [\n		[\'pyroimages\'],\n		[\'Bold\', \'Italic\', \'-\', \'NumberedList\', \'BulletedList\', \'-\', \'Link\', \'Unlink\']\n	  ],\n	extraPlugins: \'pyroimages\',\n	width: \'99%\',\n	height: 100,\n	dialog_backgroundCoverColor: \'#000\',\n	defaultLanguage: \'{{ helper:config item=\"default_language\" }}\',\n	language: \'{{ global:current_language }}\'\n});\n\n{{# this is the config for all wysiwyg-simple textareas #}}\n$(\'textarea.wysiwyg-simple\').ckeditor({\n	toolbar: [\n		[\'Bold\', \'Italic\', \'-\', \'NumberedList\', \'BulletedList\', \'-\', \'Link\', \'Unlink\']\n	  ],\n	width: \'99%\',\n	height: 100,\n	dialog_backgroundCoverColor: \'#000\',\n	defaultLanguage: \'{{ helper:config item=\"default_language\" }}\',\n	language: \'{{ global:current_language }}\'\n});\n\n{{# and this is the advanced editor #}}\n$(\'textarea.wysiwyg-advanced\').ckeditor({\n	toolbar: [\n		[\'Maximize\'],\n		[\'pyroimages\', \'pyrofiles\'],\n		[\'Cut\',\'Copy\',\'Paste\',\'PasteFromWord\'],\n		[\'Undo\',\'Redo\',\'-\',\'Find\',\'Replace\'],\n		[\'Link\',\'Unlink\'],\n		[\'Table\',\'HorizontalRule\',\'SpecialChar\'],\n		[\'Bold\',\'Italic\',\'StrikeThrough\'],\n		[\'JustifyLeft\',\'JustifyCenter\',\'JustifyRight\',\'JustifyBlock\',\'-\',\'BidiLtr\',\'BidiRtl\'],\n		[\'Format\', \'FontSize\', \'Subscript\',\'Superscript\', \'NumberedList\',\'BulletedList\',\'Outdent\',\'Indent\',\'Blockquote\'],\n		[\'ShowBlocks\', \'RemoveFormat\', \'Source\']\n	],\n	extraPlugins: \'pyroimages,pyrofiles\',\n	width: \'99%\',\n	height: 400,\n	dialog_backgroundCoverColor: \'#000\',\n	removePlugins: \'elementspath\',\n	defaultLanguage: \'{{ helper:config item=\"default_language\" }}\',\n	language: \'{{ global:current_language }}\'\n});', '', 1, 1, 'wysiwyg', 993),
 ('token_setting', 'Tokens Setting', 'A Yes or No option for the token module', 'select', '1', '1', '1=Yes|0=No', 1, 1, 'token', 0),
-('jours_ouverts', 'Jours ouverts', 'Les jours d\'ouverture (Non implementé)', 'checkbox', '1', '1,2,3,4,5,6,7', '1=Lundi|2=Mardi|3=Mercredi|4=Jeudi|5=Vendredi|6=Samedi|7=Dimanche', 1, 1, 'calendar', 660);
+('jours_ouverts', 'Jours ouverts', 'Les jours d\'ouverture (Non implementé)', 'checkbox', '1', '1,2,3,4,5,6,7', '1=Lundi|2=Mardi|3=Mercredi|4=Jeudi|5=Vendredi|6=Samedi|7=Dimanche', 1, 1, 'calendar', 660),
+('break_stop', 'Fin de la pause', 'L\'heure de fin de la pause midi. (Non implementé)', 'text', '1400', '', '', 1, 1, 'doctor', 662),
+('break_start', 'Début de la pause', 'L\'heure de début de la pause midi. (Non implementé)', 'text', '1200', '', '', 1, 1, 'doctor', 662),
+('closes', 'Fermeture', 'L\'heure de fermeture. (Non implementé)', 'text', '1700', '', '', 1, 1, 'doctor', 662),
+('days_open', 'Jours ouverts', 'Les jours d\'ouverture (Non implementé)', 'checkbox', '1', '1,2,3,4,5', '1=Lundi|2=Mardi|3=Mercredi|4=Jeudi|5=Vendredi|6=Samedi|7=Dimanche', 1, 1, 'doctor', 660),
+('opens', 'Ouverture', 'L\'heure d\'ouverture (Non implementé)', 'text', '0900', '', '', 1, 1, 'doctor', 662);
 
 -- --------------------------------------------------------
 
@@ -1766,8 +1853,20 @@ CREATE TABLE `default_tokens` (
 --
 
 INSERT INTO `default_tokens` (`id`, `token`, `user_id`, `ip`, `user_agent`, `counter`, `timestamp`, `expires`, `created_on`, `alive`, `module`) VALUES
-(56, '318497', 17, '92.170.179.46', 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36', 6, '2018-04-05 14:37:58', NULL, '2018-04-05 14:27:33', 1, NULL),
-(57, '839174', 12, '80.12.38.177', 'Mozilla/5.0 (Linux; Android 8.0.0; G8141 Build/47.1.A.12.119) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.109 Mobile Safari/537.36', 2, '2018-04-05 14:36:26', NULL, '2018-04-05 14:35:09', 1, NULL);
+(71, '681243', 17, '92.170.179.46', 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36', 10, '2018-04-06 23:54:14', NULL, '2018-04-06 22:14:05', 1, NULL),
+(72, '845297', 11, '78.213.60.211', 'Mozilla/5.0 (Linux; Android 8.0.0; G8141 Build/47.1.A.12.145) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.109 Mobile Safari/537.36', 4, '2018-04-06 23:19:58', NULL, '2018-04-06 22:55:49', 1, NULL),
+(73, '675932', 17, '92.170.179.46', 'Mozilla/5.0 (Linux; Android 4.4.2; GT-I9195 Build/KOT49H) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.109 Mobile Safari/537.36', 5, '2018-04-07 00:07:25', NULL, '2018-04-06 23:05:09', 1, NULL),
+(64, '652479', 12, '185.89.129.106', 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36', 2, '2018-04-06 15:10:53', NULL, '2018-04-06 15:08:49', 0, NULL),
+(69, '913672', 17, '92.170.179.46', 'Mozilla/5.0 (Linux; Android 4.4.2; GT-I9195 Build/KOT49H) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.109 Mobile Safari/537.36', 40, '2018-04-06 21:40:42', NULL, '2018-04-06 20:57:10', 0, NULL),
+(70, '398157', 11, '78.213.60.211', 'Mozilla/5.0 (Linux; Android 8.0.0; G8141 Build/47.1.A.12.145) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.109 Mobile Safari/537.36', 5, '2018-04-06 22:45:43', NULL, '2018-04-06 22:09:07', 1, NULL),
+(63, '497538', 0, '92.170.179.46', 'Mozilla/5.0 (iPhone; CPU iPhone OS 11_0 like Mac OS X) AppleWebKit/604.1.38 (KHTML, like Gecko) Version/11.0 Mobile/15A372 Safari/604.1', 15, '2018-04-06 15:47:28', NULL, '2018-04-06 14:19:12', 0, NULL),
+(61, '681952', 17, '92.170.179.46', 'Mozilla/5.0 (Linux; Android 4.4.2; GT-I9195 Build/KOT49H) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.109 Mobile Safari/537.36', 25, '2018-04-06 13:48:52', NULL, '2018-04-06 12:47:06', 0, NULL),
+(62, '137825', 17, '92.170.179.46', 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36', 1, '2018-04-06 14:18:10', NULL, '2018-04-06 14:17:59', 0, NULL),
+(68, '731859', 12, '80.12.39.139', 'Mozilla/5.0 (Linux; Android 8.0.0; G8141 Build/47.1.A.12.145) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.109 Mobile Safari/537.36', 6, '2018-04-06 18:09:54', NULL, '2018-04-06 18:08:21', 0, NULL),
+(65, '857469', 17, '92.170.179.46', 'Mozilla/5.0 (Linux; Android 4.4.2; GT-I9195 Build/KOT49H) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.109 Mobile Safari/537.36', 4, '2018-04-06 15:38:00', NULL, '2018-04-06 15:31:53', 0, NULL),
+(67, '653821', 17, '92.170.179.46', 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36', 10, '2018-04-06 18:51:09', NULL, '2018-04-06 17:08:31', 0, NULL),
+(60, '941376', 17, '92.170.179.46', 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36', 16, '2018-04-06 05:28:48', NULL, '2018-04-05 18:41:18', 0, NULL),
+(66, '925176', 12, '80.12.39.139', 'Mozilla/5.0 (Linux; Android 8.0.0; G8141 Build/47.1.A.12.145) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.109 Mobile Safari/537.36', 1, '2018-04-06 16:06:08', NULL, '2018-04-06 16:05:38', 0, NULL);
 
 -- --------------------------------------------------------
 
@@ -1797,16 +1896,16 @@ CREATE TABLE `default_users` (
 --
 
 INSERT INTO `default_users` (`id`, `email`, `password`, `salt`, `group_id`, `ip_address`, `active`, `activation_code`, `created_on`, `last_login`, `username`, `forgotten_password_code`, `remember_code`) VALUES
-(1, 'radjal@free.fr', '004917d3ba06af9f7edd6351c8ac0d8dc924c6ba', '4cd53', 1, '', 1, '', 1495107565, 1522908529, 'admin', NULL, 'deeb7f1920174511b416671d8a04c4342600e32a'),
+(1, 'radjal@free.fr', '23f9b4179d40a8df3a1ab6f13be0a7cc89b478a9', '4cd53', 1, '', 1, '', 1495107565, 1522974720, 'admin', NULL, 'deeb7f1920174511b416671d8a04c4342600e32a'),
 (2, 'practicien@nowhere.com', '7db15a5af242f976d62282149602188eb0cd96ad', 'e5d396', 5, '::1', 1, NULL, 1521074461, 1521076949, 'docteur.test', NULL, '61de7be305a949a0b6a141d5bf33fcb63a04e967'),
 (3, 'medstaff@nowhere.com', '757129871de30daf6040f50f828b02d8744e8c39', '0d8c10', 3, '::1', 1, NULL, 1521074617, 1521076980, 'med.staff', NULL, 'b40d2018448fd8177b1b1527d4ca244c30e29e36'),
 (4, 'support@nowhere.com', '1031f9a492618d59461444aa240ee82023354704', 'd70a25', 4, '::1', 1, NULL, 1521074688, 1521077026, 'support', NULL, '3cc21520c7d43c51f8c77ae0c74417fe32250f72'),
-(5, 'devops@nowhere.com', 'f2229cde76e4ca9c4a658f6f091158fea4338bee', 'b92942', 1, '::1', 1, NULL, 1521077115, 1522362950, 'devops', NULL, NULL),
+(5, 'devops@nowhere.com', 'f2229cde76e4ca9c4a658f6f091158fea4338bee', 'b92942', 1, '::1', 1, NULL, 1521077115, 1523032529, 'devops', NULL, NULL),
 (8, 'bilbohiggins@nowhere.com', 'fcb1fee8af18e0891169128bdcb6e846adc24484', '802f91', 2, '::1', 1, '', 1521943801, 1521945086, 'bilbo.higgins', NULL, NULL),
-(11, 'almamy.barry@laposte.net', '076c08abf72175f11353ee4236bb25eb3260b050', '046a79', 2, '185.89.129.106', 1, '', 1522149480, 1522149480, 'almamy.barry', NULL, NULL),
-(12, 'abarry78250@gmail.com', '2a92170d16a157124d8cfd4b2f4199109d75eea7', '9bf26b', 1, '92.184.96.189', 1, '', 1522150278, 1522924616, 'barry.almamy', NULL, '41418d5ecfa9a7f21cf9d769c107f0e9431ffe9a'),
+(11, 'almamy.barry@laposte.net', 'dc02fe286546eb2db66f7d4a031db7117543a5c3', '046a79', 2, '185.89.129.106', 1, '', 1522149480, 1523040907, 'almamy.barry', NULL, 'e3f964ad6dbabd716d16c7903a2809a9471ee36b'),
+(12, 'abarry78250@gmail.com', '2a92170d16a157124d8cfd4b2f4199109d75eea7', '9bf26b', 1, '92.184.96.189', 1, '', 1522150278, 1523037080, 'barry.almamy', NULL, '41418d5ecfa9a7f21cf9d769c107f0e9431ffe9a'),
 (13, 'abarry@mitcoms.com', 'a778900ca75b87d7e8c51e1a356a5e9f20d069f8', 'ac794b', 1, '92.184.96.189', 1, '', 1522153135, 1522241836, 'barry.didier', '0', NULL),
-(17, 'r.lomas@spelldesign.fr', '89f200f44a8c1c8058f6420b6e287c06ff40fd00', 'a51be1', 2, '92.170.179.46', 1, '', 1522256828, 1522923961, 'radja.lomas', NULL, NULL);
+(17, 'r.lomas@spelldesign.fr', '89f200f44a8c1c8058f6420b6e287c06ff40fd00', 'a51be1', 2, '92.170.179.46', 1, '', 1522256828, 1523025001, 'radja.lomas', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -1982,6 +2081,12 @@ ALTER TABLE `default_data_streams`
 -- Index pour la table `default_def_page_fields`
 --
 ALTER TABLE `default_def_page_fields`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Index pour la table `default_doctors_favorites`
+--
+ALTER TABLE `default_doctors_favorites`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -2190,7 +2295,7 @@ ALTER TABLE `default_appointments_details`
 -- AUTO_INCREMENT pour la table `default_appointments_list`
 --
 ALTER TABLE `default_appointments_list`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 --
 -- AUTO_INCREMENT pour la table `default_blog`
 --
@@ -2220,22 +2325,27 @@ ALTER TABLE `default_contact_log`
 -- AUTO_INCREMENT pour la table `default_data_fields`
 --
 ALTER TABLE `default_data_fields`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=571;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=673;
 --
 -- AUTO_INCREMENT pour la table `default_data_field_assignments`
 --
 ALTER TABLE `default_data_field_assignments`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=568;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=670;
 --
 -- AUTO_INCREMENT pour la table `default_data_streams`
 --
 ALTER TABLE `default_data_streams`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=88;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=97;
 --
 -- AUTO_INCREMENT pour la table `default_def_page_fields`
 --
 ALTER TABLE `default_def_page_fields`
-  MODIFY `id` int(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
+  MODIFY `id` int(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
+--
+-- AUTO_INCREMENT pour la table `default_doctors_favorites`
+--
+ALTER TABLE `default_doctors_favorites`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT pour la table `default_doctor_categories`
 --
@@ -2245,12 +2355,12 @@ ALTER TABLE `default_doctor_categories`
 -- AUTO_INCREMENT pour la table `default_doctor_doctors`
 --
 ALTER TABLE `default_doctor_doctors`
-  MODIFY `id` int(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 --
 -- AUTO_INCREMENT pour la table `default_doctor_organisations`
 --
 ALTER TABLE `default_doctor_organisations`
-  MODIFY `id` int(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(9) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT pour la table `default_email_templates`
 --
@@ -2260,7 +2370,7 @@ ALTER TABLE `default_email_templates`
 -- AUTO_INCREMENT pour la table `default_file_folders`
 --
 ALTER TABLE `default_file_folders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 --
 -- AUTO_INCREMENT pour la table `default_groups`
 --
@@ -2280,7 +2390,7 @@ ALTER TABLE `default_keywords_applied`
 -- AUTO_INCREMENT pour la table `default_modules`
 --
 ALTER TABLE `default_modules`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=82;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=85;
 --
 -- AUTO_INCREMENT pour la table `default_navigation_groups`
 --
@@ -2305,12 +2415,12 @@ ALTER TABLE `default_orders_list`
 -- AUTO_INCREMENT pour la table `default_pages`
 --
 ALTER TABLE `default_pages`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
 --
 -- AUTO_INCREMENT pour la table `default_page_types`
 --
 ALTER TABLE `default_page_types`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 --
 -- AUTO_INCREMENT pour la table `default_permissions`
 --
@@ -2330,7 +2440,7 @@ ALTER TABLE `default_redirects`
 -- AUTO_INCREMENT pour la table `default_search_index`
 --
 ALTER TABLE `default_search_index`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=164;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=166;
 --
 -- AUTO_INCREMENT pour la table `default_theme_options`
 --
@@ -2340,7 +2450,7 @@ ALTER TABLE `default_theme_options`
 -- AUTO_INCREMENT pour la table `default_tokens`
 --
 ALTER TABLE `default_tokens`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=58;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=74;
 --
 -- AUTO_INCREMENT pour la table `default_users`
 --

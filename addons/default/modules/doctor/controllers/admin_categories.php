@@ -61,7 +61,7 @@ class Admin_categories extends Admin_Controller
 
     public function create()
     {
-		$extra['title'] = 'lang:doctor:new';
+        $extra['title'] = 'lang:doctor:new';
 
         $extra = array(
             'return' => 'admin/doctor/categories/index',
@@ -73,8 +73,7 @@ class Admin_categories extends Admin_Controller
         $skips = array('cat_dom_id');
         $this->streams->cp->entry_form('categories', 'doctor', 'new', null, true, $extra, $skips);
     }
-
-	
+ 
     public function edit($id = 0)
     {
         $this->template->title(lang('doctor:edit'));
@@ -90,9 +89,7 @@ class Admin_categories extends Admin_Controller
         $this->streams->cp->entry_form('categories', 'doctor', 'edit', $id, true, $extra, $skips);
     }
 
-    // --------------------------------------------------------------------------
-
-	
+    // -------------------------------------------------------------------------- 
     public function delete($id = 0)
     {
         $this->streams->entries->delete_entry($id, 'categories', 'doctor');

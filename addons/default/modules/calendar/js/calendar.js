@@ -16,50 +16,47 @@ function periodShow(period)
         $('#btn-am').removeClass('active');
     }
 }
+/* user flow */ 
 /* for appointments input */
-function setTime(time)
+function setTime(time)/* step 0 */
 {
     $('input[name=appointment_time]').val(time);
     ftime = formatTime(time);
     ftime =  time<=1200 ?  ftime += ' du matin' : ftime += ' de l\'après midi' ;
-    $('.appt-time span').text(ftime);
+    $('#appt-time span').text(ftime);
+    $('#appt-time').show();
     $('#weekday-wrapper').hide(); 
     $('#container-appt').slideDown();
     console.log(time); 
     console.log(ftime); 
-} 
-/* generic */
-/* user flow */
+}  
 function setIsForMe(obj) /* step 1 */
 {
-    $('#appt-patient').html(userForm);
+    $('#appt-patient').html(userForm); 
      
     $('#appt-patient').removeClass('hidden');
-    var value = $(obj).attr('data-value').toLowerCase(); 
+    var value = $(obj).attr('data-value').toLowerCase(); /*yes|no*/
     console.log(value); 
-    $('#appt-info').hide(); 
+//    $('#appt-info').hide(); 
     $('.for_user_ui a').removeClass('active btn-success'); 
     $(obj).addClass('active btn-success'); 
+    $('input#for_user').val(value);
     if(value === 'yes') 
     {  
             $('#appt-patient .info input').attr('readonly', true); 
-            $('#appt-patient, #appt-gender').show(); 
-            $('.msgBox span').text('Il est important que le médecin connaisse votre identité, merci de remplir les champs suivants'+' :'); 
-            $('.msgBox').slideDown(); 
+//            $('#appt-patient').show(); 
+            $('#msgBox span').text('Il est important que le médecin connaisse votre identité, merci de remplir les champs suivants'+' :'); 
+            $('#msgBox, #profile_fields-txt').slideDown();  
             $('#appt-gender a').addClass('disabled');
     } else { 
             $('#appt-patient .info input').attr('readonly', false); 
-            $('#appt-patient, #appt-gender').show(); 
-            $('.msgBox span').text('Il est important que le médecin connaisse l\'identité de votre proche, merci de remplir les champs suivants'+' :'); 
-            $('.profile_fields-txt, .msgBox').slideUp(); 
-            $('#appt-gender a, .insurance_ui a,.knows_doctor_ui a').removeClass('btn-success active disabled'); 
-            
-            $('#appt-patient input').val(''); 
-            
-    }
-    
-    $('#appt-info').slideDown(); 
-    $('input#for_user').val(value);
+            $('#msgBox span').text('Il est important que le médecin connaisse l\'identité de votre proche, merci de remplir les champs suivants'+' :'); 
+            $('#profile_fields-txt').slideUp(); 
+            $('#appt-gender a, .insurance_ui a,.knows_doctor_ui a').removeClass('btn-success active disabled');  
+            $('#appt-patient input').val('');  
+    } 
+    $('#appt-patient').slideDown(); 
+//    $('#appt-info').slideDown(); 
 //    $('.for_user_ui a').addClass('disabled');
 } 
 function setGender(obj) /* step 2 */

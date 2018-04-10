@@ -18,18 +18,6 @@ class Calendar extends Public_Controller
          $this->template->append_css('module::calendar.css');
     }
     
-    /** wrapper for index */
-    public function this_week()
-    {
-        $this->index();
-    }
-    
-    /** wrapper for index */
-    public function week($week_no=false)
-    { 
-            $this->index($week_no); 
-    }
-    	
     /**
      * calcul du jour de la semaine 
      *
@@ -37,21 +25,14 @@ class Calendar extends Public_Controller
      * @access	public
      * @return	void
      */
-    public function day($jour='', $week_no = false)
+    public function day($jour='', $week_no = false, $doctor_id=false, $template = 'jour')
     {
         if(empty($jour)) return false;
-        $doctor_id = !empty($this->uri->segment(4)) ? $this->uri->segment(4) : false; 
+//        $doctor_id = !empty($this->uri->segment(4)) ? $this->uri->segment(4) : false; 
         
-//        $this->load->model('orders_m');
         $this->load->model('token/token_m');
         
-        $token = $this->token_m->current_token();
-        
-        // remove cart cookie to avoid mixing products for different days
-        // @todo add as setting
-//        $this->orders_m->delete_cookie_cart();
-        
-        $template = 'jour';
+        $token = $this->token_m->current_token(); 
         
         $data = $this->calendar_m->calculate_week($week_no);
         if(!$week_no) $week_no = $data['week'];	 
@@ -77,21 +58,11 @@ class Calendar extends Public_Controller
         } else {
             $passe = true;
         }   
-        // get appointments for day
-//        $this->load->model('appointments/appointments_m');
-        $day_periods = $this->calendar_m->periods_make_day(30);
-        $today_iso = $data['today_no_iso'];
-//        $dn=1;
-        $datestr = str_replace('-', '',$jourdate); 
-//        $datestr = str_replace('-', '', $data['week_dates_iso'][$today_iso]['date']); 
-//        $doctor_id=false;
-        $appointments = $this->appointments_m->get_for_date($datestr, $doctor_id);  
-//                        $appointments[$dn.'_periods'] = $day_periods; 
-        $appointments = $this->calendar_m->periods_splice_arrays( $day_periods, $appointments ) ;
-//        $appointments[$dn] = $this->appointments_m->get_for_date($datestr, $doctor_id);  
-////                        $appointments[$dn.'_periods'] = $day_periods; 
-//        $appointments[$dn.'_joined'] = $this->calendar_m->periods_splice_arrays( $day_periods, $appointments[$dn] ) ; 
-                        
+        // get appointments for date 
+        $day_periods = $this->calendar_m->periods_make_day(); 
+        $appointments = $this->appointments_m->get_for_date($datenumero, $doctor_id);   
+        $appointments = $this->calendar_m->periods_splice_arrays( $day_periods, $appointments ) ; 
+        
         // AJAX and XHR
 //        if($this->input->is_ajax_request() AND $this->template->set_layout(false))
 //        {}
@@ -203,46 +174,108 @@ class Calendar extends Public_Controller
                 ->build($template, $data);
     }
 
-    /** wrapper for day lundi */
-    public function lundi($week_no=false)
+    /** 
+     * wrapper for day(), takes a date string YYYYMMDD  
+     * 
+     * @param type $date
+     */
+    public function fordate($date, $template = 'jour') 
     { 
-            $this->day('lundi', $week_no); 
+        $date = str_replace('-', '', $date); // remove '-' in case of SQL date format YYYY-MM-DD
+        $y = substr($date, 0, 4);
+        $m = substr($date, 4, 2);
+        $d = substr($date, 6);
+        //get day no and week no
+        $newdate = new DateTime();
+        $newdate->setDate((int)$y, (int)$m, (int)$d);
+        $newdate->setTime(0, 0 ); 
+        $week_no = $newdate->format('W'); 
+        $day_no = $newdate->format('N');  
+        //need name of week day for day function
+        $days[1] = 'lundi';
+        $days[2] = 'mardi';
+        $days[3] = 'mercredi';
+        $days[4] = 'jeudi';
+        $days[5] = 'vendredi';
+        $days[6] = 'samedi';
+        $days[7] = 'dimanche';        
+        $day = $days[$day_no];
+        // use profile to get doctor_id in user setting 
+        $this->load->model('users/profile_m');
+        $profile_data = $this->profile_m->get_profile(); 
+        $doctor_id = !empty($profile_data->doctor_id) && $profile_data->doctor_id >0 ? $profile_data->doctor_id : false ;
+        // call day function
+        $this->day( $day, $week_no, $doctor_id , $template); 
+    }
+     
+    /** 
+     * return summary of appointments for day, takes a date string YYYYMMDD  
+     * wrapper for fordate()
+     * 
+     * @param type $date
+     */
+    public function fordate_digest($date, $template = 'fordate_digest') 
+    {  
+        // call fordate function with template for AJAX/JSON
+        $this->fordate( $date, $template); 
+    }
+    
+    /**
+     *  wrapper functions below
+     */
+       
+    /** wrapper for index */
+    public function this_week()
+    {
+        $this->index();
+    }
+    
+    /** wrapper for index */
+    public function week($week_no=false)
+    { 
+            $this->index($week_no); 
+    }
+    	
+    /** wrapper for day lundi */
+    public function lundi($week_no=false, $doc_id=false)
+    { 
+            $this->day('lundi', $week_no, $doc_id); 
     }
 
     /** wrapper for day mardi */
-    public function mardi($week_no=false)
+    public function mardi($week_no=false, $doc_id=false)
     { 
-            $this->day('mardi', $week_no); 
+            $this->day('mardi', $week_no, $doc_id); 
     }
 
     /** wrapper for day mercredi */
-    public function mercredi($week_no=false)
+    public function mercredi($week_no=false, $doc_id=false)
     { 
-            $this->day('mercredi', $week_no); 
+            $this->day('mercredi', $week_no, $doc_id); 
     }
 
     /** wrapper for day jeudi */
-    public function jeudi($week_no=false)
+    public function jeudi($week_no=false, $doc_id=false)
     { 
-            $this->day('jeudi', $week_no); 
+            $this->day('jeudi', $week_no, $doc_id); 
     }
 
     /** wrapper for day vendredi */
-    public function vendredi($week_no=false)
+    public function vendredi($week_no=false, $doc_id=false)
     { 
-            $this->day('vendredi', $week_no); 
+            $this->day('vendredi', $week_no, $doc_id); 
     }
 
     /** wrapper for day samedi */
-    public function samedi($week_no=false)
+    public function samedi($week_no=false, $doc_id=false)
     { 
-            $this->day('samedi', $week_no); 
+            $this->day('samedi', $week_no, $doc_id); 
     }
 
     /** wrapper for day dimanche */
-    public function dimanche($week_no=false)
+    public function dimanche($week_no=false, $doc_id=false)
     { 
-            $this->day('dimanche', $week_no); 
+            $this->day('dimanche', $week_no, $doc_id); 
     } 
 }
 

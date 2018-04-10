@@ -1,24 +1,14 @@
 <div id="container-appt" class="" style="display: none"> 
 {{ if user:logged_in }} 
    <?php  
-   echo form_open_multipart('appointments/set' , 'class="crud"'); 
+   echo form_open_multipart('appointments/set' , 'class="crud" role="form" data-toggle="validator"'); 
    echo'';
    ?>
-            <center class="appt-time alert alert-success h3"> 
-                <a onclick="$('#container-appt, #weekday-wrapper').slideToggle()"><i class="glyphicon glyphicon-edit"></i></a> 
-                <i class="glyphicon glyphicon-time"></i>
-                    à <span>{{appointment_time}}</span> 
-                    <input class="" name="appointment_time" id="appointment_time" type="hidden"  value="{{ appointment_time }}" />  
-                    <input class="" name="doctor_id" id="doctor_id" type="hidden"  value="{{ doctor_id }}" />  
-            </center>
-                {{ user:profile }} 
-
-                <?php
-                echo'';
-                ?>
-                
+            <input class="" name="appointment_time" id="appointment_time" type="hidden"  value="{{ appointment_time }}" />  
+            <input class="" name="doctor_id" id="doctor_id" type="hidden"  value="{{ doctor_id }}" />  
+                {{ user:profile }}  
                         <input type="hidden" name="appointment_date" value="{{datenumero}}" />        
-                        
+ 
                         <div id="appt-info"> 
                             <div class="appt-person">
                                     <label for="for_user">Le RDV est pour vous? Oui/non (parent ou proche)</label> 
@@ -27,54 +17,53 @@
                                         <a onclick="setIsForMe(this)" data-value="no" class="btn btn-primary btn-sm ">pour un proche</a> 
                                         <input class="" name="for_user" id="for_user" type="hidden"  value="{{ for_user }}" />  
                                     </div> 
-                            </div>  
-                            
-                            <div id="appt-gender" class="" style="display:none">
-                                    <label for="gender">Civilité :</label>
-                                    <div class="gender_ui" > 
-                                        <a onclick="setGender(this)" data-value="Homme" class="btn btn-primary btn-sm <?= isset($this->current_user->gender) && strtolower($this->current_user->gender) == 'homme' ? 'active btn-success' :null ?>">Homme</a>
-                                        <a onclick="setGender(this)" data-value="Femme" class="btn btn-primary btn-sm <?= isset($this->current_user->gender) && strtolower($this->current_user->gender) == 'femme' ? 'active btn-success' :null ?>">Femme</a>
-                                        <input class="" name="gender" id="gender" type="hidden" value="{{ gender:value }}"/>   
-                                    </div>  
-                            </div>  
-                            
-                            <p class="msgBox alert alert-warning" style="display:none"> <i class="close">×</i>
-                                <span> </span>
-                            </p>   
-                        </div>   
-                             
-                        <p class="profile_fields-txt alert alert-warning"> <i class="close">×</i>
+                            </div> 
+                        </div>     
+                        <p id="profile_fields-txt" class="alert alert-info"> <i class="close">×</i>
                                 Vous pouvez modifier les informations qui apparraissent ci-dessous en 
                                 <a href="{{url:site}}edit-profile">modifiant votre profil</a>
                         </p> 
-
+                        <p id="msgBox" class="alert alert-warning" style="display:none"> <i class="close">×</i>
+                            <span> </span>
+                        </p>  
+                        
                         <div id="appt-patient" class="hidden">   
                         <!--<h4>Vos coordonnées</h4>-->
-                            <div class="info form-group">
+                                
+                            <div id="appt-gender" >
+                                    <label for="gender">Civilité :</label>
+                                    <div class="gender_ui" > 
+                                        <a onclick="setGender(this)" data-value="homme" class="btn btn-primary btn-sm {{if current_user:gender == "homme" }}active btn-success{{endif}}">Homme</a>
+                                        <a onclick="setGender(this)" data-value="femme" class="btn btn-primary btn-sm {{if current_user:gender == "femme" }}active btn-success{{endif}}">Femme</a>
+                                        <input class="" name="gender" id="gender" type="hidden" value="{{ current_user:gender }}"/>   
+                                    </div>  
+                            </div>  
 
-                                    <label for="last_name">Nom de famille </label>
+                            <div class="info form-group">
+                                
+                                    <label for="last_name">Nom de famille <span>*</span></label>
                                     <div class="input">
-                                            <input type="text" class="form-control" name="last_name" value="{{ last_name }}" autocomplete="family-name">
+                                            <input type="text" class="form-control" name="last_name" value="{{ last_name }}" autocomplete="family-name" required>
                                     </div>                            
-                                    <label for="first_name">Prénom </label>
+                                    <label for="first_name">Prénom <span>*</span></label>
                                     <div class="input">
-                                            <input type="text" class="form-control" name="first_name" value="{{ first_name }}"  autocomplete="given-name">
+                                            <input type="text" class="form-control" name="first_name" value="{{ first_name }}"  autocomplete="given-name" required>
                                     </div> 
-                                    <?= $this->current_user->gender ?>
-                                    <div class="field-mainden_name" style="display:"<?= isset($this->current_user->gender) and strtolower($this->current_user->gender) == 'homme' ? 'none' :'block' ?>>
+                                    <div class="field-mainden_name " {{if current_user:gender == "homme" }}style="display:none"{{endif}}>
                                         <label for="maiden_name">Nom de jeune fille</label>
                                         <div class="input">
                                             <input type="text" class="form-control" name="maiden_name" value="{{ maiden_name }}" autocomplete="additional-name">
                                         </div>   
                                     </div>                
-                                     <label for="mobile">Date de naissance</label>
+                                     <label for="birth_date">Date de naissance<span>*</span></label>
                                     <div class="input">
-                                        <input type="text" class="form-control" aria-type="" name="birth_date" value="{{ birth_date }}"  autocomplete="">
+                                        <input type="date" class="form-control" name="birth_date" value="{{ birth_date }}"  autocomplete="" required>
                                     </div>             
                                      <label for="mobile">Mobile</label>
                                     <div class="input">
-                                        <input type="text" class="form-control" aria-type="tel" name="mobile" value="{{ mobile }}"  autocomplete="tel-national">
-                                    </div>             
+                                        <input type="tel" class="form-control" aria-type="tel" name="mobile" value="{{ mobile }}"  autocomplete="tel-national">
+                                    </div>        
+                                     
                             </div>
                             <div class="address form-group"> 
 
@@ -83,23 +72,26 @@
                                         <input type="text" class="form-control" name="area_name" value="{{ area_name }}" autocomplete="address-level4">
                                     </div>      
 
-                                    <label for="commune">Commune</label>
+                                    <label for="district">Commune<span>*</span></label>
                                     <div class="input">
-                                        <input type="text" class="form-control" name="district" value="{{ district }}" autocomplete="address-level3">
+                                        <input type="text" class="form-control" name="district" value="{{ district }}" autocomplete="address-level3" required>
                                     </div>      
 
-                                    <label for="town">Ville</label>
+                                    <label for="town">Ville<span>*</span></label>
                                     <div class="input">
-                                        <input type="text" class="form-control" name="town" value="{{ town }}" autocomplete="address-level2">
+                                        <input type="text" class="form-control" name="town" value="{{ town }}" autocomplete="address-level2" required>
                                     </div>   
 
                             </div>  
+                        <?php
+                        echo '';
+                        ?>
                             <div class="form-group">    
-                                    <label for="insurance">Avez-vous une mutuelle santé?</label>
+                                    <label for="insurance">Avez-vous une mutuelle santé?</label>  
                                         <div class="insurance_ui" >
-                                            <a onclick="setField('insurance', this)" class="btn btn-primary btn-sm <?= isset($this->current_user->insurance) && strtolower($this->current_user->insurance) == 'oui' ? 'active btn-success' :null ?>">Oui</a>
-                                            <a onclick="setField('insurance', this)" class="btn btn-primary btn-sm <?= isset($this->current_user->insurance) && strtolower($this->current_user->insurance) == 'non' ? 'active btn-success' :null ?>">Non</a>
-                                            <input type="hidden" class="form-control" id="insurance" name="insurance" value="{{ insurance }}">
+                                            <a onclick="setField('insurance', this)" class="btn btn-primary btn-sm {{if insurance:key == "oui" }}active btn-success{{endif}}">Oui</a>
+                                            <a onclick="setField('insurance', this)" class="btn btn-primary btn-sm {{if insurance:key == "non" }}active btn-success{{endif}}">Non</a>
+                                            <input type="hidden" class="form-control" id="insurance" name="insurance" value="{{ insurance:key }}">
                                         </div>
                             </div>  
                             <div class="form-group">   

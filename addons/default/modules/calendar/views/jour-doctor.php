@@ -1,41 +1,27 @@
-
+<?php 
+echo  ''; 
+?>
 {{# custom:get_value name="c"#}}
 <!--<div class="text-center" id="doc-cat-icon"> 
     {{ msante:doc_cat_img cat={custom:get_value name="c"} }}
 </div>-->
 
-{{ doctor:show id={url:segments segment="4"} }}
+{{ doctor:show id=doctor_id }} 
 <div id="doctor" class="">  
         <div class="panel panel-body">
-            <div class="col-sm-4 col-xs-4">
-                {{ if img_path }}
-                                    <img src="{{url:site}}files/large/{{img_path}}" height="80" class="img-circle"/>
-                            {{ elseif speciality  }} 
-                                {{ if speciality == "Médecins généralistes" }} 
-                                        <img src="{{ url:site }}files/large/e6ef08347e274fc655f20c172baad122.jpg" height="80" class="img-circle"/> 
-                                {{ elseif speciality == "Ophtalmologue" }}
-                                        <img src="{{ url:site }}files/large/da81bbdd7f739e786f674638e29ba433.jpg" height="80" class="img-circle"/> 
-                                {{ elseif speciality == "ORL" }}
-                                        <img src="{{ url:site }}files/large/29edb0b1c84e0ed4df17c82fe658d9d5.jpg" height="80" class="img-circle"/> 
-                                {{ elseif speciality == "Cardiologue" }}
-                                        <img src="{{ url:site }}files/large/f40501b53bd7d3e0f62c5086ea1ecc2b.jpg" height="80" class="img-circle"/> 
-                                {{ elseif speciality == "Spécialistes femme" }}
-                                        <img src="{{ url:site }}files/large/41f6ec9ed1a988081b7e137dee039c0d.jpg" height="80" class="img-circle"/> 
-                                {{ elseif speciality == "Dentiste" }}
-                                        <img src="{{ url:site }}files/large/1717f2a8194f53253de0df0c7f5f998c.jpg" height="80" class="img-circle"/> 
-                                {{ elseif speciality == "Radiologue" }}
-                                        <img src="{{ url:site }}files/large/c9c12e653b087854ac27bf50eac5a6cc.jpg" height="80" class="img-circle"/> 
-                                {{ elseif speciality == "Autres médecins" }}
-                                        <img src="{{ url:site }}files/large/e6ef08347e274fc655f20c172baad122.jpg" height="80" class="img-circle"/> 
-                                {{ elseif speciality == "Etablissements de santé" }}
-                                        <img src="{{ url:site }}files/large/056d27356ff595697ce2352501d71633.jpg" height="80" class="img-circle"/>  
-                                {{ else }} 
-                                        <img src="{{ url:site }}files/large/8b37a2a2cbf9537714125a8f8476e63a.jpg" height="80" class="img-circle"/>
-                                {{ endif }} 
-                            {{ else }} 
+            <div class="col-sm-4 col-xs-4"> 
+                <a href="{{url:site}}doctor/info/{{doctor_id}}">
+                        {{if img_path}}
+                                    <img src="{{url:site}}files/large/{{img_path}}" height="80" class="img-circle"/>     
+                        {{else}}       
+                            {{if speciality  }} 
+                                        <img src="{{url:site}}files/large/{{ doctor:speciality_img speciality={speciality} }}" height="80" class="img-circle"/>  
+                            {{else}}  
                             {{# default image #}}
                                 <img src="{{ url:site }}files/large/8b37a2a2cbf9537714125a8f8476e63a.jpg" height="80" class="img-circle"/>
-                            {{ endif }}
+                            {{endif}} 
+                        {{endif}} 
+                </a>
             </div>
             <div class="col-sm-4">
                 <h4>{{name}}

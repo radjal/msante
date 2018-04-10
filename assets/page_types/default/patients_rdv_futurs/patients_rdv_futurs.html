@@ -26,19 +26,18 @@
                         </div>
                         <div class="panel-body">    
                             <a href="{{url:site}}doctor/info/{{doc_id}}">
-                            <!-- img -->
-                                 {{ if filename }}
-                                        <img src="{{url:site}}files/large/{{filename}}" height="80" style="float:left;margin-right:20px;" class="img-circle" />
-                                    {{ elseif doc_speciality  }}  
-                                                <img src="{{ url:site }}files/large/{{ doctor:speciality_img speciality=doc_speciality  }}" 
-                                                     height="80" style="float:left;margin-right:20px;"
-                                                     class="img-circle" />
-
-                                    {{ else }} 
-                                    {{# default image #}}
-                                        <img src="{{ url:site }}files/large/8b37a2a2cbf9537714125a8f8476e63a.jpg" height="80" style="float:left;margin-right:20px;" class="img-circle" />
-                                    {{ endif }}
-                            <!-- img end  --> 
+                                    <!-- img -->
+                                         {{if filename}}
+                                                <img src="{{url:site}}files/large/{{filename}}" height="80" style="float:left;margin-right:20px;" class="img-circle" />
+                                            {{elseif doc_speciality}}  
+                                                        <img src="{{url:site}}files/large/{{doctor:speciality_img speciality=doc_speciality}}" 
+                                                             height="80" style="float:left;margin-right:20px;"
+                                                             class="img-circle" /> 
+                                            {{else}} 
+                                            {{# default image #}}
+                                                <img src="{{ url:site }}files/large/8b37a2a2cbf9537714125a8f8476e63a.jpg" height="80" style="float:left;margin-right:20px;" class="img-circle" />
+                                        {{endif}}
+                                    <!-- img end  --> 
                             </a>
                             <p>
                                 {{doc_name}} {{if doc_speciality}}&bullet; {{doc_speciality}}{{endif}}

@@ -2,7 +2,7 @@
 
 class Module_Calendar extends Module
 {
-    public $version = '0.1.01';
+    public $version = '0.1.10';
 
     public function info()
     {

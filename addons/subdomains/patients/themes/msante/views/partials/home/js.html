@@ -1,6 +1,214 @@
 {{# file is included in layout so LEX tags are available and js vars have global scope #}} 
 <!-- subdomain patients.js -->
-<script>
+<script> 
+/* params for search field input list */
+ var towns = [
+            "Boffa",
+            "Gaoual",
+            "Boffa-Centre",
+            "Colia",
+            "Douprou",
+            "Koba-Tatema",
+            "Lisso",
+            "Mankountan",
+            "Tamita",
+            "Tougnifili",
+            "Boké-Centre",
+            "Bintimodiya",
+            "Dabiss",
+            "Port Kamsar",
+            "Kanfarandé",
+            "Kolaboui",
+            "Malapouyah",
+            "Sangarédi",
+            "Sansalé",
+            "Tanéné",
+            "Fria",
+            "Gaoual centre",
+            "Koumbia",
+            "Kakoni",
+            "Touba",
+            "Foulamory",
+            "Wendou M'Bour",
+            "Kounsitel",
+            "Malanta",
+            "Koundara",
+            "Conakry-centre",
+            "Dixinn",
+            "Kaloum",
+            "Matam",
+            "Ratoma",
+            "Dabola-centre",
+            "Dogomet",
+            "Bissikrima",
+            "Banko",
+            "Konindou",
+            "Kankama",
+            "Arfamoussaya",
+            "Ndéma",
+            "Dinguiraye-Centre",
+            "Banora",
+            "Diatiféré",
+            "Gagnakali",
+            "Kalinko",
+            "Lansanya",
+            "Sélouma",
+            "Dialakoro",
+            "Faranah-centre",
+            "Kissidougou-Centre",
+            "Albadaria, Banama",
+            "Bardou, Beindou",
+            "Fermessadou-Pombo",
+            "Firawa",
+            "Gbangbadou",
+            "Kondiadou",
+            "Manfran",
+            "Sangardo",
+            "Yendé-Millimou",
+            "Yombiro",
+            "Kankan-centre",
+            "Kérouané",
+            "Kouroussa",
+            "Mandiana-Centre",
+            "Balandougouba",
+            "Dialakoro",
+            "Faralako",
+            "Kantoumania",
+            "Kiniéran",
+            "Koundian",
+            "Koundianakoro",
+            "Morodou",
+            "Niantania",
+            "Saladou",
+            "Sansando",
+            "Siguiri-Centre",
+            "Bankon",
+            "Doko",
+            "Franwalia",
+            "Kiniébakoura",
+            "Kintinian",
+            "Maléa",
+            "Naboun",
+            "Niagassola",
+            "Niandankoro",
+            "Norassoba",
+            "Siguirini",
+            "Coyah",
+            "Dubréka",
+            "Forécariah",
+            "Kindia",
+            "Télimélé",
+            "Koubia",
+            "Labé",
+            "Lélouma",
+            "Mali",
+            "Tougué",
+            "Dalaba",
+            "Mamou",
+            "Pita",
+            "Beyla",
+            "Gueckedou",
+            "Lola",
+            "Macenta",
+            "Nzérékoré",
+            "Yomou", 
+]; 
+var medicSpecialities = [ 
+"Acupuncteur",
+"Addictologue",
+"Aide-soignant",
+"Algologue",
+"Allergologue",
+"Ambulancier",
+"Anesthésiste-réanimateur",
+"Assistant-dentaire",
+"Audio-prothésiste",
+"Auxiliaire de puériculture",
+"Cancérologue",
+"Cardiologue",
+"Chirurgien",
+"Chirurgien dentiste",
+"Chirurgien gynécologue obstétricien",
+"Chirurgien maxillo-faciale",
+"Chirurgien ophtalmologiste",
+"Chirurgien ORL",
+"Chirurgien ORL et cervico-faciale",
+"Chirurgien orthopédique et traumatologique",
+"Chirurgien pédiatrique",
+"Chirurgien plastique, reconstructrice et esthétique",
+"Chirurgien thoracique et cardio-vasculaire",
+"Chirurgien urologique",
+"Chirurgien vasculaire",
+"Chirurgien viscéral et digestif",
+"Dentiste",
+"Dermatologue",
+"Diabétologue",
+"Diététicien",
+"Echographiste",
+"Endocrinologue",
+"Ergothérapeute",
+"Gastro-entérologue",
+"Gériatre",
+"Gynécologue ",
+"Hématologue",
+"Infirmier",
+"Infirmier Anesthésiste",
+"Infirmier de bloc opératoire",
+"Infirmier Puériculteur",
+"Kinésithérapeute",
+"Manipulateur en radiologie",
+"Médecin",
+"Médecin diététicien",
+"Médecin nutritionniste",
+"Médecin ostéopathe",
+"Médecin homéopathe",
+"Médecin naturopathe",
+"Médecin du sport",
+"Médecin du travail",
+"Médecin en santé publique et médecine préventive",
+"Médecin généraliste",
+"Médecin hygièniste",
+"Médecin légiste",
+"Médecin spécialiste des maladies infectieuses et tropicales",
+"Médecin spécialiste en néonatologie",
+"Médecin spécialiste en soins palliatifs",
+"Néphrologue",
+"Neurochirurgien",
+"Neurologue",
+"Neuropédiatre",
+"Neuropsychiatre",
+"Nutritioniste",
+"Odontologue",
+"Ophtalmologiste",
+"Opticien",
+"ORL",
+"Orthopédiste",
+"Orthophoniste",
+"Orthoprothésiste",
+"Orthoptiste",
+"Ostéopathe",
+"Pédiatre",
+"Pédicure/podologue",
+"Pharmacien",
+"Phlébologue",
+"Pneumologue",
+"Préparateur en pharmacie",
+"Proctologue",
+"Psychiatre",
+"Psychologue",
+"Psychomotricien",
+"Radiologue",
+"Radiothérapeute",
+"Réanimateur médical",
+"Rhumatologue",
+"Sage-Femme",
+"Secrétaire médicale",
+"Stomatologue",
+"Tabacologue",
+"Urgentiste",
+"Urologue"
+];
+          
 /* public vars */
 var doctors = []; 
 var mApi = { 
@@ -10,91 +218,7 @@ var mApi = {
 //    centLat:48.62,
 //    centLon:2.44, 
     zoom:10
-}; 
-/* doctor module functions */
-/** builds locations map of doctors
- *  gets data from HTML5 data attributes in doctor's list
- * @returns {undefined}
- */
-function doctorsMap() 
-{
-//    console.log('doctorsMap');
-//    console.log(doctors);
-    if(typeof doctors === 'undefined') return;
-
-
-    var map;
-
-    //var elevator;
-    var myOptions = {
-        zoom: mApi.zoom,
-        center: new google.maps.LatLng(mApi.centLat ,mApi.centLon )
-        /*,
-        mapTypeId: 'terrain'*/
-    };
-
-    map = new google.maps.Map($("#map_canvas")[0], myOptions); 
-
-    for (var x = 0; x < doctors.length; x++) 
-    {  
-//        var xadr;
-//        var xname; 
-        console.log('loop:'+x);
-        xadr = doctors[x].address;
-        xname = doctors[x].name;
-        /* geocode */
-        $.getJSON(mApi.geocodeUrl+xadr, null, function (data) 
-        { 
-            /* exit if has no values */
-            if(typeof(data) === 'undefined') return;
-//            console.log('data:'+data);
-            console.log('name:'+data.results[0].formatted_address);
-            var p = data.results[0].geometry.location;
-//            console.log('location:'+p);
-            var latlng = new google.maps.LatLng(p.lat, p.lng);
-            console.log('loop '+x+' lat long:'+latlng);
-            new google.maps.Marker({
-                position: latlng,
-                map: map,
-                title: xname
-            }); 
-        });
-    } 
-}
-/**
- *  gets Google API JS and runs doctorMap on complete
- * @returns {undefined}
- */
-function loadMap() 
-{
-    if($("#map_canvas").length == 0) $('#doctors-list').prepend('<div id="map_canvas"></div>');
-    /* correct height for small screens */
-//    if($( window ).height() < 400)
-//    {
-//        $('#map_canvas').css('heigth', 240);
-//    } 
-//    console.log('loadMap: '+mApi.mapsUrl + mApi.key);
-    //geocode first address for map center
-            /* geocode */
-            xadr = $('.doctor').attr('data-id');
-        $.getJSON(mApi.geocodeUrl+xadr, null, function (data) 
-        { 
-            /* exit if has no values */
-            if(typeof(data) === 'undefined') return;
-            console.log('data:'+data);
-            console.log('name:'+data.results[0].formatted_address);
-            var p = data.results[0].geometry.location;
-            console.log('location:'+p);
-            var latlng = new google.maps.LatLng(p.lat, p.lng);
-            console.log('loop '+x+' lat long:'+latlng); 
-        });
-
-    //
-    $.getScript(mApi.mapsUrl + mApi.key, doctorsMap);
-    $('#doctors-map-btn').hide();
-    $('#doctors-map-btn').after('<div id="map_canvas"></div>');
-    $('#map_canvas').html(pg_load);
-}
+};  
 /** based on function from
  * https://stackoverflow.com/questions/6797569/get-city-name-using-geolocation
  * answered Apr 29 '16 at 4:12 Mikhail
@@ -122,19 +246,7 @@ function geoError(err) {
     console.log(err);
     alert("positioning error");
 } 
-/********************************************************************************/  
- {{if false }}
-function myPosition(position) {
-    var infopos = "Position déterminée :\n";
-    infopos += "Latitude : "+position.coords.latitude +"\n";
-    infopos += "Longitude: "+position.coords.longitude+"\n";
-    infopos += "Altitude : "+position.coords.altitude +"\n";
-    return infopos;
-}
-{{endif}}
-{{# load doctor module JS #}}
-{{# doctor:js #}}
-
+/********************************************************************************/    
 /** empties search box
  * 
  * @returns {undefined}
@@ -145,178 +257,30 @@ function myPosition(position) {
      $('.searchbox-query').removeClass('has-success'); 
      $('#doctor-search input[name=c]').val('').removeClass('set');
      $('.titre-auto').hide();
-    /*UX*/
-
+    /*UX*/ 
+    $('.titre-auto').hide() ;
     $('#categories').show();
  }
  function cleanAreaSearch()
  {
      console.log('clean');
      $('.searchbox-area').removeClass('has-success'); 
-     $('#doctor-search input[name=s]').val('').removeClass('set');
-    /*UX*/ 
-//    $('.titre-auto').hide() ;
+     $('#doctor-search input[name=s]').val('').removeClass('set'); 
  } 
-
+/* end params */
 $( document ).ready(function() 
 {    
-        /*geo btn */
-        /* remove geo btn if no localisation */
-//        if(navigator.geolocation !== true) 
-//        {
-//            $('.searchbox-locate .input-group-addon a').addClass('disabled');
-//        } else {
-            $('.searchbox-locate a').removeClass('disabled'); 
-//        }  
+        /*geo btn */ 
+            $('.searchbox-locate a').removeClass('disabled');  
         /* UIX select all */
         $('.searchbox-query input, .searchbox-area input').on('focus', function(){ this.select(); });
         /* jquery autocomplete */
-        $( function() {
-          var towns = [
-                        "Boffa",
-                        "Gaoual",
-                        "Boffa-Centre",
-                        "Colia",
-                        "Douprou",
-                        "Koba-Tatema",
-                        "Lisso",
-                        "Mankountan",
-                        "Tamita",
-                        "Tougnifili",
-                        "Boké-Centre",
-                        "Bintimodiya",
-                        "Dabiss",
-                        "Port Kamsar",
-                        "Kanfarandé",
-                        "Kolaboui",
-                        "Malapouyah",
-                        "Sangarédi",
-                        "Sansalé",
-                        "Tanéné",
-                        "Fria",
-                        "Gaoual centre",
-                        "Koumbia",
-                        "Kakoni",
-                        "Touba",
-                        "Foulamory",
-                        "Wendou M'Bour",
-                        "Kounsitel",
-                        "Malanta",
-                        "Koundara",
-                        "Conakry-centre",
-                        "Dixinn",
-                        "Kaloum",
-                        "Matam",
-                        "Ratoma",
-                        "Dabola-centre",
-                        "Dogomet",
-                        "Bissikrima",
-                        "Banko",
-                        "Konindou",
-                        "Kankama",
-                        "Arfamoussaya",
-                        "Ndéma",
-                        "Dinguiraye-Centre",
-                        "Banora",
-                        "Diatiféré",
-                        "Gagnakali",
-                        "Kalinko",
-                        "Lansanya",
-                        "Sélouma",
-                        "Dialakoro",
-                        "Faranah-centre",
-                        "Kissidougou-Centre",
-                        "Albadaria, Banama",
-                        "Bardou, Beindou",
-                        "Fermessadou-Pombo",
-                        "Firawa",
-                        "Gbangbadou",
-                        "Kondiadou",
-                        "Manfran",
-                        "Sangardo",
-                        "Yendé-Millimou",
-                        "Yombiro",
-                        "Kankan-centre",
-                        "Kérouané",
-                        "Kouroussa",
-                        "Mandiana-Centre",
-                        "Balandougouba",
-                        "Dialakoro",
-                        "Faralako",
-                        "Kantoumania",
-                        "Kiniéran",
-                        "Koundian",
-                        "Koundianakoro",
-                        "Morodou",
-                        "Niantania",
-                        "Saladou",
-                        "Sansando",
-                        "Siguiri-Centre",
-                        "Bankon",
-                        "Doko",
-                        "Franwalia",
-                        "Kiniébakoura",
-                        "Kintinian",
-                        "Maléa",
-                        "Naboun",
-                        "Niagassola",
-                        "Niandankoro",
-                        "Norassoba",
-                        "Siguirini",
-                        "Coyah",
-                        "Dubréka",
-                        "Forécariah",
-                        "Kindia",
-                        "Télimélé",
-                        "Koubia",
-                        "Labé",
-                        "Lélouma",
-                        "Mali",
-                        "Tougué",
-                        "Dalaba",
-                        "Mamou",
-                        "Pita",
-                        "Beyla",
-                        "Gueckedou",
-                        "Lola",
-                        "Macenta",
-                        "Nzérékoré",
-                        "Yomou",
-                  ""
-          ];
-          var medicSpecialities = [
-                  "Dentiste",
-                  "Généraliste",
-                  "Chirurgien dentiste",
-                  "Médecin généraliste",
-                  "Pédiatre",
-                  "Gynécologue obstétrique ou médical",
-                  "Ophtalmologue",
-                  "Dermatologue",
-                  "Ostéopathe",
-                  "Kinésithérapeute",
-                  "Pédicure – Podologue",
-                  "Sage – femme",
-                  "ORL",
-                  "Allergologue",
-                  "Urologue",
-                  "Rhumatologue",
-                  "Endocrinologue",
-                  "Stomatologue",
-                  "Orthopédiste",
-                  "Diététicien",
-                  "Psychologue",
-                  "Neurologue",
-                  "Psychiatre",
-                  "Radiologue",
-                  "Cardiologue",
-                  "Gastro-entérologue et hépatologue"
-          ];
+        $( function() { 
           $( ".searchbox-query input" ).autocomplete({
             source: medicSpecialities 
           });
           $( ".searchbox-area input" ).autocomplete({
-            source: towns
+            source: towns 
           });
          
         } ); 
@@ -332,15 +296,8 @@ $( document ).ready(function()
             /*UX*/
             $('#categories').hide();
             $('.titre-auto').show().text('Choisir votre '+cat.toLowerCase());
-
-//            $('.titre-'+type).slideDown();
-            console.log(type);
-
-
-//            /* https://www.taniarascia.com/smooth-scroll-to-id-with-jquery/ */
-//            $('html, body').animate({
-//                    scrollTop: $('div.searchbox-query').offset().top
-//            }, 500, 'linear');
+ 
+            console.log(type); 
         });
     });
 

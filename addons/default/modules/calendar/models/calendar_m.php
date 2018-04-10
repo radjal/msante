@@ -94,14 +94,7 @@ class Calendar_m extends MY_Model {
 		$data['week_finish_day_iso'] = date('N', $end_date);
 		$data['week_finish_day_name'] = $days[$data['week_finish_day_no']];
 		$data['week_finish_month'] = $months[date('n', $end_date)];
-		$data['week_finish_month_no'] = date('n', $end_date); 
-                // first step/day for days of week
-//                $data['week_dates_iso'][1]['year'] = date('Y', $dtstamp) ;
-//                $data['week_dates_iso'][1]['month'] = date('m', $dtstamp) ;
-//                $data['week_dates_iso'][1]['day'] = date('j', $dtstamp); 
-//                $data['week_dates_iso'][1]['date'] = date('Y-m-d', $dtstamp) ;
-//                $data['week_dates_iso'][1]['dayname'] = $isodays[1] ;
-//                $data['week_dates_iso'][1]['dayshortname'] = $isodaysshort[1] ; 
+		$data['week_finish_month_no'] = date('n', $end_date);  
                 // LOOP calcluate dates for each subsequent day of week
                 for ($i = 1; $i <= 7; $i++) {
                     $data['week_dates_iso'][$i]['year'] = date('Y', $dtstamp) ;
@@ -111,11 +104,7 @@ class Calendar_m extends MY_Model {
                     $data['week_dates_iso'][$i]['datenumber'] = date('Ymd', $dtstamp) ;
                     $data['week_dates_iso'][$i]['dayname'] = $isodays[$i] ;
                     $data['week_dates_iso'][$i]['dayshortname'] = $isodaysshort[$i] ; 
-                    $dtstamp += 1*24*3600 ;// add a day
-//                    $data['week_dates_iso'][$i]['date'] = date('Y-m-d', $dtstamp ) ;
-//                    $data['week_dates_iso'][$i]['day'] = date('j', $dtstamp ) ; 
-//                    $data['week_dates_iso'][$i]['dayname'] = $isodays[$i] ;
-//                    $data['week_dates_iso'][$i]['dayshortname'] = $isodaysshort[$i] ;
+                    $dtstamp += 1*24*3600 ;// add a day 
                 }
                 
                 $data['isodays'] = $isodays;
@@ -248,6 +237,7 @@ class Calendar_m extends MY_Model {
 		return $content;
 	}
         
+        /* relics */
 	public function produits($day_cat_no = null, $week_cat_id = null, $type_id = null, $orderby='name', $orderdir='asc', $limit=10)
 	{
 //            $sql_cat_filter = 'GROUP BY default_products.id ';

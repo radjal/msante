@@ -13,17 +13,19 @@ echo  '';
           {{nom}}
         <div class="panel panel-body">
             <div class="col-sm-4 col-xs-4">  
+                <a href="{{url:site}}doctor/info/{{doc_id}}">
                     <!-- img -->
-			 {{ if img_path }}
-                                <img src="{{url:site}}files/large/{{img_path}}" height="80" style="float:left;margin-right:20px;"/>
-                            {{ elseif speciality  }}  
-                                        <img src="{{ url:site }}files/large/{{ doctor:speciality_img speciality=speciality  }}" height="80" style="float:left;margin-right:20px;"/>
+			 {{ if doctor:img_path }}
+                            <img src="{{url:site}}files/large/{{doctor:img_path}}" height="80" style="float:left;margin-right:20px;" class="img-circle"/>
+                            {{ elseif doctor:speciality  }}  
+                                        <img src="{{ url:site }}files/large/{{ doctor:speciality_img speciality=doctor:speciality  }}" height="80" style="float:left;margin-right:20px;" class="img-circle"/>
                          
                             {{ else }} 
                             {{# default image #}}
-                                <img src="{{ url:site }}files/large/8b37a2a2cbf9537714125a8f8476e63a.jpg" height="80" style="float:left;margin-right:20px;"/>
+                                <img src="{{ url:site }}files/large/8b37a2a2cbf9537714125a8f8476e63a.jpg" height="80" style="float:left;margin-right:20px;" class="img-circle"/>
                             {{ endif }}
-                    <!-- img end  --> 
+                    <!-- img end  -->  
+                </a>
             </div>
             <div class="col-sm-4">
                 <h4>{{doctor:name}}</h4>         

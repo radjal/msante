@@ -52,20 +52,20 @@
 
             <div class="weekcalendar "> 
                 <center class="h4 text-center ">
-                   Choisir votre date de RDV  
+                   Choisir votre date de RDV  <br/>
                      <i class="glyphicon glyphicon-calendar"></i> Semaine {{ cal_week:week }} 
                 </center>
                 <center class="h5">
-                    <a class="btn btn-default next-week" href="{{ url:site }}doctor/view/{{id}}/{{ cal_week:previous_week_no }}"> 
+                    <a class="loader btn btn-default next-week" href="{{ url:site }}doctor/view/{{id}}/{{ cal_week:previous_week_no }}"> 
                         <i class="glyphicon glyphicon-chevron-left"></i> Semaine précédente
                     </a>
-                    <a class="btn btn-default next-week" href="{{ url:site }}doctor/view/{{id}}/{{ cal_week:next_week_no }}"> 
+                    <a class="loader btn btn-default next-week" href="{{ url:site }}doctor/view/{{id}}/{{ cal_week:next_week_no }}"> 
                         Semaine suivante<i class="glyphicon glyphicon-chevron-right"></i>
                     </a>
                 </center>
                   
                 <div class="weekdays text-center ">
-                    <?php   $this->load->view('micro-calendar' ) ?> 
+                    <?php $this->load->view('micro-calendar' ) ?> 
                 </div>
             </div>
 

@@ -93,7 +93,7 @@ class Plugin_Custom_User extends Plugin
 	}
         
 
-	/** TO FINISH
+	/** NOT USED TO FINISH 
 	 * outputs html code for form entries, uses profile fields name as space separated string
 	 *
 	 * Usage:

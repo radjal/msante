@@ -1,28 +1,77 @@
-id	created	updated	created_by	ordering_count	speciality	parent_cat
-1	10/3/2018 01:54:40		1	1	Médecins généralistes	
-2	10/3/2018 01:54:47	14/3/2018 22:49:06	1	2	Sage femme	5
-3	10/3/2018 01:54:53		1	3	ORL	
-4	10/3/2018 01:54:59		1	4	Cardiologue	
-5	10/3/2018 01:55:05		1	5	Spécialistes femme	
-6	10/3/2018 01:55:12		1	6	Dentiste	
-7	10/3/2018 01:55:17		1	7	Radiologue	
-8	10/3/2018 01:55:22		1	8	Autres médecins	
-9	10/3/2018 01:55:27		1	9	Etablissements de santé	
-10	15/3/2018 00:11:43		1	10	Chirurgien dentiste	6
-11	15/3/2018 00:11:58		1	11	Pédiatre	8
-12	15/3/2018 00:12:15		1	12	Gynécologue obstétrique ou médical	
-13	15/3/2018 00:12:24		1	13	Ostéopathe	
-14	15/3/2018 00:12:34		1	14	Pédicure – Podologue	
-15	15/3/2018 00:31:48		1	15	Sage – femme	5
-16	15/3/2018 00:31:56		1	16	Allergologue	3
-17	15/3/2018 00:32:02		1	17	Urologue	
-18	15/3/2018 00:32:09		1	18	Rhumatologue	
-19	15/3/2018 00:32:15		1	19	Endocrinologue	
-20	15/3/2018 00:32:26		1	20	Stomatologue	
-21	15/3/2018 00:32:33		1	21	Orthopédiste	
-22	15/3/2018 00:32:40		1	22	Diététicien	
-23	15/3/2018 00:32:46		1	23	Psychologue	
-24	15/3/2018 00:33:02		1	24	Psychiatre	
-25	15/3/2018 00:33:19		1	25	Neurologue	
-26	15/3/2018 00:33:30		1	26	Gastro-entérologue et hépatologue	
-27	15/3/2018 02:53:55		1	27	Médecin du sport	
+59;8/4/2018 00:00:00;8/4/2018 00:00:00;;;Autres médécins;;;
+60;9/4/2018 00:00:00;9/4/2018 00:00:00;;;Cardiologue;;;
+61;10/4/2018 00:00:00;10/4/2018 00:00:00;;;Dentiste;;;
+62;11/4/2018 00:00:00;11/4/2018 00:00:00;;;Etablissement de santé;;;
+63;12/4/2018 00:00:00;12/4/2018 00:00:00;;;Laboratoires;;;
+64;13/4/2018 00:00:00;13/4/2018 00:00:00;;;Médecins généralistes;;;
+65;14/4/2018 00:00:00;14/4/2018 00:00:00;;;Ophtalmologue;;;
+66;15/4/2018 00:00:00;15/4/2018 00:00:00;;;ORL;;;
+67;16/4/2018 00:00:00;16/4/2018 00:00:00;;;Radiologue;;;
+68;17/4/2018 00:00:00;17/4/2018 00:00:00;;;Spécialistes femme;;;
+135;8/4/2018 00:00:00;8/4/2018 00:00:00;;;Addictologie;Problème d'alcool, Problème drogue, Problème tabac;;59
+136;8/4/2018 00:00:00;8/4/2018 00:00:00;;;Alcoologie;Problème d'alcool;;59
+137;8/4/2018 00:00:00;8/4/2018 00:00:00;;;Algologie;Douleurs;;59
+138;8/4/2018 00:00:00;8/4/2018 00:00:00;;;Allergologie;Allergies;;59
+139;8/4/2018 00:00:00;8/4/2018 00:00:00;;;Andrologie;Pénis;;59
+140;8/4/2018 00:00:00;8/4/2018 00:00:00;;;Anesthésiologie-réanimation;Anesthésiste - Réanimateur;;59
+141;8/4/2018 00:00:00;8/4/2018 00:00:00;;;Cancérologie/Oncologie;Cancer;;59
+142;8/4/2018 00:00:00;8/4/2018 00:00:00;;;Chirurgie orthopédique et traumatologique;Os, Pied, Jambes;;59
+143;8/4/2018 00:00:00;8/4/2018 00:00:00;;;Chirurgie pédiatrique;Enfants;;59
+144;8/4/2018 00:00:00;8/4/2018 00:00:00;;;Chirurgie plastique, reconstructrice et esthétique;Réparation de la peau;;59
+145;8/4/2018 00:00:00;8/4/2018 00:00:00;;;Chirurgie urologique;Urine;;59
+146;8/4/2018 00:00:00;8/4/2018 00:00:00;;;Chirurgie viscérale et digestive;Ventre;;59
+147;8/4/2018 00:00:00;8/4/2018 00:00:00;;;Dermatologie et vénéréologie;Peau, bouton, brulure;;59
+148;8/4/2018 00:00:00;8/4/2018 00:00:00;;;Endocrinologie et métabolisme/diabétologie;Diabète, croissance;;59
+149;8/4/2018 00:00:00;8/4/2018 00:00:00;;;Gastro-entérologie et hépatologie;ventre;;59
+150;8/4/2018 00:00:00;8/4/2018 00:00:00;;;Gériatrie;Personnes agées;;59
+151;8/4/2018 00:00:00;8/4/2018 00:00:00;;;Hématologie;Drépanocytose, sang;;59
+152;8/4/2018 00:00:00;8/4/2018 00:00:00;;;Maladies infectieuses et tropicales;Paludisme, ébola, fièvres,..;;59
+153;8/4/2018 00:00:00;8/4/2018 00:00:00;;;Médecine du sport;sport;;59
+154;8/4/2018 00:00:00;8/4/2018 00:00:00;;;Médecine du travail;Visite médicale;;59
+155;8/4/2018 00:00:00;8/4/2018 00:00:00;;;Médecine physique et de réadaptation;Os, jambe , pied;;59
+156;8/4/2018 00:00:00;8/4/2018 00:00:00;;;Néonatologie;Prématuré, bébé;;59
+157;8/4/2018 00:00:00;8/4/2018 00:00:00;;;Néphrologie;Reins;;59
+158;8/4/2018 00:00:00;8/4/2018 00:00:00;;;Neurochirurgie;Cerveau;;59
+159;8/4/2018 00:00:00;8/4/2018 00:00:00;;;Neurologie;Cerveau;;59
+160;8/4/2018 00:00:00;8/4/2018 00:00:00;;;Neuropédiatrie;Cerveau enfant;;59
+161;8/4/2018 00:00:00;8/4/2018 00:00:00;;;Neuropsychiatrie;Psychiatrie;;59
+162;8/4/2018 00:00:00;8/4/2018 00:00:00;;;Orthopédie;Os, jambe , pied;;59
+163;8/4/2018 00:00:00;8/4/2018 00:00:00;;;Pédiatrie;Enfants, bébé;;59
+164;8/4/2018 00:00:00;8/4/2018 00:00:00;;;Pneumologie;Poumons, respiration;;59
+165;8/4/2018 00:00:00;8/4/2018 00:00:00;;;Proctologie;Hémorrhoïdes;;59
+166;8/4/2018 00:00:00;8/4/2018 00:00:00;;;Psychiatrie;Psychiatrie;;59
+167;8/4/2018 00:00:00;8/4/2018 00:00:00;;;Rhumatologie;Os, articulation, dos,…;;59
+168;8/4/2018 00:00:00;8/4/2018 00:00:00;;;Santé publique et médecine préventive;Dispensaire, PMI;;59
+169;8/4/2018 00:00:00;8/4/2018 00:00:00;;;Soins palliatifs;Fin de vie;;59
+170;8/4/2018 00:00:00;8/4/2018 00:00:00;;;Tabacologie;Cigarette;;59
+171;8/4/2018 00:00:00;8/4/2018 00:00:00;;;Urologie;Urine;;59
+172;8/4/2018 00:00:00;8/4/2018 00:00:00;;;Angiologie;Cœur, Cardiologue;;60
+173;8/4/2018 00:00:00;8/4/2018 00:00:00;;;Cardiologie;Cœur, Cardiologue;;60
+174;8/4/2018 00:00:00;8/4/2018 00:00:00;;;Chirurgie thoracique et cardio-vasculaire;Cœur;;60
+175;8/4/2018 00:00:00;8/4/2018 00:00:00;;;Chirurgie vasculaire;Cœur;;60
+176;8/4/2018 00:00:00;8/4/2018 00:00:00;;;Coronarographie;Cœur;;60
+177;8/4/2018 00:00:00;8/4/2018 00:00:00;;;Phlébologie;Veine;;60
+178;8/4/2018 00:00:00;8/4/2018 00:00:00;;;Chirurgie dentaire;Dents;;61
+179;8/4/2018 00:00:00;8/4/2018 00:00:00;;;Dentisterie;Dents;;61
+180;8/4/2018 00:00:00;8/4/2018 00:00:00;;;Odontologie;Dents;;61
+181;8/4/2018 00:00:00;8/4/2018 00:00:00;;;Stomatologie;Bouche, dents, machoire;;61
+182;8/4/2018 00:00:00;8/4/2018 00:00:00;;;Explorations fonctionnelles;Respiration;;62
+183;8/4/2018 00:00:00;8/4/2018 00:00:00;;;Hygiène hospitalière;0;;62
+184;8/4/2018 00:00:00;8/4/2018 00:00:00;;;Médecine légale;Décès;;62
+185;8/4/2018 00:00:00;8/4/2018 00:00:00;;;Réanimation médicale;0;;62
+186;8/4/2018 00:00:00;8/4/2018 00:00:00;;;Urgences;0;;62
+187;8/4/2018 00:00:00;8/4/2018 00:00:00;;;Anatomie et cytologie pathologiques;Laboratoire d'analyse, Analyse;;63
+188;8/4/2018 00:00:00;8/4/2018 00:00:00;;;Biochimie;Laboratoire d'analyse, Analyse;;63
+189;8/4/2018 00:00:00;8/4/2018 00:00:00;;;Biologie médicale et physiologie;Laboratoire d'analyse, Analyse;;63
+190;8/4/2018 00:00:00;8/4/2018 00:00:00;;;Génétique;Laboratoires;;63
+191;8/4/2018 00:00:00;8/4/2018 00:00:00;;;Généraliste;Médecin généraliste;;64
+192;8/4/2018 00:00:00;8/4/2018 00:00:00;;;Chirurgie ophtalmologique;Oeil;;65
+193;8/4/2018 00:00:00;8/4/2018 00:00:00;;;Ophtalmologie;Oeil;;65
+194;8/4/2018 00:00:00;8/4/2018 00:00:00;;;Chirurgie ORL cervico-faciale;Oreille, Nez, Gorge, Os;;66
+195;8/4/2018 00:00:00;8/4/2018 00:00:00;;;ORL;Nez, gorge, oreille;;66
+196;8/4/2018 00:00:00;8/4/2018 00:00:00;;;Echographie;Radio;;67
+197;8/4/2018 00:00:00;8/4/2018 00:00:00;;;Médecine nucléaire;Radio;;67
+198;8/4/2018 00:00:00;8/4/2018 00:00:00;;;Radiodiagnostic et imagerie médicale;Radio;;67
+199;8/4/2018 00:00:00;8/4/2018 00:00:00;;;Radiothérapie;Radio;;67
+200;8/4/2018 00:00:00;8/4/2018 00:00:00;;;Chirurgie gynécologie obstétrique;Gynéco;;68
+201;8/4/2018 17:08:09;;1;1;test cat parent;;dummy;

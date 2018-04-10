@@ -1,40 +1,24 @@
 <!-- subdomain patients --> 
-<!-- 
-<div class="text-center">
-    <a class="btn btn-primary" href="{{url:site}}rendez-vous/">Afficher les RDV</a> 
-</div>--> 
-<!--
-<ul class="list-group">
-        <li class="list-group-item active"><a href="{{url:site}}rendez-vous/rdv-a-venir">RDV à venir</a></li>
-        <li class="list-group-item"><a href="{{url:site}}rendez-vous/mes-rdv-a-venir">Mes RDV à venir</a></li>
-        <li class="list-group-item"><a href="{{url:site}}rendez-vous/rdv-a-venir-de-mes-proches">RDV à venir de mes proches</a></li>
-</ul>
-<ul class="list-group">
-        <li class="list-group-item active"><a href="{{url:site}}rendez-vous/rdv-passes">RDV passés</a></li>
-        <li class="list-group-item"><a href="{{url:site}}rendez-vous/mes-rdv-passes">Mes RDV passés</a></li>
-        <li class="list-group-item"><a href="{{url:site}}rendez-vous/rdv-passes-de-mes-proches">RDV passés de mes proches</a></li>
-</ul>
- -->
- 
 <?php
 echo '';
 //print_r($appointments);
 ?> 
 <div class="panel panel-default panel-success">
 		<div class="panel-heading"> 
-			<h4>
-				Votre RDV du
-				 {{appointment:formatted_date}} 
-				à  {{appointment:formatted_time}} 
+			<center>
+                            Votre RDV du 
+                            <h4>{{formatted_date}}
+				à  {{formatted_time}}  
+                            </h4>
                                 {{if for_user == "no" }}
                                     pour {{first_name}} {{last_name}}  
                                 {{endif}}  
-                                avec {{doctor:name}} 
-			</h4>
+                                avec {{doctor:name}}  
+                                <h4>est confirmé</h4>
+			</center>
                     
                          <!--
-			 [{{appointment_time}}   - 
-			 doc {{doctor_id}} user {{user_id}}]
+			 [ appointment_time: {{appointment_time}}   -  doctor_id: {{doctor_id}} user_id: {{user_id}} ]
                           -->
 		</div>
 		<div class="panel-body">    
@@ -69,7 +53,7 @@ echo '';
                     <div class="clearfix"></div>
                     
                     <center class=""> 
-                            <a class="loader btn btn-danger " href="{{url:site}}appointments/delete/{{doc_id}}">Annuler ce RDV</a>			 
+                            <a class="loader btn btn-danger " href="{{url:site}}appointments/delete/{{id}}">Annuler ce RDV</a>			 
                     </center> 		 
 		</div>
 </div> 

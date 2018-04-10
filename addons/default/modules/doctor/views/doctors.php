@@ -31,11 +31,13 @@
             {{endif}}
         </div>
         {{if !doc_count }}
-                <p class="alert alert-danger">Aucun résultat, veuiller changer de requete</p>
+                <p class="alert alert-danger">
+                    Aucun médecin trouvé... 
+                </p>
                 {{ doctor:search_box }} 
         {{else}} 
                 <p class="alert alert-success"><i class="close">×</i>
-                    {{if doc_count == "1"}}{{doc_count}} enregistrement trouvé{{elseif doc_count >"1"}}{{doc_count}} enregistrements trouvés{{endif}}
+                    {{if doc_count == "1"}}{{doc_count}} médecin trouvé{{elseif doc_count >"1"}}{{doc_count}} médecins trouvés{{endif}}
                 </p>
         {{endif}} 
         {{ if doctors.entries }}
@@ -102,10 +104,7 @@
                             <div class="col-sm-4 col-xs-4 hidden-xs "><?php echo $doc['description'] ?></div>  
                     </div>
                 <span class="clearfix"></span>
-                    <div class="weekcalendar">
-    <!--                            <p>
-                            <strong>Prochaine disponibilités</strong> pour la semaine <?= $cal_week['week']; ?>  
-                        </p>   -->
+                    <div class="weekcalendar"> 
                         
                         <div class="weekdays-nano center-block">
                             <?php $this->load->view('nano-calendar', $doc) ?> 

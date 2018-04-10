@@ -178,20 +178,21 @@ class Plugin_Doctor extends Plugin
                                     ->get('doctor_doctors')
                                     ->result_array(); 
 
-                return $data;
+                return isset($data[0]) ? $data[0] : null;
 	}
                  
         /**
 	 * returns category image of speciality in case of no doctor image
          * 
-	 * {{ doctor:speciality_image speciality="dentiste" }} 
+	 * {{ doctor:speciality_img speciality="dentiste" }} 
 	 *
 	 * @return	str image filename
 	 */
 	function speciality_img()
 	{   
+                $this->load->model('doctor_m'); 
                 $speciality = $this->attribute('speciality');
-                return $this->doctor_m->speciality_img($speciality);
+                return $this->doctor_m->speciality_img($speciality) ; 
 	}
  
 }

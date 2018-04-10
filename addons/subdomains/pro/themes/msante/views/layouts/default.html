@@ -1,33 +1,44 @@
-<!doctype html>{{# PATIENTS sub domain #}}
+<!doctype html>{{# PRO sub domain #}}
 <html>
   <head>
-        {{ theme:partial name="patients-meta" }}
-        <script> 
-            var pg_load = '<img src="assets/img/loading.gif" />'; 
-        </script> 
+        {{ theme:partial name="pro-meta" }}
+        {{if custom:subdomain_value and page:is_home }} 
+        <!-- no segment subdomain pro.layout --> 
+            <!-- home/css -->
+            {{ theme:partial name="home/css" }} 
+            <!-- home/js -->
+            {{ theme:partial name="home/js" }}  
+        {{endif}}
   </head> 
   {{#
   // note that to avoid logging the message << Plugin method "options" does not exist on class "Plugin_Theme". >>
   // you have te reindex the theme in admin 
   // this is a subdomain theme so theme settings are global root domain theme settings 
   #}}
-    <body {{ if theme:options:disable_right_click == 'yes' }} oncontextmenu="return false;"{{endif}}>
-    <header>
-            {{ theme:partial name="patients-header" }}  
-    </header>	 
-        <h1 class="text-center red">{{if custom:subdomain_value}} SUBDOMAIN {{custom:subdomain_value}} {{endif}}</h1>
-    <div id="container" class="container"> 
-        <div class="content">  
-                {{ session:messages success="main alert alert-success alert-dismissable" notice="main alert alert-warning alert-dismissable" error="main alert alert-danger alert-dismissable" }}
-
-                {{ theme:partial name="patients-breadcrumbs"}} 
-                    {{ template:body }} 
-        </div> 
-    </div>   
+<body {{ if theme:options:disable_right_click == 'yes' }} oncontextmenu="return false;"{{endif}}>
+<header>
+        {{ theme:partial name="pro-header" }}  
+</header>	 
+    <h1 class="hidden">{{if custom:subdomain_value}} SUBDOMAIN {{custom:subdomain_value}} {{endif}}</h1>
+<div id="container" class="container"> 
+    <div class="content">  
+            {{ session:messages success="main alert alert-success alert-dismissable" notice="main alert alert-warning alert-dismissable" error="main alert alert-danger alert-dismissable" }}
+            {{if custom:subdomain_value and page:is_home }} 
+                <!-- no segment subdomain pro.layout -->  
+                        <!-- home/body --> 
+                        {{# theme:partial name="home/body" #}}   
+                        {{ url:redirect to="accueil-pro" }}
+            {{else}}
+                <!-- has segment subdomain pro.layout --> 
+            {{endif}}
+            {{ theme:partial name="pro-breadcrumbs"}}  
+            {{ template:body }} 
+    </div> 
+</div>   
 
 
 <footer id="footer"> 
-		{{ theme:partial name="patients-footer" }}  
+		{{ theme:partial name="pro-footer" }}  
 </footer>
 	  
 
@@ -37,12 +48,12 @@
 <?php endif; ?>	
 
 <!-- Scripts -->
-{{ theme:partial name="patients-script" }}
+{{ theme:partial name="pro-script" }}
  
-{{ asset:js file="theme::js.cookie.js"  group="patients-extras" }}
-{{ asset:render group="patients-extras" }}
+{{ asset:js file="theme::js.cookie.js"  group="pro-extras" }}
+{{ asset:render group="pro-extras" }}
  
-{{ theme:partial name="patients-adminbox" }}
+{{ theme:partial name="pro-adminbox" }}
         
 </body>
 </html> 

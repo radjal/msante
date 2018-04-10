@@ -14,7 +14,7 @@ i.glyphicon.glyphicon-info-sign {
     color: #c1c1c1;
 }
 /****************************************************************
-* fonts 
+* fonts and text
 *****************************************************************/
 h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 }
@@ -36,6 +36,27 @@ h1, h2, h3 {
 body {background-attachment: fixed !important;}
 body > #container {margin-top: 40px;}
 p {
+}
+
+/****************************************************************
+* resets
+*****************************************************************/ 
+.checkbox input[type="checkbox"], .checkbox-inline input[type="checkbox"] {
+    width: initial;
+    top: 0;
+    margin-top: 0;
+    border: none;
+    box-shadow: none;
+}
+.controls .checkbox, .controls .radio {
+    display: inline-flex;
+    margin-right: 28px;
+}
+/****************************************************************
+* form 
+*****************************************************************/
+.control-label span, .form-group label span {
+    color: red;
 }
 /****************************************************************
 * cookie eula

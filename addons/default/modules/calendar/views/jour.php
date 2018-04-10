@@ -16,8 +16,16 @@ $show_pm_attr =   !$show_am && $show_pm ? 'block' : 'none' ;
     {{jour}} {{journo}} {{mois_nom}}  {{data:year}}
     {{# helper:date format="m Y" timestamp=jourdate #}} 
     <!--  {{ jour }} {{journo}}  {{jourdate}} {{data:month_name}} {{data:year}}--> 
+    <p id="appt-time" style="display:none">  
+            à
+            <i class="glyphicon glyphicon-time"></i>
+            <span>{{appointment_time}}</span> 
+        <a onclick="$('#container-appt, #weekday-wrapper, #appt-time').slideToggle()"><i class="glyphicon glyphicon-edit"></i></a> 
+    </p>
 </center>
-{{if datenumero <= data:today_number }}
+
+
+{{if datenumero < data:today_number }}
 <h3 class="alert alert-danger text-center">
     Cette date est passée
 </h3>

@@ -67,6 +67,64 @@ class Plugin_Appointments extends Plugin
 	}
                 
         /**
+	 * get appointments for current doctor uses doctor_id from user profile
+	 * Usage:
+	 * 
+	 * {{ appointments:my_pro_appointments futur_past="past|futur" for_user="yes|no|..." for_name="mark..." }}
+	 *   {{appointment_date}} à {{appointment_time}}  
+         *   {{gender}}  
+         *   {{first_name}}    {{last_name}}  
+	 * {{ /appointments:my_pro_appointments }}
+	 *
+	 * @return	array
+	 */
+        function my_pro_appointments()
+	{ 
+                $user = $this->current_user;
+                if(!isset($user)) return false;
+                $doctor_id = $user->doctor_id; 
+                $futur_past = !empty($this->attribute('futur_past')) ? $this->attribute('futur_past') : 'futur';
+                $for_name = !empty($this->attribute('for_name')) ? $this->attribute('for_name') : null;    
+                $for_user = !empty($this->attribute('for_user')) ? $this->attribute('for_user') : null; //DB field name
+                // query setting 
+                if(!empty($for_user)) $this->db->where('appointments_list.for_user', $for_user);  
+                if(isset($for_name)) $this->db->like('CONCAT(first_name,\' \' , last_name,\' \' ,  maiden_name)', $for_name);   
+                if(stristr($futur_past,"futur")) $this->db->where('appointments_list.appointment_date >=', date('Ymd', time()));  
+                if(stristr($futur_past,"past")) $this->db->where('appointments_list.appointment_date <=', date('Ymd', time()));    
+                $this->db->order_by('appointments_list.appointment_date', 'ASC');   
+                //get results
+                $appointments = $this->db  
+                            ->select('appointments_list.*')
+                            ->select('doctor_doctors.id AS doc_id, doctor_doctors.name AS doc_name, doctor_doctors.image AS doc_img, doctor_doctors.address AS doc_adr, doctor_doctors.town AS doc_town, doctor_doctors.area_name AS doc_area')
+                            ->select('doctor_categories.speciality AS doc_speciality, ')
+                            ->select('doctor_organisations.organisation AS doc_org, doctor_organisations.subset AS doc_org_subset') 
+                            ->select('files.filename AS filename') 
+                            ->join('doctor_doctors', 'appointments_list.doctor_id = doctor_doctors.id')
+                            ->join('doctor_categories', 'doctor_doctors.doctor_cat = doctor_categories.id', 'left')
+                            ->join('doctor_organisations', 'doctor_doctors.groupe = doctor_organisations.id', 'left') 
+                            ->join('files', 'files.id = doctor_doctors.image', 'left') 
+                            ->where("appointments_list.doctor_id",$doctor_id )
+                            ->where("appointments_list.appointment_status",'' )  
+                            ->get('appointments_list')
+                            ->result_array();
+                //add date strings 
+                $l = count($appointments);
+                for ($c = 0; $c < $l; $c++ ) 
+                {
+                    $appointments[$c]['date_day_str'] = $this->appointments_m->datestr_to_day($appointments[$c]['appointment_date'], 'long');
+                    $appointments[$c]['date_month_str'] = $this->appointments_m->datestr_to_month($appointments[$c]['appointment_date']);   
+                    //@todo remove references to above, use same names as in controller instead
+                    //-***************************************  
+                    $appointments[$c]['time_formatted'] = $this->appointments_m->timestr_format(str_pad($appointments[$c]['appointment_time'], 4, '0', STR_PAD_LEFT));   
+                    $appointments[$c]['date_formatted'] = $this->appointments_m->datestr_to_day($appointments[$c]['appointment_date']);   
+                    $appointments[$c]['month'] = $this->appointments_m->datestr_to_day($appointments[$c]['appointment_date']);   
+                    $appointments[$c]['short_dayname'] = $appointments[$c]['appointment_date'];    
+                    
+                } 
+             return $appointments; 
+	}
+                
+        /**
 	 * get appointments for current user id
 	 * Usage:
 	 * 

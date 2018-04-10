@@ -48,10 +48,7 @@ echo '';
                                         <?= $this->html_m->table_header('for_user') ?>
                                         <?= $this->html_m->table_header('first_name') ?>
                                         <?= $this->html_m->table_header('last_name') ?>
-                                        <?= $this->html_m->table_header('name') ?>
-                                        <?php
-echo '';                                        
-//$this->html_m->table_header('maiden_name') ?> 
+                                        <?= $this->html_m->table_header('name') ?> 
 				</tr>
 				<!-- Here we loop through the $items array -->
 				{{ appointments }}

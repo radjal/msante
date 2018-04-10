@@ -1,0 +1,42 @@
+<nav class="patients navbar-fixed-top" role="navigation" id="top-nav"> 
+	<div class="container"> 
+            <div class="row btn-lg">
+                <div id="back-btn" > 
+                    <a class="loader load-replace btn btn-link" onclick="navigateBack()" style="<?= empty($this->agent->referrer()) || empty($this->uri->segment(1)) ? 'display:none' : '' ?>">
+                            <i class="glyphicon glyphicon-arrow-left"></i>
+                    </a>  
+                </div>
+                {{if false}}
+                {{endif}}
+                <div class="col-xs-9" >  
+                        <div class="text-center" >
+                            <a href="{{site:url}}" class="loader load-replace"><img class="logo" src="{{url:site}}addons/default/themes/msante/img/logo160px.png" alt="Accueil"/></a> 
+                        </div>
+                </div>
+                <div class="col-xs-3" > 
+                {{ if user:logged_in }}              
+                        <ul class="nav navbar-nav ">                   
+                                <li class="dropdown ">
+                                  <a class="btn btn-default dropdown-toggle" data-toggle="dropdown"> 
+                                        {{ if user:logged_in }} <div class="display-name">{{# user:username #}} {{ user:display_name }}</div>{{ endif }} <i class="glyphicon glyphicon-user"></i>
+                                  <span class="caret"></span></a>
+                                  <ul class="dropdown-menu">
+                                    <li><a href="{{url:site}}rendez-vous">Mes rendez vous</a></li>
+                                    <li><a href="{{url:site}}users/edit">Mes informations personnelles</a></li>
+                                    <li><a href="{{url:site}}users/logout" class="btn btn-danger">Déconnexion</a></li>
+                                  </ul>
+                                </li>  
+                        </ul>      
+                {{ else }}
+                        {{# connect #}}
+                        {{if url:uri_string != "users/login"}}
+                        <ul class="nav navbar-nav ">
+                            <li><a href="{{url:site}}users/login" class="btn btn-default ">Connexion</a></li>  
+
+                        </ul>     
+                        {{endif}}
+                {{ endif }}     
+                </div> 
+            </div> 
+	</div>
+</nav> 

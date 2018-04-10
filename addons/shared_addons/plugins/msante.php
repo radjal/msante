@@ -10,7 +10,8 @@
  */
 class Plugin_Msante extends Plugin
 {
-	public $version = '1.0.0';
+	public $version = '1.0.10';
+	public $doctor_id = 0; //user to doctor link
 
 	public $name = array(
 		'en'	=> 'Msante plugin'
@@ -51,28 +52,77 @@ class Plugin_Msante extends Plugin
 		);
 	
 		return $info;
-	}
-
-	/**
-	 * Hello
-	 *
+	}  
+        
+	/**  
+         * return true if profile field settings_pro has value
+	 *  
 	 * Usage:
-	 * {{ example:hello }}
+	 * {{ msante:pro_has_setting name="setting_name" }}
 	 *
 	 * @return string
 	 */
-	function hello()
+	function pro_has_setting()
 	{
-		$name = $this->attribute('name', 'World');
-		
-		return 'Hello '.$name.'!';
-	} 
-
+		$name = strtolower($this->attribute('name')); 
+                $this->load->model('users/profile_m');  
+                $profile = $this->profile_m->get_profile(); 
+                $settings = $profile->settings_pro;
+                return strstr($settings, $name) ? TRUE : FALSE ;
+        } 
+        
+	/**  
+         * return true if profile field settings_pro is empty
+	 *  
+	 * Usage:
+	 * {{ msante:pro_has_no_setting }}
+	 *
+	 * @return string
+	 */
+	function pro_has_no_setting()
+	{ 
+                $this->load->model('users/profile_m');  
+                $profile = $this->profile_m->get_profile();  
+                return empty($profile->settings_pro) ? TRUE : FALSE ;
+        } 
+        
+	/**  
+         * return true if profile field doctor_id is empty
+	 *  
+	 * Usage:
+	 * {{ msante:user_has_no_doctor_id }}
+	 *
+	 * @return string
+	 */
+	function pro_has_no_doctor_id()
+	{ 
+            if(empty($doctor_id)) $doctor_id = $this->pro_doctor_id (); 
+                return empty($doctor_id) || $doctor_id <=0  ? true : false; 
+        } 
+        
+	/**  
+         * return  doctor_id from profile field or false
+	 *  
+	 * Usage:
+	 * {{ msante:pro_doctor_id }}
+	 *
+	 * @return string
+	 */
+	function pro_doctor_id()
+	{ 
+                $this->load->model('users/profile_m');  
+                $profile = $this->profile_m->get_profile();  
+                
+                return isset($profile->doctor_id) && $profile->doctor_id>=0 ? $profile->doctor_id : false;
+//                return empty($profile->doctor_id) or $profile->doctor_id <=0 ? 'false' : $profile->doctor_id;
+        } 
+                    
+        
 	/**
-	 * Doctor Categories image tag
+	 * Doctor Categories image tag returns img filename according to cat name
 	 *
 	 * Usage:
-	 * {{ msante:doc_cat_img cat="category_name" }}
+	 * {{ msante:doc_cat_img cat="category name" }}
 	 *
 	 * @return string
 	 */

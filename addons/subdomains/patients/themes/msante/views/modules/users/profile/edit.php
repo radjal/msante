@@ -1,9 +1,15 @@
+<!-- patients subdomain --> 
 <div class="simple-header">
         <h3>
-<?php echo ($this->current_user->id !== $_user->id) ?
-                                sprintf(lang('user_edit_title'), $_user->display_name) :
-                                lang('profile_edit') ?>
+            Mettre à jour votre profil
+{{# user:display_name #}}
         </h3>
+                                                <!-- DEBUG
+                                                
+                                                -->
+                                                pro_doctor_id:{{ msante:pro_doctor_id }}
+                                                pro_has_no_doctor_id:{{msante:pro_has_no_doctor_id}}
+                                                pro_has_no_setting:{{msante:pro_has_no_setting}}
 </div>  
 <section id="login">
     <div class="row-fluid">
@@ -22,8 +28,7 @@
                             <ul class="nav nav-tabs">
                                     <li class="active"><a href="#A" data-toggle="tab"><?php echo lang('user:details_section') ?></a></li>
                                     <li><a href="#B" data-toggle="tab"><?php echo lang('global:email') ?></a></li> 
-                                    <li><a href="#C" data-toggle="tab">Adresse</a></li> 
-                                    <li><a href="#D" data-toggle="tab">Coordonnées</a></li> 
+                                    <li><a href="#C" data-toggle="tab">Coordonnées</a></li>  
                             </ul>
                             <div class="tabbable">
                                     <div class="tab-content">
@@ -101,9 +106,8 @@
                                                                     </div>
                                                                 </div>		
                                                             <?php endif; ?>
-                                                    <?php endforeach; ?>  
-                                            </div>  
-                                            <div class="tab-pane" id="D">   
+                                                    <?php endforeach; ?>   
+                                                    <?php //************************************/ ?>   
                                                     <?php  
                                                             // space separated field_slugs to display
                                                             $print = explode(' ', 'mobile phone insurance'); 

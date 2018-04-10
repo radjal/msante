@@ -2,7 +2,7 @@
 
 class Module_Doctor extends Module
 {
-    public $version = '0.1.24';
+    public $version = '0.1.25';
 
     public function info()
     {
@@ -152,7 +152,7 @@ class Module_Doctor extends Module
                             'slug' => 'week_settings',
                             'namespace' => 'doctor',
                             'type' => 'text',
-                            'extra' => array('max_length' => 10),// encapsed object of settings for each day of the week, use JSON or PHP 
+//                            'extra' => array('max_length' => 10),// encapsed object of settings for each day of the week, use JSON or PHP 
                             'assign' => 'doctors',
                             'required' => false 
                         ),
@@ -160,8 +160,8 @@ class Module_Doctor extends Module
                             'name' => 'Début de vacance',
                             'slug' => 'vacation_start',
                             'namespace' => 'doctor',
-                            'type' => 'text',
-                            'extra' => array('max_length' => 10),// yyyymmdd
+                            'type' => 'date',
+                            'extra' => array('max_length' => 10),// yyyy-mm-dd
                             'assign' => 'doctors',
                             'required' => false 
                         ),
@@ -169,8 +169,8 @@ class Module_Doctor extends Module
                             'name' => 'Fin de vacance',
                             'slug' => 'vacation_end',
                             'namespace' => 'doctor',
-                            'type' => 'text',
-                            'extra' => array('max_length' => 10),// yyyymmdd
+                            'type' => 'date',
+                            'extra' => array('max_length' => 10),// yyyy-mm-dd
                             'assign' => 'doctors',
                             'required' => false 
                         ), 
@@ -352,7 +352,7 @@ class Module_Doctor extends Module
                             'namespace' => 'doctor',
                             'type' => 'text',
                             'assign' => 'doctors',
-                            'extra' => array('max_length' => 3), 
+//                            'extra' => array('max_length' => 3), 
                             'required' => false
                         ),
                         array(
@@ -361,7 +361,16 @@ class Module_Doctor extends Module
                             'namespace' => 'doctor',
                             'type' => 'text',
                             'assign' => 'doctors',
-                            'extra' => array('max_length' => 3),
+//                            'extra' => array('max_length' => 3),
+                            'required' => false
+                        ),
+                        array(
+                            'name' => 'Réglages semaine',
+                            'slug' => 'settings',
+                            'namespace' => 'doctor',
+                            'type' => 'text',
+                            'assign' => 'doctors',
+//                            'extra' => array('max_length' => 3),
                             'required' => false
                         ),
                         array(
@@ -373,7 +382,7 @@ class Module_Doctor extends Module
                             'assign' => 'doctors', 
                             'required' => false
                         ),
-                        //category link
+                        //category relationship
                         array(
                             'name' => 'Catégorie',
                             'slug' => 'doctor_cat',
@@ -394,15 +403,6 @@ class Module_Doctor extends Module
                             'unique' => true
                         ),
                         array(
-                            'name' => 'Image catégorie',
-                            'slug' => 'doc_cat_image',
-                            'namespace' => 'doctor',
-                            'type' => 'image',
-                             'extra' => array('folder' => $imgfolder['data']['id'], 'required' => FALSE), // use id of folder created with core files modules
-                            'assign' => 'categories', 
-                            'required' => false
-                        ), 
-                        array(
                             'name' => 'Catégorie parente',
                             'slug' => 'parent_cat',
                             'namespace' => 'doctor',
@@ -411,7 +411,26 @@ class Module_Doctor extends Module
                             'extra' => array('choose_stream' => $categories_stream_id),
                             'required' => false
                         ),
-                        //organisation link
+                        array(
+                            'name' => 'Mots clés',
+                            'slug' => 'keywords',
+                            'namespace' => 'doctor',
+                            'type' => 'text',
+                            'assign' => 'categories',
+                            'title_column' => true,
+                            'required' => false,
+                            'unique' => false
+                        ),
+                        array(
+                            'name' => 'Image catégorie',
+                            'slug' => 'doc_cat_image',
+                            'namespace' => 'doctor',
+                            'type' => 'image',
+                             'extra' => array('folder' => $imgfolder['data']['id'], 'required' => FALSE), // use id of folder created with core files modules
+                            'assign' => 'categories', 
+                            'required' => false
+                        ), 
+                        //organisation relationship
                         array(
                             'name' => 'Organisme ou groupe',
                             'slug' => 'groupe',

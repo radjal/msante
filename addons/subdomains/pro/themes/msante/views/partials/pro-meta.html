@@ -1,0 +1,63 @@
+{{# subdomain #}} 
+<title><?= $_SERVER["HTTP_HOST"] ?> &bullet; {{ template:title }} </title>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<base href="{{ url:base }}"/>
+
+
+<link rel="manifest" href="{{url:site}}addons/default/themes/msante/patients.manifest.json?v=1">
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"> 
+<link rel="icon" type="image/png" sizes="32x32" href="{{url:site}}addons/default/themes/msante/img/favicons/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="{{url:site}}addons/default/themes/msante/img/favicons/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#ffffff">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="theme-color" content="#ffffff">
+
+<!-- Use Html5Shiv in order to allow IE render HTML5 -->
+<!--[if IE]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
+ 
+{{# CSS #}}
+{{# for theme #}}
+{{ asset:css file="bootstrap.css" group="pro-meta" }}
+{{ asset:css file="bootstrap-theme.css"  group="pro-meta" }}
+{{ asset:css file="pyro_bootswatch.css"  group="pro-meta" }} 
+
+{{# EXTRAS #}}
+{{# asset:css file="_lightbox.css"  group="pro-meta" #}}
+{{# asset:css file="_radio-btns_2.css"  group="pro-meta" #}} 
+
+{{# UX #}}
+{{# asset:css file="jqui/jquery-ui-timepicker-addon.css"  group="pro-meta" #}} 
+
+{{# CSS OVERLOAD option in theme config #}}
+{{if theme:options:custom_css == 'yes' }}
+    {{ asset:css file="_integration.css"  group="pro-meta" }}
+    {{ asset:css file="_colors.css"  group="pro-meta" }}
+    {{  asset:css file="_pro-subdomain.css"  group="pro-meta" }}
+{{endif}} 
+
+{{# JS #}}
+{{ asset:js file="jquery-1.9.1.js" group="pro-meta" }}
+{{ asset:js file="jqui/jquery-ui.js"  group="pro-meta" }}
+{{ asset:js file="bootstrap.js"  group="pro-meta" }}
+{{# asset:js file="jqui/jquery-ui-timepicker-addon.js"  group="pro-meta" #}} 
+{{ asset:js file="_common.js"  group="pro-meta" }} 
+
+{{# OUTPUT ASSETS #}}
+{{ asset:render  group="pro-meta" }} 
+<!-- jquery UI CDN -->
+<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css"> 
+
+{{ template:metadata }} 
+ 
+{{# global vars for JS #}}
+<script> 
+    var pg_load = '<img src="{{url:site}}addons/default/themes/msante/img/loading.gif" />'; 
+</script> 

@@ -14,6 +14,7 @@
 		<table class="table" cellpadding="0" cellspacing="0">
 			<thead>
 				<tr>
+					<th>Id</th>
 					<th>Validé</th>
 					<th>Spécialité</th>
 					<th><?php echo lang('doctor:name'); ?></th>
@@ -25,6 +26,7 @@
 			<tbody>
 				<?php foreach ($doctors as $doctor): ?>
 				<tr>
+					<td><?php echo $doctor['id']; ?></td>
 					<td><?php echo $doctor['validated']['value']; ?></td>
 					<td><?php echo $doctor['doctor_cat']['speciality']; ?></td>
 					<td><?php echo $doctor['name']; ?></td>

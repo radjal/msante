@@ -9,7 +9,7 @@
  */
 class Plugin_Custom extends Plugin
 {
-	public $version = '1.1.0';
+	public $version = '1.1.10';
 
 	public $name = array(
 		'en'	=> 'Custom'
@@ -96,7 +96,7 @@ class Plugin_Custom extends Plugin
         
 	/**
 	 * disables theme if page call is ajax pages modules templates
-	 *
+	 * 
 	 * Usage:
 	 * {{ custom:disable_theme_if_ajax }}
 	 *
@@ -187,6 +187,27 @@ class Plugin_Custom extends Plugin
 		}
 		return  $subdomain;                     
 	}
+        
+        
+        /**
+	 * return name of base domain if in subdomain
+	 *
+	 * Usage:
+	 * {{ custom:base_domain }}
+	 *
+	 */
+	function base_domain()
+	{		
+		$parsed = parse_url(base_url());
+		$domain = explode('.', $parsed['host']);
+		$subdomain = '';
+		if ($domain[0] == 'www') unset($domain[0]);  
+		$basedomain = $domain[1].'.'.$domain[2];
+                //$proto = $_SERVER['REQUEST_SCHEME']; // not reliable
+                $proto = isset($_SERVER['HTTPS']) ? 'https' : 'http';
+		return  $proto.'://'.$basedomain;                       
+	}
+        
         
 	/**
 	 * returns true if user agent language matches language parameter to check

@@ -116,7 +116,7 @@ class Appointments extends Public_Controller
             $details = null;
             $msg ='';
 //            $remove = $this->input->get('remove');
-            $this->load->model('users/profile_m');
+//            $this->load->model('users/profile_m');
             
             $appointment = $this->appointments_m->newappointment();
             $profile_data = $this->profile_m->get_profile(); 
@@ -159,7 +159,7 @@ class Appointments extends Public_Controller
 //                                $noid = $this->appointments_m->save_appointment($appointment, $cart);
                                 if ($noid>0)
                                 {
-                                        $this->session->set_flashdata('success', lang('appointments:saved_waiting'));
+//                                        $this->session->set_flashdata('success', lang('appointments:saved_waiting'));
                                         $this->_send_email('appointments-admin', $noid, $appointment, $this->current_user);
                                         $this->_send_email('appointments-patient', $noid, $appointment, $this->current_user, null, $this->current_user->email);
 //                                        $this->_send_email('appointments-doctor', $noid, $appointment, $this->current_user, null, $this->current_user->email);
@@ -302,8 +302,8 @@ class Appointments extends Public_Controller
 			->set('message', $msg) 
 			->set('doc_id', $appointment->doctor_id)
 			->set('doctor', $doctor)
-                        ->set('appointment', $appointment) 
-			->build('success');
+//                        ->set('appointment', $appointment) 
+			->build('success', $appointment);
         }
         
         /** confirm and delete an appointment

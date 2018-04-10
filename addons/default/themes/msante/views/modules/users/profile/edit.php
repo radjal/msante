@@ -1,9 +1,22 @@
 <div class="simple-header">
-        <h3>
-<?php echo ($this->current_user->id !== $_user->id) ?
+<!-- main domain --> 
+<h3>
+            <!--
+<?php
+echo ($this->current_user->id !== $_user->id) ?
                                 sprintf(lang('user_edit_title'), $_user->display_name) :
-                                lang('profile_edit') ?>
+                                lang('profile_edit')
+//                                lang('profile_edit')
+    ?> -->
+            {{ user:display_name }}
         </h3>
+                                                <!-- DEBUG
+                                                
+                                                -->
+                                                pro_doctor_id:{{ msante:pro_doctor_id }}
+                                                pro_has_no_doctor_id:{{msante:pro_has_no_doctor_id}}
+                                                pro_has_no_setting:{{msante:pro_has_no_setting}}
+                                                
 </div>  
 <section id="login">
     <div class="row-fluid">
@@ -42,7 +55,7 @@
                                                     <?php //display user fields for editing
                                                             foreach($profile_fields as $field): ?>
                                                             <?php // space separated field_slugs to NOT display
-                                                            $exclude = explode(' ', 'desk_no phone_valid doctor_id postcode address_line2 phone floor');
+                                                            $exclude = explode(' ', 'desk_no phone_valid postcode address_line2 phone floor');
                                                             $display = true;
                                                             if(in_array($field['field_slug'], $exclude))
                                                             {

@@ -51,7 +51,53 @@
         </div> 
         
     </div>
- 
+</div>
+
+{{# for ui #}} 
+<div class="h3 text-center titre-auto">   
+</div>
+{{# doctor:search_box #}} 
+<div id="doctor-search" class="">
+    <form method="post" action="{{url:site}}doctor">
+        <div class="form-group searchbox-query">
+            <div class="input-group">
+                <span class="input-group-addon">
+                    <a class="" onclick="cleanDocSearch()">
+                        <i class="glyphicon glyphicon-remove-circle"></i>
+                    </a>
+                </span>
+                <input type="text" name="c" value="" placeholder="Médecin, spécialité" class="form-control" >
+            </div> 
+        </div> 
+        <div class="form-group searchbox-locate"> 
+                <div class="input-group center-block">
+                    <a class="btn btn-success disabled" onclick="geoGetTown()">
+                        <i class="glyphicon glyphicon-map-marker"></i> Autour de vous
+                    </a>
+                </div> 
+            </div>
+        <div class="form-group searchbox-area"> 
+            <div class="input-group">
+                <span class="input-group-addon">
+                    <a class="" onclick="cleanAreaSearch()">
+                        <i class="glyphicon glyphicon-remove-circle"></i>
+                    </a>
+                </span>
+                <input type="text" name="s" value="" placeholder="Ville, commune ou quartier" class="form-control">                  
+            </div>
+        </div> 
+        <div class="form-group searchbox-btn"> 
+                <button name="submitBtn" type="submit" class="loader btn btn-primary">
+                        <i class="glyphicon glyphicon-search"></i> Rechercher
+                </button> 
+        </div>
+    </form>
+</div>
+
+
+
+
+<div id="pros"> 
     <div class="text-center h4 titre-pro"> 
         Contactez un professionnel 
         <a class="btn btn-link" onclick="$('.specialite-pro').slideToggle();$('.ico-pro').toggle();"><i class="ico-pro glyphicon glyphicon-plus-sign"></i><i class="ico-pro glyphicon glyphicon-minus-sign" style="display: none"></i></a>
@@ -78,47 +124,6 @@
         <div class="col-lg-4 ico-grp"></div> 
         
     </div>
-</div>
-
-
-<div class="h3 text-center titre-auto">   
-</div>
-{{# doctor:search_box #}} 
-<div id="doctor-search" class="">
-    <form method="post" action="{{url:site}}doctor">
-        <div class="form-group searchbox-query">
-            <div class="input-group">
-                <span class="input-group-addon">
-                    <a class="" onclick="cleanDocSearch()">
-                        <i class="glyphicon glyphicon-remove-circle"></i>
-                    </a>
-                </span>
-                <input type="text" name="c" value="" placeholder="Domaine ou spécialité médicale" class="form-control" >
-            </div> 
-        </div> 
-        <div class="form-group searchbox-locate"> 
-                <div class="input-group center-block">
-                    <a class="btn btn-success disabled" onclick="geoGetTown()">
-                        <i class="glyphicon glyphicon-map-marker"></i> Autour de vous
-                    </a>
-                </div> 
-            </div>
-        <div class="form-group searchbox-area"> 
-            <div class="input-group">
-                <span class="input-group-addon">
-                    <a class="" onclick="cleanAreaSearch()">
-                        <i class="glyphicon glyphicon-remove-circle"></i>
-                    </a>
-                </span>
-                <input type="text" name="s" value="" placeholder="Ville, quartier ou CP" class="form-control">                  
-            </div>
-        </div> 
-        <div class="form-group searchbox-btn"> 
-                <button name="submitBtn" type="submit" class="loader btn btn-primary">
-                        <i class="glyphicon glyphicon-search"></i> Rechercher
-                </button> 
-        </div>
-    </form>
 </div>
 
 {{# dessous gabarit des pages normales, sauf titre H2  #}}

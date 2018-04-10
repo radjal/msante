@@ -1,7 +1,7 @@
 {{# file is included in layout so LEX tags are available and js vars have global scope #}}
 <script>
-    var theme = {};
-    //theme.loadimg = '<img src="{{url:site}}addons/default/themes/msante/img/loading.gif" />';
+    var url_site='{{url:site}}';
+    var theme = {}; 
     theme.loadimg = '<img src="{{url:site}}addons/default/themes/msante/img/loading.svg" class="loadimg" style="height:6px;" />';
     theme.loaddiv = '<div style="text-align:center;width:100%;padding-top:60px">'+theme.loadimg+'</div>';
     

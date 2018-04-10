@@ -86,8 +86,7 @@ class Doctor_m extends MY_Model
          * @return string
          */
         public function speciality_img($speciality) 
-        {
-                if(empty($speciality)) return false;
+        { 
                 switch (strtolower($speciality)) 
                 {
                  case strtolower( "Ophtalmologue"): 
