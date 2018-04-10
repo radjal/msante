@@ -19,6 +19,11 @@
                         </li>
 
                         <li class="">
+                                <label for="f_validated">f_validated yes/no</label>
+                                <?php echo form_input('f_validated', '', 'class=""') ?>
+                        </li>
+
+                        <li class="">
                             <?php // echo form_submit('Rechercher','Rechercher', 'class="btn red"'); ?>
                             <?php echo form_button('Rechercher','Rechercher', 'onclick="form.submit()" class="btn blue"'); ?>
                                 <?php echo anchor(current_url() . '?', 'Re-initialiser', 'class="btn red"') ?>

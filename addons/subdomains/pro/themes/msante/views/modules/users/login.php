@@ -76,5 +76,11 @@
 			</div>
 		<?php echo form_close(); ?>
 		</div>
+            
+            <p id="creation-compte" class="btn btn-link text-center">
+                <a href="{{url:site}}inscription">
+                    Créez votre compte praticien
+                </a>
+            </p>
 	</div>
 </section>

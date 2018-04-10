@@ -19,15 +19,15 @@
                                     </div> 
                             </div> 
                         </div>     
-                        <p id="profile_fields-txt" class="alert alert-info"> <i class="close">×</i>
-                                Vous pouvez modifier les informations qui apparraissent ci-dessous en 
-                                <a href="{{url:site}}edit-profile">modifiant votre profil</a>
-                        </p> 
                         <p id="msgBox" class="alert alert-warning" style="display:none"> <i class="close">×</i>
                             <span> </span>
                         </p>  
                         
                         <div id="appt-patient" class="hidden">   
+                        <p id="profile_fields-txt" class="alert alert-info"> <i class="close">×</i>
+                                Vous pouvez modifier les informations qui apparraissent ci-dessous en 
+                                <a href="{{url:site}}edit-profile">modifiant votre profil</a>
+                        </p> 
                         <!--<h4>Vos coordonnées</h4>-->
                                 
                             <div id="appt-gender" >

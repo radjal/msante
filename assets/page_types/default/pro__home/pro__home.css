@@ -6,3 +6,6 @@ div#datepicker {
     width: 260px;
     margin: auto;
 }
+div#date-text {
+    margin-top: 10px;
+}

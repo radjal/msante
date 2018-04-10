@@ -1,108 +1,112 @@
 <!-- pro home --> 
 {{ dev:empty_cache }} 
-{{if  msante:pro_has_no_doctor_id }}
-        <p class="alert alert-warning">
-            <a href="{{custom:base_domain}}/users/edit/">Veuillez parametrer un N° d'identifiant docteur</a> (via domaine de base, cf liste docteurs avec droits admin) <br/>
-            <a href="{{custom:base_domain}}/admin/doctor/">Vue admin docteurs</a> 
-        </p>
-{{else}} 
-<!--  
-<p class="alert alert-info">
-        Id docteur: {{msante:pro_doctor_id}} <a href="{{custom:base_domain}}/users/edit/">(Editer via domaine de base)</a> 
-            <a href="{{custom:base_domain}}/admin/doctor/">Vue admin docteurs</a> 
-    
-</p>
--->
+{{if user:not_logged_in }}
+            {{ url:redirect to="users/login" }}
+{{else}}  
+            {{if  msante:pro_has_no_doctor_id }}
+                    <p class="alert alert-warning">
+                        <a href="{{custom:base_domain}}/users/edit/">Veuillez parametrer un N° d'identifiant docteur</a> (via domaine de base, cf liste docteurs avec droits admin) <br/>
+                        <a href="{{custom:base_domain}}/admin/doctor/">Vue admin docteurs</a> 
+                    </p>
+            {{else}} 
+            <!--  
+            <p class="alert alert-info">
+                    Id docteur: {{msante:pro_doctor_id}} <a href="{{custom:base_domain}}/users/edit/">(Editer via domaine de base)</a> 
+                        <a href="{{custom:base_domain}}/admin/doctor/">Vue admin docteurs</a> 
+
+            </p>
+            -->
+            {{endif}}
+            {{if  pro_has_no_setting }}
+                    <p class="alert alert-warning">
+                        <a href="{{custom:base_domain}}/users/edit/">Vos paramètres d'accueil sont vide.</a>
+                    </p>
+            {{endif}}
+
+            {{#custom:base_domain#}} 
+
+            <div class="panel-group" id="pro-home">
+                {{#-------------------------------------------------------------------------------------#}}
+                {{if  {msante:pro_has_setting name="appointements"} }}
+                            <!-- appointments --> 
+                            <div class="panel panel-default">
+                              <div class="panel-heading">
+                                <h4 class="panel-title">
+                                  <a data-toggle="collapse" data-parent="#pro-home" href="#collapse1">Mes RDV</a>
+                                </h4>
+                              </div>
+                              <div id="collapse1" class="panel-collapse collapse in">
+                                <div class="panel-body">
+
+                                    <!-- jquery datepicker calendar --> 
+                                    <div class="calendar-wrapper">
+                                        <div id="datepicker">{{# DATEPICKER DIV #}}</div> 
+                                        <div id="date-text" class="h4"></div> 
+                                        <div id="date-digest" class="h5"></div> 
+                                        <div id="date-btn" class="">
+                                            <a id="date-btn" class="btn btn-default btn-group-justified btn-primary" style="display: none" >Voir le détail</a>    
+                                        </div> 
+                                    </div> 
+                                    <div id="mes-dispos"><button class="btn btn-group-justified btn-link disabled" >Mes disponibilités</button></div> 
+
+                                </div>
+                              </div>
+                            </div>  
+                {{endif}}
+                {{#-------------------------------------------------------------------------------------#}}
+                {{if {msante:pro_has_setting name="flags"} }}
+                            <!-- appointments --> 
+                            <div class="panel panel-default">
+                              <div class="panel-heading">
+                                <h4 class="panel-title">
+                                  <a data-toggle="collapse" data-parent="#pro-home" href="#collapse2">Mes Alertes</a>
+                                </h4>
+                              </div>
+                              <div id="collapse2" class="panel-collapse collapse">
+                                <div class="panel-body">XXX____CONTENT____XXXX</div>
+                              </div>
+                            </div>  
+                {{endif}} 
+                {{#-------------------------------------------------------------------------------------#}}
+                {{if {msante:pro_has_setting name="messages"} }}
+                            <!-- appointments --> 
+                            <div class="panel panel-default">
+                              <div class="panel-heading">
+                                <h4 class="panel-title">
+                                  <a data-toggle="collapse" data-parent="#pro-home" href="#collapse3">Mes Messages</a>
+                                </h4>
+                              </div>
+                              <div id="collapse3" class="panel-collapse collapse">
+                                <div class="panel-body">XXX____CONTENT____XXXX</div>
+                              </div>
+                            </div>  
+                {{endif}} 
+                {{#-------------------------------------------------------------------------------------#}}
+                {{if {msante:pro_has_setting name="listing"} }}
+                            <!-- appointments --> 
+                            <div class="panel panel-default">
+                              <div class="panel-heading">
+                                <h4 class="panel-title">
+                                  <a data-toggle="collapse" data-parent="#pro-home" href="#collapse4">Mes Patients</a>
+                                </h4>
+                              </div>
+                              <div id="collapse4" class="panel-collapse collapse">
+                                <div class="panel-body">XXX____CONTENT____XXXX</div>
+                              </div>
+                            </div>  
+                {{endif}}  
+                {{#-------------------------------------------------------------------------------------#}}
+            </div>
+
+
+
+
+            <p>
+                <a href="{{url:site}}/users/edit/" class="btn btn-default btn-group-justified ">Mes paramètres d'accueil</a>
+            </p>
+
+
 {{endif}}
-{{if  pro_has_no_setting }}
-        <p class="alert alert-warning">
-            <a href="{{custom:base_domain}}/users/edit/">Vos paramètres d'accueil sont vide.</a>
-        </p>
-{{endif}}
-
-{{#custom:base_domain#}} 
-
-<div class="panel-group" id="pro-home">
-    {{#-------------------------------------------------------------------------------------#}}
-    {{if  {msante:pro_has_setting name="appointements"} }}
-                <!-- appointments --> 
-                <div class="panel panel-default">
-                  <div class="panel-heading">
-                    <h4 class="panel-title">
-                      <a data-toggle="collapse" data-parent="#pro-home" href="#collapse1">Mes RDV</a>
-                    </h4>
-                  </div>
-                  <div id="collapse1" class="panel-collapse collapse in">
-                    <div class="panel-body">
-
-                        <!-- jquery datepicker calendar --> 
-                        <div class="calendar-wrapper">
-                            <div id="datepicker">{{# DATEPICKER DIV #}}</div> 
-                            <div id="date-text" class="h4"></div> 
-                            <div id="date-digest" class="h5"></div> 
-                            <div id="date-btn" class="">
-                                <a id="date-btn" class="btn btn-default btn-group-justified" style="display: none" >Voir le détail</a>    
-                            </div> 
-                        </div> 
-                        <div id="mes-dispos"><button class="btn btn-group-justified btn-link disabled" >Mes disponibilités</button></div> 
-                        
-                    </div>
-                  </div>
-                </div>  
-    {{endif}}
-    {{#-------------------------------------------------------------------------------------#}}
-    {{if {msante:pro_has_setting name="flags"} }}
-                <!-- appointments --> 
-                <div class="panel panel-default">
-                  <div class="panel-heading">
-                    <h4 class="panel-title">
-                      <a data-toggle="collapse" data-parent="#pro-home" href="#collapse2">Mes Alertes</a>
-                    </h4>
-                  </div>
-                  <div id="collapse2" class="panel-collapse collapse">
-                    <div class="panel-body">XXX____CONTENT____XXXX</div>
-                  </div>
-                </div>  
-    {{endif}} 
-    {{#-------------------------------------------------------------------------------------#}}
-    {{if {msante:pro_has_setting name="messages"} }}
-                <!-- appointments --> 
-                <div class="panel panel-default">
-                  <div class="panel-heading">
-                    <h4 class="panel-title">
-                      <a data-toggle="collapse" data-parent="#pro-home" href="#collapse3">Mes Messages</a>
-                    </h4>
-                  </div>
-                  <div id="collapse3" class="panel-collapse collapse">
-                    <div class="panel-body">XXX____CONTENT____XXXX</div>
-                  </div>
-                </div>  
-    {{endif}} 
-    {{#-------------------------------------------------------------------------------------#}}
-    {{if {msante:pro_has_setting name="listing"} }}
-                <!-- appointments --> 
-                <div class="panel panel-default">
-                  <div class="panel-heading">
-                    <h4 class="panel-title">
-                      <a data-toggle="collapse" data-parent="#pro-home" href="#collapse4">Mes Patients</a>
-                    </h4>
-                  </div>
-                  <div id="collapse4" class="panel-collapse collapse">
-                    <div class="panel-body">XXX____CONTENT____XXXX</div>
-                  </div>
-                </div>  
-    {{endif}}  
-    {{#-------------------------------------------------------------------------------------#}}
-</div>
-
-
-
-
-<p>
-    <a href="{{url:site}}/users/edit/" class="btn btn-default btn-group-justified ">Mes paramètres d'accueil</a>
-</p>
-
-
 
 
 

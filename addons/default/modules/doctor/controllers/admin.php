@@ -104,14 +104,16 @@ class Admin extends Admin_Controller
             'stream' => 'doctors',
             'namespace' => 'doctor',
             'paginate' => 'no',
-            'limit' => 10,
+            'limit' => 100,
             'pag_segment' => 3
         ); 
         //search 
         $town = $this->input->post('f_town');
         $name = $this->input->post('f_name');
+        $validated = $this->input->post('f_validated');
         if(!empty($town)) $params['where'] = "default_doctor_doctors.town LIKE '%$town%'" ;
         if(!empty($name)) $params['where'] = "default_doctor_doctors.name LIKE '%$name%'" ;
+        if(!empty($validated)) $params['where'] = "default_doctor_doctors.validated LIKE '%$validated%'" ;
         //get entries
         $data = $this->streams->entries->get_entries($params);
 

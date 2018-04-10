@@ -1,26 +1,36 @@
-/*
-Navicat MySQL Data Transfer
+-- phpMyAdmin SQL Dump
+-- version 4.7.3
+-- https://www.phpmyadmin.net/
+--
+-- Hôte : msantenenndb.mysql.db
+-- Généré le :  mar. 10 avr. 2018 à 08:56
+-- Version du serveur :  5.6.34-log
+-- Version de PHP :  7.0.27
 
-Source Server         : localhost
-Source Server Version : 50709
-Source Host           : localhost:3306
-Source Database       : msante
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
+SET time_zone = "+00:00";
 
-Target Server Type    : MYSQL
-Target Server Version : 50709
-File Encoding         : 65001
 
-Date: 2018-04-08 20:22:18
-*/
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
 
-SET FOREIGN_KEY_CHECKS=0;
+--
+-- Base de données :  `msantenenndb`
+--
 
--- ----------------------------
--- Table structure for `default_doctor_categories`
--- ----------------------------
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `default_doctor_categories`
+--
+
 DROP TABLE IF EXISTS `default_doctor_categories`;
 CREATE TABLE `default_doctor_categories` (
-  `id` int(9) NOT NULL AUTO_INCREMENT,
+  `id` int(9) NOT NULL,
   `created` datetime NOT NULL,
   `updated` datetime DEFAULT NULL,
   `created_by` int(11) DEFAULT NULL,
@@ -28,87 +38,112 @@ CREATE TABLE `default_doctor_categories` (
   `parent_cat` int(11) DEFAULT NULL,
   `speciality` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `keywords` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `doc_cat_image` char(15) COLLATE utf8_unicode_ci DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=80 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+  `doc_cat_image` char(15) COLLATE utf8_unicode_ci DEFAULT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
--- ----------------------------
--- Records of default_doctor_categories
--- ----------------------------
-INSERT INTO `default_doctor_categories` VALUES ('2', '2018-04-08 00:00:00', '2018-04-08 00:00:00', null, null, '0', 'Cardiologue', null, null);
-INSERT INTO `default_doctor_categories` VALUES ('3', '2018-04-08 00:00:00', '2018-04-08 00:00:00', null, null, '0', 'Dentiste', null, null);
-INSERT INTO `default_doctor_categories` VALUES ('4', '2018-04-08 00:00:00', '2018-04-08 00:00:00', null, null, '0', 'Etablissement de santé', null, null);
-INSERT INTO `default_doctor_categories` VALUES ('5', '2018-04-08 00:00:00', '2018-04-08 00:00:00', null, null, '0', 'Laboratoires', null, null);
-INSERT INTO `default_doctor_categories` VALUES ('6', '2018-04-08 00:00:00', '2018-04-08 00:00:00', null, null, '0', 'Médecins généralistes', null, null);
-INSERT INTO `default_doctor_categories` VALUES ('7', '2018-04-08 00:00:00', '2018-04-08 00:00:00', null, null, '0', 'Ophtalmologue', null, null);
-INSERT INTO `default_doctor_categories` VALUES ('8', '2018-04-08 00:00:00', '2018-04-08 00:00:00', null, null, '0', 'ORL', null, null);
-INSERT INTO `default_doctor_categories` VALUES ('9', '2018-04-08 00:00:00', '2018-04-08 00:00:00', null, null, '0', 'Radiologue', null, null);
-INSERT INTO `default_doctor_categories` VALUES ('10', '2018-04-08 00:00:00', '2018-04-08 00:00:00', null, null, '0', 'Spécialistes femme', null, null);
-INSERT INTO `default_doctor_categories` VALUES ('11', '2018-04-08 00:00:00', '2018-04-08 00:00:00', null, null, '1', 'Acupuncture', 'Médecine douce, Médecine chinoise', null);
-INSERT INTO `default_doctor_categories` VALUES ('12', '2018-04-08 00:00:00', '2018-04-08 00:00:00', null, null, '1', 'Addictologie', 'Problème d\'alcool, Problème drogue, Problème tabac', null);
-INSERT INTO `default_doctor_categories` VALUES ('13', '2018-04-08 00:00:00', '2018-04-08 00:00:00', null, null, '1', 'Alcoologie', 'Problème d\'alcool', null);
-INSERT INTO `default_doctor_categories` VALUES ('14', '2018-04-08 00:00:00', '2018-04-08 00:00:00', null, null, '1', 'Algologie', 'Douleurs', null);
-INSERT INTO `default_doctor_categories` VALUES ('15', '2018-04-08 00:00:00', '2018-04-08 00:00:00', null, null, '1', 'Allergologie', 'Allergies', null);
-INSERT INTO `default_doctor_categories` VALUES ('16', '2018-04-08 00:00:00', '2018-04-08 00:00:00', null, null, '1', 'Andrologie', 'Pénis', null);
-INSERT INTO `default_doctor_categories` VALUES ('17', '2018-04-08 00:00:00', '2018-04-08 00:00:00', null, null, '1', 'Anesthésiologie-réanimation', 'Anesthésiste - Réanimateur', null);
-INSERT INTO `default_doctor_categories` VALUES ('18', '2018-04-08 00:00:00', '2018-04-08 00:00:00', null, null, '1', 'Cancérologie/Oncologie', 'Cancer', null);
-INSERT INTO `default_doctor_categories` VALUES ('19', '2018-04-08 00:00:00', '2018-04-08 00:00:00', null, null, '1', 'Chirurgie orthopédique et traumatologique', 'Os, Pied, Jambes', null);
-INSERT INTO `default_doctor_categories` VALUES ('20', '2018-04-08 00:00:00', '2018-04-08 00:00:00', null, null, '1', 'Chirurgie pédiatrique', 'Enfants', null);
-INSERT INTO `default_doctor_categories` VALUES ('21', '2018-04-08 00:00:00', '2018-04-08 00:00:00', null, null, '1', 'Chirurgie plastique, reconstructrice et esthétique', 'Réparation de la peau', null);
-INSERT INTO `default_doctor_categories` VALUES ('22', '2018-04-08 00:00:00', '2018-04-08 00:00:00', null, null, '1', 'Chirurgie urologique', 'Urine', null);
-INSERT INTO `default_doctor_categories` VALUES ('23', '2018-04-08 00:00:00', '2018-04-08 00:00:00', null, null, '1', 'Chirurgie viscérale et digestive', 'Ventre', null);
-INSERT INTO `default_doctor_categories` VALUES ('24', '2018-04-08 00:00:00', '2018-04-08 00:00:00', null, null, '1', 'Dermatologie et vénéréologie', 'Peau, bouton, brulure', null);
-INSERT INTO `default_doctor_categories` VALUES ('25', '2018-04-08 00:00:00', '2018-04-08 00:00:00', null, null, '1', 'Endocrinologie et métabolisme/diabétologie', 'Diabète, croissance', null);
-INSERT INTO `default_doctor_categories` VALUES ('26', '2018-04-08 00:00:00', '2018-04-08 00:00:00', null, null, '1', 'Gastro-entérologie et hépatologie', 'ventre', null);
-INSERT INTO `default_doctor_categories` VALUES ('27', '2018-04-08 00:00:00', '2018-04-08 00:00:00', null, null, '1', 'Gériatrie', 'Personnes agées', null);
-INSERT INTO `default_doctor_categories` VALUES ('28', '2018-04-08 00:00:00', '2018-04-08 00:00:00', null, null, '1', 'Hématologie', 'Drépanocytose, sang', null);
-INSERT INTO `default_doctor_categories` VALUES ('29', '2018-04-08 00:00:00', '2018-04-08 00:00:00', null, null, '1', 'Maladies infectieuses et tropicales', 'Paludisme, ébola, fièvres,..', null);
-INSERT INTO `default_doctor_categories` VALUES ('30', '2018-04-08 00:00:00', '2018-04-08 00:00:00', null, null, '1', 'Médecine du sport', 'sport', null);
-INSERT INTO `default_doctor_categories` VALUES ('31', '2018-04-08 00:00:00', '2018-04-08 00:00:00', null, null, '1', 'Médecine du travail', 'Visite médicale', null);
-INSERT INTO `default_doctor_categories` VALUES ('32', '2018-04-08 00:00:00', '2018-04-08 00:00:00', null, null, '1', 'Médecine physique et de réadaptation', 'Os, jambe , pied', null);
-INSERT INTO `default_doctor_categories` VALUES ('33', '2018-04-08 00:00:00', '2018-04-08 00:00:00', null, null, '1', 'Néonatologie', 'Prématuré, bébé', null);
-INSERT INTO `default_doctor_categories` VALUES ('34', '2018-04-08 00:00:00', '2018-04-08 00:00:00', null, null, '1', 'Néphrologie', 'Reins', null);
-INSERT INTO `default_doctor_categories` VALUES ('35', '2018-04-08 00:00:00', '2018-04-08 00:00:00', null, null, '1', 'Neurochirurgie', 'Cerveau', null);
-INSERT INTO `default_doctor_categories` VALUES ('36', '2018-04-08 00:00:00', '2018-04-08 00:00:00', null, null, '1', 'Neurologie', 'Cerveau', null);
-INSERT INTO `default_doctor_categories` VALUES ('37', '2018-04-08 00:00:00', '2018-04-08 00:00:00', null, null, '1', 'Neuropédiatrie', 'Cerveau enfant', null);
-INSERT INTO `default_doctor_categories` VALUES ('38', '2018-04-08 00:00:00', '2018-04-08 00:00:00', null, null, '1', 'Neuropsychiatrie', 'Psychiatrie', null);
-INSERT INTO `default_doctor_categories` VALUES ('39', '2018-04-08 00:00:00', '2018-04-08 00:00:00', null, null, '1', 'Orthopédie', 'Os, jambe , pied', null);
-INSERT INTO `default_doctor_categories` VALUES ('40', '2018-04-08 00:00:00', '2018-04-08 00:00:00', null, null, '1', 'Pédiatrie', 'Enfants, bébé', null);
-INSERT INTO `default_doctor_categories` VALUES ('41', '2018-04-08 00:00:00', '2018-04-08 00:00:00', null, null, '1', 'Pneumologie', 'Poumons, respiration', null);
-INSERT INTO `default_doctor_categories` VALUES ('42', '2018-04-08 00:00:00', '2018-04-08 00:00:00', null, null, '1', 'Proctologie', 'Hémorrhoïdes', null);
-INSERT INTO `default_doctor_categories` VALUES ('43', '2018-04-08 00:00:00', '2018-04-08 00:00:00', null, null, '1', 'Psychiatrie', 'Psychiatrie', null);
-INSERT INTO `default_doctor_categories` VALUES ('44', '2018-04-08 00:00:00', '2018-04-08 00:00:00', null, null, '1', 'Rhumatologie', 'Os, articulation, dos,…', null);
-INSERT INTO `default_doctor_categories` VALUES ('45', '2018-04-08 00:00:00', '2018-04-08 00:00:00', null, null, '1', 'Santé publique et médecine préventive', 'Dispensaire, PMI', null);
-INSERT INTO `default_doctor_categories` VALUES ('46', '2018-04-08 00:00:00', '2018-04-08 00:00:00', null, null, '1', 'Soins palliatifs', 'Fin de vie', null);
-INSERT INTO `default_doctor_categories` VALUES ('47', '2018-04-08 00:00:00', '2018-04-08 00:00:00', null, null, '1', 'Tabacologie', 'Cigarette', null);
-INSERT INTO `default_doctor_categories` VALUES ('48', '2018-04-08 00:00:00', '2018-04-08 00:00:00', null, null, '1', 'Urologie', 'Urine', null);
-INSERT INTO `default_doctor_categories` VALUES ('49', '2018-04-08 00:00:00', '2018-04-08 00:00:00', null, null, '2', 'Angiologie', 'Cœur, Cardiologue', null);
-INSERT INTO `default_doctor_categories` VALUES ('50', '2018-04-08 00:00:00', '2018-04-08 00:00:00', null, null, '2', 'Cardiologie', 'Cœur, Cardiologue', null);
-INSERT INTO `default_doctor_categories` VALUES ('51', '2018-04-08 00:00:00', '2018-04-08 00:00:00', null, null, '2', 'Chirurgie thoracique et cardio-vasculaire', 'Cœur', null);
-INSERT INTO `default_doctor_categories` VALUES ('52', '2018-04-08 00:00:00', '2018-04-08 00:00:00', null, null, '2', 'Chirurgie vasculaire', 'Cœur', null);
-INSERT INTO `default_doctor_categories` VALUES ('53', '2018-04-08 00:00:00', '2018-04-08 00:00:00', null, null, '2', 'Coronarographie', 'Cœur', null);
-INSERT INTO `default_doctor_categories` VALUES ('54', '2018-04-08 00:00:00', '2018-04-08 00:00:00', null, null, '2', 'Phlébologie', 'Veine', null);
-INSERT INTO `default_doctor_categories` VALUES ('55', '2018-04-08 00:00:00', '2018-04-08 00:00:00', null, null, '3', 'Chirurgie dentaire', 'Dents', null);
-INSERT INTO `default_doctor_categories` VALUES ('56', '2018-04-08 00:00:00', '2018-04-08 00:00:00', null, null, '3', 'Dentisterie', 'Dents', null);
-INSERT INTO `default_doctor_categories` VALUES ('57', '2018-04-08 00:00:00', '2018-04-08 00:00:00', null, null, '3', 'Odontologie', 'Dents', null);
-INSERT INTO `default_doctor_categories` VALUES ('58', '2018-04-08 00:00:00', '2018-04-08 00:00:00', null, null, '3', 'Stomatologie', 'Bouche, dents, machoire', null);
-INSERT INTO `default_doctor_categories` VALUES ('59', '2018-04-08 00:00:00', '2018-04-08 00:00:00', null, null, '4', 'Explorations fonctionnelles', 'Respiration', null);
-INSERT INTO `default_doctor_categories` VALUES ('60', '2018-04-08 00:00:00', '2018-04-08 00:00:00', null, null, '4', 'Hygiène hospitalière', null, null);
-INSERT INTO `default_doctor_categories` VALUES ('61', '2018-04-08 00:00:00', '2018-04-08 00:00:00', null, null, '4', 'Médecine légale', 'Décès', null);
-INSERT INTO `default_doctor_categories` VALUES ('62', '2018-04-08 00:00:00', '2018-04-08 00:00:00', null, null, '4', 'Réanimation médicale', '0', null);
-INSERT INTO `default_doctor_categories` VALUES ('63', '2018-04-08 00:00:00', '2018-04-08 00:00:00', null, null, '4', 'Urgences', '0', null);
-INSERT INTO `default_doctor_categories` VALUES ('64', '2018-04-08 00:00:00', '2018-04-08 00:00:00', null, null, '5', 'Anatomie et cytologie pathologiques', 'Laboratoire d\'analyse, Analyse', null);
-INSERT INTO `default_doctor_categories` VALUES ('65', '2018-04-08 00:00:00', '2018-04-08 00:00:00', null, null, '5', 'Biochimie', 'Laboratoire d\'analyse, Analyse', null);
-INSERT INTO `default_doctor_categories` VALUES ('66', '2018-04-08 00:00:00', '2018-04-08 00:00:00', null, null, '5', 'Biologie médicale et physiologie', 'Laboratoire d\'analyse, Analyse', null);
-INSERT INTO `default_doctor_categories` VALUES ('67', '2018-04-08 00:00:00', '2018-04-08 00:00:00', null, null, '6', 'Génétique', 'Laboratoires', null);
-INSERT INTO `default_doctor_categories` VALUES ('68', '2018-04-08 00:00:00', '2018-04-08 00:00:00', null, null, '7', 'Généraliste', 'Médecin généraliste', null);
-INSERT INTO `default_doctor_categories` VALUES ('69', '2018-04-08 00:00:00', '2018-04-08 00:00:00', null, null, '8', 'Chirurgie ophtalmologique', 'Oeil', null);
-INSERT INTO `default_doctor_categories` VALUES ('70', '2018-04-08 00:00:00', '2018-04-08 00:00:00', null, null, '8', 'Ophtalmologie', null, null);
-INSERT INTO `default_doctor_categories` VALUES ('71', '2018-04-08 00:00:00', '2018-04-08 00:00:00', null, null, '8', 'Chirurgie ORL cervico-faciale', 'Oreille, Nez, Gorge, Os', null);
-INSERT INTO `default_doctor_categories` VALUES ('72', '2018-04-08 00:00:00', '2018-04-08 00:00:00', null, null, '8', 'ORL', 'Nez, gorge, oreille', null);
-INSERT INTO `default_doctor_categories` VALUES ('73', '2018-04-08 00:00:00', '2018-04-08 00:00:00', null, null, '9', 'Echographie', 'Radio', null);
-INSERT INTO `default_doctor_categories` VALUES ('74', '2018-04-08 00:00:00', '2018-04-08 00:00:00', null, null, '9', 'Médecine nucléaire', 'Radio', null);
-INSERT INTO `default_doctor_categories` VALUES ('75', '2018-04-08 00:00:00', '2018-04-08 00:00:00', null, null, '9', 'Radiodiagnostic et imagerie médicale', 'Radio', null);
-INSERT INTO `default_doctor_categories` VALUES ('76', '2018-04-08 00:00:00', '2018-04-08 00:00:00', null, null, '9', 'Radiothérapie', 'Radio', null);
-INSERT INTO `default_doctor_categories` VALUES ('77', '2018-04-08 00:00:00', '2018-04-08 00:00:00', null, null, '10', 'Chirurgie gynécologie obstétrique', 'Gynéco', null);
-INSERT INTO `default_doctor_categories` VALUES ('1', '2018-04-08 00:00:00', '2018-04-08 00:00:00', null, null, null, 'Autres médécins', null, null);
+--
+-- Déchargement des données de la table `default_doctor_categories`
+--
+
+INSERT INTO `default_doctor_categories` (`id`, `created`, `updated`, `created_by`, `ordering_count`, `parent_cat`, `speciality`, `keywords`, `doc_cat_image`) VALUES
+(2, '2018-04-08 00:00:00', '2018-04-08 00:00:00', NULL, NULL, 0, 'Cardiologue', NULL, NULL),
+(3, '2018-04-08 00:00:00', '2018-04-08 00:00:00', NULL, NULL, 0, 'Dentiste', NULL, NULL),
+(4, '2018-04-08 00:00:00', '2018-04-08 00:00:00', NULL, NULL, 0, 'Etablissement de santé', NULL, NULL),
+(5, '2018-04-08 00:00:00', '2018-04-08 00:00:00', NULL, NULL, 0, 'Laboratoires', NULL, NULL),
+(6, '2018-04-08 00:00:00', '2018-04-08 00:00:00', NULL, NULL, 0, 'Médecins généralistes', NULL, NULL),
+(7, '2018-04-08 00:00:00', '2018-04-08 00:00:00', NULL, NULL, 0, 'Ophtalmologue', NULL, NULL),
+(8, '2018-04-08 00:00:00', '2018-04-08 00:00:00', NULL, NULL, 0, 'ORL', NULL, NULL),
+(9, '2018-04-08 00:00:00', '2018-04-08 00:00:00', NULL, NULL, 0, 'Radiologue', NULL, NULL),
+(10, '2018-04-08 00:00:00', '2018-04-08 00:00:00', NULL, NULL, 0, 'Spécialistes femme', NULL, NULL),
+(11, '2018-04-08 00:00:00', '2018-04-08 00:00:00', NULL, NULL, 1, 'Acupuncture', 'Médecine douce, Médecine chinoise', NULL),
+(12, '2018-04-08 00:00:00', '2018-04-08 00:00:00', NULL, NULL, 1, 'Addictologie', 'Problème d\'alcool, Problème drogue, Problème tabac', NULL),
+(13, '2018-04-08 00:00:00', '2018-04-08 00:00:00', NULL, NULL, 1, 'Alcoologie', 'Problème d\'alcool', NULL),
+(14, '2018-04-08 00:00:00', '2018-04-08 00:00:00', NULL, NULL, 1, 'Algologie', 'Douleurs', NULL),
+(15, '2018-04-08 00:00:00', '2018-04-08 00:00:00', NULL, NULL, 1, 'Allergologie', 'Allergies', NULL),
+(16, '2018-04-08 00:00:00', '2018-04-08 00:00:00', NULL, NULL, 1, 'Andrologie', 'Pénis', NULL),
+(17, '2018-04-08 00:00:00', '2018-04-08 00:00:00', NULL, NULL, 1, 'Anesthésiologie-réanimation', 'Anesthésiste - Réanimateur', NULL),
+(18, '2018-04-08 00:00:00', '2018-04-08 00:00:00', NULL, NULL, 1, 'Cancérologie/Oncologie', 'Cancer', NULL),
+(19, '2018-04-08 00:00:00', '2018-04-08 00:00:00', NULL, NULL, 1, 'Chirurgie orthopédique et traumatologique', 'Os, Pied, Jambes', NULL),
+(20, '2018-04-08 00:00:00', '2018-04-08 00:00:00', NULL, NULL, 1, 'Chirurgie pédiatrique', 'Enfants', NULL),
+(21, '2018-04-08 00:00:00', '2018-04-08 00:00:00', NULL, NULL, 1, 'Chirurgie plastique, reconstructrice et esthétique', 'Réparation de la peau', NULL),
+(22, '2018-04-08 00:00:00', '2018-04-08 00:00:00', NULL, NULL, 1, 'Chirurgie urologique', 'Urine', NULL),
+(23, '2018-04-08 00:00:00', '2018-04-08 00:00:00', NULL, NULL, 1, 'Chirurgie viscérale et digestive', 'Ventre', NULL),
+(24, '2018-04-08 00:00:00', '2018-04-08 00:00:00', NULL, NULL, 1, 'Dermatologie et vénéréologie', 'Peau, bouton, brulure', NULL),
+(25, '2018-04-08 00:00:00', '2018-04-08 00:00:00', NULL, NULL, 1, 'Endocrinologie et métabolisme/diabétologie', 'Diabète, croissance', NULL),
+(26, '2018-04-08 00:00:00', '2018-04-08 00:00:00', NULL, NULL, 1, 'Gastro-entérologie et hépatologie', 'ventre', NULL),
+(27, '2018-04-08 00:00:00', '2018-04-08 00:00:00', NULL, NULL, 1, 'Gériatrie', 'Personnes agées', NULL),
+(28, '2018-04-08 00:00:00', '2018-04-08 00:00:00', NULL, NULL, 1, 'Hématologie', 'Drépanocytose, sang', NULL),
+(29, '2018-04-08 00:00:00', '2018-04-08 00:00:00', NULL, NULL, 1, 'Maladies infectieuses et tropicales', 'Paludisme, ébola, fièvres,..', NULL),
+(30, '2018-04-08 00:00:00', '2018-04-08 00:00:00', NULL, NULL, 1, 'Médecine du sport', 'sport', NULL),
+(31, '2018-04-08 00:00:00', '2018-04-08 00:00:00', NULL, NULL, 1, 'Médecine du travail', 'Visite médicale', NULL),
+(32, '2018-04-08 00:00:00', '2018-04-08 00:00:00', NULL, NULL, 1, 'Médecine physique et de réadaptation', 'Os, jambe , pied', NULL),
+(33, '2018-04-08 00:00:00', '2018-04-08 00:00:00', NULL, NULL, 1, 'Néonatologie', 'Prématuré, bébé', NULL),
+(34, '2018-04-08 00:00:00', '2018-04-08 00:00:00', NULL, NULL, 1, 'Néphrologie', 'Reins', NULL),
+(35, '2018-04-08 00:00:00', '2018-04-08 00:00:00', NULL, NULL, 1, 'Neurochirurgie', 'Cerveau', NULL),
+(36, '2018-04-08 00:00:00', '2018-04-08 00:00:00', NULL, NULL, 1, 'Neurologie', 'Cerveau', NULL),
+(37, '2018-04-08 00:00:00', '2018-04-08 00:00:00', NULL, NULL, 1, 'Neuropédiatrie', 'Cerveau enfant', NULL),
+(38, '2018-04-08 00:00:00', '2018-04-08 00:00:00', NULL, NULL, 1, 'Neuropsychiatrie', 'Psychiatrie', NULL),
+(39, '2018-04-08 00:00:00', '2018-04-08 00:00:00', NULL, NULL, 1, 'Orthopédie', 'Os, jambe , pied', NULL),
+(40, '2018-04-08 00:00:00', '2018-04-08 00:00:00', NULL, NULL, 1, 'Pédiatrie', 'Enfants, bébé', NULL),
+(41, '2018-04-08 00:00:00', '2018-04-08 00:00:00', NULL, NULL, 1, 'Pneumologie', 'Poumons, respiration', NULL),
+(42, '2018-04-08 00:00:00', '2018-04-08 00:00:00', NULL, NULL, 1, 'Proctologie', 'Hémorrhoïdes', NULL),
+(43, '2018-04-08 00:00:00', '2018-04-08 00:00:00', NULL, NULL, 1, 'Psychiatrie', 'Psychiatrie', NULL),
+(44, '2018-04-08 00:00:00', '2018-04-08 00:00:00', NULL, NULL, 1, 'Rhumatologie', 'Os, articulation, dos,…', NULL),
+(45, '2018-04-08 00:00:00', '2018-04-08 00:00:00', NULL, NULL, 1, 'Santé publique et médecine préventive', 'Dispensaire, PMI', NULL),
+(46, '2018-04-08 00:00:00', '2018-04-08 00:00:00', NULL, NULL, 1, 'Soins palliatifs', 'Fin de vie', NULL),
+(47, '2018-04-08 00:00:00', '2018-04-08 00:00:00', NULL, NULL, 1, 'Tabacologie', 'Cigarette', NULL),
+(48, '2018-04-08 00:00:00', '2018-04-08 00:00:00', NULL, NULL, 1, 'Urologie', 'Urine', NULL),
+(49, '2018-04-08 00:00:00', '2018-04-08 00:00:00', NULL, NULL, 2, 'Angiologie', 'Cœur, Cardiologue', NULL),
+(50, '2018-04-08 00:00:00', '2018-04-08 00:00:00', NULL, NULL, 2, 'Cardiologie', 'Cœur, Cardiologue', NULL),
+(51, '2018-04-08 00:00:00', '2018-04-08 00:00:00', NULL, NULL, 2, 'Chirurgie thoracique et cardio-vasculaire', 'Cœur', NULL),
+(52, '2018-04-08 00:00:00', '2018-04-08 00:00:00', NULL, NULL, 2, 'Chirurgie vasculaire', 'Cœur', NULL),
+(53, '2018-04-08 00:00:00', '2018-04-08 00:00:00', NULL, NULL, 2, 'Coronarographie', 'Cœur', NULL),
+(54, '2018-04-08 00:00:00', '2018-04-08 00:00:00', NULL, NULL, 2, 'Phlébologie', 'Veine', NULL),
+(55, '2018-04-08 00:00:00', '2018-04-08 00:00:00', NULL, NULL, 3, 'Chirurgie dentaire', 'Dents', NULL),
+(56, '2018-04-08 00:00:00', '2018-04-08 00:00:00', NULL, NULL, 3, 'Dentisterie', 'Dents', NULL),
+(57, '2018-04-08 00:00:00', '2018-04-08 00:00:00', NULL, NULL, 3, 'Odontologie', 'Dents', NULL),
+(58, '2018-04-08 00:00:00', '2018-04-08 00:00:00', NULL, NULL, 3, 'Stomatologie', 'Bouche, dents, machoire', NULL),
+(59, '2018-04-08 00:00:00', '2018-04-08 00:00:00', NULL, NULL, 4, 'Explorations fonctionnelles', 'Respiration', NULL),
+(60, '2018-04-08 00:00:00', '2018-04-08 00:00:00', NULL, NULL, 4, 'Hygiène hospitalière', NULL, NULL),
+(61, '2018-04-08 00:00:00', '2018-04-08 00:00:00', NULL, NULL, 4, 'Médecine légale', 'Décès', NULL),
+(62, '2018-04-08 00:00:00', '2018-04-08 00:00:00', NULL, NULL, 4, 'Réanimation médicale', '0', NULL),
+(63, '2018-04-08 00:00:00', '2018-04-08 00:00:00', NULL, NULL, 4, 'Urgences', '0', NULL),
+(64, '2018-04-08 00:00:00', '2018-04-08 00:00:00', NULL, NULL, 5, 'Anatomie et cytologie pathologiques', 'Laboratoire d\'analyse, Analyse', NULL),
+(65, '2018-04-08 00:00:00', '2018-04-08 00:00:00', NULL, NULL, 5, 'Biochimie', 'Laboratoire d\'analyse, Analyse', NULL),
+(66, '2018-04-08 00:00:00', '2018-04-08 00:00:00', NULL, NULL, 5, 'Biologie médicale et physiologie', 'Laboratoire d\'analyse, Analyse', NULL),
+(67, '2018-04-08 00:00:00', '2018-04-08 00:00:00', NULL, NULL, 6, 'Génétique', 'Laboratoires', NULL),
+(68, '2018-04-08 00:00:00', '2018-04-08 00:00:00', NULL, NULL, 7, 'Généraliste', 'Médecin généraliste', NULL),
+(69, '2018-04-08 00:00:00', '2018-04-08 00:00:00', NULL, NULL, 8, 'Chirurgie ophtalmologique', 'Oeil', NULL),
+(70, '2018-04-08 00:00:00', '2018-04-08 00:00:00', NULL, NULL, 8, 'Ophtalmologie', NULL, NULL),
+(71, '2018-04-08 00:00:00', '2018-04-08 00:00:00', NULL, NULL, 8, 'Chirurgie ORL cervico-faciale', 'Oreille, Nez, Gorge, Os', NULL),
+(72, '2018-04-08 00:00:00', '2018-04-08 00:00:00', NULL, NULL, 8, 'ORL', 'Nez, gorge, oreille', NULL),
+(73, '2018-04-08 00:00:00', '2018-04-08 00:00:00', NULL, NULL, 9, 'Echographie', 'Radio', NULL),
+(74, '2018-04-08 00:00:00', '2018-04-08 00:00:00', NULL, NULL, 9, 'Médecine nucléaire', 'Radio', NULL),
+(75, '2018-04-08 00:00:00', '2018-04-08 00:00:00', NULL, NULL, 9, 'Radiodiagnostic et imagerie médicale', 'Radio', NULL),
+(76, '2018-04-08 00:00:00', '2018-04-08 00:00:00', NULL, NULL, 9, 'Radiothérapie', 'Radio', NULL),
+(77, '2018-04-08 00:00:00', '2018-04-08 00:00:00', NULL, NULL, 10, 'Chirurgie gynécologie obstétrique', 'Gynéco', NULL),
+(1, '2018-04-08 00:00:00', '2018-04-08 00:00:00', NULL, NULL, NULL, 'Autres médécins', NULL, NULL);
+
+--
+-- Index pour les tables déchargées
+--
+
+--
+-- Index pour la table `default_doctor_categories`
+--
+ALTER TABLE `default_doctor_categories`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT pour les tables déchargées
+--
+
+--
+-- AUTO_INCREMENT pour la table `default_doctor_categories`
+--
+ALTER TABLE `default_doctor_categories`
+  MODIFY `id` int(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=80;COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

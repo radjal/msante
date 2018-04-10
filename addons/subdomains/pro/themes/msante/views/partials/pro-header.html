@@ -6,32 +6,34 @@
                             <i class="glyphicon glyphicon-arrow-left"></i>
                     </a>  
                 </div>
-                {{if false}}
-                {{endif}}
-                <div class=" " >  
+                {{if {url:segments segment="1"} == "inscription" }} 
+                            <img class="alt-logo" src="{{url:site}}addons/default/themes/msante/img/pro/top.png" alt="Accueil"/>
+                {{else}}
+                <div class="" >  
                         <div class="text-center" >
-                            <a href="{{site:url}}" class="loader load-replace"><img class="logo" src="{{url:site}}addons/default/themes/msante/img/pro/toppro.png" alt="Accueil"/></a> 
+                            <img class="logo" src="{{url:site}}addons/default/themes/msante/img/pro/toppro.png" alt="Accueil"/>
                         </div>
                 </div>
                 <div id="user-box" class="text-center"  style="{{if user:logged_in}}color: green{{else}}red{{endif}}"> 
-                {{ if user:logged_in }} 
-                <i class="glyphicon glyphicon-user"></i>
-                 <div class="display-name">{{# user:username #}} {{ user:display_name }}</div> 
-                
-                <!--
-                {{ if user:logged_in }} <div class="display-name">{{# user:username #}} {{ user:display_name }}</div>{{ endif }} <i class="glyphicon glyphicon-user"></i>
-                -->
-                
-                {{ else }}
-                        {{# connect #}}
-                        {{if url:uri_string != "users/login"}}
-                        <ul class="nav navbar-nav ">
-                            <li><a href="{{url:site}}users/login" class="btn btn-default ">Connexion</a></li>  
+                    {{ if user:logged_in }} 
+                            <i class="glyphicon glyphicon-user"></i>
+                             <div class="display-name">{{# user:username #}} {{ user:display_name }}</div> 
 
-                        </ul>     
-                        {{endif}}
-                {{ endif }}     
+                            <!--
+                            {{ if user:logged_in }} <div class="display-name">{{# user:username #}} {{ user:display_name }}</div>{{ endif }} <i class="glyphicon glyphicon-user"></i>
+                            -->
+
+                    {{ else }}
+                            {{# connect #}}
+                                {{if url:uri_string != "users/login"}}
+                                <ul class="nav navbar-nav ">
+                                    <li><a href="{{url:site}}users/login" class="btn btn-default ">Connexion</a></li>  
+
+                                </ul>     
+                                {{endif}}
+                    {{ endif }}     
                 </div> 
+                {{endif}} 
             </div> 
 	</div>
 </nav> 

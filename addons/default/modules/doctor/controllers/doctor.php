@@ -55,13 +55,13 @@ class Doctor extends Public_Controller
         {
             $params['where'] = "default_doctor_doctors.name LIKE '%$search%' OR default_doctor_doctors.town LIKE '%$search%' OR default_doctor_doctors.area_name LIKE '$search%'" ;
         } 
-//        if( isset($params['where']) )
-//        {
-//            $params['where'] = $params['where']." AND default_doctor_doctors.validated = 'yes'" ;
-//        } else 
-//        {
-//            $params['where'] = "default_doctor_doctors.validated = 'yes'"; 
-//        }
+        if( isset($params['where']) )
+        {
+            $params['where'] = $params['where']." AND default_doctor_doctors.validated = 'yes'" ;
+        } else 
+        {
+            $params['where'] = "default_doctor_doctors.validated = 'yes'"; 
+        }
         $data = new stdClass();
         $data->doctors = $this->streams->entries->get_entries($params);
 

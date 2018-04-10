@@ -234,7 +234,7 @@ class Plugin_Appointments extends Plugin
                 if(stristr($futur_past,"past")) $this->db->where('appointments_list.appointment_date <=', date('Ymd', time()));   
                  
                 $users = $this->db 
-                            ->select('appointments_list.*')
+                            ->select('appointments_list.first_name, appointments_list.last_name')
                             ->distinct()
                             ->where("appointments_list.user_id",$user_id )
                             ->where("appointments_list.for_user",'no' ) 

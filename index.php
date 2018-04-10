@@ -1,10 +1,7 @@
 <?php 
 // hack for automatic env constant radja
 $_SERVER['PYRO_ENV'] = stristr($_SERVER['SERVER_NAME'], 'localhost') ? 'development' : 'production' ;
-// hack for subdomain specific themes
-//	function subdomain_value()
-//	{		
-//		$parsed = parse_url($_SERVER['SERVER_NAME']); 
+// hack for subdomain specific themes 
 		$domain = explode('.', $_SERVER['SERVER_NAME']);
 		$subdomain = '';
 		
@@ -14,9 +11,7 @@ $_SERVER['PYRO_ENV'] = stristr($_SERVER['SERVER_NAME'], 'localhost') ? 'developm
 			$subdomain = $domain[1];                
 			else
 			$subdomain = $domain[0];              
-		}
-//		return  $subdomain;                     
-//	}
+		}  
 $subdomain ;
 define('SUBDOMAIN', $subdomain);
 

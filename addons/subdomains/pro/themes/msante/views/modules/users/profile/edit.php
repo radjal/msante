@@ -21,7 +21,7 @@
         <?php endif; ?>
         <div class="container">
             <?php echo form_open_multipart('', array('id'=>'user_edit', 'class' => 'crud_form')); ?>
-                    <div class="span10 offset1 form-horizontal well">
+                    <div class="span10 offset1 form-horizontal">
                             <fieldset> 
                             <ul class="nav nav-tabs">
                                     <li class="active"><a href="#A" data-toggle="tab"><i class="glyphicon glyphicon-user"></i></a></li>
@@ -183,8 +183,8 @@
 </script>
                                                 <!-- DEBUG
                                                 
-                                                -->
                                                 pro_doctor_id:{{ msante:pro_doctor_id }}
                                                 pro_has_no_doctor_id:{{msante:pro_has_no_doctor_id}}
                                                 pro_has_no_setting:{{msante:pro_has_no_setting}}
+                                                -->
 </div>  

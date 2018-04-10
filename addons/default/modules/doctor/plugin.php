@@ -94,7 +94,7 @@ class Plugin_Doctor extends Plugin
                 $html .= '</form>';
             $html .= '</div>'; 
                 
-                if(!empty($search) or !empty($cat)) { $html .= '<br />'.anchor(site_url().'doctor','Recharger'); }
+//                if(!empty($search) or !empty($cat)) { $html .= '<br />'.anchor(site_url().'doctor','Recharger'); }
                 
 //                $html .= '<script> console.log("test") ; $( document ).ready(function(){ ';
 //                $html .= "if(navigator.geolocation !== true) { $('#doctor-search .input-group-addon a').addClass('disabled'); ";

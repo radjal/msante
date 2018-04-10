@@ -26,7 +26,7 @@
 			<tbody>
 				<?php foreach ($doctors as $doctor): ?>
 				<tr>
-					<td><?php echo $doctor['id']; ?></td>
+                                    <td><a href="<?= site_url() ?>admin/appointments?searchBtn=Search&doctor_id=<?= $doctor['id']; ?>"><?= $doctor['id']; ?></a></td>
 					<td><?php echo $doctor['validated']['value']; ?></td>
 					<td><?php echo $doctor['doctor_cat']['speciality']; ?></td>
 					<td><?php echo $doctor['name']; ?></td>

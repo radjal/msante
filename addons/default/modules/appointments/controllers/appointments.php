@@ -159,7 +159,11 @@ class Appointments extends Public_Controller
 //                                $noid = $this->appointments_m->save_appointment($appointment, $cart);
                                 if ($noid>0)
                                 {
-//                                        $this->session->set_flashdata('success', lang('appointments:saved_waiting'));
+                                    // some output formatting
+                                    $appointment->formatted_time = $this->appointments_m->timestr_format($appointment->appointment_time);
+                                    $appointment->formatted_date = $this->appointments_m->datestr_to_day($appointment->appointment_date);
+                                    $appointment->formatted_date .= $this->appointments_m->datestr_to_month($appointment->appointment_date ) ;
+//                                        $this->session->set_flashdata('success', lang('appointments:saved_waiting'));e) 
                                         $this->_send_email('appointments-admin', $noid, $appointment, $this->current_user);
                                         $this->_send_email('appointments-patient', $noid, $appointment, $this->current_user, null, $this->current_user->email);
 //                                        $this->_send_email('appointments-doctor', $noid, $appointment, $this->current_user, null, $this->current_user->email);

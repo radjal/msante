@@ -1,15 +1,15 @@
 <!-- patients subdomain --> 
 <div class="simple-header">
-        <h3>
+<!--        <h3>
             Mettre à jour votre profil
 {{# user:display_name #}}
-        </h3>
+        </h3>-->
                                                 <!-- DEBUG
                                                 
-                                                -->
                                                 pro_doctor_id:{{ msante:pro_doctor_id }}
                                                 pro_has_no_doctor_id:{{msante:pro_has_no_doctor_id}}
                                                 pro_has_no_setting:{{msante:pro_has_no_setting}}
+                                                -->
 </div>  
 <section id="login">
     <div class="row-fluid">

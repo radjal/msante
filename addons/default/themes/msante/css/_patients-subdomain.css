@@ -86,12 +86,18 @@ a.btn-link.dropdown-toggle {
 .nav .open > a, .nav .open > a:hover, .nav .open > a:focus {
     background-color: transparent;
     border-color: #428bca;
+} 
+.nav > li > a:hover, .nav > li > a:focus {
+    text-decoration: none;
+    background-color: transparent;
+}
+.navbar-nav {
+    background: #41c2fb;
 }
 /** bottom */
 #bottom-nav .logo {
     font-size: 30px;
 }
-
 #footer i.glyphicon.glyphicon-home {
     color: #00aeee;
 }
