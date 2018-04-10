@@ -6,8 +6,13 @@
             <a href="{{custom:base_domain}}/admin/doctor/">Vue admin docteurs</a> 
         </p>
 {{else}} 
+<!--  
+<p class="alert alert-info">
         Id docteur: {{msante:pro_doctor_id}} <a href="{{custom:base_domain}}/users/edit/">(Editer via domaine de base)</a> 
             <a href="{{custom:base_domain}}/admin/doctor/">Vue admin docteurs</a> 
+    
+</p>
+-->
 {{endif}}
 {{if  pro_has_no_setting }}
         <p class="alert alert-warning">
@@ -29,16 +34,17 @@
                   </div>
                   <div id="collapse1" class="panel-collapse collapse in">
                     <div class="panel-body">
-                        
+
+                        <!-- jquery datepicker calendar --> 
                         <div class="calendar-wrapper">
                             <div id="datepicker">{{# DATEPICKER DIV #}}</div> 
-                            <div id="date-text"></div> 
-                            <div id="date-digest"></div> 
-                            <div id="date-btn">
-                                <a id="date-btn" class="btn btn-default" style="display: none" >Voir le détail</a>    
+                            <div id="date-text" class="h4"></div> 
+                            <div id="date-digest" class="h5"></div> 
+                            <div id="date-btn" class="">
+                                <a id="date-btn" class="btn btn-default btn-group-justified" style="display: none" >Voir le détail</a>    
                             </div> 
                         </div> 
-                        <div id="mes-dispos"><button class="btn btn-primary" >Mes disponibilités</button></div> 
+                        <div id="mes-dispos"><button class="btn btn-group-justified btn-link disabled" >Mes disponibilités</button></div> 
                         
                     </div>
                   </div>
@@ -93,7 +99,7 @@
 
 
 <p>
-    <a href="{{url:site}}/users/edit/" class="btn btn-default">Mes paramètres d'accuel</a>
+    <a href="{{url:site}}/users/edit/" class="btn btn-default btn-group-justified ">Mes paramètres d'accueil</a>
 </p>
 
 

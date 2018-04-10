@@ -1,7 +1,8 @@
-#mes-dispos {
-    float: right;
+ 
+div#datepicker {
+    width: 100%;
 }
-
 .calendar-wrapper {
-    float: left;
+    width: 260px;
+    margin: auto;
 }

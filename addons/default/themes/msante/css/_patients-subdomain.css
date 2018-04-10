@@ -33,7 +33,21 @@ nav#top-nav {
     float: right;
     font-size: large;
 }
-/* top */
+i.ico-pro.glyphicon.glyphicon-plus-sign {}
+
+i.ico-pro.glyphicon {
+    color: white;
+}
+
+.titre-rdv, .titre-pro, .display-name {
+    color: white;
+    font-weight: normal;
+}
+
+.text-center.h4  {}
+/***********
+ top 
+ *************/
 #back-btn {
     position: absolute;
     z-index: 10000;
@@ -46,7 +60,13 @@ overflow: hidden;
     text-overflow: ellipsis;
     display: inline-block; */
     /* font-weight: 100; */
-    color: #ba5eda;
+    color: white;
+}
+.navbar-nav .open .dropdown-menu > li > a:hover, .navbar-nav .open .dropdown-menu > li > a:focus {
+    background-image: none;
+    background: transparent;
+    border: none;
+    box-shadow: none;
 }
 /* nav */
 nav.patients {

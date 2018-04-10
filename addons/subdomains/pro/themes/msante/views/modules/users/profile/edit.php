@@ -1,15 +1,14 @@
 <!-- pro subdomain --> 
 <div class="simple-header">
         <h3>
-{{ user:display_name }}
+{{# user:display_name #}}
+{{if msante:pro_doctor_id }}
+     {{ msante:pro_get_doctor id=msante:pro_doctor_id }}
+     
+    {{ name }}
+    {{ /msante:pro_get_doctor}}
+{{endif}}
         </h3>
-                                                <!-- DEBUG
-                                                
-                                                -->
-                                                pro_doctor_id:{{ msante:pro_doctor_id }}
-                                                pro_has_no_doctor_id:{{msante:pro_has_no_doctor_id}}
-                                                pro_has_no_setting:{{msante:pro_has_no_setting}}
-</div>  
 <section id="login">
     <div class="row-fluid">
         <?php if (validation_errors()): ?>      
@@ -25,10 +24,10 @@
                     <div class="span10 offset1 form-horizontal well">
                             <fieldset> 
                             <ul class="nav nav-tabs">
-                                    <li class="active"><a href="#A" data-toggle="tab"><?php echo lang('user:details_section') ?></a></li>
-                                    <li><a href="#B" data-toggle="tab"><?php echo lang('global:email') ?></a></li> 
-                                    <li><a href="#C" data-toggle="tab">Coordonnées</a></li>  
-                                    <li><a href="#D" data-toggle="tab">Réglages</a></li>  
+                                    <li class="active"><a href="#A" data-toggle="tab"><i class="glyphicon glyphicon-user"></i></a></li>
+                                    <li><a href="#B" data-toggle="tab"><i class="glyphicon glyphicon-lock"></i></a></li> 
+                                    <li><a href="#C" data-toggle="tab"><i class="glyphicon glyphicon-map-marker"></i></a></li>  
+                                    <li><a href="#D" data-toggle="tab"><i class="glyphicon glyphicon-cog"></i></a></li>  
                             </ul>
                             <div class="tabbable">
                                     <div class="tab-content">
@@ -182,3 +181,10 @@
 	jQuery('#user_edit input[type=radio]').removeClass('form-control');
 	
 </script>
+                                                <!-- DEBUG
+                                                
+                                                -->
+                                                pro_doctor_id:{{ msante:pro_doctor_id }}
+                                                pro_has_no_doctor_id:{{msante:pro_has_no_doctor_id}}
+                                                pro_has_no_setting:{{msante:pro_has_no_setting}}
+</div>  

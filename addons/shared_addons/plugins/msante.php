@@ -72,6 +72,24 @@ class Plugin_Msante extends Plugin
         } 
         
 	/**  
+         * return  doctor
+	 *  
+	 * Usage:
+	 * {{ msante:pro_get_doctor id="doctor_id" }}
+         *  {{name}}...
+         * {{ /msante:pro_get_doctor}}
+	 *
+	 * @return string
+	 */
+	function pro_get_doctor()
+	{
+                $this->load->model('doctor/doctor_m');  
+		$id = strtolower($this->attribute('id'));  
+                $d = $this->doctor_m->get_doctor($id);
+                return $d;
+        } 
+        
+	/**  
          * return true if profile field settings_pro is empty
 	 *  
 	 * Usage:

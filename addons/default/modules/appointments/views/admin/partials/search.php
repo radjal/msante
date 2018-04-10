@@ -43,6 +43,7 @@
             <?php // echo $this->html_m->form_input('slug', $this->input->get('slug'),'', lang('appointments:slug_alt')) ?>
             <?php echo $this->html_m->form_input('appointment_date', $this->input->get('appointment_date')) ?> 
             <?php echo $this->html_m->form_input('user_id', $this->input->get('user_id')) ?>
+            <?php echo $this->html_m->form_input('doctor_id', $this->input->get('doctor_id')) ?>
             <?php echo $this->html_m->form_input('first_name', $this->input->get('first_name')) ?>
             <?php echo $this->html_m->form_input('last_name', $this->input->get('last_name')) ?>
         </div>
