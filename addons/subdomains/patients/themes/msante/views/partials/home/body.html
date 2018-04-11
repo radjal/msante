@@ -4,9 +4,25 @@
     <div class="text-center h3 titre-rdv"> 
         Prenez rendez vous avec votre professionnel de sant&eacute; 
     </div>
+    
+    
     <div class="row specialite-rdv" >
+        
+        
+        <!--
+        
+        {{ doctor:categories parent_cat="0" images="true" }}  
+                    <div class="specialite" data-cat="{{ speciality }}" data-type="rdv">
+                            <img src="{{ url:site }}files/thumb/{{filename}}/80/80" alt="{{ speciality }}"/> 
+                            <p>{{ speciality }}</p>
+                    </div> 
+             
+	 {{ /doctor:categories }}
+        
+        
+        -->
         <div class="col-lg-4 ico-grp">
-                    <div class="specialite" data-cat="Médecins généralistes" data-type="rdv">
+                    <div class="specialite" data-cat="Médecin généraliste" data-type="rdv">
                             <img src="{{ url:site }}files/thumb/997cd2e64fac717/80/80" alt="Généraliste"/> 
                             <p>Médecins généralistes</p>
                     </div>
@@ -21,11 +37,11 @@
         </div>
 
         <div class="col-lg-4 ico-grp">
-                    <div class="specialite" data-cat="Cardiologie" data-type="rdv">
+                    <div class="specialite" data-cat="Cardiologue" data-type="rdv">
                             <img src="{{ url:site }}files/thumb/a4278245d864a56/80/80" alt="Cardiologie"/> 
                             <p>Cardiologue</p> 
                     </div>
-                    <div class="specialite" data-cat="Spécialistes femme" data-type="rdv">
+                    <div class="specialite" data-cat="Spécialiste femme" data-type="rdv">
                             <img src="{{ url:site }}files/thumb/3590b30f5b17f8c/80/80" alt="Spécialistes femme"/> 
                             <p>Spécialistes femme</p>
                     </div>
@@ -49,7 +65,6 @@
                             <p>Etablissements de santé</p>
                     </div>
         </div> 
-        
     </div>
 </div>
 

@@ -16,6 +16,11 @@
                         <ul class="nav navbar-nav nav-pills">
                                 {{ navigation:links group="header" }}
                                 {{ if user:logged_in }}                         
+
+                                {{# if user:has_cp_permissions =="" #}}
+                                {{ if user:group == 'admin' }}
+                                        <li><a href="{{url:site}}admin">Admin</a></li>    
+                                {{ endif }}
                                         <li><a href="{{url:site}}rendez-vous">Mes RDV</a></li>            
                                         <li><a href="{{url:site}}users/edit">Mes informations personnelles</a></li>
                                         <li><a href="{{url:site}}users/logout">Déconnexion</a></li>            
@@ -23,7 +28,9 @@
                                         {{# connect #}}
                                             <li><a href="{{url:site}}users/login">Connexion</a></li>   
                                 {{ endif }}                                  
-                        </ul>                                       
+                        </ul>          
+                    
+                    
                         {{ if false }}           
                         <ul class="nav navbar-nav nav-pills top-user-menu">
                                 {{ if user:logged_in and false }}                                   

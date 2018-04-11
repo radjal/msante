@@ -14,9 +14,30 @@ class Doctor_m extends MY_Model
          * @param int $doc_id
          * @return array
          */
+        public function get_categories($parent=null, $images=false)
+        { 
+            $this->db->select('doctor_categories.id, doctor_categories.parent_cat, doctor_categories.speciality, doctor_categories.keywords'); 
+            $this->db->select('files.filename'); 
+            $this->db->join('files', 'doctor_categories.doc_cat_image = files.id', 'left');
+            if(!empty($parent) && $parent != 'null') $this->db->where( 'doctor_categories.parent_cat', $parent ); 
+            if($images) $this->db->where( 'doctor_categories.doc_cat_image <> ', ''); 
+                
+            $res = $this->db 
+                            ->order_by('ordering_count desc, name desc') 
+                            ->get('doctor_categories')
+                            ->result_array();  
+            return $res;
+        } 
+        
+                        
+        /** return doctor from DB
+         * 
+         * @param int $doc_id
+         * @return array
+         */
         public function get_doctor($doc_id=false)
         {
-            if($doc_id == false) $return ;
+            if($doc_id == false) return ;
             
             $this->db->select('doctor_doctors.*');
             $this->db->select('doctor_categories.*');

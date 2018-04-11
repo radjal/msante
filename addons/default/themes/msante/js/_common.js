@@ -39,3 +39,23 @@ function setField(fname, object)
     $('.'+fname+'_ui input').val(value); 
     return value;
 }  
+function ajaxDiv(selector, url, sendType) 
+{ 
+    if(typeof(sendType)==='undefined') sendType = 'POST'; 
+    $.ajax({
+            url : url,
+            type : sendType,
+            dataType : 'html',
+            success : function(code_html, statut){ // success est toujours en place, bien sûr !
+                $(selector).html(code_html);
+            }, 
+            error : function(resultat, statut, erreur){ 
+                $(selector).html('Ajax error for: '+url);
+                console.log('Ajax error for: '+url);
+            } 
+    });  
+} 
+function navigateBack()
+{    
+    window.history.back();
+}

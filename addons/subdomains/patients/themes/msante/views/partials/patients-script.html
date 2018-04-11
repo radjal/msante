@@ -5,19 +5,7 @@
     theme.loadimg = '<img src="{{url:site}}addons/default/themes/msante/img/loading.svg" class="loadimg" style="height:6px;" />';
     theme.loaddiv = '<div style="text-align:center;width:100%;padding-top:60px">'+theme.loadimg+'</div>';
     
-    function navigateBack()
-    {   
-        //if(typeof(theme.loaddiv) !== 'undefined') $('#container').html(theme.loaddiv);
-        //if(typeof(theme.loadimg) !== 'undefined') $('#back-btn a').html(theme.loadimg);
-        window.history.back();
-    }
-
-    function setcookieeula() 
-    {
-            Cookies.set('cookieeula', 'yes',  { expires: 9999 });
-            $( "#cookie-accept" ).attr( "style", "display:none" );
-    } 
-
+ 
     /***************************************** pg load  *****************************************/
     $( document ).ready(function() {
             /*cookie accept*/

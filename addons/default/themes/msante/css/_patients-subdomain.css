@@ -38,7 +38,10 @@ i.ico-pro.glyphicon.glyphicon-plus-sign {}
 i.ico-pro.glyphicon {
     color: white;
 }
-
+.specialite-rdv {
+    max-width: 314px;
+    margin: auto;
+}
 .titre-rdv, .titre-pro, .display-name {
     color: white;
     font-weight: normal;

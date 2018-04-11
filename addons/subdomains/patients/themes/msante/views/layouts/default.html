@@ -26,7 +26,8 @@
             {{if custom:subdomain_value and page:is_home }} 
                 <!-- no segment subdomain patients.layout -->  
                         <!-- home/body --> 
-                        {{ theme:partial name="home/body" }}    
+                        {{# theme:partial name="home/body" #}}   
+                        {{ url:redirect to="accueil-patients" }}   
             {{else}}
                 <!-- has segment subdomain patients.layout --> 
             {{endif}}

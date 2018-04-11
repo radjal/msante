@@ -15,8 +15,6 @@ $_SERVER['PYRO_ENV'] = stristr($_SERVER['SERVER_NAME'], 'localhost') ? 'developm
 $subdomain ;
 define('SUBDOMAIN', $subdomain);
 
-
-
 # If you have already installed then delete this
 if ( ! file_exists('system/cms/config/database.php'))
 {

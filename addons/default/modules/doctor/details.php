@@ -718,6 +718,7 @@ class Module_Doctor extends Module
                 )
             )); 
         }
+         
         return true;
     }
 
