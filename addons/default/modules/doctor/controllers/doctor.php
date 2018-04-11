@@ -115,20 +115,20 @@ class Doctor extends Public_Controller
         // AJAX and XHR
         if($this->input->is_ajax_request() AND $this->template->set_layout(false))
         {
-            $adata = $data->doctors;
-            foreach ($adata['entries'] as $key => $value) 
+            $cat = $data->doctors;
+            foreach ($cat['entries'] as $key => $value) 
             {
-                $adata['entries'][$key]['js_name'] = json_encode($adata['entries'][$key]['name']) ;
-                $adata['entries'][$key]['js_town'] = json_encode($adata['entries'][$key]['town']) ;
-                $adata['entries'][$key]['js_description'] = json_encode($adata['entries'][$key]['description']) ;
-                $adata['entries'][$key]['js_address'] = json_encode($adata['entries'][$key]['address']) ;
-                $adata['entries'][$key]['js_area_name'] = json_encode($adata['entries'][$key]['area_name']) ;
-////                $adata['entries'][$key]['js_hours'] = json_encode($adata['entries'][$key]['hours']) ;
-////                $adata['entries'][$key]['doctor_zone']['js_doctor_zone_title'] = json_encode($adata['entries'][$key]['doctor_zone']['doctor_zone_title']) ;
+                $cat['entries'][$key]['js_name'] = json_encode($cat['entries'][$key]['name']) ;
+                $cat['entries'][$key]['js_town'] = json_encode($cat['entries'][$key]['town']) ;
+                $cat['entries'][$key]['js_description'] = json_encode($cat['entries'][$key]['description']) ;
+                $cat['entries'][$key]['js_address'] = json_encode($cat['entries'][$key]['address']) ;
+                $cat['entries'][$key]['js_area_name'] = json_encode($cat['entries'][$key]['area_name']) ;
+////                $cat['entries'][$key]['js_hours'] = json_encode($cat['entries'][$key]['hours']) ;
+////                $cat['entries'][$key]['doctor_zone']['js_doctor_zone_title'] = json_encode($cat['entries'][$key]['doctor_zone']['doctor_zone_title']) ;
             }
 //            $data = json_encode($data);
             $template = 'ajax';
-            $data->doctors = $adata;
+            $data->doctors = $cat;
         } 
         
         // Build the page
@@ -220,20 +220,20 @@ class Doctor extends Public_Controller
         // AJAX and XHR
         if($this->input->is_ajax_request() AND $this->template->set_layout(false))
         {
-//            $adata = $data->doctor;
-////            foreach ($adata['entries'] as $key => $value) 
+//            $cat = $data->doctor;
+////            foreach ($cat['entries'] as $key => $value) 
 ////            {
-////                $adata['entries'][$key]['js_name'] = json_encode($adata['entries'][$key]['name']) ;
-////                $adata['entries'][$key]['js_town'] = json_encode($adata['entries'][$key]['town']) ;
-////                $adata['entries'][$key]['js_description'] = json_encode($adata['entries'][$key]['description']) ;
-////                $adata['entries'][$key]['js_address'] = json_encode($adata['entries'][$key]['address']) ;
-////                $adata['entries'][$key]['js_area_name'] = json_encode($adata['entries'][$key]['area_name']) ;
-////////                $adata['entries'][$key]['js_hours'] = json_encode($adata['entries'][$key]['hours']) ;
-////////                $adata['entries'][$key]['doctor_zone']['js_doctor_zone_title'] = json_encode($adata['entries'][$key]['doctor_zone']['doctor_zone_title']) ;
+////                $cat['entries'][$key]['js_name'] = json_encode($cat['entries'][$key]['name']) ;
+////                $cat['entries'][$key]['js_town'] = json_encode($cat['entries'][$key]['town']) ;
+////                $cat['entries'][$key]['js_description'] = json_encode($cat['entries'][$key]['description']) ;
+////                $cat['entries'][$key]['js_address'] = json_encode($cat['entries'][$key]['address']) ;
+////                $cat['entries'][$key]['js_area_name'] = json_encode($cat['entries'][$key]['area_name']) ;
+////////                $cat['entries'][$key]['js_hours'] = json_encode($cat['entries'][$key]['hours']) ;
+////////                $cat['entries'][$key]['doctor_zone']['js_doctor_zone_title'] = json_encode($cat['entries'][$key]['doctor_zone']['doctor_zone_title']) ;
 ////            }
 ////            $data = json_encode($data);
 //            $template = 'ajax';
-//            $data->doctor = $adata;
+//            $data->doctor = $cat;
         } 
         
         // Build the page
@@ -280,20 +280,20 @@ class Doctor extends Public_Controller
         // AJAX and XHR
         if($this->input->is_ajax_request() AND $this->template->set_layout(false))
         {
-//            $adata = $data->doctor;
-////            foreach ($adata['entries'] as $key => $value) 
+//            $cat = $data->doctor;
+////            foreach ($cat['entries'] as $key => $value) 
 ////            {
-////                $adata['entries'][$key]['js_name'] = json_encode($adata['entries'][$key]['name']) ;
-////                $adata['entries'][$key]['js_town'] = json_encode($adata['entries'][$key]['town']) ;
-////                $adata['entries'][$key]['js_description'] = json_encode($adata['entries'][$key]['description']) ;
-////                $adata['entries'][$key]['js_address'] = json_encode($adata['entries'][$key]['address']) ;
-////                $adata['entries'][$key]['js_area_name'] = json_encode($adata['entries'][$key]['area_name']) ;
-////////                $adata['entries'][$key]['js_hours'] = json_encode($adata['entries'][$key]['hours']) ;
-////////                $adata['entries'][$key]['doctor_zone']['js_doctor_zone_title'] = json_encode($adata['entries'][$key]['doctor_zone']['doctor_zone_title']) ;
+////                $cat['entries'][$key]['js_name'] = json_encode($cat['entries'][$key]['name']) ;
+////                $cat['entries'][$key]['js_town'] = json_encode($cat['entries'][$key]['town']) ;
+////                $cat['entries'][$key]['js_description'] = json_encode($cat['entries'][$key]['description']) ;
+////                $cat['entries'][$key]['js_address'] = json_encode($cat['entries'][$key]['address']) ;
+////                $cat['entries'][$key]['js_area_name'] = json_encode($cat['entries'][$key]['area_name']) ;
+////////                $cat['entries'][$key]['js_hours'] = json_encode($cat['entries'][$key]['hours']) ;
+////////                $cat['entries'][$key]['doctor_zone']['js_doctor_zone_title'] = json_encode($cat['entries'][$key]['doctor_zone']['doctor_zone_title']) ;
 ////            }
 ////            $data = json_encode($data);
 //            $template = 'ajax';
-//            $data->doctor = $adata;
+//            $data->doctor = $cat;
         } 
         
         // Build the page
@@ -301,6 +301,35 @@ class Doctor extends Public_Controller
 //                ->set('jsdata', $data)
 //                ->set('cal_week', $cal_week)
                 ->build('info', $doctor);
+    }
+	
+     /**
+     * get categories 
+     *
+     * @access	public
+     * @return	void
+     */
+    public function categories($catid=null, $images=false)
+    {
+        $template = 'categories';
+        $this->load->model('doctor_m'); 
+        
+        $cat = $this->doctor_m->get_categories($catid, $images);
+        
+        // AJAX and XHR
+        if($this->input->is_ajax_request() AND $this->template->set_layout(false))
+        { 
+            foreach ($cat['entries'] as $key => $value) 
+            {
+                $cat['entries'][$key]['js_name'] = json_encode($cat['entries'][$key]['name']) ; 
+            }  
+            $template = 'json-categories';
+        } 
+        
+        // Build the page
+            $this->template->title(lang('doctor:doctor') ) 
+                ->set('data' , $cat )
+                ->build($template, $cat);
     }
 
     public function week($week_no) 

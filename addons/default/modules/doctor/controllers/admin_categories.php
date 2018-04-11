@@ -37,7 +37,7 @@ class Admin_categories extends Admin_Controller
      * @access	public
      * @return	void
      */
-    public function index()
+    public function index_streams()
     {
         $extra['title'] = 'lang:doctor:categories';
         
@@ -52,12 +52,45 @@ class Admin_categories extends Admin_Controller
                 'confirm' => true
             )
         );
+//        $extra['order'] = "speciality";
+//         
         
         // customizing headers
         $extra['columns'] = array('id', 'parent_cat', 'speciality', 'doc_cat_image' );
         //entries_table($stream_slug, $namespace_slug, $pagination = null, $pagination_uri = null, $view_override = false, $extra = array())
         $this->streams->cp->entries_table('categories', 'doctor', 20, 'admin/doctor/categories/index', true, $extra);
     }
+    
+    
+    
+    public function index()
+    {
+        // Get our entries. We are simply specifying
+        // the stream/namespace, and then setting the pagination up.
+        $params = array(
+            'stream' => 'categories',
+            'namespace' => 'doctor',
+            'paginate' => 'no',
+            'limit' => 100,
+            'pag_segment' => 3
+        ); 
+        //search 
+        $speciality = $this->input->post('f_speciality');
+        $parent_cat = $this->input->post('f_parent_cat'); 
+        if(!empty($speciality)) $params['where'] = "default_doctor_categories.speciality LIKE '%$speciality%'" ;
+        if(!empty($parent_cat)) $params['where'] = "default_doctor_categories.parent_cat LIKE '%$parent_cat%'" ;
+        //get entries
+        $data = $this->streams->entries->get_entries($params);
+ 
+        // Build the page. See views/admin/index.php
+        // for the view code.
+        $this->template
+                    ->title($this->module_details['name'])
+                    ->set('categories', $data['entries'])
+                    ->build('admin/categories', $data);
+    }
+    
+    
 
     public function create()
     {

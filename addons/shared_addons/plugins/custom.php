@@ -9,7 +9,7 @@
  */
 class Plugin_Custom extends Plugin
 {
-	public $version = '1.1.10';
+	public $version = '1.1.20';
 
 	public $name = array(
 		'en'	=> 'Custom'
@@ -186,10 +186,9 @@ class Plugin_Custom extends Plugin
 			$subdomain = $domain[0];              
 		}
 		return  $subdomain;                     
-	}
+	} 
         
-        
-        /**
+     /**
 	 * return name of base domain if in subdomain
 	 *
 	 * Usage:
@@ -207,7 +206,20 @@ class Plugin_Custom extends Plugin
                 $proto = isset($_SERVER['HTTPS']) ? 'https' : 'http';
 		return  $proto.'://'.$basedomain;                       
 	}
-        
+     /**
+	 * redirect to secure url if needed
+	 *
+	 * Usage:
+	 * {{ custom:https_check }}
+	 *
+	 */
+	function https_check() //DOES THIS WORK?
+	{		 
+			if ($_SERVER['REQUEST_SCHEME'] =='http' && $_SERVER['PYRO_ENV']=='production')
+			{  
+				redirect( 'https://'.$_SERVER['SERVER_NAME']) ;  
+			} 
+	} 
         
 	/**
 	 * returns true if user agent language matches language parameter to check
