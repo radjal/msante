@@ -108,9 +108,11 @@ class Admin extends Admin_Controller
             'pag_segment' => 3
         ); 
         //search 
+        $id = $this->input->post('f_id');
         $town = $this->input->post('f_town');
         $name = $this->input->post('f_name');
         $validated = $this->input->post('f_validated');
+        if(!empty($id)) $params['where'] = "default_doctor_doctors.id = '%$id%'" ;
         if(!empty($town)) $params['where'] = "default_doctor_doctors.town LIKE '%$town%'" ;
         if(!empty($name)) $params['where'] = "default_doctor_doctors.name LIKE '%$name%'" ;
         if(!empty($validated)) $params['where'] = "default_doctor_doctors.validated LIKE '%$validated%'" ;

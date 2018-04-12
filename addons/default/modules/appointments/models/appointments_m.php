@@ -39,23 +39,33 @@ class Appointments_m extends MY_Model
 	{
                 // convert to string if array
                 if(isset($search['appointment_status']) && is_array($search['appointment_status']) ) $search['appointment_status'] = implode (' ', $search['appointment_status']); 
-                if(isset($search['appointment_status']) && !empty($search['appointment_status'])) $search['appointment_status'] = trim($search['appointment_status']) ;
-                // convert to string if array
-//                if(isset($search['payment_type']) && is_array($search['payment_type']) ) $search['payment_type'] = implode (' ', $search['payment_type']); 
-//                if(isset($search['payment_type']) && !empty($search['payment_type'])) $search['payment_type'] = trim($search['payment_type']) ;
+                if(isset($search['appointment_status']) && !empty($search['appointment_status'])) $search['appointment_status'] = trim($search['appointment_status']) ; 
                 //build query
-                if(!empty($search['appointment_status'])) $this->db->where('default_appointments_list.appointment_status', $search['appointment_status'] );
-//                if(!empty($search['payment_type'])) $this->db->where('default_appointments_list.payment_type', $search['payment_type'] );
+                if(!empty($search['appointment_status'])) 
+                {
+                    $this->db->where('default_appointments_list.appointment_status', $search['appointment_status'] );
+                } else {
+                    $this->db->where('default_appointments_list.appointment_status', '' );
+                } 
                 if(!empty($search['name'])) $this->db->like('default_appointments_list.name', $search['name'] ); 
-                if(!empty($search['first_name'])) $this->db->like('default_appointments_list.first_name', $search['first_name'], 'after'); 
-                if(!empty($search['last_name'])) $this->db->like('default_appointments_list.last_name', $search['last_name'], 'after'); 
+                if(!empty($search['first_name'])) $this->db->like('default_appointments_list.first_name', trim($search['first_name']), 'after'); 
+                if(!empty($search['last_name'])) $this->db->like('default_appointments_list.last_name', trim($search['last_name']), 'after'); 
+                if(!empty($search['maiden_name'])) $this->db->like('default_appointments_list.maiden_name', trim($search['maiden_name']), 'after'); 
                 if(!empty($search['id'])) $this->db->like('default_appointments_list.id', $search['id'], 'after'); 
                 if(!empty($search['appointment_date'])) $this->db->like('default_appointments_list.appointment_date', $search['appointment_date'], 'after');
                 if(!empty($search['user_id'])) $this->db->like('default_appointments_list.user_id', $search['user_id'], 'after'); 
                 if(!empty($search['doctor_id'])) $this->db->like('default_appointments_list.doctor_id', $search['doctor_id'], 'after'); 
                 if(!empty($search['for_user'])) $this->db->where('default_appointments_list.for_user', $search['for_user']); 
-                if(!empty($search['futur_past']) && $search['futur_past']=='futur' ) $this->db->where('default_appointments_list.appointment_date >=', date('Ymd', time())); 
-                if(!empty($search['futur_past']) && $search['futur_past']=='past' ) $this->db->where('default_appointments_list.appointment_date <=', date('Ymd', time())); 
+                //date time
+                $date =date('Ymd', time());
+                $time =date('Hi', time());
+                if(!empty($search['futur_past']) && $search['futur_past']=='futur' ) 
+                { //FUTUR
+                    $this->db->where('CONCAT(default_appointments_list.appointment_date, default_appointments_list.appointment_time) >=', "$date$time");  
+                } elseif(!empty($search['futur_past']) && $search['futur_past']=='past' ) 
+                { //PAST
+                    $this->db->where('CONCAT(default_appointments_list.appointment_date, default_appointments_list.appointment_time) <', "$date$time"); 
+                }
         } 	
        
         /** set search conditions for appointment details listing
@@ -83,50 +93,14 @@ class Appointments_m extends MY_Model
             $this->_set_search($search);
 //                // convert to string if array
 //                if(isset($search['appointment_status']) && is_array($search['appointment_status']) ) $search['appointment_status'] = implode (' ', $search['appointment_status']); 
-//                if(isset($search['appointment_status']) && !empty($search['appointment_status'])) $search['appointment_status'] = trim($search['appointment_status']) ; 
 //                //build query
 //                if(!empty($search['appointment_status'])) $this->db->where('default_appointments_list.appointment_status', $search['appointment_status'] ); 
-//                if(!empty($search['name'])) $this->db->like('default_appointments_list.name', $search['name'] );
-//                if(!empty($search['id'])) $this->db->like('default_appointments_list.id', $search['id'], 'after'); 
-//                if(!empty($search['appointment_date'])) $this->db->like('default_appointments_list.appointment_date', $search['appointment_date'], 'after'); 
                 
                 return $this->appointments_m->select('count(*) AS count ')
-                        ->where("user_id = ".$this->current_user->id) 
+                        ->where("appointments_list.user_id = ".$this->current_user->id) 
 			->get_all();
         } 	
-        
-        /**
-         * 
-         * @param array $newstocks
-         * @return array
-         */
-        public function add_to_stock($newstocks) 
-        {
-//                foreach ($newstocks as $line => $p) {
-//                        $res = $this->db->update('products', 
-//                                    array(
-//                                      'id' => $p['id'] ,
-//                                      'stock' => $p['stock'] ,
-//                                    ),
-//                                    array('id' => $p['id']));
-//                }
-//                return $res;
-        }
-	
-        public function substract_from_stock($newstocklist) 
-        {
-//            $data = array();
-//            foreach ($newstocklist as $line => $p) {
-//                            $data[] = array(
-//                                  'id' => $p['id'] ,
-//                                  'stock' => $p['stock'] ,
-//                                );
-//                                
-//            }           
-//            return    $this->db->update_batch('products', $data, 'id'); 
-
-        }
-        
+                
         // @todo normalize cart product usage 
         //create a new item
 	public function save_appointment($appointment, $cart=null)

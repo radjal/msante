@@ -6,7 +6,8 @@
             <?php // echo $this->html_m->form_input('id', $this->input->get('id')) ?> 
             <?= $this->html_m->form_input('appointment_date', $this->input->post('appointment_date'), ' class="form-control" placeholder="Date au format AAAAMMJJ en commencant par la gauche"') ?> 
             <?php // echo $this->html_m->form_input('user_id', $this->input->get('user_id')) ?>
-            <?php // echo $this->html_m->form_input('first_name', $this->input->get('first_name')) ?>
+            <?php echo $this->html_m->form_input('first_name', $this->input->get('first_name')) ?>
+            <?php echo $this->html_m->form_input('last_name', $this->input->get('last_name')) ?>
             <?php
 echo '';            
 // echo $this->html_m->form_input('last_name', $this->input->get('last_name')) ?>

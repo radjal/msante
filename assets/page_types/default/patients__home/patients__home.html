@@ -9,8 +9,6 @@
     <div class="row specialite-rdv" >
         
         
-        <!--
-        
         {{ doctor:categories parent_cat="0" images="true" }}  
                     <div class="specialite" data-cat="{{ speciality }}" data-type="rdv">
                             <img src="{{ url:site }}files/thumb/{{filename}}/80/80" alt="{{ speciality }}"/> 
@@ -19,54 +17,11 @@
              
 	 {{ /doctor:categories }}
         
-        
-        -->
-        <div class="col-lg-4 ico-grp">
-                    <div class="specialite" data-cat="Médecin généraliste" data-type="rdv">
-                            <img src="{{ url:site }}files/thumb/997cd2e64fac717/80/80" alt="Généraliste"/> 
-                            <p>Médecins généralistes</p>
-                    </div>
-                    <div class="specialite" data-cat="Ophtalmologue" data-type="rdv">
-                            <img src="{{ url:site }}files/thumb/292281c45a9207c/80/80" alt="Ophtalmologue"/> 
-                            <p>Ophtalmologue</p>
-                    </div>
-                    <div class="specialite" data-cat="ORL" data-type="rdv">
-                            <img src="{{ url:site }}files/thumb/25e01b2784711d9/80/80" alt="ORL"/> 
-                            <p>ORL</p>
-                    </div>
-        </div>
-
-        <div class="col-lg-4 ico-grp">
-                    <div class="specialite" data-cat="Cardiologue" data-type="rdv">
-                            <img src="{{ url:site }}files/thumb/a4278245d864a56/80/80" alt="Cardiologie"/> 
-                            <p>Cardiologue</p> 
-                    </div>
-                    <div class="specialite" data-cat="Spécialiste femme" data-type="rdv">
-                            <img src="{{ url:site }}files/thumb/3590b30f5b17f8c/80/80" alt="Spécialistes femme"/> 
-                            <p>Spécialistes femme</p>
-                    </div>
-                    <div class="specialite" data-cat="Dentiste" data-type="rdv">
-                            <img src="{{ url:site }}files/thumb/28bf736b0c65fb4/80/80" alt="Dentiste"/> 
-                            <p>Dentiste</p>
-                    </div> 
-        </div>
-
-        <div class="col-lg-4 ico-grp">
-                    <div class="specialite" data-cat="Radiologue" data-type="rdv">
-                            <img src="{{ url:site }}files/thumb/82ed2c7f7efb8a4/80/80" alt="Radiologue"/> 
-                            <p>Radiologue</p>
-                    </div>
-                    <div class="specialite" data-cat="Autres médecins" data-type="rdv">
-                            <img src="{{ url:site }}files/thumb/c8e8886f9e65488/80/80" alt="Autres médecins"/> 
-                            <p>Autres médecins</p>
-                    </div>
-                    <div class="specialite" data-cat="Etablissements de santé" data-type="rdv">
-                            <img src="{{ url:site }}files/thumb/353de3d9e958976/80/80" alt="Etablissements de santé"/> 
-                            <p>Etablissements de santé</p>
-                    </div>
-        </div> 
+         
     </div>
 </div>
+
+
 
 {{# for ui #}} 
 <div class="h3 text-center titre-auto">   
@@ -110,13 +65,15 @@
 </div>
 
 
-
-
 <div id="pros"> 
-    <div class="text-center h4 titre-pro"> 
+    <div class="text-center titre-pro"> 
         Contactez un professionnel 
-        <a class="btn btn-link" onclick="$('.specialite-pro').slideToggle();$('.ico-pro').toggle();"><i class="ico-pro glyphicon glyphicon-plus-sign"></i><i class="ico-pro glyphicon glyphicon-minus-sign" style="display: none"></i></a>
+        <a class="btn btn-link  h4 " onclick="$('.specialite-pro, .specialite-rdv').slideToggle();$('.ico-pro').toggle() ">
+            <i class="ico-pro glyphicon glyphicon-plus-sign"></i>
+            <i class="ico-pro glyphicon glyphicon-minus-sign" style="display: none"></i>
+        </a>
     </div>
+        </a>
 
     <div class="row specialite-pro" style="display: none">
         <div class="col-lg-4 ico-grp"></div>

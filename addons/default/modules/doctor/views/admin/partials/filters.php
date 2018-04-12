@@ -9,6 +9,11 @@
                         </li> -->
 
                         <li class="">
+                                <label for="f_id">ID</label>
+                                <?php echo form_input('f_id', '', 'class=""') ?>
+                        </li>
+
+                        <li class="">
                                 <label for="f_name">Nom</label>
                                 <?php echo form_input('f_name', '', 'class=""') ?>
                         </li>
