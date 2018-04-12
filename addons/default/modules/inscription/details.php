@@ -2,7 +2,7 @@
 
 class Module_Inscription extends Module
 {
-    public $version = '0.0.1';
+    public $version = '0.0.20';
 
     public function info()
     {

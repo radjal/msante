@@ -15,7 +15,7 @@ class Inscription extends Public_Controller
         
         $this->load->model('inscription_m'); 
          $this->template->append_js('module::inscription.js');
-         $this->template->append_css('module::inscription.css');
+         $this->template->append_css('module::inscription.css'); 
     } 
     
     /**
@@ -26,55 +26,33 @@ class Inscription extends Public_Controller
     {
             $template = !empty($casNo) ? substr($casNo, 0, 4) : 'index'; 
             $data['cas'] = $casNo; 
-            $data['etape2'] = $etape2; 
-                        $norngps = $this->input->post('rngps');
-                        $birth_date = $this->input->post('birth_date'); 
+//            $data['etape2'] = $etape2; 
+            $norngps = $this->input->post('rngps');
+            $birth_date = $this->input->post('birth_date');  
+            ini_set("user_agent",'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.8.1.13) Gecko/20080311 Firefox/2.0.0.13'); //https://forum.ovh.com/showthread.php/99127-Communication-avec-un-web-service-Forbiden
             if($casNo == "cas1_1")
             {
-                        $norngps = $this->input->post('rngps');
-                        $birth_date = $this->input->post('birth_date'); 
 
                         if(!empty($norngps) ) // && !empty($birth_date)) 
                         {
-                            // cross site request
-                                $context = stream_context_create(array("http"=>array(
-                                    "method" => "GET",
-                                    "header" => "Accept: xml/*, text/*,  json/*, */*\r\n",
-                                    "ignore_errors" => false,
-                                    "timeout" => 50,
-                                )));
-
-                                $url = defined(PYRO_PRODUCTION) ? 'https://rngps.net/verification/cas1/' : 'http://rngps.localhost/verification/cas1/';
-//                                $url = 'http://rngps.localhost/verification/cas1/';
-                                $url .= '?rngps='.$norngps.'&birth_date='.$birth_date ;
-                                $response = file_get_contents($url , false, $context, 0, 1000);
-//                                $jsonObject = json_decode (file_get_contents($url , false, $context, 0, 1000));
-
+                                $norngps = $this->input->post('rngps');
+                                $birth_date = $this->input->post('birth_date'); 
+                            // cross site request 
+                                $url = $_SERVER['PYRO_ENV']=='production' ?  'https://rngps.net/verification/cas1/' : 'http://rngps.localhost/verification/cas1/'  ; 
+                                $url .= '?rngps='.$norngps.'&birth_date='.$birth_date ;  
                                 $data['url'] = $url;  
-                                $data['response'] = $response;  
-                        }
-                    
+                                $data['response'] = $this->inscription_m->web_service_rngps($url);  
+                        } 
             } elseif($casNo = "cas2_1") {
                         
-                        $onameg = $this->input->post('onameg');
-                        $obtention = $this->input->post('obtention'); 
-                        $email = $this->input->post('email'); 
-                            // cross site request
-                                $context = stream_context_create(array("http"=>array(
-                                    "method" => "GET",
-                                    "header" => "Accept: xml/*, text/*,  json/*, */*\r\n",
-                                    "ignore_errors" => false,
-                                    "timeout" => 50,
-                                )));
-
-                                //prod or local
-                                $url = defined(PYRO_PRODUCTION) ? 'https://rngps.net/verification/cas2/' : 'http://rngps.localhost/verification/cas2/';
-                                $url.='?onameg='.$onameg;
-                                $response = file_get_contents($url , false, $context, 0, 1000);
-//                                $response = json_decode (file_get_contents($url , false, $context, 0, 1000));
-
+                            $onameg = $this->input->post('onameg');
+                            $obtention = $this->input->post('obtention'); 
+                            $email = $this->input->post('email'); 
+                            // cross site request 
+                                $url = $_SERVER['PYRO_ENV']=='production' ?  'https://rngps.net/verification/cas2/' : 'http://rngps.localhost/verification/cas2/'  ; 
+                                $url .= '?onameg='.$onameg.'&obtention='.$obtention.'&email='.$email ;  
                                 $data['url'] = $url;  
-                                $data['response'] = $response;  
+                                $data['response'] = $this->inscription_m->web_service_rngps($url);   
             }
             /**
             // AJAX and XHR

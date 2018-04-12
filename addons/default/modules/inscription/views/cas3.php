@@ -33,8 +33,6 @@
                 ou vous rendre directement dans nos bureaux à : (adresse de l’ONAMEG)
         </div> 
         
-        
-        {{response}}
-        
+         
     </div>
  {{endif}}

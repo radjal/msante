@@ -7,7 +7,24 @@ class Inscription_m extends MY_Model {
 		parent::__construct();
 		
 		//$this->_table = 'inscriptions';
-	}        
+	}     
+        
+        public function web_service_rngps($url) {
+                $arrContextOptions=array(
+                      "ssl"=>array( 
+                            "verify_peer"=>false,
+                            "verify_peer_name"=>false,
+                        ),
+                        "http"=>array( //useful?
+                            "method" => "GET",
+                            "header" => "Accept: xml/*, text/*,  json/*, */*\r\n",
+                            "ignore_errors" => false,
+                            "timeout" => 50,
+                            )
+                    );   
+                $response = file_get_contents($url, false, stream_context_create($arrContextOptions));  
+                return $response;
+        }
         
 	// get file
 	public function getfile($filepath, $output=false)

@@ -28,7 +28,7 @@
                 <div class="control-group">
                     <label class="control-label" for="birth_date">Date de naissance</label>
                     <div class="controls">
-                        <?php echo form_input(array('type'=>'date', 'name' => 'birth_date'),  $this->input->post('birth_date'), 'class="form-control" required'); ?>
+                        <?php echo form_input(array('type'=>'date', 'name' => 'birth_date'),  $this->input->post('birth_date'), 'class="form-control" '); ?>
                     </div>
                 </div>-->
             
