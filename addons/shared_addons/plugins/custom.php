@@ -207,7 +207,7 @@ class Plugin_Custom extends Plugin
 		return  $proto.'://'.$basedomain;                       
 	}
      /**
-	 * redirect to secure url if needed
+	 * returns tru if HTTPS
 	 *
 	 * Usage:
 	 * {{ custom:https_check }}
@@ -215,10 +215,13 @@ class Plugin_Custom extends Plugin
 	 */
 	function https_check() //DOES THIS WORK?
 	{		 
-			if ($_SERVER['REQUEST_SCHEME'] =='http' && $_SERVER['PYRO_ENV']=='production')
-			{  
-				redirect( 'https://'.$_SERVER['SERVER_NAME']) ;  
-			} 
+            return ($_SERVER['REQUEST_SCHEME'] == 'http') ? false : true ;
+//			if ($_SERVER['REQUEST_SCHEME'] =='http' && $_SERVER['PYRO_ENV']=='production')
+//			{  
+//                            header('Status: 301 Moved Permanently', false, 301);
+//                            header('Location: ' . 'https://'.$_SERVER['SERVER_NAME']); exit();
+////				redirect( 'https://'.$_SERVER['SERVER_NAME']) ;  
+//			} 
 	} 
         
 	/**

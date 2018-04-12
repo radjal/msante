@@ -1,16 +1,67 @@
-{{ dev:empty_cache }} 
- 
-{{if !{url:segments segment="2"} }}
-	<!-- <h3>Rendez vous</h3>  -->
-	<ul class="list-group">
-		<li class="list-group-item active"><a href="{{url:site}}{{url:uri_string}}/rdv-a-venir" class="loader btn">RDV à venir</a></li>
-		<li class="list-group-item"><a href="{{url:site}}{{url:uri_string}}/mes-rdv-a-venir" class="loader btn">Mes RDV à venir</a></li>
-		<li class="list-group-item"><a href="{{url:site}}{{url:uri_string}}/proches-a-venir" class="loader btn">RDV à venir de mes proches</a></li>
-	</ul>
-	<ul class="list-group">
-		<li class="list-group-item active"><a href="{{url:site}}{{url:uri_string}}/rdv-passes" class="loader btn">RDV passés</a></li>
-		<li class="list-group-item"><a href="{{url:site}}{{url:uri_string}}/mes-rdv-passes" class="loader btn">Mes RDV passés</a></li>
-		<li class="list-group-item"><a href="{{url:site}}{{url:uri_string}}/proches-passes" class="loader btn">RDV passés de mes proches</a></li>
-	</ul>
-	 
-{{endif}}
+{{ dev:empty_cache }}  
+<div class="btn-group-vertical">
+    
+            <div>
+                <form action="appointments/listing" method="post">
+                    <button name="searchBtn" value="RDV à venir" class="loader btn btn-primary btn-block">
+                        RDV à venir
+                    </button>
+                    <input name="for_user" type="hidden" value=""/>
+                    <input name="futur_past" type="hidden" value="futur"/>
+                </form>
+            </div>
+
+            <div>
+                <form action="appointments/listing" method="post">
+                    <button name="searchBtn" value="Mes RDV à venir" class="loader btn btn-default btn-block">
+                        Mes RDV à venir
+                    </button>
+                    <input name="for_user" type="hidden" value="yes"/>
+                    <input name="futur_past" type="hidden" value="futur"/>
+                </form>
+            </div>
+
+            <div>
+                <form action="appointments/patients_foruser" method="post">
+                    <button name="searchBtn" value="RDV à venir de mes proches" class="loader btn btn-default btn-block">
+                        RDV à venir de mes proches
+                    </button>
+                    <input name="for_user" type="hidden" value="no"/>
+                    <input name="futur_past" type="hidden" value="futur"/>
+                </form>
+            </div>
+</div>
+
+
+<div class="btn-group-vertical ">
+    
+            <div>
+                <form action="appointments/listing" method="post">
+                    <button name="searchBtn" value="RDV passés" class="loader btn btn-primary btn-block">
+                        RDV passés
+                    </button>
+                    <input name="for_user" type="hidden" value=""/>
+                    <input name="futur_past" type="hidden" value="past"/>
+                </form>
+            </div>
+
+            <div>
+                <form action="appointments/listing" method="post">
+                    <button name="searchBtn" value="Mes RDV passés" class="loader btn btn-default btn-block" >
+                        Mes RDV passés
+                    </button>
+                    <input name="for_user" type="hidden" value="yes"/>
+                    <input name="futur_past" type="hidden" value="past"/>
+                </form>
+            </div>
+
+            <div>
+                <form action="appointments/patients_foruser" method="post">
+                    <button name="searchBtn" value="RDV passés de mes proches" class="loader btn   btn-default btn-block">
+                        RDV passés de mes proches
+                    </button>
+                    <input name="for_user" type="hidden" value="no"/>
+                    <input name="futur_past" type="hidden" value="past"/>
+                </form>
+            </div>
+</div>

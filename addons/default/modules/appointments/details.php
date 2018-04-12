@@ -2,7 +2,7 @@
 
 class Module_Appointments extends Module {
 
-	public $version = '0.1.21';
+	public $version = '0.1.50';
 
 	public function info()
 	{

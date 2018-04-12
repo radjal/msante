@@ -2,7 +2,12 @@
 	<div class="container"> 
             <div class="row">
                 <div id="back-btn" > 
-                    <a class="loader load-replace btn btn-link" onclick="navigateBack()" style="<?= empty($this->agent->referrer()) || empty($this->uri->segment(1)) ? 'display:none' : '' ?>">
+                    <?php
+                    // when to show
+                        $display ='block';
+                        if(  empty($this->agent->referrer()) || empty($this->uri->segment(1)) || $this->uri->segment(1)=="users" || $this->uri->segment(1)=="accueil-patients" ) $display ='none';
+                    ?>
+                    <a class="loader load-replace btn btn-link" onclick="navigateBack()" style="display:<?= $display ?>">
                             <i class="glyphicon glyphicon-arrow-left"></i>
                     </a>  
                 </div>

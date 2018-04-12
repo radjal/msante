@@ -9,7 +9,10 @@ class Inscription_m extends MY_Model {
 		//$this->_table = 'inscriptions';
 	}     
         
-        public function web_service_rngps($url) {
+        public function web_service_rngps($url) 
+        {
+            ini_set("user_agent",'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.8.1.13) Gecko/20080311 Firefox/2.0.0.13 msante'); //https://forum.ovh.com/showthread.php/99127-Communication-avec-un-web-service-Forbiden
+            
                 $arrContextOptions=array(
                       "ssl"=>array( 
                             "verify_peer"=>false,

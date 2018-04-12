@@ -131,8 +131,7 @@ class Plugin_Msante extends Plugin
                 $this->load->model('users/profile_m');  
                 $profile = $this->profile_m->get_profile();  
                 
-                return isset($profile->doctor_id) && $profile->doctor_id>=0 ? $profile->doctor_id : false;
-//                return empty($profile->doctor_id) or $profile->doctor_id <=0 ? 'false' : $profile->doctor_id;
+                return isset($profile->doctor_id) && $profile->doctor_id>=0 ? $profile->doctor_id : false; 
         } 
                     
         

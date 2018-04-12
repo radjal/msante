@@ -63,13 +63,8 @@
                                         <?php echo form_submit('btnSubmit', lang('user:login_btn'), 'class="btn btn-primary"'); ?> 
                                     </div>
                                     <div>
-                                        <?php echo anchor('users/reset_pass', lang('user:reset_password_link'), 'class="btn btn-link"'); ?> 
-                                    </div>
-                                    <!--                                    
-                                    <div>
-                                        <?php echo anchor('register', lang('user:register_btn'), 'class="btn btn-link"'); ?></a> 
-                                    </div>
-                                    -->
+                                        <?php echo anchor('users/reset_pass', lang('user:reset_password_link'), 'class="btn btn-link" id="lost-pwd"'); ?>
+                                    </div> 
 	          		</div>
 
                             </fieldset>

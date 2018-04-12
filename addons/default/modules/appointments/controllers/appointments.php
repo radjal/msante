@@ -374,10 +374,10 @@ class Appointments extends Public_Controller
             }
 		// set the pagination limit
 		$limit = 20;
-//		$where = '';
-		$sort = !empty($this->input->get('sort')) ? $this->input->get('sort') : 'appointments_list.id';
-		$sortdir = !empty($this->input->get('sortdir')) ? $this->input->get('sortdir') : 'desc';
-                $offset = $offset < 2 ? 0 : ($offset-1) * $limit; 
+		$where = '';
+//		$sort = !empty($this->input->get('sort')) ? $this->input->get('sort') : 'appointments_list.appointment_date';
+//		$sortdir = !empty($this->input->get('sortdir')) ? $this->input->get('sortdir') : 'asc';
+//                $offset = $offset < 2 ? 0 : ($offset-1) * $limit; 
 		
                 // search query
                 $svars = $this->input->post();
@@ -387,7 +387,8 @@ class Appointments extends Public_Controller
                 }
             
                 //get dataset
-		$items = $this->appointments_m->limit($limit)
+		$appointments = $this->appointments_m
+                        ->limit($limit)
                         ->join('doctor_doctors', 'appointments_list.doctor_id = doctor_doctors.id')
                         ->join('doctor_categories', 'doctor_doctors.doctor_cat = doctor_categories.id', 'left')
                         ->join('doctor_organisations', 'doctor_doctors.groupe = doctor_organisations.id', 'left')
@@ -396,37 +397,102 @@ class Appointments extends Public_Controller
                         ->select('doctor_doctors.id AS doc_id, doctor_doctors.name AS doc_name, doctor_doctors.image AS doc_img, doctor_doctors.address AS doc_adr, doctor_doctors.town AS doc_town, doctor_doctors.area_name AS doc_area')
                         ->select('doctor_categories.speciality AS doc_speciality, ')
                         ->select('doctor_organisations.organisation AS doc_org, doctor_organisations.subset AS doc_org_subset')
-                        ->where("appointments_list.user_id = ".$this->current_user->id)
-                        ->order_by($sort, $sortdir)
+                        ->where("appointments_list.user_id = ".$this->current_user->id) //same user
+//                        ->order_by($sort, $sortdir) 
+                        ->order_by('appointments_list.appointment_date', 'asc')
+                        ->order_by('appointments_list.appointment_time', 'asc')
 			->get_all();
 			
                 //format date and time strings
-                $ic = 0;
-                foreach ( $items as $appt ) 
+                $ic = $count = 0;
+                $date =date('Ymd', time());
+                $time =date('Hi', time());
+                foreach ( $appointments as $appt ) 
                 { 
-                    $items[$ic]->short_dayname = $items[$ic]->appointment_date;
+//                   $items[$ic]->short_dayname = $items[$ic]->appointment_date;
                     $appt->time_formatted = $this->appointments_m->timestr_format($appt->appointment_time);
                     $appt->date_formatted = $this->appointments_m->datestr_to_day($appt->appointment_date);
                     $appt->month = $this->appointments_m->datestr_to_month($appt->appointment_date);
+                    $appt->doc_img = $appt->doc_img =='dummy' ? '' : $appt->doc_img  ;//clean dummy from image id
+                    $appt->passed = ($appt->appointment_date.$appt->appointment_time < $date.$time) ? true : false ;
                     $ic++;
+                    $count=  $ic;
 //                     echo $this->appointments_m->format_appt_date($appointment->appointment_date); 
                 }
                 
 		// we'll do a quick check here so we can tell tags whether there is data or not
-		$items_exist = count($items) > 0; 
+		$items_exist = count($appointments) > 0; 
                 
-                $count=  $this->appointments_m->_search_result_count($svars)[0]->count;
+//                $count=  $this->appointments_m->_search_result_count($svars)[0]->count;
 		// we're using the pagination helper to do the pagination for us. Params are: (module/method, total count, limit, uri segment)
 		$pagination = create_pagination('appointments/listing', $count, $limit, 3);
 
 		$this->template
 			->title($this->module_details['name'], lang('appointments:listing'))
-			->set('appointments', $items)
+			->set('appointments', $appointments)
 			->set('count', $count)
 			->set('items_exist', $items_exist)
 			->set('pagination', $pagination)
 			->build('myappointments');
 	}
+        
+        public function patients_foruser() 
+        {   
+//            if($offset < 0) $offset = 0; //@todo  a proper job of  negative offset 
+            $this->template->append_js('module::search_datepicker.js');
+            
+            if(!$this->current_user)
+            {
+                $this->session->set_flashdata('success', lang('appointments:only_for_user'));
+                redirect('users/login');
+            }
+		// set the pagination limit
+		$limit = 20;
+		$where = ''; 
+                // search query
+                $svars = $this->input->post();
+                if(!empty($this->input->post('searchBtn')))
+                {
+                    $this->appointments_m->_set_search($svars); 
+                }
+            
+                //get dataset
+		$patients = $this->appointments_m
+//                        ->limit($limit) 
+//			->offset($offset)
+                        ->distinct()
+                        ->select('appointments_list.id, appointments_list.first_name, appointments_list.last_name, appointments_list.maiden_name') 
+                        ->where("appointments_list.user_id = ".$this->current_user->id) //same user
+//                        ->order_by($sort, $sortdir) 
+//                        ->order_by('appointments_list.appointment_date', 'asc')
+//                        ->order_by('appointments_list.appointment_time', 'asc') 
+                        ->order_by('appointments_list.first_name', 'asc') 
+                        ->order_by('appointments_list.last_name', 'asc') 
+			->get_all();
+			
+                //format date and time strings
+                $ic = $count = 0;
+//                $date =date('Ymd', time());
+//                $time =date('Hi', time());
+//                foreach ( $appointments as $appt ) 
+//                {  
+//                    $appt->time_formatted = $this->appointments_m->timestr_format($appt->appointment_time);
+//                    $appt->date_formatted = $this->appointments_m->datestr_to_day($appt->appointment_date);
+//                    $appt->month = $this->appointments_m->datestr_to_month($appt->appointment_date);
+//                    $appt->doc_img = $appt->doc_img =='dummy' ? '' : $appt->doc_img  ;//clean dummy from image id
+//                    $appt->passed = ($appt->appointment_date.$appt->appointment_time < $date.$time) ? true : false ;
+//                    $ic++;
+//                    $count=  $ic; 
+//                } 
+
+                $count = count($patients);
+		$this->template
+			->title($this->module_details['name'], 'Distinct patients')
+			->set('patients', $patients)
+			->set('count', $count) 
+			->build('patients-foruser');
+            
+        }
         
         /**
          * PayPal integration AJAX

@@ -29,7 +29,6 @@ class Inscription extends Public_Controller
 //            $data['etape2'] = $etape2; 
             $norngps = $this->input->post('rngps');
             $birth_date = $this->input->post('birth_date');  
-            ini_set("user_agent",'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.8.1.13) Gecko/20080311 Firefox/2.0.0.13'); //https://forum.ovh.com/showthread.php/99127-Communication-avec-un-web-service-Forbiden
             if($casNo == "cas1_1")
             {
 

@@ -42,7 +42,7 @@ i.ico-pro.glyphicon {
     max-width: 314px;
     margin: auto;
 }
-.titre-rdv, .titre-pro, .display-name {
+.titre-rdv, .titre-pro, .display-name, .titre-auto {
     color: white;
     font-weight: normal;
 }
@@ -97,6 +97,9 @@ a.btn-link.dropdown-toggle {
 .navbar-nav {
     background: #41c2fb;
 }
+#top-nav a.loader img {
+    margin-top: 5px;
+}
 /** bottom */
 #bottom-nav .logo {
     font-size: 30px;
@@ -105,6 +108,6 @@ a.btn-link.dropdown-toggle {
     color: #00aeee;
 }
 
-#login a {
+#lost-pwd  {
     color: white;
 }
