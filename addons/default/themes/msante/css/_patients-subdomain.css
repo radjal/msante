@@ -104,3 +104,7 @@ a.btn-link.dropdown-toggle {
 #footer i.glyphicon.glyphicon-home {
     color: #00aeee;
 }
+
+#login a {
+    color: white;
+}

@@ -142,8 +142,7 @@ class Plugin_Doctor extends Plugin
 
                 return $data;
 	}
-          	
-          	
+          	 
         /**
 	 * categories list 
          * image = true wil return only images
@@ -162,7 +161,12 @@ class Plugin_Doctor extends Plugin
                 $data = $this->doctor_m->get_categories($parent_cat, $images); 
                 // add numbering
                 foreach ($data as $key => $value) {
-                        $data[$key]['count'] = $key+1; 
+                        if(empty($data[$key]['filename']))
+                        {   
+                            unset($data[$key]);                        
+                        } else {
+                            $data[$key]['count'] = $key+1;  
+                        }
                     } 
                 return $data;
 	}
@@ -217,10 +221,7 @@ class Plugin_Doctor extends Plugin
                 $this->load->model('doctor_m'); 
                 $speciality = $this->attribute('speciality');
                 return $this->doctor_m->speciality_img($speciality) ; 
-	}
- 
-        
-        
+	}  
 }
 
 /* End of file plugin.php */

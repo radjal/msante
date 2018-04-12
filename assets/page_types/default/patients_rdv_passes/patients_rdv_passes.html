@@ -1,15 +1,17 @@
 {{ dev:empty_cache }} 
 {{if user:logged_in }}
-    {{if !{appointments:my_appointments_count futur_past="past" for_user="[[ if page:slug == 'mes-rdv-passes' ]]yes[[ elseif page:slug == 'rdv-passes-de-mes-proches'  ]]no[[ endif ]]" for_name=[[custom:get_value name="s"]]} }}
+    {{if !{appointments:my_appointments_count futur_past="past" for_user="[[ if page:slug == 'mes-rdv-passes' ]]yes[[ elseif page:slug == 'rdv-passes-de-mes-proches'  ]]no[[ endif ]]"  search_var="s"} }}
         <p class="alert alert-warning"> 
-            Pas de RDV à venir
+            Pas de RDV passés
         </p> 
     {{else}}
+    <!--
         <p class="alert alert-info"> <i class="close">×</i>
-            {{ appointments:my_appointments_count futur_past="past" for_user="[[ if page:slug == 'mes-rdv-passes' ]]yes[[ elseif page:slug == 'rdv-passes-de-mes-proches'  ]]no[[ endif ]]"  for_name=[[custom:get_value name="s"]] }} 
+            {{ appointments:my_appointments_count futur_past="past" for_user="[[ if page:slug == 'mes-rdv-passes' ]]yes[[ elseif page:slug == 'rdv-passes-de-mes-proches'  ]]no[[ endif ]]"   search_var="s" }} 
             enregistrements
         </p> 
-            {{ appointments:my_appointments futur_past="past" for_user="[[ if page:slug == 'mes-rdv-passes' ]]yes[[ elseif page:slug == 'rdv-passes-de-mes-proches'  ]]no[[ endif ]]"  for_name={custom:get_value name="s"}  }} 
+    -->
+            {{ appointments:my_appointments futur_past="past" for_user="[[ if page:slug == 'mes-rdv-passes' ]]yes[[ elseif page:slug == 'rdv-passes-de-mes-proches'  ]]no[[ endif ]]"   search_var="s"  }} 
 
             <div class="panel panel-default ">
                             <div class="panel-heading"> 

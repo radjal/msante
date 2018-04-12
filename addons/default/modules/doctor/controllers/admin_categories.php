@@ -51,18 +51,14 @@ class Admin_categories extends Admin_Controller
                 'url' => 'admin/doctor/categories/delete/-entry_id-',
                 'confirm' => true
             )
-        );
-//        $extra['order'] = "speciality";
-//         
+        ); 
         
         // customizing headers
         $extra['columns'] = array('id', 'parent_cat', 'speciality', 'doc_cat_image' );
         //entries_table($stream_slug, $namespace_slug, $pagination = null, $pagination_uri = null, $view_override = false, $extra = array())
-        $this->streams->cp->entries_table('categories', 'doctor', 20, 'admin/doctor/categories/index', true, $extra);
+        $this->streams->cp->entries_table('categories', 'doctor', 20, 'admin/doctor/categories/index_streams', true, $extra);
     }
-    
-    
-    
+      
     public function index()
     {
         // Get our entries. We are simply specifying
@@ -70,9 +66,11 @@ class Admin_categories extends Admin_Controller
         $params = array(
             'stream' => 'categories',
             'namespace' => 'doctor',
-            'paginate' => 'no',
-            'limit' => 100,
-            'pag_segment' => 3
+            'paginate' => 'yes',
+            'limit' => 50,
+            'pag_segment' => 5 
+            , 'order_by' => 'speciality'
+            , 'sort' => 'asc'
         ); 
         //search 
         $speciality = $this->input->post('f_speciality');
@@ -88,9 +86,7 @@ class Admin_categories extends Admin_Controller
                     ->title($this->module_details['name'])
                     ->set('categories', $data['entries'])
                     ->build('admin/categories', $data);
-    }
-    
-    
+    } 
 
     public function create()
     {

@@ -128,7 +128,7 @@ class Plugin_Appointments extends Plugin
 	 * get appointments for current user id
 	 * Usage:
 	 * 
-	 * {{ appointments:my_appointments futur_past="past|futur" for_user="yes|no|..." for_name="mark..." }}
+	 * {{ appointments:my_appointments futur_past="past|futur" for_user="yes|no|..." for_name="mark..."  search_var="s" }}
 	 *   {{appointment_date}} à {{appointment_time}}  
          *   {{gender}}  
          *   {{first_name}}    {{last_name}}  
@@ -143,11 +143,14 @@ class Plugin_Appointments extends Plugin
                 $user_id = $user->id;
 //                if(empty($user_id)) return false;
                 $futur_past = !empty($this->attribute('futur_past')) ? $this->attribute('futur_past') : 'futur';
-                $for_name = !empty($this->attribute('for_name')) ? $this->attribute('for_name') : null;    
+                $for_name = !empty($this->attribute('for_name')) ? $this->attribute('for_name') : null;    //does not work
+                $search_var = !empty($this->attribute('search_var')) ? $this->attribute('search_var') : false;  
+                if(!$search_var) $search_var = empty($this->input->post($search_var)) ? $this->input->get($search_var) : $this->input->post($search_var) ;
                 $for_user = !empty($this->attribute('for_user')) ? $this->attribute('for_user') : null; //DB field name
                 // query setting 
                 if(!empty($for_user)) $this->db->where('appointments_list.for_user', $for_user);  
-                if(isset($for_name)) $this->db->like('CONCAT(first_name,\' \' , last_name,\' \' ,  maiden_name)', $for_name);   
+                if(isset($for_name)) $this->db->like('CONCAT(first_name,\' \' , last_name,\' \' ,  maiden_name)', $for_name);      //does not work
+                if(isset($search_var)) $this->db->like('CONCAT(first_name,\' \' , last_name,\' \' ,  maiden_name)', $search_var);   
                 if(stristr($futur_past,"futur")) $this->db->where('appointments_list.appointment_date >=', date('Ymd', time()));  
                 if(stristr($futur_past,"past")) $this->db->where('appointments_list.appointment_date <=', date('Ymd', time()));    
                 $this->db->order_by('appointments_list.appointment_date', 'ASC');   
@@ -156,11 +159,11 @@ class Plugin_Appointments extends Plugin
                             ->select('appointments_list.*')
                             ->select('doctor_doctors.id AS doc_id, doctor_doctors.name AS doc_name, doctor_doctors.image AS doc_img, doctor_doctors.address AS doc_adr, doctor_doctors.town AS doc_town, doctor_doctors.area_name AS doc_area')
                             ->select('doctor_categories.speciality AS doc_speciality, ')
-                            ->select('doctor_organisations.organisation AS doc_org, doctor_organisations.subset AS doc_org_subset') 
+//                            ->select('doctor_organisations.organisation AS doc_org, doctor_organisations.subset AS doc_org_subset') 
                             ->select('files.filename AS filename') 
                             ->join('doctor_doctors', 'appointments_list.doctor_id = doctor_doctors.id')
                             ->join('doctor_categories', 'doctor_doctors.doctor_cat = doctor_categories.id', 'left')
-                            ->join('doctor_organisations', 'doctor_doctors.groupe = doctor_organisations.id', 'left') 
+//                            ->join('doctor_organisations', 'doctor_doctors.groupe = doctor_organisations.id', 'left') 
                             ->join('files', 'files.id = doctor_doctors.image', 'left') 
                             ->where("appointments_list.user_id",$user_id )
                             ->where("appointments_list.appointment_status",'' )  
@@ -187,11 +190,11 @@ class Plugin_Appointments extends Plugin
 	 * count appointments for current user id
 	 * Usage:
 	 * 
-	 * {{ appointments:my_appointments_count futur_past="past|futur" for_user="yes|no|..." for_name="mark..." }} 
+	 * {{ appointments:my_appointments_count futur_past="past|futur" for_user="yes|no|..." for_name="mark..."  search_var="s" }} 
 	 *
 	 * @return	int
 	 */
-        function my_appointments_count()
+        function my_appointments_count() 
 	{ 
                 $user = $this->current_user;
                 if(!isset($user)) return false;
@@ -200,11 +203,14 @@ class Plugin_Appointments extends Plugin
                 $futur_past = !empty($this->attribute('futur_past')) ? $this->attribute('futur_past') : 'futur';
                 $for_name = !empty($this->attribute('for_name')) ? $this->attribute('for_name') : null;    
                 $for_user = !empty($this->attribute('for_user')) ? $this->attribute('for_user') : null;    //DB field name
+                $search_var = !empty($this->attribute('search_var')) ? $this->attribute('search_var') : false;  
+                if(!$search_var) $search_var = empty($this->input->post($search_var)) ? $this->input->get($search_var) : $this->input->post($search_var) ;
                 // query setting 
                 if(!empty($for_user)) $this->db->where('appointments_list.for_user', $for_user);  
                 if(isset($for_name)) $this->db->like('CONCAT(first_name,\' \' , last_name,\' \' ,  maiden_name)', $for_name);   
                 if(stristr($futur_past,"futur")) $this->db->where('appointments_list.appointment_date >=', date('Ymd', time()));  
                 if(stristr($futur_past,"past")) $this->db->where('appointments_list.appointment_date <=', date('Ymd', time()));     
+                if(isset($search_var)) $this->db->like('CONCAT(first_name,\' \' , last_name,\' \' ,  maiden_name)', $search_var);   
                 //get results
                 $appointments = $this->db   
                             ->from('appointments_list')
@@ -216,9 +222,9 @@ class Plugin_Appointments extends Plugin
 	}
         
         /**
-         * returns list of other names in user appointments list, matches on "for_user" field ="yes|no"
+         * returns list of other names in user appointments list, matches on "for_user" field ="yes|no"  search_var="name" 
          * 
-	 * {{ appointments:other_persons futur_past="past|futur" }} 
+	 * {{ appointments:other_persons futur_past="past|futur"  search_var="s"  }} 
          *   {{ first_name }} {{ last_name }}
          * 
 	 * {{ /appointments:other_persons }}
@@ -229,9 +235,12 @@ class Plugin_Appointments extends Plugin
                 if(!isset($user)) return false;
                 $user_id = $user->id;
                 $futur_past = !empty($this->attribute('futur_past')) ? $this->attribute('futur_past') : 'futur';
+                $search_var = !empty($this->attribute('search_var')) ? $this->attribute('search_var') : false;  
+                if(!$search_var) $search_var = empty($this->input->post($search_var)) ? $this->input->get($search_var) : $this->input->post($search_var) ;
                 
                 if(stristr($futur_past,"futur")) $this->db->where('appointments_list.appointment_date >=', date('Ymd', time()));  
                 if(stristr($futur_past,"past")) $this->db->where('appointments_list.appointment_date <=', date('Ymd', time()));   
+                if(isset($search_var)) $this->db->like('CONCAT(first_name,\' \' , last_name,\' \' ,  maiden_name)', $search_var);   
                  
                 $users = $this->db 
                             ->select('appointments_list.first_name, appointments_list.last_name')
@@ -247,7 +256,7 @@ class Plugin_Appointments extends Plugin
         /**
          * counts results for other_persons() uses same params
          * 
-	 * {{ appointments:other_persons_count futur_past="past|futur" }}  
+	 * {{ appointments:other_persons_count futur_past="past|futur" search_var="s"  }}  
          * 
          */
         function other_persons_count()
@@ -256,9 +265,12 @@ class Plugin_Appointments extends Plugin
                 if(!isset($user)) return false;
                 $user_id = $user->id;
                 $futur_past = !empty($this->attribute('futur_past')) ? $this->attribute('futur_past') : 'futur';
+                $search_var = !empty($this->attribute('search_var')) ? $this->attribute('search_var') : false;  
+                if(!$search_var) $search_var = empty($this->input->post($search_var)) ? $this->input->get($search_var) : $this->input->post($search_var) ;
                 
                 if(stristr($futur_past,"futur")) $this->db->where('appointments_list.appointment_date >=', date('Ymd', time()));  
                 if(stristr($futur_past,"past")) $this->db->where('appointments_list.appointment_date <=', date('Ymd', time()));   
+                if(isset($search_var)) $this->db->like('CONCAT(first_name,\' \' , last_name,\' \' ,  maiden_name)', $search_var);   
                  
                 $users = $this->db 
                             ->select('appointments_list.*')

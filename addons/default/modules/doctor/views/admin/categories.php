@@ -37,8 +37,8 @@
                                     </td> 
                                     <td><?= isset($cat['filename']) ? $cat['filename'] : ''; ?> </td> 
                                     <td>
-                                        	<?php echo anchor('admin/doctor/categories/categories/edit/' . $cat['id'], lang('global:edit'), 'class="button edit"'); ?>
-						<?php echo anchor('admin/doctor/categories/categories/delete/' . $cat['id'], lang('global:delete'), array('class' => 'confirm button delete')); ?>
+                                        	<?php echo anchor('admin/doctor/categories/edit/' . $cat['id'], lang('global:edit'), 'class="button edit"'); ?>
+						<?php echo anchor('admin/doctor/categories/delete/' . $cat['id'], lang('global:delete'), array('class' => 'confirm button delete')); ?>
 					</td>
 				</tr>
 				<?php endforeach; ?>

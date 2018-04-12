@@ -2,7 +2,7 @@
 
 class Module_Doctor extends Module
 {
-    public $version = '0.1.25';
+    public $version = '0.1.27';
 
     public function info()
     {

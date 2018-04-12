@@ -1,19 +1,26 @@
 {{ dev:empty_cache }} 
+
 <!-- liste proches  -->
+
 <h3>Liste de mes proches</h3>
-{{ appointments:other_persons_count futur_past="past" }} 
-{{if !{appointments:other_persons_count futur_past="past"} }}
+ {{# appointments:other_persons_count futur_past="past" search_var="s" #}}
+
+{{if !{appointments:other_persons_count futur_past="past" search_var="s"} }}
     <p class="alert alert-warning">Il n'y a pas de proches ayant pris un RDV qui soit passés</p>
+    
 {{else}}
     <div class="btn-group-vertical center-block">
             {{ appointments:other_persons futur_past="past" }}    
                         <a class="loader btn btn-default" href="{{url:site}}rendez-vous/rdv-passes-de-mes-proches/?s={{ first_name }} {{ last_name }}">
                             {{ first_name }} {{ last_name }} 
                         </a> 
+                <br/>
              {{ /appointments:other_persons }}
     </div>   
+<!--
     <p class="text-muted"> 
-        {{ appointments:other_persons_count futur_past="past" }} resultats 
-    </p>  
+        {{ appointments:other_persons_count futur_past="past"  search_var="s"}} resultats 
+    </p>
+-->
 {{endif}}
  
